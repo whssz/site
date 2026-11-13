@@ -1,0 +1,4 @@
+google_drive/
+node_modules/
+.vercel
+.DS_Store
