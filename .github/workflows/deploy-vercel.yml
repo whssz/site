@@ -28,6 +28,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Link público + deploy de produção do commit atual
+        continue-on-error: true   # o token vcp pode expirar; a promoção de produção também sai pelo conector Arena
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |

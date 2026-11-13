@@ -54,6 +54,7 @@ const MEDIA = [
   }
 ];
 
+const CACHE_BUST = 'v2-20261113'; // muda o hash do build → garante reexecução
 const UA = { headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36 agridoce-site-build' } };
 
 /* Espelhos que re-publicam o feed oficial: usados quando a URL assinada
@@ -61,7 +62,8 @@ const UA = { headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebK
 async function mirrorUrls(code) {
   const pages = [
     'https://imginn.com/p/' + code + '/',
-    'https://www.pixwox.com/post/' + code + '/'
+    'https://www.pixwox.com/post/' + code + '/',
+    'https://imgsed.com/p/' + code + '/'
   ];
   const out = [];
   for (const p of pages) {
