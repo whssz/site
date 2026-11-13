@@ -1,0 +1,12 @@
+{
+  "name": "agridoce-confeitaria-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site oficial da Confeitaria Agridoce (Realengo, RJ) — hambúrgueres artesanais, doces e sobremesas, com pedido montado no site e finalizado no WhatsApp.",
+  "scripts": {
+    "build": "node scripts/fetch-media.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
+  }
+}

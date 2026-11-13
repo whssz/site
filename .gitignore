@@ -1,0 +1,7 @@
+node_modules/
+_workspace/node_modules/
+_workspace/.playwright-off/
+google_drive/
+image-search/
+.vercel/
+.env.local
