@@ -1,0 +1,55 @@
+# Deploy do site da Confeitaria Agridoce na Vercel.
+# Dispara em push nas branches de sessão (arena/*) e manualmente.
+# O runner tem rede livre: usa a Vercel CLI com o token guardado em
+# Settings → Secrets → VERCEL_TOKEN (token de curta duração, revogável).
+name: deploy-vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "public/**"
+      - "scripts/**"
+      - "package.json"
+      - ".vercelignore"
+      - ".github/workflows/deploy-vercel.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Vercel CLI
+        run: npm i -g vercel@latest
+
+      - name: Link do projeto
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel link --yes --project agridoce-confeitaria --scope whsszxx-9424 --token "$VERCEL_TOKEN"
+
+      - name: Deploy produção
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+
+      - name: Garantir link público (sem Deployment Protection)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          curl -sS -X PATCH \
+            "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"ssoProtection":null}' || echo "aviso: não foi possível ajustar a proteção"
+
+      - name: URL publicada
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel ls --token "$VERCEL_TOKEN" 2>/dev/null | head -8 || true

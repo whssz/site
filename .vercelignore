@@ -1,0 +1,7 @@
+# O que a Vercel NÃO precisa receber no upload do deploy
+_workspace/
+google_drive/
+node_modules/
+.git/
+.github/
+*.md
