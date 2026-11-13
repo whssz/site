@@ -29,10 +29,12 @@ jobs:
       - name: Vercel CLI
         run: npm i -g vercel@latest
 
-      - name: Link do projeto
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel link --yes --project agridoce-confeitaria --scope whsszxx-9424 --token "$VERCEL_TOKEN"
+      - name: Link do projeto (direto, sem prompt)
+        run: |
+          mkdir -p .vercel
+          cat > .vercel/project.json <<'EOF'
+          {"projectId":"prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE","orgId":"team_z6tahC0dowvMZFiASHvvIgBP"}
+          EOF
 
       - name: Deploy produção
         env:
