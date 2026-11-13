@@ -39,7 +39,17 @@ jobs:
       - name: Deploy produção
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+        run: |
+          set -o pipefail
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN" 2>&1 | tee deploy.log
+      - name: Publicar log de falha no repo (se falhar)
+        if: failure()
+        run: |
+          git config user.email "ci@agridoce.local"
+          git config user.name "agridoce-ci"
+          git add -f deploy.log 2>/dev/null || echo "sem log" > deploy.log && git add -f deploy.log
+          git commit -q -m "ci: log do deploy falho [skip ci]" || true
+          git push origin HEAD:arena/b3dfbe6a-site || true
 
       - name: Garantir link público (sem Deployment Protection)
         env:
