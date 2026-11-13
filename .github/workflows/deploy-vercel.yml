@@ -1,7 +1,8 @@
 # Deploy do site da Confeitaria Agridoce na Vercel.
 # Dispara em push nas branches de sessão (arena/*) e manualmente.
-# O runner tem rede livre: usa a Vercel CLI com o token guardado em
-# Settings → Secrets → VERCEL_TOKEN (token de curta duração, revogável).
+# O runner tem rede livre: cria o deployment de produção direto pela API
+# da Vercel (token em Settings → Secrets → VERCEL_TOKEN, curta duração)
+# e mantém o link público sem Deployment Protection.
 name: deploy-vercel
 
 on:
@@ -15,57 +16,52 @@ on:
       - ".vercelignore"
       - ".github/workflows/deploy-vercel.yml"
 
+env:
+  PROJECT: prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE
+  TEAM: team_z6tahC0dowvMZFiASHvvIgBP
+  REPO_ID: 1440125649
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Vercel CLI
-        run: npm i -g vercel@latest
-
-      - name: Link do projeto (direto, sem prompt)
-        run: |
-          mkdir -p .vercel
-          cat > .vercel/project.json <<'EOF'
-          {"projectId":"prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE","orgId":"team_z6tahC0dowvMZFiASHvvIgBP"}
-          EOF
-
-      - name: Deploy produção
+      - name: Link público + deploy de produção do commit atual
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          set -o pipefail
-          { vercel whoami --token "$VERCEL_TOKEN" ; vercel deploy --prod --yes --token "$VERCEL_TOKEN" ; } 2>&1 | tee deploy.log
-      - name: Publicar log de falha (env var na Vercel, lida pelo conector)
-        if: failure()
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          LOG=$(tail -c 3000 deploy.log 2>/dev/null | base64 -w0)
-          [ -z "$LOG" ] && LOG="c2VtIGxvZw=="
-          curl -sS -X DELETE "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE/env/DEPLOY_LOG?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
-            -H "Authorization: Bearer $VERCEL_TOKEN" || true
-          curl -sS -X POST "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE/env?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
-            -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
-            -d "{\"key\":\"DEPLOY_LOG\",\"value\":\"$LOG\",\"type\":\"plain\",\"target\":[\"production\"]}" || true
+          set -e
+          T="$VERCEL_TOKEN"
+          echo "::group::proteção/branch de produção"
+          curl -sS -X PATCH "https://api.vercel.com/v9/projects/$PROJECT?teamId=$TEAM" \
+            -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+            -d "{\"ssoProtection\":null}" | head -c 300 || true
+          echo; echo "::endgroup::"
 
-      - name: Garantir link público (sem Deployment Protection)
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          curl -sS -X PATCH \
-            "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
-            -H "Authorization: Bearer $VERCEL_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"ssoProtection":null}' || echo "aviso: não foi possível ajustar a proteção"
+          echo "::group::criando deployment de produção"
+          RESP=$(curl -sS -X POST "https://api.vercel.com/v13/deployments?teamId=$TEAM" \
+            -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+            -d "{\"name\":\"agridoce-confeitaria\",\"project\":\"$PROJECT\",\"target\":\"production\",\"gitSource\":{\"type\":\"github\",\"ref\":\"$GITHUB_REF_NAME\",\"sha\":\"$GITHUB_SHA\",\"repoId\":$REPO_ID}}")
+          echo "$RESP" | head -c 800
+          ID=$(printf '%s' "$RESP" | sed -n 's/.*"uid":"\(dpl_[A-Za-z0-9]*\)".*/\1/p' | head -1)
+          echo; echo "deployment: $ID"
+          echo "::endgroup::"
+          if [ -z "$ID" ]; then echo "::error::resposta sem uid de deployment"; exit 1; fi
 
-      - name: URL publicada
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: vercel ls --token "$VERCEL_TOKEN" 2>/dev/null | head -8 || true
+          echo "::group::aguardando build"
+          ST=""
+          for i in $(seq 1 90); do
+            ST=$(curl -sS "https://api.vercel.com/v13/deployments/$ID?teamId=$TEAM" -H "Authorization: Bearer $T" \
+              | sed -n 's/.*"readyState":"\([A-Za-z]*\)".*/\1/p' | head -1)
+            echo "[$i] readyState=$ST"
+            [ "$ST" = "READY" ] && break
+            [ "$ST" = "ERROR" ] && break
+            sleep 10
+          done
+          echo "::endgroup::"
+          if [ "$ST" != "READY" ]; then
+            echo "::error::build terminou em $ST — ver eventos do deployment no dashboard"
+            exit 1
+          fi
+          echo "✓ produção publicada: https://agridoce-confeitaria.vercel.app"

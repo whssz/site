@@ -54,46 +54,52 @@ const MEDIA = [
   }
 ];
 
-/* Renovação: se as URLs assinadas expirarem, raspa o espelho imginn
-   (que re-publica o feed oficial) e refaz o mapa code → url. */
-async function refreshFromMirror() {
-  try {
-    const html = await (await fetch('https://imginn.com/confeitariagridoce/', {
-      headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) agridoce-site-build' }
-    })).text();
-    const pairs = [...html.matchAll(/<a[^>]+href="[^"]*\/p\/([A-Za-z0-9_-]+)\/?"[^>]*>\s*<img[^>]+src="([^"]+)"/g)]
-      .concat([...html.matchAll(/<img[^>]+src="([^"]+)"[^>]*>\s*<\/a>|<a[^>]+href="[^"]*\/p\/([A-Za-z0-9_-]+)\/?"/g)].filter(() => false));
-    const map = {};
-    for (const m of pairs) map[m[1]] = m[2].replace(/&amp;/g, '&');
-    let n = 0;
-    for (const item of MEDIA) {
-      if (item.code.startsWith('MAPS')) continue;
-      if (map[item.code]) { item.url = map[item.code]; n++; }
-    }
-    console.log(`· mirror imginn: ${n} urls renovadas`);
-  } catch (e) {
-    console.log('· mirror imginn indisponível, usando urls embutidas:', String(e).slice(0, 90));
+const UA = { headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36 agridoce-site-build' } };
+
+/* Espelhos que re-publicam o feed oficial: usados quando a URL assinada
+   do CDN do Instagram recusa o egress do build (403). */
+async function mirrorUrls(code) {
+  const pages = [
+    'https://imginn.com/p/' + code + '/',
+    'https://www.pixwox.com/post/' + code + '/'
+  ];
+  const out = [];
+  for (const p of pages) {
+    try {
+      const html = await (await fetch(p, UA)).text();
+      const srcs = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(m => m[1].replace(/&amp;/g, '&'));
+      const pick = srcs.find(s => /cdninstagram|scontent/i.test(s)) || srcs.find(s => /^https/i.test(s) && !/logo|avatar|arrow|icon/i.test(s));
+      if (pick) out.push({ url: pick, via: p });
+    } catch { /* espelho fora do ar: segue */ }
   }
+  return out;
 }
 
 const manifest = [];
-await refreshFromMirror();
 
 for (const item of MEDIA) {
   const dest = join(OUT, item.dest);
-  try {
-    const res = await fetch(item.url, {
-      headers: { 'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) agridoce-site-build' }
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length < 4000) throw new Error('arquivo pequeno demais (' + buf.length + ' bytes)');
-    writeFileSync(dest, buf);
-    manifest.push({ file: item.dest, ok: true, bytes: buf.length, origin: item.origin, fetchedAt: new Date().toISOString() });
-    console.log(`✓ ${item.dest} ← ${item.origin} (${buf.length} bytes)`);
-  } catch (e) {
-    manifest.push({ file: item.dest, ok: false, error: String(e).slice(0, 120), origin: item.origin, kept: existsSync(dest) ? 'placeholder local' : 'ausente' });
-    console.log(`✗ ${item.dest}: ${String(e).slice(0, 120)} — mantido placeholder elegante`);
+  const candidates = [{ url: item.url, via: 'url direta' }];
+  if (!item.code.startsWith('MAPS')) candidates.push(...await mirrorUrls(item.code));
+  let done = false;
+  for (const cand of candidates) {
+    try {
+      const res = await fetch(cand.url, UA);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (buf.length < 4000) throw new Error('arquivo pequeno demais (' + buf.length + ' bytes)');
+      writeFileSync(dest, buf);
+      manifest.push({ file: item.dest, ok: true, bytes: buf.length, via: cand.via, origin: item.origin, fetchedAt: new Date().toISOString() });
+      console.log(`✓ ${item.dest} ← ${item.origin} via ${cand.via} (${buf.length} bytes)`);
+      done = true;
+      break;
+    } catch (e) {
+      console.log(`· ${item.dest} falhou via ${cand.via}: ${String(e).slice(0, 80)}`);
+    }
+  }
+  if (!done) {
+    manifest.push({ file: item.dest, ok: false, origin: item.origin, kept: existsSync(dest) ? 'placeholder local' : 'ausente' });
+    console.log(`✗ ${item.dest}: todas as fontes falharam — mantido placeholder elegante`);
   }
 }
 
