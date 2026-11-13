@@ -41,15 +41,19 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -o pipefail
-          vercel deploy --prod --yes --token "$VERCEL_TOKEN" 2>&1 | tee deploy.log
-      - name: Publicar log de falha no repo (se falhar)
+          { vercel whoami --token "$VERCEL_TOKEN" ; vercel deploy --prod --yes --token "$VERCEL_TOKEN" ; } 2>&1 | tee deploy.log
+      - name: Publicar log de falha (env var na Vercel, lida pelo conector)
         if: failure()
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          git config user.email "ci@agridoce.local"
-          git config user.name "agridoce-ci"
-          git add -f deploy.log 2>/dev/null || echo "sem log" > deploy.log && git add -f deploy.log
-          git commit -q -m "ci: log do deploy falho [skip ci]" || true
-          git push origin HEAD:arena/b3dfbe6a-site || true
+          LOG=$(tail -c 3000 deploy.log 2>/dev/null | base64 -w0)
+          [ -z "$LOG" ] && LOG="c2VtIGxvZw=="
+          curl -sS -X DELETE "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE/env/DEPLOY_LOG?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" || true
+          curl -sS -X POST "https://api.vercel.com/v9/projects/prj_vZbH7GcWFzW9DSR1Zpr7eeUTxfSE/env?teamId=team_z6tahC0dowvMZFiASHvvIgBP" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"key\":\"DEPLOY_LOG\",\"value\":\"$LOG\",\"type\":\"plain\",\"target\":[\"production\"]}" || true
 
       - name: Garantir link público (sem Deployment Protection)
         env:
