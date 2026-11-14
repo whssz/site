@@ -1,0 +1,5 @@
+node_modules/
+google_drive/
+image-search/
+.vercel/
+.env.local
