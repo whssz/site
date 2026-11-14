@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+/* Teste do fluxo de pedido em navegador real (Chromium via Playwright).
+   uso: node scripts/test-flow.mjs [arquivo-ou-url] */
+import { chromium } from 'playwright';
+import { pathToFileURL } from 'node:url';
+const target = process.argv[2] || 'public/index.html';
+const url = /^https?:/.test(target) ? target : pathToFileURL(target).href;
+const R = []; const ok = (c, m) => { R.push([!!c, m]); console.log((c ? '  ✓ ' : '  ✗ ') + m); };
+const b = await chromium.launch();
+for (const [w, h, name] of [[1440, 900, 'desktop'], [390, 844, 'mobile']]) {
+  console.log(`\n  FLUXO · ${name}`);
+  const ctx = await b.newContext({ viewport: { width: w, height: h } });
+  const p = await ctx.newPage(); const errs = [];
+  p.on('pageerror', e => errs.push(String(e)));
+  await p.addInitScript(() => { window.__opened = []; window.open = u => { window.__opened.push(u); return {}; }; });
+  await p.goto(url, { waitUntil: 'load' }); await p.waitForTimeout(600);
+  const add = async name => { await p.locator(`.card[data-item="${name}"] .add`).scrollIntoViewIfNeeded(); await p.locator(`.card[data-item="${name}"] .add`).click(); await p.waitForTimeout(150); };
+  await add('Fatia de torta'); await add('Fatia de torta'); await add('Morango cravejado');
+  await p.click('#tab-burgers'); await p.waitForTimeout(200);
+  ok(await p.locator('#p-burgers').isVisible() && !(await p.locator('#p-doces').isVisible()), 'troca de categoria (Doces → Hambúrgueres)');
+  await p.locator('.card[data-item="Hambúrguer Agridoce"] input[value="180g"]').check({ force: true });
+  await add('Hambúrguer Agridoce');
+  ok((await p.locator('.cartbtn [data-count]').textContent()) === '4', 'contador do pedido = 4');
+  await p.locator(name === 'mobile' ? '#fab button' : '.cartbtn').click(); await p.waitForTimeout(700);
+  ok(await p.locator('#drawer.on').isVisible(), 'pedido abre');
+  ok((await p.locator('.ci').count()) === 3, '3 linhas no pedido');
+  await p.locator('[data-inc="1"]').click(); await p.locator('[data-dec="0"]').click();
+  await p.locator('[data-note="0"]').fill('sabor morango');
+  await p.locator('[data-rm="1"]').click(); await p.waitForTimeout(150);
+  const st = await p.evaluate(() => JSON.parse(localStorage.getItem('agridoce-pedido-v1')));
+  ok(st.length === 2 && st[0].qty === 1 && st[0].note === 'sabor morango' && st[1].opt === '180g', 'editar quantidade, observação e remover item');
+  await p.locator('#sendBtn').click(); await p.waitForTimeout(150);
+  ok(/nome/i.test(await p.locator('#formErr').textContent()) && (await p.evaluate(() => __opened.length)) === 0, 'sem nome: envio bloqueado');
+  await p.fill('#fNome', 'Cliente Teste');
+  await p.locator('#sendBtn').click();
+  ok(/endereço/i.test(await p.locator('#formErr').textContent()), 'entrega sem endereço: bloqueado');
+  await p.fill('#fEnd', 'Rua Exemplo, 100, Realengo');
+  ok(!(await p.locator('#fConsent').isChecked()), 'consentimento não vem marcado');
+  await p.locator('#sendBtn').click();
+  ok(/consentimento/i.test(await p.locator('#formErr').textContent()) && (await p.evaluate(() => __opened.length)) === 0, 'sem consentimento: envio bloqueado');
+  await p.locator('#fConsent').check(); await p.fill('#fObs', 'Troco para 50');
+  await p.locator('#sendBtn').click(); await p.waitForTimeout(200);
+  const u = (await p.evaluate(() => __opened))[0] || '';
+  const msg = decodeURIComponent(u.split('text=')[1] || '');
+  ok(u.startsWith('https://wa.me/5521994738183?text='), 'abre wa.me/5521994738183');
+  ok(msg.includes('1x Fatia de torta | obs.: sabor morango') && msg.includes('1x Hambúrguer Agridoce (180g)') && !msg.includes('Morango cravejado'), 'mensagem lista itens, opção e observação');
+  ok(msg.includes('*Recebimento:* Entrega') && msg.includes('Rua Exemplo, 100, Realengo') && msg.includes('Cliente Teste') && msg.includes('Troco para 50'), 'mensagem leva recebimento, endereço, nome e observações');
+  await p.locator('input[name="modo"][value="Retirada"]').check({ force: true }); await p.waitForTimeout(100);
+  ok(!(await p.locator('#endWrap').isVisible()), 'retirada esconde o endereço');
+  await p.locator('#sendBtn').click(); await p.waitForTimeout(150);
+  const m2 = decodeURIComponent(((await p.evaluate(() => __opened))[1] || '').split('text=')[1] || '');
+  ok(m2.includes('*Recebimento:* Retirada') && !m2.includes('Endereço'), 'mensagem de retirada sem endereço');
+  ok(!/pedido confirmado/i.test(await p.locator('body').innerText()), 'nunca exibe "Pedido confirmado"');
+  if (name === 'mobile') await p.screenshot({ path: '/tmp/c/drawer-m.png' }); else await p.screenshot({ path: '/tmp/c/drawer-d.png' });
+  await p.keyboard.press('Escape'); await p.waitForTimeout(600);
+  ok(!(await p.locator('#drawer.on').count()), 'Esc fecha o pedido');
+  await p.reload(); await p.waitForTimeout(400);
+  ok((await p.locator('.cartbtn [data-count]').textContent()) === '2', 'pedido persiste ao recarregar');
+  ok(await p.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth), 'sem rolagem horizontal');
+  ok(errs.length === 0, 'sem erros de JavaScript' + (errs[0] ? ': ' + errs[0] : ''));
+  await ctx.close();
+}
+await b.close();
+const fail = R.filter(r => !r[0]).length;
+console.log(`\n  ${R.length - fail}/${R.length} verificações ok${fail ? ' — FALHOU' : ''}\n`);
+process.exit(fail ? 1 : 0);

@@ -1,0 +1,8 @@
+media-raw
+tools
+src
+scripts
+assets
+node_modules
+.github
+*.md

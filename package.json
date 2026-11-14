@@ -1,0 +1,11 @@
+{
+  "name": "agridoce-confeitaria",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node src/build.mjs && node tools/inject-anim.mjs public/index.html --accent \"#79A98D\"" },
+  "devDependencies": {
+    "@fontsource/cormorant-garamond": "^5.0.0",
+    "@fontsource/dm-sans": "^5.0.0",
+    "@fontsource/parisienne": "^5.0.0"
+  }
+}

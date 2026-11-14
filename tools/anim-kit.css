@@ -1,0 +1,245 @@
+/* ============================================================
+   ANIM-KIT v2 — camada de animação portátil (tokenizada)
+   Fonte única da verdade. Injetada por: node tools/inject-anim.mjs
+   Não editar dentro do site: editar aqui e rodar --refresh.
+
+   Como a cor funciona (o que faltava na v1):
+   a camada NUNCA usa cor fixa. Ela lê, nesta ordem:
+     --accent   → se o cliente já definiu um acento
+     --magenta  → acento magenta (padrão Migaica)
+     --gold     → acento dourado (padrão portfólio)
+     #C9A46A    → último recurso
+   Trocar o :root do site passa a trocar o fundo animado também.
+   ============================================================ */
+
+:root{
+  --anim-accent:   var(--accent, var(--magenta, var(--gold, #C9A46A)));
+  --anim-accent-2: var(--accent-2, var(--gold-2, var(--anim-accent)));
+  --anim-surface:  var(--cream, var(--lilac-wash, #F4ECDE));
+  --anim-line:     var(--line, rgba(127,127,127,.14));
+  --anim-ink:      var(--ink, #0B0A08);
+}
+
+/* ---------- 0. REDE DE SEGURANÇA DE LAYOUT ----------
+   Palavra longa de cliente e grid com min-width:auto são as duas causas
+   clássicas de scroll horizontal. Ficam neutralizadas aqui.            */
+h1,h2,h3,.card h3,.quote p{overflow-wrap:break-word}
+.hero-grid>*,.about>*,.grid-proj>*,.steps>*,.quotes>*,.stats>*{min-width:0}
+
+/* empilhamento: fundo atrás, conteúdo na frente */
+body>*:not(.bg):not(.thread):not(.bar){position:relative;z-index:1}
+section>.wrap{position:relative;z-index:1}
+
+/* ============================================================
+   1. FUNDO CONTEXTUAL ANIMADO
+   Abstrato + elegante: luz, geometria e grão em movimento lento.
+   Nenhum objeto literal. Cores sempre derivadas do token.
+   ============================================================ */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+
+.bg-aurora{
+  position:absolute;inset:-40%;
+  background:
+    radial-gradient(38% 42% at 22% 18%,color-mix(in srgb,var(--anim-accent) 14%,transparent),transparent 70%),
+    radial-gradient(34% 40% at 82% 30%,color-mix(in srgb,var(--anim-accent-2) 11%,transparent),transparent 70%),
+    radial-gradient(46% 50% at 60% 95%,color-mix(in srgb,var(--anim-accent) 8%,transparent),transparent 72%);
+  animation:aurora 26s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+@keyframes aurora{
+  0%{transform:translate3d(0,0,0) scale(1);opacity:.8}
+  50%{transform:translate3d(-3%,2.5%,0) scale(1.09);opacity:1}
+  100%{transform:translate3d(2%,-2%,0) scale(1.03);opacity:.88}
+}
+
+.bg-blob{
+  position:absolute;
+  background:radial-gradient(circle at 35% 30%,
+    color-mix(in srgb,var(--anim-accent) 17%,transparent),
+    color-mix(in srgb,var(--anim-accent) 0%,transparent) 68%);
+  will-change:transform,border-radius;
+}
+.bg-blob.b1{width:46vw;height:46vw;left:-12vw;top:4vh;animation:morph1 23s ease-in-out infinite}
+.bg-blob.b2{width:38vw;height:38vw;right:-10vw;top:36vh;animation:morph2 29s ease-in-out infinite}
+.bg-blob.b3{width:52vw;height:52vw;left:32vw;bottom:-20vh;opacity:.65;animation:morph1 37s ease-in-out infinite reverse}
+@keyframes morph1{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:58% 42% 46% 54%/52% 46% 54% 48%}
+  33%{transform:translate3d(4%,-3%,0) rotate(9deg) scale(1.07);border-radius:44% 56% 62% 38%/46% 58% 42% 54%}
+  66%{transform:translate3d(-3%,4%,0) rotate(-7deg) scale(.96);border-radius:62% 38% 40% 60%/56% 42% 58% 44%}
+}
+@keyframes morph2{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:46% 54% 60% 40%/58% 42% 58% 42%}
+  40%{transform:translate3d(-5%,3%,0) rotate(-10deg) scale(1.1);border-radius:60% 40% 44% 56%/42% 56% 44% 58%}
+  75%{transform:translate3d(3%,-4%,0) rotate(6deg) scale(.94);border-radius:40% 60% 52% 48%/52% 48% 52% 48%}
+}
+
+/* grade em deslocamento perpétuo — a textura do ambiente */
+.bg-grid{
+  position:absolute;width:200%;height:200%;left:-50%;top:-50%;
+  background-image:
+    linear-gradient(to right,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px),
+    linear-gradient(to bottom,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px);
+  background-size:72px 72px;
+  animation:gridDrift 32s linear infinite;
+  opacity:.55;
+  -webkit-mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
+  mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
+}
+@keyframes gridDrift{to{transform:translate3d(-72px,-72px,0)}}
+
+/* partículas (motes) subindo devagar */
+.motes i{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--anim-accent-2);opacity:0;
+  animation:mote 17s linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes mote{
+  0%{transform:translate3d(0,24px,0) scale(.6);opacity:0}
+  12%{opacity:.6}
+  70%{opacity:.35}
+  100%{transform:translate3d(16px,-150px,0) scale(1);opacity:0}
+}
+.motes i:nth-child(1){left:6%;top:72%;animation-duration:19s;animation-delay:0s}
+.motes i:nth-child(2){left:15%;top:44%;animation-duration:23s;animation-delay:-3s}
+.motes i:nth-child(3){left:24%;top:86%;animation-duration:16s;animation-delay:-7s}
+.motes i:nth-child(4){left:33%;top:30%;animation-duration:26s;animation-delay:-11s}
+.motes i:nth-child(5){left:42%;top:64%;animation-duration:21s;animation-delay:-2s}
+.motes i:nth-child(6){left:51%;top:18%;animation-duration:18s;animation-delay:-9s}
+.motes i:nth-child(7){left:60%;top:78%;animation-duration:24s;animation-delay:-5s}
+.motes i:nth-child(8){left:69%;top:40%;animation-duration:20s;animation-delay:-13s}
+.motes i:nth-child(9){left:78%;top:92%;animation-duration:28s;animation-delay:-4s}
+.motes i:nth-child(10){left:86%;top:26%;animation-duration:22s;animation-delay:-8s}
+.motes i:nth-child(11){left:93%;top:58%;animation-duration:17s;animation-delay:-15s}
+.motes i:nth-child(12){left:47%;top:94%;animation-duration:25s;animation-delay:-6s}
+
+/* fio vertical + luz que escorre (continuidade) */
+.thread{
+  position:fixed;left:30px;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,
+    color-mix(in srgb,var(--anim-accent) 26%,transparent) 18%,
+    color-mix(in srgb,var(--anim-accent) 26%,transparent) 82%,transparent);
+  opacity:0;transition:opacity .8s var(--ease,cubic-bezier(.16,.72,.28,1));
+}
+.thread::after{
+  content:"";position:absolute;left:-1px;width:3px;height:130px;border-radius:2px;
+  background:linear-gradient(to bottom,transparent,var(--anim-accent),transparent);
+  animation:threadFlow 9s linear infinite;
+}
+@keyframes threadFlow{0%{top:-150px}100%{top:100%}}
+@media(min-width:1340px){.thread{opacity:1}}
+
+/* barra de progresso de leitura */
+.bar{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:9999;pointer-events:none;
+  background:linear-gradient(90deg,var(--anim-accent),var(--anim-accent-2));
+  transform:scaleX(0);transform-origin:0 50%;opacity:.9;
+}
+
+/* ============================================================
+   2. ANIMAÇÃO CONTÍNUA NOS GLOWS EXISTENTES
+   ============================================================ */
+.hero::before{animation:glow 15s ease-in-out infinite}
+.hero::after{animation:glow 19s ease-in-out infinite reverse}
+.cta::before{animation:glow 17s ease-in-out infinite}
+@keyframes glow{
+  0%,100%{transform:scale(1);opacity:.85}
+  50%{transform:scale(1.12);opacity:1}
+}
+
+/* ============================================================
+   3. CONTINUIDADE ENTRE SEÇÕES
+   Vale para os ids clássicos E para qualquer <section data-bridge>.
+   O injetor marca as seções automaticamente.
+   ============================================================ */
+#projetos::before,#processo::before,#sobre::before,
+[data-bridge]::before{
+  content:"";position:absolute;pointer-events:none;z-index:0;border-radius:50%;
+  background:radial-gradient(circle,
+    color-mix(in srgb,var(--anim-accent) 12%,transparent),transparent 68%);
+}
+#projetos::before,[data-bridge]::before{
+  width:440px;height:440px;right:-150px;top:-190px;animation:glow 18s ease-in-out infinite;}
+#processo::before,[data-bridge="b"]::before{
+  width:340px;height:340px;left:-170px;bottom:-150px;animation:glow 22s ease-in-out infinite reverse;}
+#sobre::before,[data-bridge="c"]::before{
+  width:400px;height:400px;left:46%;top:-210px;animation:glow 26s ease-in-out infinite;}
+#projetos,#processo,#sobre,[data-bridge]{
+  position:relative;overflow-x:clip;overflow-y:visible;
+}
+
+/* ============================================================
+   4. SCROLL VARIADO — cada família entra de um jeito
+   ============================================================ */
+.rv-fade{opacity:0;transition:opacity 1.1s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-scale{opacity:0;transform:scale(.945);transition:opacity 1s var(--ease,cubic-bezier(.16,.72,.28,1)),transform 1s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-left{opacity:0;transform:translateX(-36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-right{opacity:0;transform:translateX(36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-clip{clip-path:inset(0 100% 0 0);transition:clip-path 1.15s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-fade.in,.rv-scale.in,.rv-left.in,.rv-right.in{opacity:1;transform:none}
+.rv-clip.in{clip-path:inset(0 0 0 0)}
+/* no mobile o elemento ocupa a largura toda: deslocar no eixo X geraria
+   scroll horizontal antes do reveal. Ali a entrada é vertical. */
+@media(max-width:760px){
+  .rv-left,.rv-right{transform:translateY(22px)}
+}
+
+/* ============================================================
+   5. MICROINTERAÇÕES
+   ============================================================ */
+.btn{position:relative;overflow:hidden}
+.btn::before{
+  content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;
+  background:linear-gradient(100deg,transparent,
+    color-mix(in srgb,var(--anim-surface) 45%,transparent),transparent);
+  transform:translateX(-160%) skewX(-18deg);transition:transform .85s var(--ease,cubic-bezier(.16,.72,.28,1));
+  pointer-events:none;
+}
+.btn:hover::before{transform:translateX(420%) skewX(-18deg)}
+
+.card::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(115deg,transparent 32%,
+    color-mix(in srgb,var(--anim-surface) 10%,transparent) 48%,transparent 64%);
+  transform:translateX(-120%);transition:transform .95s var(--ease,cubic-bezier(.16,.72,.28,1));
+}
+.card:hover::after{transform:translateX(120%)}
+
+.live-row .go svg{transition:transform .4s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.live-row:hover .go svg{transform:translate(3px,-3px)}
+
+a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--anim-accent);outline-offset:3px;border-radius:8px;
+}
+
+/* ============================================================
+   6. MOBILE: reduz densidade, mantém o movimento
+   ============================================================ */
+@media(max-width:760px){
+  .bg-blob{opacity:.55}
+  .bg-grid{opacity:.35}
+  .motes i:nth-child(n+7){display:none}
+  .thread{display:none}
+}
+
+/* ============================================================
+   7. ACESSIBILIDADE: para TUDO
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  .bg-aurora,.bg-blob,.bg-grid,.motes i,.thread::after,
+  .hero::before,.hero::after,.cta::before,
+  #projetos::before,#processo::before,#sobre::before,[data-bridge]::before{animation:none!important}
+  .motes{display:none}
+  .rv-fade,.rv-scale,.rv-left,.rv-right{opacity:1!important;transform:none!important}
+  .rv-clip{clip-path:none!important}
+  .card::after,.btn::before{display:none}
+  .rev{opacity:1;transform:none}
+  .marquee-track,.stack .s1,.stack .s2,.stack .s3,.pulse{animation:none!important}
+  /* regra universal: nada escapa dos seletores nominais */
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+  html{scroll-behavior:auto!important}
+}
