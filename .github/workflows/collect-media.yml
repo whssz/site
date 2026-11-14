@@ -22,7 +22,7 @@ jobs:
           pip install -q yt-dlp || true
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg) || true
       - name: Coletar
-        run: node scripts/collect-media.mjs
+        run: node scripts/collect-ig-images.mjs
       - name: Folhas de contato dos vídeos
         run: |
           for v in media-raw/ig/*.mp4; do [ -f "$v" ] || continue
