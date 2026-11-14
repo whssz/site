@@ -1,0 +1,113 @@
+{
+  "collectedAt": "2026-11-14T20:07:36.465Z",
+  "ig": [
+    {
+      "code": "C_gACe3JM9G",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfsmK6WxiD_",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfVwaFIs2Pe",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfNWmt0s7wJ",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfH4rfEMRJf",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DezMOhXRj00",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DecvfRxMrf1",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DeRjxN4RQ8_",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DdXc3QYmoVl",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DdU1frxOqX8",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DdHyFZ_sT0g",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DdHxShtsvxL",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DdHUJDOMQ4D",
+      "via": "embed",
+      "files": []
+    }
+  ],
+  "maps": [
+    {
+      "file": "maps-01.jpg",
+      "url": "https://lh3.googleusercontent.com/grass-cs/AABkmLdY0HzVum0jxuTQ37D-3vqC2IzgGdc7qHBHAHpbkQhDkqCDurWeEPGKQvj903ZFYypiBJ9jVr99siMlhOCjtnf9IV8m1glZHYr8HqWfV-o-CiEQhftRmxx1pvm6ZB3IAx9m1Qxr"
+    },
+    {
+      "file": "maps-02.jpg",
+      "url": "https://lh3.googleusercontent.com/grass-cs/AABkmLfznGJF6Jj86Maalrc0V7LgTQpFhdmQ_GbUEiOUgqKzw8nTKA3rL-sWIaF0NrhG0SQhkOeqbYFX5ABYPGyDHNocgG9Do12ECL6B-hK3W99lj97flTh39hNdzeVkhH39B5baHwG-"
+    }
+  ],
+  "log": [
+    "web_profile_info: HTTP 429",
+    "embed C_gACe3JM9G: HTTP 200, 536566 bytes",
+    "embed DfsmK6WxiD_: HTTP 200, 536568 bytes",
+    "embed DfVwaFIs2Pe: HTTP 200, 536565 bytes",
+    "embed DfNWmt0s7wJ: HTTP 200, 536568 bytes",
+    "embed DfH4rfEMRJf: HTTP 200, 536568 bytes",
+    "embed DezMOhXRj00: HTTP 200, 536569 bytes",
+    "embed DecvfRxMrf1: HTTP 200, 536568 bytes",
+    "embed DeRjxN4RQ8_: HTTP 200, 536564 bytes",
+    "embed DdXc3QYmoVl: HTTP 200, 536567 bytes",
+    "embed DdU1frxOqX8: HTTP 200, 536563 bytes",
+    "embed DdHyFZ_sT0g: HTTP 200, 536575 bytes",
+    "embed DdHxShtsvxL: HTTP 200, 536567 bytes",
+    "embed DdHUJDOMQ4D: HTTP 200, 536569 bytes",
+    "OK   yt-dlp C_gACe3JM9G.mp4",
+    "yt-dlp DfsmK6WxiD_: ERROR: [Instagram] DfsmK6WxiD_: There is no video in this post ",
+    "yt-dlp DfVwaFIs2Pe: ERROR: [Instagram] DfVwaFIs2Pe: There is no video in this post ",
+    "yt-dlp DfNWmt0s7wJ: ERROR: [Instagram] DfNWmt0s7wJ: There is no video in this post ",
+    "yt-dlp DfH4rfEMRJf: ERROR: [Instagram] DfH4rfEMRJf: There is no video in this post ",
+    "yt-dlp DezMOhXRj00: ERROR: [Instagram] DezMOhXRj00: There is no video in this post ",
+    "yt-dlp DecvfRxMrf1: ERROR: [Instagram] DecvfRxMrf1: There is no video in this post ",
+    "yt-dlp DeRjxN4RQ8_: ERROR: [Instagram] DeRjxN4RQ8_: There is no video in this post ",
+    "yt-dlp DdXc3QYmoVl: ERROR: [Instagram] DdXcwtVsIFg: No video formats found!; please report this issue on  https://github.com/yt-dl",
+    "yt-dlp DdU1frxOqX8: ERROR: [Instagram] DdU1frxOqX8: There is no video in this post ",
+    "yt-dlp DdHyFZ_sT0g: ERROR: [Instagram] DdHyFZ_sT0g: There is no video in this post ",
+    "yt-dlp DdHxShtsvxL: ERROR: [Instagram] DdHxShtsvxL: There is no video in this post ",
+    "OK   yt-dlp DdHUJDOMQ4D.mp4",
+    "maps: HTTP 200, 200058 bytes",
+    "maps: URLs de foto no HTML: 0",
+    "OK   media-raw/maps/maps-01.jpg (186662 bytes)",
+    "OK   media-raw/maps/maps-02.jpg (222710 bytes)"
+  ]
+}
