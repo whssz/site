@@ -1,0 +1,14 @@
+# Só o site vai para o edge (index.html autocontido)
+media-raw/
+.studio/
+assets/
+shared-assets/
+scripts/
+image-search/
+google_drive/
+qa-shots/
+.venv/
+.fonts/
+node_modules/
+.git/
+.gitignore

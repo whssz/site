@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#15120F">
+<title>Amunì a Caparica Pizzeria — Pizzeria italiana em Costa da Caparica</title>
+<meta name="description" content="Amunì a Caparica Pizzeria. Pizzeria italiana na Praia Norte, Costa da Caparica. Explore o cardápio real, monte a sua encomenda no site e abra o WhatsApp com o pedido já preparado.">
+<meta property="og:title" content="Amunì a Caparica Pizzeria">
+<meta property="og:description" content="Pizzeria italiana em Costa da Caparica. Cardápio, encomenda e reservas.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{IMG:logo.webp}}">
+<!--
+  AMUNÌ A CAPARICA PIZZERIA
+  Arquivo único: CSS + JS + fontes + mídia embutidos em base64.
+  Construído a partir de .studio/base/skeleton.html + anim-kit (inject-anim).
+  Todas as fotografias e vídeos são reproduções de fontes públicas oficiais:
+  Google Maps, Instagram @amuniacaparica, Linktree oficial e Uber Eats.
+  Nenhuma informação de negócio foi inventada. Ver secção "Fontes".
+-->
+<style>
+/* ============================================================
+   1. TOKENS — identidade Amunì (logótipo oficial como referência)
+   ============================================================ */
+@font-face{font-family:'Baloo 2';src:url({{FONT:font-baloo-700}}) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Baloo 2';src:url({{FONT:font-baloo-800}}) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'DM Sans';src:url({{FONT:font-dm-400}}) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url({{FONT:font-dm-500}}) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'DM Sans';src:url({{FONT:font-dm-700}}) format('woff2');font-weight:700;font-display:swap}
+:root{
+  --ink:#15120F;          /* grafite / preto */
+  --ink-2:#211B16;
+  --ink-3:#30261D;
+  --cream:#FFF7EC;        /* branco quente */
+  --paper:#FFFCF5;
+  --accent:#E56A2A;       /* laranja / terracota do logótipo */
+  --accent-2:#F7C948;     /* amarelo */
+  --pink:#D83B8C;         /* magenta / rosa */
+  --terra:#9A4B2F;
+  --terra-d:#5B3423;
+  --olive:#6E7448;
+  --line:rgba(255,247,236,.14);
+  --line-2:rgba(21,18,15,.13);
+  --muted:rgba(255,247,236,.68);
+  --muted-2:#6E6052;
+  --sans:'DM Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --display:'Baloo 2','DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,.72,.28,1);
+  --shadow:0 26px 70px -28px rgba(21,18,15,.55);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.62;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{color:inherit;background:none;border:none;cursor:pointer}
+ul{list-style:none}
+::selection{background:var(--accent);color:#fff}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 26px}
+:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* grão fino — acabamento gastronómico, não "plástico" */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- fundo contextual próprio (camada visível contínua) ---------- */
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.atmos .ring{position:absolute;width:min(74vw,780px);height:min(74vw,780px);right:-16vw;top:-24vw;
+  border:1px dashed rgba(229,106,42,.24);border-radius:50%;animation:spinSlow 90s linear infinite}
+.atmos .ring::before,.atmos .ring::after{content:"";position:absolute;border-radius:50%}
+.atmos .ring::before{width:11px;height:11px;background:var(--accent-2);top:12%;left:16%;box-shadow:0 0 26px 8px rgba(247,201,72,.28)}
+.atmos .ring::after{width:7px;height:7px;background:var(--pink);bottom:19%;right:11%;box-shadow:0 0 22px 6px rgba(216,59,140,.28)}
+.atmos .orb{position:absolute;border-radius:50%;filter:blur(2px)}
+.atmos .o1{width:9px;height:9px;background:var(--olive);left:12%;top:62%;animation:floatY 11s ease-in-out infinite}
+.atmos .o2{width:6px;height:6px;background:var(--accent);left:78%;top:78%;animation:floatY 14s ease-in-out infinite reverse}
+.atmos .o3{width:5px;height:5px;background:var(--accent-2);left:48%;top:15%;animation:floatY 9s ease-in-out infinite}
+.steam{position:absolute;left:0;right:0;bottom:0;height:36vh;pointer-events:none;overflow:hidden;opacity:.22}
+.steam i{position:absolute;bottom:-40px;width:1px;height:120px;background:linear-gradient(to top,transparent,var(--cream),transparent);animation:steamRise 13s linear infinite}
+.steam i:nth-child(1){left:8%;animation-delay:0s}
+.steam i:nth-child(2){left:24%;animation-delay:-4s}
+.steam i:nth-child(3){left:43%;animation-delay:-8s}
+.steam i:nth-child(4){left:66%;animation-delay:-2s}
+.steam i:nth-child(5){left:86%;animation-delay:-10s}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes floatY{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.25)}}
+@keyframes steamRise{0%{transform:translateY(0);opacity:0}20%{opacity:.7}100%{transform:translateY(-38vh);opacity:0}}
+@keyframes marqueeSlide{to{transform:translateX(-50%)}}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.7);opacity:.4}}
+@keyframes badgeSpin{to{transform:rotate(360deg)}}
+@keyframes tiltBob{0%,100%{transform:translateY(0) rotate(-1.4deg)}50%{transform:translateY(-9px) rotate(1.4deg)}}
+
+/* ============================================================
+   2. HEADER
+   ============================================================ */
+header{position:fixed;top:0;left:0;right:0;z-index:120;padding:15px 0;transition:background .45s var(--ease),padding .45s var(--ease),border-color .45s}
+header.stuck{background:rgba(21,18,15,.86);backdrop-filter:blur(16px) saturate(150%);border-bottom:1px solid var(--line);padding:9px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo-chip{display:grid;place-items:center;background:var(--cream);border-radius:16px;padding:7px 11px;box-shadow:0 6px 22px rgba(0,0,0,.3);flex:none}
+.logo-chip img{width:96px;height:auto}
+.brand-txt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.nav-links{display:flex;gap:26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav-links a{position:relative;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--accent);border-radius:2px;transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--cream)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:10px;flex:none}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:100px;
+  font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;border:1px solid transparent;
+  transition:transform .35s var(--ease),background .35s,color .35s,border-color .35s,box-shadow .35s}
+.btn svg{width:14px;height:14px;flex:none}
+.btn-primary{background:var(--accent);color:#1A120C;border-color:var(--accent);box-shadow:0 12px 30px -12px rgba(229,106,42,.9)}
+.btn-primary:hover{background:#F07C35;transform:translateY(-3px)}
+.btn-ghost{border-color:var(--line);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-3px)}
+.btn-dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn-dark:hover{background:var(--ink-3);transform:translateY(-3px)}
+.btn-outline{border-color:var(--line-2);color:var(--ink)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn-cart{min-height:44px;padding:9px 16px;background:rgba(255,247,236,.09);border:1px solid var(--line);font-size:10.5px}
+.btn-cart:hover{border-color:var(--accent-2);background:rgba(247,201,72,.12)}
+.btn-cart b{display:grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border-radius:100px;background:var(--accent);color:#1A120C;font-size:11px}
+@media(max-width:980px){.nav-links{display:none}}
+@media(max-width:560px){.brand-txt{display:none}.logo-chip img{width:78px}.btn-cart span{display:none}}
+
+/* ============================================================
+   3. SECÇÕES — experiência contínua
+   ============================================================ */
+main{position:relative;z-index:1}
+section{position:relative}
+section>.wrap{position:relative;z-index:1}
+.sec{padding:112px 0 118px;border-radius:42px 42px 0 0;margin-top:-26px}
+.sec.dark{background:rgba(21,18,15,.9);color:var(--cream)}
+.sec.light{background:rgba(255,247,236,.955);color:var(--ink)}
+.sec.deep{background:rgba(32,26,20,.94);color:var(--cream)}
+.sec-head{max-width:760px;margin-bottom:48px}
+.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:16px}
+.sec-label::before{content:"";width:26px;height:2px;background:currentColor;border-radius:2px}
+.light .sec-label{color:var(--terra)}
+.sec h2{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.4vw,66px);line-height:1.02;letter-spacing:-.025em;overflow-wrap:break-word}
+.light h2{color:var(--terra-d)}
+.sec-note{font-size:16px;max-width:60ch;margin-top:20px;color:var(--muted)}
+.light .sec-note{color:var(--muted-2)}
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:700}
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero{position:relative;padding:158px 0 92px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;width:760px;height:760px;border-radius:50%;right:-260px;top:-280px;pointer-events:none;
+  background:radial-gradient(circle,rgba(229,106,42,.17),transparent 66%)}
+.hero::after{content:"";position:absolute;width:560px;height:560px;border-radius:50%;left:-260px;bottom:-260px;pointer-events:none;
+  background:radial-gradient(circle,rgba(247,201,72,.09),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:52px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:11px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-2);font-weight:700;margin-bottom:24px}
+.kicker::before{content:"";width:32px;height:2px;background:var(--accent-2)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(58px,9vw,124px);line-height:.86;letter-spacing:-.045em;text-transform:uppercase;overflow-wrap:break-word}
+h1 .amuni{display:block;color:var(--cream)}
+h1 .capa{display:block;font-size:.38em;letter-spacing:.01em;color:var(--accent);text-transform:none;margin-top:.13em;font-weight:700}
+.hero-lead{margin-top:26px;max-width:46ch;font-size:17px;color:var(--muted)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.fact{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border:1px solid var(--line);border-radius:100px;font-size:11.5px;color:var(--muted);background:rgba(255,247,236,.04)}
+.fact .pulse{width:7px;height:7px;border-radius:50%;background:var(--olive);flex:none}
+.fact strong{color:var(--cream);font-weight:700}
+.hero-media{position:relative;min-height:430px}
+.hero-photo{position:relative;border-radius:36px;overflow:hidden;border:1px solid rgba(255,247,236,.18);box-shadow:var(--shadow);animation:tiltBob 9s ease-in-out infinite}
+.hero-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(21,18,15,.55))}
+.hero-video{position:absolute;width:40%;max-width:205px;left:-6%;bottom:3%;border-radius:22px;overflow:hidden;border:4px solid var(--ink);box-shadow:var(--shadow);background:var(--ink)}
+.hero-video video{width:100%;aspect-ratio:9/13;object-fit:cover}
+.hero-video span{position:absolute;left:8px;bottom:8px;right:8px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px #000}
+.badge{position:absolute;right:-4%;top:-7%;width:112px;height:112px;border-radius:50%;background:var(--accent-2);color:#33180C;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--display);font-weight:800;font-size:10.5px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 16px 40px -14px rgba(247,201,72,.75);animation:badgeSpin 36s linear infinite}
+.badge svg{width:30px;height:40px;margin-bottom:2px}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr;gap:46px}.hero-media{min-height:0;max-width:560px;margin:0 auto;width:100%}.hero{padding:140px 0 96px}}
+@media(max-width:560px){.hero-video{width:36%;left:-2%;bottom:2%}.badge{width:92px;height:92px;font-size:9px;right:-3%;top:-5%}.sec{padding:86px 0 92px}.hero-lead{font-size:16px}}
+
+/* ---------- faixa de identidade (loop perpétuo) ---------- */
+.ticker{position:relative;z-index:2;overflow:hidden;padding:17px 0;background:var(--accent);color:#fff;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
+.marquee-track{display:flex;width:max-content;animation:marqueeSlide 34s linear infinite}
+.ticker:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{display:inline-flex;align-items:center;gap:26px;padding-right:26px;font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.marquee-track i{width:8px;height:8px;border-radius:50%;background:var(--ink);display:inline-block;flex:none}
+
+/* ============================================================
+   5. ENTENDER
+   ============================================================ */
+.understand-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px;align-items:center}
+.understand-copy p{color:var(--muted-2);margin-top:18px;max-width:54ch}
+.quote{margin-top:28px;padding:22px 24px;border-left:4px solid var(--accent);background:rgba(229,106,42,.08);border-radius:0 18px 18px 0;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.35;color:var(--terra-d)}
+.quote small{display:block;margin-top:10px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
+.fact-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:32px}
+.fact-strip div{border:1px solid var(--line-2);border-radius:16px;padding:16px 14px;background:rgba(255,255,255,.45)}
+.fact-strip b{display:block;font-family:var(--display);font-size:22px;font-weight:800;color:var(--terra-d);line-height:1.1}
+.fact-strip span{font-size:11.5px;color:var(--muted-2);line-height:1.4}
+.understand-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.understand-media figure{position:relative;border-radius:22px;overflow:hidden;background:var(--ink-3);box-shadow:var(--shadow)}
+.understand-media figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+.understand-media figure:not(:first-child){aspect-ratio:4/5}
+.understand-media img{width:100%;height:100%;object-fit:cover}
+.understand-media figcaption{position:absolute;left:10px;bottom:10px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:rgba(21,18,15,.78);color:#fff;padding:6px 10px;border-radius:100px}
+@media(max-width:900px){.understand-grid{grid-template-columns:1fr}.understand-media{max-width:620px}}
+@media(max-width:480px){.fact-strip{grid-template-columns:1fr}}
+
+/* ============================================================
+   6. CARDÁPIO + CONSTRUTOR DE ENCOMENDA
+   ============================================================ */
+.menu-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.menu-source{font-size:12px;color:var(--muted);max-width:36ch}
+.menu-source a{color:var(--accent-2);text-decoration:underline;text-underline-offset:3px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 30px}
+.chip{padding:9px 16px;min-height:42px;border-radius:100px;border:1px solid var(--line-2);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.chip:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,258px),1fr));gap:18px}
+.pizza-card{position:relative;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line-2);border-radius:22px;overflow:hidden;box-shadow:0 14px 36px -26px rgba(21,18,15,.6);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pizza-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -26px rgba(21,18,15,.6)}
+.pizza-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:#EFE5D5}
+.pizza-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pizza-card:hover .pizza-img img{transform:scale(1.06)}
+.pizza-img.no-photo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;background:radial-gradient(circle at 50% 40%,rgba(247,201,72,.4),transparent 65%),linear-gradient(135deg,#F2E7D5,#E9DAC4)}
+.pizza-img.no-photo .slice{width:52px;height:70px}
+.pizza-img.no-photo small{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+.tag{position:absolute;left:10px;top:10px;background:rgba(21,18,15,.82);color:#fff;border-radius:100px;padding:5px 11px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase}
+.pizza-body{padding:17px 17px 16px;display:flex;flex-direction:column;flex:1;gap:8px}
+.pizza-body h3{font-family:var(--display);font-weight:800;font-size:20px;line-height:1.1;color:var(--terra-d);overflow-wrap:break-word}
+.pizza-body p{font-size:12.5px;line-height:1.5;color:var(--muted-2);flex:1}
+.pizza-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-family:var(--display);font-weight:800;font-size:20px;color:var(--terra);white-space:nowrap}
+.add-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:8px 14px;border-radius:100px;background:var(--ink);color:var(--cream);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .3s var(--ease),background .3s}
+.add-btn span{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#1A120C;font-size:14px;line-height:1}
+.add-btn:hover{background:var(--terra);transform:scale(1.04)}
+.add-btn.added{background:var(--olive)}
+.menu-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:32px;padding:22px 24px;border-radius:20px;background:rgba(229,106,42,.1);border:1px solid rgba(229,106,42,.24)}
+.menu-foot p{font-size:13px;color:var(--muted);max-width:62ch}
+
+/* ============================================================
+   7. NOVIDADES / PROMOÇÕES (publicações reais, datadas)
+   ============================================================ */
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.news-card{position:relative;display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:rgba(255,247,236,.06);border:1px solid var(--line);transition:transform .4s var(--ease),border-color .4s}
+.news-card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.news-media{aspect-ratio:16/11;overflow:hidden;background:var(--ink-3)}
+.news-media img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.news-card:hover .news-media img{transform:scale(1.06)}
+.news-body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.news-date{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+.news-body h3{font-family:var(--display);font-weight:800;font-size:21px;line-height:1.15}
+.news-body p{font-size:13px;color:var(--muted);flex:1}
+.news-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent-2);margin-top:6px}
+.news-link:hover{text-decoration:underline;text-underline-offset:4px}
+.news-disclaimer{margin-top:26px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.news-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   8. DO FORNO À MESA (vídeos reais)
+   ============================================================ */
+.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.reel{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3);box-shadow:var(--shadow)}
+.reel video{width:100%;aspect-ratio:9/12;object-fit:cover}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(21,18,15,.82));pointer-events:none}
+.reel figcaption{position:absolute;left:16px;right:16px;bottom:16px;z-index:2}
+.reel figcaption b{display:block;font-family:var(--display);font-size:20px;font-weight:800;color:var(--cream)}
+.reel figcaption span{font-size:11px;color:rgba(255,247,236,.8);letter-spacing:.04em}
+.reel .live{display:inline-flex;align-items:center;gap:7px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:7px}
+.reel .live i{width:6px;height:6px;border-radius:50%;background:var(--accent-2)}
+@media(max-width:900px){.reels{grid-template-columns:1fr 1fr}.reel:last-child{grid-column:1/-1;max-width:460px;margin:0 auto;width:100%}}
+@media(max-width:560px){.reels{grid-template-columns:1fr}.reel:last-child{grid-column:auto}}
+
+/* ============================================================
+   9. VISITA / CONFIANÇA
+   ============================================================ */
+.visit-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px}
+.info-card{border:1px solid var(--line-2);border-radius:24px;padding:28px;background:var(--paper);color:var(--ink)}
+.info-card h3{font-family:var(--display);font-weight:800;font-size:24px;color:var(--terra-d);margin-bottom:16px}
+.hours{display:grid;gap:0}
+.hours li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line-2);font-size:14px}
+.hours li:last-child{border-bottom:0}
+.hours li span:first-child{color:var(--muted-2)}
+.hours li b{font-weight:700;color:var(--terra-d);white-space:nowrap}
+.hours li.closed b{color:#A8246B}
+.big-rating{display:flex;align-items:center;gap:18px;padding:20px;border-radius:20px;background:var(--ink);color:var(--cream);margin-bottom:20px}
+.big-rating strong{font-family:var(--display);font-size:48px;font-weight:800;line-height:1;color:var(--accent-2)}
+.big-rating span{font-size:12.5px;color:var(--muted);line-height:1.4}
+.contact-list{display:grid;gap:12px;margin-top:18px}
+.contact-list a,.contact-list div{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--terra-d)}
+.contact-list i{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(229,106,42,.16);display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--accent)}
+.contact-list a:hover{text-decoration:underline;text-underline-offset:3px}
+.link-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.link-row a{min-height:44px;display:inline-flex;align-items:center;padding:10px 16px;border-radius:100px;border:1px solid var(--line-2);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .3s var(--ease),border-color .3s}
+.link-row a:hover{border-color:var(--accent);transform:translateY(-3px)}
+@media(max-width:900px){.visit-grid{grid-template-columns:1fr}}
+
+/* ============================================================
+   10. AGIR / CTA FINAL
+   ============================================================ */
+.cta{position:relative;overflow:hidden;padding:120px 0 130px;text-align:center;background:rgba(21,18,15,.92)}
+.cta::before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;left:50%;top:-420px;transform:translateX(-50%);pointer-events:none;background:radial-gradient(circle,rgba(229,106,42,.2),transparent 68%)}
+.cta h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,92px);line-height:.98;letter-spacing:-.03em;max-width:16ch;margin:0 auto}
+.cta h2 em{font-style:normal;color:var(--accent)}
+.cta p{max-width:52ch;margin:24px auto 0;color:var(--muted);font-size:16px}
+.cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:36px}
+.cta-note{margin-top:24px;font-size:12px;color:rgba(255,247,236,.72)}
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+footer{position:relative;z-index:2;background:var(--ink);border-top:1px solid var(--line);padding:56px 0 36px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:32px}
+.foot-brand img{width:130px;background:var(--cream);border-radius:14px;padding:8px}
+.foot-brand p{margin-top:16px;font-size:12.5px;color:var(--muted);max-width:34ch}
+.foot-col h4{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2);margin-bottom:14px}
+.foot-col a,.foot-col button{display:block;text-align:left;font-size:13px;color:var(--muted);padding:5px 0;transition:color .3s}
+.foot-col a:hover,.foot-col button:hover{color:var(--cream);text-decoration:underline;text-underline-offset:3px}
+.foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:11.5px;color:rgba(255,247,236,.7)}
+.sources{margin-top:26px;font-size:11.5px;line-height:1.8;color:rgba(255,247,236,.72);max-width:100%}
+.sources b{color:var(--muted);font-weight:700}
+.sources a{color:var(--accent-2);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+
+/* ============================================================
+   12. CARRINHO (painel funcional)
+   ============================================================ */
+#cartLayer{position:fixed;inset:0;z-index:200;overflow:hidden;pointer-events:none}
+#cartLayer.open{pointer-events:auto}
+#cartBackdrop{position:absolute;inset:0;background:rgba(10,8,6,.68);backdrop-filter:blur(3px);opacity:0;transition:opacity .4s}
+#cartLayer.open #cartBackdrop{opacity:1}
+#cartPanel{position:absolute;right:0;top:0;bottom:0;width:min(100%,440px);background:var(--ink-2);border-left:1px solid var(--line);
+  display:flex;flex-direction:column;transform:translateX(102%);transition:transform .48s var(--ease);box-shadow:-30px 0 70px rgba(0,0,0,.5)}
+#cartLayer.open #cartPanel{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 22px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-family:var(--display);font-weight:800;font-size:24px}
+.icon-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:20px;line-height:1;transition:background .3s,transform .3s}
+.icon-btn:hover{background:rgba(255,247,236,.1);transform:rotate(90deg)}
+.cart-body{flex:1;overflow-y:auto;padding:20px 22px}
+.cart-empty{text-align:center;padding:40px 10px;color:var(--muted)}
+.cart-empty b{display:block;font-family:var(--display);font-size:22px;color:var(--cream);margin-bottom:8px}
+.cart-line{border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;background:rgba(255,247,236,.035)}
+.cart-line-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.cart-line-top h3{font-family:var(--display);font-size:17px;font-weight:800;line-height:1.2}
+.cart-line-top .lp{font-family:var(--display);font-weight:800;color:var(--accent-2);white-space:nowrap;font-size:16px}
+.cart-qty{display:flex;align-items:center;gap:10px;margin-top:12px}
+.qty-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);font-size:17px;line-height:1;display:grid;place-items:center;transition:background .25s,transform .25s}
+.qty-btn:hover{background:var(--accent);border-color:var(--accent);transform:scale(1.1)}
+.qty-btn:active{transform:scale(.92)}
+.cart-qty b{min-width:20px;text-align:center;font-size:15px}
+.remove{margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,247,236,.6);text-decoration:underline;text-underline-offset:3px}
+.remove:hover{color:var(--pink)}
+.cart-line textarea{width:100%;margin-top:12px;min-height:56px;resize:vertical;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--cream);padding:9px 11px;font-size:12.5px}
+.cart-line textarea::placeholder{color:rgba(255,247,236,.4)}
+.cart-foot{border-top:1px solid var(--line);padding:18px 22px 22px;background:rgba(0,0,0,.2)}
+.field-label{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);font-weight:700;margin:0 0 9px}
+.radios{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.radios label{flex:1 1 45%;display:flex;align-items:center;gap:9px;min-height:44px;padding:9px 11px;border:1px solid var(--line);border-radius:12px;font-size:12px;cursor:pointer;transition:border-color .3s,background .3s}
+.radios label:has(input:checked){border-color:var(--accent);background:rgba(229,106,42,.14)}
+.radios input{accent-color:var(--accent);width:16px;height:16px;flex:none}
+.cart-foot input[type="text"]{width:100%;min-height:44px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.22);color:var(--cream);padding:10px 12px;font-size:13px;margin-bottom:12px}
+.cart-foot input::placeholder{color:rgba(255,247,236,.4)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:11.5px;line-height:1.45;color:var(--muted);margin:4px 0 12px;cursor:pointer}
+.consent input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:var(--accent)}
+.consent a{color:var(--accent-2);text-decoration:underline;text-underline-offset:3px}
+.subtotal{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-top:1px dashed var(--line);margin-bottom:12px}
+.subtotal span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.subtotal b{font-family:var(--display);font-size:27px;font-weight:800;color:var(--accent-2)}
+.cart-actions{display:grid;gap:8px}
+.cart-actions .btn{width:100%}
+.cart-actions .btn[aria-disabled="true"]{opacity:.48;pointer-events:none}
+.err{display:none;color:#FFB4A8;font-size:11.5px;margin-bottom:8px}
+.err.show{display:block}
+.cart-hint{font-size:11px;color:rgba(255,247,236,.72);margin-top:10px;line-height:1.45}
+
+/* ---------- toast ---------- */
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,140%);z-index:300;background:var(--cream);color:var(--ink);
+  padding:12px 20px;border-radius:100px;font-size:12.5px;font-weight:700;box-shadow:var(--shadow);transition:transform .45s var(--ease);white-space:nowrap;max-width:90vw}
+#toast.show{transform:translate(-50%,0)}
+
+/* ---------- diálogos legais ---------- */
+dialog{border:1px solid var(--line-2);border-radius:22px;padding:0;max-width:min(92vw,660px);max-height:84vh;background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(10,8,6,.72);backdrop-filter:blur(4px)}
+.dialog-in{padding:28px 30px 30px;overflow-y:auto;max-height:84vh}
+.dialog-in h2{font-family:var(--display);font-weight:800;font-size:28px;color:var(--terra-d);margin-bottom:6px}
+.dialog-in h3{font-family:var(--display);font-weight:800;font-size:17px;color:var(--terra-d);margin:22px 0 6px}
+.dialog-in p,.dialog-in li{font-size:13.5px;color:var(--muted-2);line-height:1.65}
+.dialog-in ul{list-style:disc;padding-left:20px;margin-top:8px}
+.dialog-in .date{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin-bottom:18px}
+.dialog-close{position:sticky;top:0;float:right;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:var(--paper);font-size:19px;line-height:1;display:grid;place-items:center;z-index:2}
+.dialog-close:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ---------- microinterações / acessibilidade ---------- */
+@media(prefers-reduced-motion:reduce){
+  .atmos .ring,.atmos .orb,.steam i,.hero-photo,.badge,.marquee-track,.hero::before,.hero::after,.cta::before,.pulse{animation:none!important}
+  .hero-photo{transform:none}
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- fundo contextual próprio (contínuo em toda a navegação) -->
+<div class="bg atmos" aria-hidden="true">
+  <div class="ring"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="steam"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Amunì a Caparica Pizzeria — início">
+      <span class="logo-chip"><img src="{{IMG:logo.webp}}" alt="Logótipo Amunì Pizzeria: letras grafite, palavra Pizzeria em laranja e ramo de oliveira"></span>
+      <span class="brand-txt">Costa da Caparica · Portugal</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#conhecer">Conhecer</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#novidades">Novidades</a>
+      <a href="#forno">Do forno à mesa</a>
+      <a href="#visita">Visita</a>
+    </nav>
+    <div class="nav-right">
+      <button class="btn btn-cart" id="openCart" type="button" aria-label="Abrir o meu pedido">
+        <span>O meu pedido</span><b id="cartCount">0</b>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============================ 1. ENTRAR ============================ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="kicker">Pizzeria italiana · Costa da Caparica</div>
+      <h1><span class="amuni">Amunì</span><span class="capa">a Caparica</span></h1>
+      <p class="hero-lead">Pizza italiana na Praia Norte. Veja as pizzas do cardápio oficial, monte a sua encomenda aqui e siga para o WhatsApp com tudo já escrito.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#cardapio">Fazer pedido <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="https://amuni.pizza/pt/booking" target="_blank" rel="noopener noreferrer">Reservar mesa</a>
+      </div>
+      <div class="hero-facts">
+        <span class="fact"><i class="pulse"></i> <strong>4,9</strong> no Google Maps · 416 críticas</span>
+        <span class="fact">Segunda-feira <strong>encerrado</strong></span>
+        <span class="fact">Apoio 6 · <strong>Praia Norte</strong></span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-photo"><img src="{{IMG:hero-pizzas.webp}}" alt="Quatro pizzas do cardápio da Amunì a Caparica fotografadas de cima, com manjericão fresco" fetchpriority="high"></div>
+      <div class="hero-video">
+        <video src="{{VIDEO:loop-azeite.mp4}}" poster="{{IMG:pizza-azeite.webp}}" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo oficial: fio de azeite a cair sobre uma pizza acabada"></video>
+        <span>Vídeo do perfil oficial</span>
+      </div>
+      <div class="badge" aria-hidden="true"><svg viewBox="0 0 48 64" xmlns="http://www.w3.org/2000/svg"><path d="M5 14a46 46 0 0 1 38 0L24 58 5 14Z" fill="#5B3423"/><path d="M2 14h44" stroke="#FFF7EC" stroke-width="4.5" stroke-linecap="round"/><circle cx="18.2" cy="23" r="2.3" fill="#FFF7EC"/><circle cx="24.6" cy="32.5" r="2.3" fill="#FFF7EC"/><circle cx="30" cy="23" r="2.3" fill="#FFF7EC"/></svg><span>Forno<br>&amp; massa</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Faixa de identidade da Amunì a Caparica">
+  <div class="marquee-track" aria-hidden="true">
+    <span>Pizzeria italiana <i></i> Costa da Caparica, Portugal <i></i> Amunì a Caparica <i></i> Monday closed <i></i> Pizza &amp; forno <i></i></span>
+    <span>Pizzeria italiana <i></i> Costa da Caparica, Portugal <i></i> Amunì a Caparica <i></i> Monday closed <i></i> Pizza &amp; forno <i></i></span>
+  </div>
+</div>
+
+<!-- ============================ 2. ENTENDER ============================ -->
+<section class="sec light" id="conhecer">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">01 · Conhecer</div>
+      <h2>Itália à beira-mar, em Caparica.</h2>
+      <p class="sec-note">O que sabemos da Amunì vem dos seus próprios canais e da ficha pública do Google Maps. Sem histórias inventadas: só o que está publicado.</p>
+    </div>
+    <div class="understand-grid">
+      <div class="understand-copy rv-left">
+        <p class="eyebrow">Quem somos, segundo o perfil oficial</p>
+        <p>O Instagram oficial apresenta a casa como <strong>«Pizzeria italiana»</strong> em <strong>«Costa da Caparica, Portugal»</strong>. A ficha do Google Maps classifica-a como <strong>Pizzaria</strong> e indica a morada na Rua Muralha da Praia, Apoio 6, Praia Norte.</p>
+        <p>O site oficial descreve a escolha do destino para reservar mesa com estas palavras:</p>
+        <div class="quote">«Seja no burburinho de Lisboa ou com os pés quase na areia, o lugar ideal para a sua próxima pizza está aqui.»<small>Texto da página de reservas oficial · amuni.pizza</small></div>
+        <div class="fact-strip">
+          <div><b>4,9</b><span>classificação no Google Maps, com 416 críticas</span></div>
+          <div><b>17:00</b><span>abertura de terça a quinta, segundo o Maps</span></div>
+          <div><b>13:00</b><span>abertura ao sábado e domingo, segundo o Maps</span></div>
+        </div>
+      </div>
+      <div class="understand-media rv-right">
+        <figure><img src="{{IMG:mesa.webp}}" alt="Mesa com pizzas, queijos, charcutaria e ingredientes frescos, fotografia da ficha pública do Google Maps" loading="lazy"><figcaption>Ficha pública · Google Maps</figcaption></figure>
+        <figure><img src="{{IMG:pizzaiolo-forno.webp}}" alt="Pizzaiolo com pá de pizza em frente ao forno, imagem do perfil oficial no Instagram" loading="lazy"><figcaption>@amuniacaparica · Instagram</figcaption></figure>
+        <figure><img src="{{IMG:massa-sol.webp}}" alt="Preparação da massa de pizza na cozinha, com luz natural, imagem do perfil oficial" loading="lazy"><figcaption>@amuniacaparica · Instagram</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. EXPLORAR ============================ -->
+<section class="sec dark" id="cardapio">
+  <div class="wrap">
+    <div class="menu-top">
+      <div class="sec-head" style="margin-bottom:0">
+        <div class="sec-label">02 · Explorar</div>
+        <h2>O cardápio, pizza a pizza.</h2>
+        <p class="sec-note">Nomes, descrições, preços e fotografias reproduzidos do cardápio público da Amunì no Uber Eats — o canal de encomenda ligado na ficha do Google Maps.</p>
+      </div>
+      <p class="menu-source">Preços em euro, tal como publicados. Podem mudar: confirme com a pizzaria antes de enviar. <a href="https://www.ubereats.com/pt/store/amuni-a-caparica/uLkPUreUW1GujSm-INlsGg" target="_blank" rel="noopener noreferrer">Ver cardápio no Uber Eats ↗</a></p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar cardápio por categoria"></div>
+    <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+    <div class="menu-foot rv-fade">
+      <p><strong>Como funciona:</strong> adicione pizzas, ajuste quantidades e observações no carrinho, escolha recolha ou entrega, e o site prepara a mensagem para o WhatsApp. Nada é enviado automaticamente.</p>
+      <button class="btn btn-primary" type="button" id="openCart2">Ver o meu pedido</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 4. NOVIDADES / PROMOÇÕES ============================ -->
+<section class="sec deep" id="novidades">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">03 · Novidades e promoções</div>
+      <h2>O que a casa publicou.</h2>
+      <p class="sec-note">Publicações reais do perfil oficial no Instagram, com as suas datas. São registos de comunicações passadas — não promoções ativas com preço ou disponibilidade garantida.</p>
+    </div>
+    <div class="news-grid">
+      <article class="news-card rv-fade">
+        <div class="news-media"><img src="{{IMG:novidade-happyhour.webp}}" alt="Quadro de ardósia com a inscrição Happy Hour, terça a sexta das 17 às 19, imperial compre 1 leve 2" loading="lazy"></div>
+        <div class="news-body">
+          <span class="news-date">Publicação de 21/10/2026 · Instagram oficial</span>
+          <h3>Happy Hour</h3>
+          <p>O quadro publicado pela casa anunciava «Terça a Sexta, 17:00h até 19:00h — Imperial, compre 1 leve 2».</p>
+          <a class="news-link" href="https://www.instagram.com/p/DexMsW4MP0s/" target="_blank" rel="noopener noreferrer">Ver publicação original ↗</a>
+        </div>
+      </article>
+      <article class="news-card rv-scale">
+        <div class="news-media"><img src="{{IMG:novidade-allyoucaneat.webp}}" alt="Pessoa a segurar cartaz manuscrito com os dizeres All You Can Eat Pizza coming soon" loading="lazy"></div>
+        <div class="news-body">
+          <span class="news-date">Publicação de 24/10/2026 · Instagram oficial</span>
+          <h3>All you can eat pizza</h3>
+          <p>«All you can eat PIZZA coming soon!!» — anúncio de novidade, sem data de início nem preço publicados.</p>
+          <a class="news-link" href="https://www.instagram.com/p/De4CQ-zsL7B/" target="_blank" rel="noopener noreferrer">Ver publicação original ↗</a>
+        </div>
+      </article>
+      <article class="news-card rv-fade">
+        <div class="news-media"><img src="{{IMG:novidade-fimdesemana.webp}}" alt="Pizza acabada com queijo e salame e a inscrição Saturday and Sunday from 1PM, com o logótipo Amunì" loading="lazy"></div>
+        <div class="news-body">
+          <span class="news-date">Publicação de 23/10/2026 · Instagram oficial</span>
+          <h3>Fim de semana, das 13h</h3>
+          <p>«Weekend, from 1PM!!» — publicação sobre o horário de fim de semana. O horário atualizado está na secção «Antes de vir».</p>
+          <a class="news-link" href="https://www.instagram.com/p/De2e8vKMtGQ/" target="_blank" rel="noopener noreferrer">Ver publicação original ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="news-disclaimer">Estas publicações têm data e podem já não estar em vigor. Para saber o que está disponível hoje, consulte o <a href="https://www.instagram.com/amuniacaparica/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-2);text-decoration:underline">perfil oficial</a> ou contacte a pizzaria. O site não inventa combos, descontos nem preços promocionais.</p>
+  </div>
+</section>
+
+<!-- ============================ 5. DO FORNO À MESA ============================ -->
+<section class="sec light" id="forno">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">04 · Do forno à mesa</div>
+      <h2>O preparo, em movimento.</h2>
+      <p class="sec-note">Trechos de vídeos publicados pela própria Amunì no Instagram, em loop e sem som. Massa, forno e o último fio de azeite.</p>
+    </div>
+    <div class="reels">
+      <figure class="reel rv-left">
+        <video src="{{VIDEO:loop-preparo.mp4}}" poster="{{IMG:bastidores.webp}}" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo oficial: mãos a trabalhar a massa e a montar pizzas na bancada"></video>
+        <figcaption><span class="live"><i></i> @amuniacaparica</span><b>A massa</b><span>«POV: you're a pizzaiolo in Costa da Caparica» · 07/10/2026</span></figcaption>
+      </figure>
+      <figure class="reel rv-scale">
+        <video src="{{VIDEO:loop-forno.mp4}}" poster="{{IMG:loop-forno-poster.webp}}" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo oficial: pizzaiolo a colocar uma pizza no forno com a pá"></video>
+        <figcaption><span class="live"><i></i> @amuniacaparica</span><b>O forno</b><span>«Tchi-Tchi! Nino's secret weapon» · 01/11/2026</span></figcaption>
+      </figure>
+      <figure class="reel rv-right">
+        <video src="{{VIDEO:loop-azeite.mp4}}" poster="{{IMG:pizza-azeite.webp}}" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo oficial: azeite a cair sobre pizza de tomate, mozzarella e manjericão"></video>
+        <figcaption><span class="live"><i></i> @amuniacaparica</span><b>O acabamento</b><span>Publicação de 07/11/2026 · perfil oficial</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 6. CONFIAR ============================ -->
+<section class="sec deep" id="visita">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">05 · Antes de vir</div>
+      <h2>Onde, quando e como.</h2>
+      <p class="sec-note">Dados da ficha pública do Google Maps e dos canais oficiais da Amunì. O site não promete entrega nem disponibilidade: confirme sempre com a pizzaria.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="info-card rv-left">
+        <h3>Horário · Google Maps</h3>
+        <ul class="hours">
+          <li><span>Segunda-feira</span><b class="closed">Encerrado</b></li>
+          <li><span>Terça-feira</span><b>17:00 – 22:00</b></li>
+          <li><span>Quarta-feira</span><b>17:00 – 22:00</b></li>
+          <li><span>Quinta-feira</span><b>17:00 – 22:00</b></li>
+          <li><span>Sexta-feira</span><b>17:00 – 22:30</b></li>
+          <li><span>Sábado</span><b>13:00 – 22:30</b></li>
+          <li><span>Domingo</span><b>13:00 – 22:00</b></li>
+        </ul>
+        <p style="font-size:12px;color:var(--muted-2);margin-top:14px">O perfil oficial no Instagram indica igualmente «Monday Closed». O Linktree oficial apresenta uma frase divergente («OPEN EVERYDAY»); por isso seguimos o horário detalhado do Maps.</p>
+      </div>
+      <div class="info-card rv-right">
+        <div class="big-rating"><strong>4,9</strong><span>classificação na ficha pública do Google Maps<br>416 críticas · categoria «Pizzaria»</span></div>
+        <h3>Contacto e morada</h3>
+        <div class="contact-list">
+          <div><i>⌖</i><span>Apoio 6, Praia Norte, Rua Muralha da Praia, 2825-391 Costa de Caparica, Portugal</span></div>
+          <a href="tel:+351913225786"><i>☎</i><span>+351 913 225 786</span></a>
+          <a href="https://wa.me/351913225786" target="_blank" rel="noopener noreferrer"><i>✆</i><span>WhatsApp oficial (reservas e contacto)</span></a>
+        </div>
+        <div class="link-row">
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJ8H13i32sHQ0RBOUeQGcTzbQ" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
+          <a href="https://amuni.pizza/pt/booking" target="_blank" rel="noopener noreferrer">Reservar mesa ↗</a>
+          <a href="https://www.ubereats.com/pt/store/amuni-a-caparica/uLkPUreUW1GujSm-INlsGg" target="_blank" rel="noopener noreferrer">Uber Eats ↗</a>
+          <a href="https://g.page/r/CdzsVirxObGWEBM/review" target="_blank" rel="noopener noreferrer">Críticas Google ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 7. AGIR ============================ -->
+<section class="cta" id="pedir">
+  <div class="wrap">
+    <div class="sec-label" style="justify-content:center;display:flex">06 · A sua vez</div>
+    <h2>Escolheu? <em>Monte o pedido.</em></h2>
+    <p>Organize aqui as pizzas, as quantidades e as observações. Depois abrimos o WhatsApp com a mensagem pronta para si rever e enviar — a confirmação fica a cargo da pizzaria.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#cardapio">Fazer pedido <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="btn btn-ghost" type="button" id="openCart3">Ver o meu pedido</button>
+      <a class="btn btn-ghost" href="https://amuni.pizza/pt/booking" target="_blank" rel="noopener noreferrer">Reservar mesa</a>
+    </div>
+    <p class="cta-note">Sem pagamento neste site, sem conta, sem envio automático. A encomenda só existe quando você enviar a mensagem e a pizzaria a confirmar.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="{{IMG:logo.webp}}" alt="Logótipo Amunì Pizzeria">
+        <p>Amunì a Caparica Pizzeria · Pizzeria italiana na Praia Norte, Costa da Caparica, Portugal.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explorar</h4>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#novidades">Novidades</a>
+        <a href="#forno">Do forno à mesa</a>
+        <a href="#visita">Horário e morada</a>
+      </div>
+      <div class="foot-col">
+        <h4>Informação</h4>
+        <button type="button" data-dialog="privacidade">Política de Privacidade</button>
+        <button type="button" data-dialog="termos">Termos de Uso</button>
+        <a href="https://www.instagram.com/amuniacaparica/" target="_blank" rel="noopener noreferrer">Instagram oficial ↗</a>
+        <a href="https://www.tiktok.com/@amuniacaparica.pt" target="_blank" rel="noopener noreferrer">TikTok oficial ↗</a>
+        <a href="https://amuni.pizza/pt" target="_blank" rel="noopener noreferrer">Site oficial ↗</a>
+      </div>
+    </div>
+    <div class="sources">
+      <b>Fontes das informações e das mídias:</b>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJ8H13i32sHQ0RBOUeQGcTzbQ" target="_blank" rel="noopener noreferrer">ficha pública do Google Maps</a> (morada, horário, telefone, classificação, fotografia de mesa) ·
+      <a href="https://www.instagram.com/amuniacaparica/" target="_blank" rel="noopener noreferrer">Instagram oficial @amuniacaparica</a> (vídeos, posters e publicações datadas) ·
+      <a href="https://www.linktr.ee/amuniacaparica" target="_blank" rel="noopener noreferrer">Linktree oficial</a> (logótipo, contactos) ·
+      <a href="https://www.ubereats.com/pt/store/amuni-a-caparica/uLkPUreUW1GujSm-INlsGg" target="_blank" rel="noopener noreferrer">cardápio público no Uber Eats</a> (nomes, descrições, preços e fotografias das pizzas) ·
+      <a href="https://amuni.pizza/pt" target="_blank" rel="noopener noreferrer">site oficial amuni.pizza</a> (reservas).
+      Fotografias e vídeos são reproduções de conteúdos públicos destas fontes, sem qualquer alteração que represente outro produto. A fotografia da ficha do Maps pode ter autoria de terceiro — não é apresentada como fotografia oficial da casa.
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Amunì a Caparica Pizzeria · Site informativo e organizador de encomenda</span>
+      <span>Sem rastreadores · sem cookies de publicidade · sem pagamento neste site</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ CARRINHO ============================ -->
+<div id="cartLayer">
+  <div id="cartBackdrop"></div>
+  <aside id="cartPanel" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-label="O meu pedido">
+    <div class="cart-head">
+      <h2 id="cartTitle">O meu pedido</h2>
+      <button class="icon-btn" type="button" id="closeCart" aria-label="Fechar o pedido">×</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-foot">
+      <span class="field-label">Como quer receber?</span>
+      <div class="radios" id="modality">
+        <label><input type="radio" name="mod" value="Recolha no local"> Recolha no local</label>
+        <label><input type="radio" name="mod" value="Entrega (a confirmar com a pizzaria)"> Entrega a confirmar</label>
+      </div>
+      <label class="field-label" for="custName">O seu nome <span style="font-weight:400;text-transform:none;letter-spacing:0">(opcional)</span></label>
+      <input type="text" id="custName" placeholder="Só se quiser identificar-se na mensagem" maxlength="60">
+      <label class="consent" for="consentBox">
+        <input type="checkbox" id="consentBox" required>
+        <span>Li e concordo com a <a href="#" data-dialog="privacidade">Política de Privacidade</a> e os <a href="#" data-dialog="termos">Termos de Uso</a>.</span>
+      </label>
+      <p class="err" id="cartErr"></p>
+      <div class="subtotal"><span>Subtotal</span><b id="subtotal">0,00 €</b></div>
+      <div class="cart-actions">
+        <a class="btn btn-primary" id="waSend" href="#cardapio" target="_blank" rel="noopener noreferrer" aria-disabled="true">Abrir WhatsApp com pedido preparado</a>
+        <button class="btn btn-ghost" type="button" id="copySummary">Copiar resumo do pedido</button>
+      </div>
+      <p class="cart-hint" id="cartHint">O site prepara a mensagem mas não a envia. Confirme preços, disponibilidade e modalidade com a pizzaria. Alergias ou necessidades dietéticas: contacte diretamente o restaurante.</p>
+    </div>
+  </aside>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============================ DIÁLOGOS LEGAIS ============================ -->
+<dialog id="dlg-privacidade" aria-labelledby="privTitle">
+  <div class="dialog-in">
+    <button class="dialog-close" type="button" data-close aria-label="Fechar">×</button>
+    <h2 id="privTitle">Política de Privacidade</h2>
+    <p class="date">Amunì a Caparica Pizzeria · versão de 15/11/2026</p>
+    <p>Este site é uma vitrine informativa e um organizador de encomenda. Não cria contas, não envia dados para um servidor próprio e não processa pagamentos. O único destino de dados é o WhatsApp, escolhido por si.</p>
+    <h3>O que fica no seu dispositivo</h3>
+    <p>O carrinho, as quantidades, as observações e o nome opcional são guardados apenas no armazenamento local do seu navegador (localStorage), para não se perderem se recarregar a página. Pode apagar tudo com o botão «Esvaziar pedido» ou limpando os dados do site no navegador.</p>
+    <h3>Para onde vai a mensagem</h3>
+    <p>Ao clicar em «Abrir WhatsApp com pedido preparado», o resumo é colocado numa ligação wa.me para o número público da pizzaria, <strong>+351 913 225 786</strong>, e aberto na aplicação ou no site do WhatsApp, operado por terceiros. Nada é enviado automaticamente: a mensagem só sai se você a enviar. A partir daí, o tratamento dos dados segue as políticas do WhatsApp e da pizzaria.</p>
+    <h3>Cookies e rastreio</h3>
+    <p>Não usamos cookies de rastreio, ferramentas de análise, pixels de publicidade, mapas de calor nem chat de terceiros. Por isso não é apresentado banner de consentimento de cookies. As fontes e as mídias estão embutidas no próprio ficheiro do site.</p>
+    <h3>Dados de pagamento e de saúde</h3>
+    <p>Não pedimos nem guardamos dados de cartão. Se tiver alergias alimentares ou necessidades dietéticas especiais, contacte diretamente o restaurante antes de fazer a encomenda, como indicado no cardápio público.</p>
+    <h3>Contacto</h3>
+    <p>Para questões sobre privacidade ou para pedir a eliminação de dados que estejam no seu dispositivo, contacte a pizzaria pelo telefone <a href="tel:+351913225786" style="color:var(--terra);text-decoration:underline">+351 913 225 786</a>. Os dados locais podem também ser apagados por si a qualquer momento.</p>
+  </div>
+</dialog>
+
+<dialog id="dlg-termos" aria-labelledby="termsTitle">
+  <div class="dialog-in">
+    <button class="dialog-close" type="button" data-close aria-label="Fechar">×</button>
+    <h2 id="termsTitle">Termos de Uso</h2>
+    <p class="date">Amunì a Caparica Pizzeria · versão de 15/11/2026</p>
+    <h3>O que este site faz</h3>
+    <p>Mostra informações públicas sobre a pizzaria, apresenta o cardápio público e organiza as suas escolhas numa mensagem pronta a enviar por WhatsApp. Não é uma loja, não aceita pagamentos, não regista contas e não tem ligação a qualquer sistema de gestão de encomendas da pizzaria.</p>
+    <h3>Origem e atualidade da informação</h3>
+    <ul>
+      <li>Morada, horário, telefone e classificação: ficha pública do Google Maps.</li>
+      <li>Nomes, descrições, preços e fotografias das pizzas: cardápio público no Uber Eats.</li>
+      <li>Vídeos, posters, publicações e logótipo: canais oficiais da Amunì (Instagram e Linktree).</li>
+    </ul>
+    <p>Estes conteúdos podem ser alterados pelas respetivas plataformas ou pela pizzaria sem aviso. Os preços apresentados são os publicados no cardápio consultado e não constituem uma proposta contratual. Confirme sempre junto da pizzaria.</p>
+    <h3>Encomendas, entrega e confirmação</h3>
+    <p>A encomenda não é confirmada por este site. A modalidade «Entrega» aparece sempre como «a confirmar com a pizzaria»: o site não garante área de entrega, taxas, tempos nem disponibilidade. A confirmação de receção, preparação e preço final cabe exclusivamente à Amunì a Caparica Pizzeria, depois de você enviar a mensagem no WhatsApp. As reservas de mesa são feitas na página oficial <a href="https://amuni.pizza/pt/booking" target="_blank" rel="noopener noreferrer" style="color:var(--terra);text-decoration:underline">amuni.pizza/pt/booking</a>.</p>
+    <h3>Conteúdos e propriedade</h3>
+    <p>Logótipo, fotografias e vídeos pertencem aos respetivos titulares e são aqui reproduzidos a partir de conteúdos públicos das fontes indicadas no rodapé, apenas para identificar a pizzaria e os seus produtos. Não são gerados por inteligência artificial nem provenientes de bancos de imagens.</p>
+    <h3>Sem garantias</h3>
+    <p>O site é disponibilizado «tal como está», sem garantias de disponibilidade contínua, exatidão de horários ou de preços. Em caso de divergência, prevalece a informação confirmada diretamente pela pizzaria.</p>
+  </div>
+</dialog>
+
+<script>
+/* =======================================================================
+   AMUNÌ — cardápio real + construtor de encomenda
+   Fonte dos dados: cardápio público no Uber Eats (linkado no Google Maps).
+   Nenhum preço, produto ou ingrediente foi inventado.
+   ======================================================================= */
+(function(){
+  'use strict';
+  var EUR = function(c){ return (c/100).toFixed(2).replace('.',',') + ' €'; };
+  var M = [
+    {id:'margherita',n:'Margherita',c:'classicas',p:1400,d:'Molho de tomate italiano, mozzarella fior di latte e manjericão fresco.',img:'pizza-margherita.webp'},
+    {id:'margherita-dop',n:'Margherita DOP',c:'classicas',p:1500,d:'Molho de tomate italiano, mozzarella di bufala DOP, Pecorino e manjericão fresco.',img:'pizza-margherita-dop.webp'},
+    {id:'parmigiana',n:'Parmigiana',c:'classicas',p:1550,d:'Molho de tomate italiano, mozzarella fior di latte italiana, beringela frita segundo a nossa tradição siciliana, parmesão e manjericão fresco.',img:'pizza-parmigiana.webp'},
+    {id:'capricciosa',n:'Capricciosa',c:'classicas',p:1850,d:'Molho de tomate, mozzarella fior di latte, cogumelos frescos, fiambre italiano, salame e azeitonas pretas.',img:'pizza-capricciosa.webp'},
+    {id:'salsiccia',n:'Salsiccia & Friarielli',c:'classicas',p:1650,d:'Mozzarella di bufala, friarielli napolitanos, salsiccia siciliana cozinhada em vinho tinto e provola.',img:'pizza-salsiccia-friarielli.webp'},
+    {id:'napoli',n:'Napoli',c:'classicas',p:1550,d:'Molho de tomate, mozzarella fior di latte e anchovas.',img:'pizza-napoli.webp'},
+    {id:'bufalaccia',n:'Bufalaccia',c:'classicas',p:1850,d:'Molho de tomate, mozzarella di bufala, rúcula fresca, tomate cherry, prosciutto e parmesão.',img:'pizza-bufalaccia.webp'},
+    {id:'stracciata',n:'Stracciata',c:'classicas',p:1550,d:'Molho de tomate, mozzarella fior di latte, stracciatella fresca e manjericão.',img:'pizza-stracciata.webp'},
+    {id:'cotto-funghi',n:'Cotto & Funghi',c:'classicas',p:1450,d:'Molho de tomate, mozzarella fior di latte, fiambre italiano e cogumelos frescos.',img:'pizza-cotto-funghi.webp'},
+    {id:'pepperoni',n:'Pepperoni',c:'classicas',p:1450,d:'Molho de tomate, mozzarella fior di latte e salame piccante.',img:'pizza-pepperoni.webp'},
+    {id:'4-formaggi',n:'4 Formaggi',c:'classicas',p:1400,d:'Mozzarella fior di latte italiana, gorgonzola italiano, emmental e parmesão.'},
+    {id:'calzone',n:'Calzone',c:'classicas',p:1400,d:'Molho de tomate, mozzarella fior di latte e fiambre italiano.'},
+    {id:'al-funghi',n:'Al Funghi',c:'classicas',p:1500,d:'Molho de tomate, mozzarella fior di latte e cogumelos frescos.',img:'pizza-al-funghi.webp'},
+    {id:'tartufella',n:'Tartufella',c:'classicas',p:1600,d:'Mozzarella fior di latte campana, creme de trufa, cogumelos, provola, rucola e parmisao.'},
+    {id:'spacchiosa',n:'Spacchiosa',c:'especiais',p:1850,d:'Pesto de pistáchio, mozzarella fior di latte, pancetta italiana, tomate cherry e stracciatella.',img:'pizza-spacchiosa.webp',tag:'Especial'},
+    {id:'ca-mortazza',n:'Ca Mortazza',c:'especiais',p:1850,d:'Pesto de pistáchio, mozzarella, mortadella de Bologna e stracciatella.',img:'pizza-ca-mortazza.webp'},
+    {id:'amuni',n:'Amuni',c:'especiais',p:1750,d:'Pesto de pistáchio, mozzarella, mozzarella fumada, beringela frita segundo a tradição siciliana, tomate cherry e stracciatella.',img:'pizza-amuni.webp',tag:'Com o nosso nome'},
+    {id:'bocca-di-rosa',n:'Bocca di Rosa',c:'especiais',p:1850,d:'Mozzarella, pesto de pistacchio, salame e stracciatella.'},
+    {id:'truffle-bubble',n:'Truffle Bubble',c:'especiais',p:1750,d:'Mozzarella fior di latte, creme de trufa, cogumelos, tomate seco e stracciatella.'},
+    {id:'morso',n:'Morso',c:'especiais',p:1750,d:'Mozzarella defumada, creme de abóbora, pancetta, nduja, cebola e stracciatella.'},
+    {id:'super-diavola-vegan',n:'Super Diavola Vegan',c:'veganas',p:1650,d:'Molho de tomate, salame vegano, mozzarella vegana de castanha de caju, cebola e molho de pimentão picante.',img:'pizza-super-diavola-vegan.webp'},
+    {id:'maggie',n:'Maggie',c:'veganas',p:1450,d:'Molho de tomate italiano, mozzarella vegana de caju e manjericão fresco.'},
+    {id:'vegan-spacchiosa',n:'Vegan Spacchiosa',c:'veganas',p:1750,d:'Pesto de pistácchio, mozzarella vegana de caju, bacon vegano crocante e tomate cherry.',img:'pizza-vegan-spacchiosa.webp'},
+    {id:'parmigiana-vegan',n:'Parmigiana Vegan',c:'veganas',p:1650,d:'Molho de tomate, mozzarella vegana de castanha de caju, beringela e manjericão.'},
+    {id:'veganella',n:'Veganella',c:'veganas',p:1700,d:'Creme de friarielli (grelhos), mozzarella vegana bio, beringela, tomate seco e salame vegan.'},
+    {id:'cannoli',n:'Cannoli Siciliani',c:'doces',p:600,d:'2 unidades de cannolo tradicional da Sicília.'},
+    {id:'ichnusa',n:'ICHNUSA',c:'bebidas',p:400,d:'Cerveja lager não filtrada da Sardenha.'},
+    {id:'moretti',n:'MORETTI',c:'bebidas',p:300,d:'Cerveja italiana lager 0,33.'},
+    {id:'messina',n:'MESSINA',c:'bebidas',p:400,d:'Cerveja lager com cristal de sal.'}
+  ];
+  var CATS = [
+    {id:'todas',label:'Tudo'},
+    {id:'classicas',label:'Clássicas italianas'},
+    {id:'especiais',label:'Especiais'},
+    {id:'veganas',label:'Veganas'},
+    {id:'doces',label:'Doces'},
+    {id:'bebidas',label:'Bebidas'}
+  ];
+  var IMG = {};
+  /* data URIs injetados no build — declarados como strings simples */
+  {{MEDIA_MAP}}
+
+  var byId = {}; M.forEach(function(x){ byId[x.id] = x; });
+  var cart = [];
+  try { cart = JSON.parse(localStorage.getItem('amuni-cart') || '[]') || []; } catch(e){ cart = []; }
+  cart = cart.filter(function(l){ return byId[l.id] && l.qty > 0; });
+  var filter = 'todas';
+
+  var $ = function(s){ return document.querySelector(s); };
+  var esc = function(s){ return String(s).replace(/[&<>"']/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
+  var toastTimer;
+  function toast(msg){
+    var t = $('#toast'); t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2600);
+  }
+  function persist(){ try { localStorage.setItem('amuni-cart', JSON.stringify(cart)); } catch(e){} }
+
+  /* ---------------- cardápio ---------------- */
+  function renderFilters(){
+    $('#filters').innerHTML = CATS.map(function(c){
+      return '<button class="chip" type="button" data-cat="'+c.id+'" aria-pressed="'+(filter===c.id)+'">'+esc(c.label)+'</button>';
+    }).join('');
+  }
+  function renderMenu(){
+    var list = M.filter(function(x){ return filter === 'todas' || x.c === filter; });
+    $('#menuGrid').innerHTML = list.map(function(x){
+      var slice = '<svg class="slice" viewBox="0 0 48 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 15a46 46 0 0 1 38 0L24 58 5 15Z" fill="#E6B285" opacity=".75"/><path d="M2 15h44" stroke="#9A4B2F" stroke-width="5" stroke-linecap="round"/><circle cx="18.5" cy="24" r="2.5" fill="#9A4B2F"/><circle cx="24.8" cy="33.5" r="2.5" fill="#9A4B2F"/><circle cx="30.2" cy="24" r="2.5" fill="#9A4B2F"/></svg><small>Sem fotografia no cardápio</small>';
+      var media = x.img && IMG[x.img]
+        ? '<img src="'+IMG[x.img]+'" alt="'+esc(x.n)+' — fotografia do cardápio público da Amunì no Uber Eats" loading="lazy">'
+        : slice;
+      return '<article class="pizza-card" data-id="'+x.id+'">'+
+        '<div class="pizza-img'+(x.img && IMG[x.img] ? '' : ' no-photo')+'">'+media+
+          (x.tag ? '<span class="tag">'+esc(x.tag)+'</span>' : '')+'</div>'+
+        '<div class="pizza-body"><h3>'+esc(x.n)+'</h3><p>'+esc(x.d)+'</p>'+
+          '<div class="pizza-foot"><span class="price">'+EUR(x.p)+'</span>'+
+          '<button class="add-btn" type="button" data-add="'+x.id+'" aria-label="Adicionar '+esc(x.n)+' ao pedido">Adicionar <span>+</span></button></div>'+
+        '</div></article>';
+    }).join('');
+  }
+
+  /* ---------------- carrinho ---------------- */
+  function findLine(id){
+    for (var i=0;i<cart.length;i++) if (cart[i].id === id) return cart[i];
+    return null;
+  }
+  function subtotal(){
+    return cart.reduce(function(s,l){ return s + byId[l.id].p * l.qty; }, 0);
+  }
+  function modality(){
+    var r = document.querySelector('input[name="mod"]:checked');
+    return r ? r.value : '';
+  }
+  function message(){
+    var lines = [];
+    lines.push('Olá! Gostaria de fazer uma encomenda à Amunì a Caparica Pizzeria.');
+    lines.push('');
+    lines.push('*Itens*');
+    cart.forEach(function(l){
+      var it = byId[l.id];
+      lines.push(l.qty + '× ' + it.n + ' — ' + EUR(it.p * l.qty));
+      if (l.obs && l.obs.trim()) lines.push('   Obs.: ' + l.obs.trim().replace(/\n/g,' '));
+    });
+    lines.push('');
+    lines.push('*Subtotal:* ' + EUR(subtotal()));
+    lines.push('*Modalidade:* ' + (modality() || 'por definir'));
+    var nm = $('#custName').value.trim();
+    if (nm) lines.push('*Nome:* ' + nm);
+    lines.push('');
+    lines.push('Preços do cardápio público no Uber Eats, a confirmar pela pizzaria. Alergias ou necessidades dietéticas: confirmo diretamente com o restaurante quando necessário.');
+    return lines.join('\n');
+  }
+  function renderCart(){
+    var body = $('#cartBody');
+    if (!cart.length){
+      body.innerHTML = '<div class="cart-empty"><b>O pedido está vazio</b><p>Escolha as pizzas no cardápio e volte aqui para rever tudo antes de abrir o WhatsApp.</p></div>';
+    } else {
+      body.innerHTML = cart.map(function(l){
+        var it = byId[l.id];
+        return '<div class="cart-line" data-line="'+l.id+'">'+
+          '<div class="cart-line-top"><h3>'+esc(it.n)+'</h3><span class="lp">'+EUR(it.p*l.qty)+'</span></div>'+
+          '<div class="cart-qty">'+
+            '<button class="qty-btn" type="button" data-step="-1" data-id="'+l.id+'" aria-label="Diminuir quantidade de '+esc(it.n)+'">−</button>'+
+            '<b>'+l.qty+'</b>'+
+            '<button class="qty-btn" type="button" data-step="1" data-id="'+l.id+'" aria-label="Aumentar quantidade de '+esc(it.n)+'">+</button>'+
+            '<button class="remove" type="button" data-remove="'+l.id+'">Remover</button>'+
+          '</div>'+
+          '<textarea data-obs="'+l.id+'" maxlength="240" placeholder="Observações para esta pizza (ex.: sem um ingrediente)" aria-label="Observações para '+esc(it.n)+'">'+esc(l.obs||'')+'</textarea>'+
+        '</div>';
+      }).join('') + '<button class="remove" type="button" id="clearCart" style="display:block;margin:4px 0 0 auto">Esvaziar pedido</button>';
+    }
+    $('#subtotal').textContent = EUR(subtotal());
+    var n = cart.reduce(function(s,l){ return s+l.qty; },0);
+    $('#cartCount').textContent = n;
+    var wa = $('#waSend');
+    if (cart.length){
+      wa.href = 'https://wa.me/351913225786?text=' + encodeURIComponent(message());
+      wa.setAttribute('aria-disabled','false');
+    } else {
+      wa.href = '#cardapio';
+      wa.setAttribute('aria-disabled','true');
+    }
+    persist();
+  }
+  function add(id){
+    var l = findLine(id);
+    if (l) l.qty += 1; else cart.push({id:id,qty:1,obs:''});
+    renderCart();
+    toast(byId[id].n + ' adicionado ao pedido');
+    var b = document.querySelector('[data-add="'+id+'"]');
+    if (b){ b.classList.add('added'); setTimeout(function(){ b.classList.remove('added'); }, 700); }
+  }
+  function openCart(){
+    $('#cartLayer').classList.add('open');
+    $('#closeCart').focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart(){
+    $('#cartLayer').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ---------------- eventos ---------------- */
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    var addBtn = t.closest('[data-add]');
+    if (addBtn){ add(addBtn.getAttribute('data-add')); return; }
+    var chip = t.closest('[data-cat]');
+    if (chip){
+      filter = chip.getAttribute('data-cat');
+      renderFilters(); renderMenu();
+      return;
+    }
+    var step = t.closest('[data-step]');
+    if (step){
+      var l = findLine(step.getAttribute('data-id'));
+      if (l){
+        l.qty += Number(step.getAttribute('data-step'));
+        if (l.qty < 1) cart = cart.filter(function(x){ return x !== l; });
+        renderCart();
+      }
+      return;
+    }
+    var rm = t.closest('[data-remove]');
+    if (rm){
+      var id = rm.getAttribute('data-remove');
+      cart = cart.filter(function(x){ return x.id !== id; });
+      renderCart(); toast('Item removido do pedido'); return;
+    }
+    if (t.closest('#clearCart')){ cart = []; renderCart(); toast('Pedido esvaziado'); return; }
+    if (t.closest('#openCart') || t.closest('#openCart2') || t.closest('#openCart3')){ openCart(); return; }
+    if (t.closest('#closeCart') || t.id === 'cartBackdrop'){ closeCart(); return; }
+    var dlg = t.closest('[data-dialog]');
+    if (dlg){
+      e.preventDefault();
+      var d = document.getElementById('dlg-' + dlg.getAttribute('data-dialog'));
+      if (d && typeof d.showModal === 'function') d.showModal();
+      return;
+    }
+    if (t.closest('[data-close]')){
+      var dd = t.closest('dialog'); if (dd) dd.close();
+      return;
+    }
+    if (t.closest('#copySummary')){
+      var txt = cart.length ? message() : 'O pedido está vazio.';
+      var done = function(){ toast('Resumo copiado'); };
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(done, function(){ fallbackCopy(txt, done); });
+      } else fallbackCopy(txt, done);
+      return;
+    }
+  });
+  function fallbackCopy(txt, cb){
+    var ta = document.createElement('textarea'); ta.value = txt;
+    ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta);
+    ta.select(); try { document.execCommand('copy'); cb(); } catch(e){ toast('Não foi possível copiar'); }
+    document.body.removeChild(ta);
+  }
+  document.addEventListener('input', function(e){
+    if (e.target.hasAttribute && e.target.hasAttribute('data-obs')){
+      var l = findLine(e.target.getAttribute('data-obs'));
+      if (l){ l.obs = e.target.value; persist(); }
+    }
+    if (e.target.id === 'custName' || e.target.name === 'mod'){
+      renderCart();
+      $('#cartErr').classList.remove('show');
+    }
+    if (e.target.id === 'consentBox') $('#cartErr').classList.remove('show');
+  });
+  $('#waSend').addEventListener('click', function(e){
+    if (!cart.length){ e.preventDefault(); return; }
+    var err = $('#cartErr');
+    if (!modality()){
+      e.preventDefault(); err.textContent = 'Escolha «Recolha no local» ou «Entrega a confirmar» antes de continuar.'; err.classList.add('show'); return;
+    }
+    if (!$('#consentBox').checked){
+      e.preventDefault(); err.textContent = 'Marque o consentimento da Política de Privacidade e dos Termos de Uso para continuar.'; err.classList.add('show'); return;
+    }
+    err.classList.remove('show');
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && $('#cartLayer').classList.contains('open')) closeCart();
+  });
+  document.querySelectorAll('dialog').forEach(function(d){
+    d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+  });
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------------- reduced-motion: vídeos parados ---------------- */
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (reduce){
+    document.querySelectorAll('video').forEach(function(v){ v.removeAttribute('autoplay'); try { v.pause(); } catch(e){} });
+  }
+
+  /* ---------------- reveal: rede de segurança ---------------- */
+  /* O anim-kit faz o reveal principal. Este observador garante que nenhum
+     elemento fica invisível, mesmo em páginas longas ou carregamento lento. */
+  var RS = '.rev,.rv-fade,.rv-scale,.rv-left,.rv-right,.rv-clip,[data-reveal]';
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .01, rootMargin: '0px 0px -2% 0px' });
+    document.querySelectorAll(RS).forEach(function(el){ io.observe(el); });
+    setTimeout(function(){
+      document.querySelectorAll(RS).forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < innerHeight * 1.15) el.classList.add('in');
+      });
+    }, 1400);
+    addEventListener('scroll', function(){
+      if ((window.pageYOffset + innerHeight) > document.documentElement.scrollHeight - 120){
+        document.querySelectorAll(RS).forEach(function(el){ el.classList.add('in'); });
+      }
+    }, { passive:true });
+  } else {
+    document.querySelectorAll(RS).forEach(function(el){ el.classList.add('in'); });
+  }
+
+  renderFilters(); renderMenu(); renderCart();
+})();
+</script>
+</body>
+</html>
