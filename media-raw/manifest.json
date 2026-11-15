@@ -1,0 +1,230 @@
+{
+  "collectedAt": "2026-11-15T11:27:47.785Z",
+  "client": "Amunì a Caparica Pizzeria",
+  "ig": [
+    {
+      "code": "DeMgLfJMksS",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "De4CQ-zsL7B",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "De2e8vKMtGQ",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "Dfe4bu0sBzY",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfcSPFtsJ4U",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfM2maPsfKg",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfFfEtcMewn",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfDHGc8Mbnh",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DfAaX1cMbQP",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "De-RVEMMGzB",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DezeX1vsMkj",
+      "via": "embed",
+      "files": []
+    },
+    {
+      "code": "DexMsW4MP0s",
+      "via": "embed",
+      "files": []
+    }
+  ],
+  "maps": [
+    {
+      "file": "maps-01.jpg",
+      "url": "https://lh3.googleusercontent.com/grass-cs/AABkmLfcolM8wLAs9Zsfud65Ohju1GwB5zijDlGy3gR9SEEkeRPq7srPcQWfy5hUF0k4Hevp8gXVgjNxMdKufgO8nifGWZbeWM8SwrK8y5qsvIzIhNuh83D4djPlfAknITCdSSknG6eytOi5Ebgl"
+    },
+    {
+      "file": "maps-02.jpg",
+      "url": "https://lh3.googleusercontent.com/grass-cs/AABkmLcDBTikMmpB4dT4smU8SZSLRo4hTE4RLidUayGRLc2xFcP4h4oqYsC6jCHd9i5MLMJGSC8stHEtbB6RxmBt83lm4k-4nTqyK_1TPSCsqEc8SCop4hrodeOBPD-ErJRXbrr7vPWz"
+    }
+  ],
+  "menu": [
+    {
+      "file": "loja-hero.jpg",
+      "name": "loja-hero",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/34bdfa5ecada53bc7aaab7f715c9bf32/63cdd1044c1bf03a6f4ce3a9422016b8.jpeg"
+    },
+    {
+      "file": "pizza-margherita.jpg",
+      "name": "pizza-margherita",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/9fe5116cd077212ebfaf139a56c32097/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-margherita-dop.jpg",
+      "name": "pizza-margherita-dop",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/6e90ec5f4669a4c60c50ddf0a801d243/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-parmigiana.jpg",
+      "name": "pizza-parmigiana",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/408cd033293bb6cc293c5032f400abb3/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-capricciosa.jpg",
+      "name": "pizza-capricciosa",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/44b895aaaa3f384b7333f1750ebded51/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-salsiccia-friarielli.jpg",
+      "name": "pizza-salsiccia-friarielli",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/bd4ddbd0839b98d71ce19be0fa479dab/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-napoli.jpg",
+      "name": "pizza-napoli",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/926217b82e7633fe7b21dd1896a4fe69/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-bufalaccia.jpg",
+      "name": "pizza-bufalaccia",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/25e72febcd31277bcc98a6e0d35b6637/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-spacchiosa.jpg",
+      "name": "pizza-spacchiosa",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/4b436393f7fd0dac112cf8a58bb14e8e/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-ca-mortazza.jpg",
+      "name": "pizza-ca-mortazza",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/d803ffa52bfbd10d479529ab16f11444/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-amuni.jpg",
+      "name": "pizza-amuni",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/15f49a989c396acc35dcef0f3e207c9d/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-vegan-spacchiosa.jpg",
+      "name": "pizza-vegan-spacchiosa",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/12be5b13c71e695919a961abbaa3d998/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-pepperoni.jpg",
+      "name": "pizza-pepperoni",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/fa8221ec5a739e0f77a60f101fd6fcd6/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-cotto-funghi.jpg",
+      "name": "pizza-cotto-funghi",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/8351dcfaf315f993db79c88c3cfb91f3/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-al-funghi.jpg",
+      "name": "pizza-al-funghi",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/9771c306460166ac98f1e8576c865277/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-super-diavola-vegan.jpg",
+      "name": "pizza-super-diavola-vegan",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/bc131191a33eff3c5388e4cf39b530e9/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    },
+    {
+      "file": "pizza-stracciata.jpg",
+      "name": "pizza-stracciata",
+      "url": "https://tb-static.uber.com/prod/image-proc/processed_images/d347525be1697655ea599ba7e16e56f6/70aa2a4db7f990373ca9c376323e3dea.jpeg"
+    }
+  ],
+  "brand": [
+    {
+      "file": "amuni-logo.png",
+      "url": "https://ugc.production.linktr.ee/a1cdff72-d174-4171-8868-6c30a4a5950c_amunigigi-logo.png"
+    },
+    {
+      "file": "amuni-avatar.jpg",
+      "url": "https://ugc.production.linktr.ee/0aee4e59-62a3-468e-92b4-0935f73dfcbc_WhatsApp-Image-2026-07-31-at-16.10.38.jpeg"
+    },
+    {
+      "file": "menu-thumb.png",
+      "url": "https://ugc.production.linktr.ee/ccd17ccb-86cd-4cab-9f3a-a5a39758f665_menu.png"
+    }
+  ],
+  "log": [
+    "web_profile_info: HTTP 429",
+    "embed DeMgLfJMksS: HTTP 200, 536357 bytes",
+    "embed De4CQ-zsL7B: HTTP 200, 536350 bytes",
+    "embed De2e8vKMtGQ: HTTP 200, 536348 bytes",
+    "embed Dfe4bu0sBzY: HTTP 200, 536351 bytes",
+    "embed DfcSPFtsJ4U: HTTP 200, 536351 bytes",
+    "embed DfM2maPsfKg: HTTP 200, 536347 bytes",
+    "embed DfFfEtcMewn: HTTP 200, 536338 bytes",
+    "embed DfDHGc8Mbnh: HTTP 200, 536352 bytes",
+    "embed DfAaX1cMbQP: HTTP 200, 536351 bytes",
+    "embed De-RVEMMGzB: HTTP 200, 536351 bytes",
+    "embed DezeX1vsMkj: HTTP 200, 536349 bytes",
+    "embed DexMsW4MP0s: HTTP 200, 536845 bytes",
+    "OK   yt-dlp DeMgLfJMksS.mp4 (12812772 bytes)",
+    "OK   yt-dlp De4CQ-zsL7B.mp4 (2742803 bytes)",
+    "OK   yt-dlp De2e8vKMtGQ.mp4 (4245187 bytes)",
+    "yt-dlp Dfe4bu0sBzY: ERROR: [Instagram] Dfe4bu0sBzY: There is no video in this post ",
+    "OK   yt-dlp DfcSPFtsJ4U.mp4 (311220 bytes)",
+    "OK   yt-dlp DfM2maPsfKg.mp4 (7004450 bytes)",
+    "OK   yt-dlp DfFfEtcMewn.mp4 (2574820 bytes)",
+    "OK   yt-dlp DfDHGc8Mbnh.mp4 (2454936 bytes)",
+    "OK   yt-dlp DfAaX1cMbQP.mp4 (5494655 bytes)",
+    "OK   yt-dlp De-RVEMMGzB.mp4 (20364796 bytes)",
+    "OK   yt-dlp DezeX1vsMkj.mp4 (1924609 bytes)",
+    "OK   yt-dlp DexMsW4MP0s.mp4 (1808376 bytes)",
+    "maps: HTTP 200, 196554 bytes",
+    "maps: HTTP 200, 202106 bytes",
+    "maps: URLs de foto encontradas: 2",
+    "OK   media-raw/maps/maps-01.jpg (409710 bytes)",
+    "OK   media-raw/maps/maps-02.jpg (541758 bytes)",
+    "OK   media-raw/menu/loja-hero.jpg (77823 bytes)",
+    "OK   media-raw/menu/pizza-margherita.jpg (39753 bytes)",
+    "OK   media-raw/menu/pizza-margherita-dop.jpg (43547 bytes)",
+    "OK   media-raw/menu/pizza-parmigiana.jpg (43029 bytes)",
+    "OK   media-raw/menu/pizza-capricciosa.jpg (48160 bytes)",
+    "OK   media-raw/menu/pizza-salsiccia-friarielli.jpg (45141 bytes)",
+    "OK   media-raw/menu/pizza-napoli.jpg (43069 bytes)",
+    "OK   media-raw/menu/pizza-bufalaccia.jpg (52260 bytes)",
+    "OK   media-raw/menu/pizza-spacchiosa.jpg (43176 bytes)",
+    "OK   media-raw/menu/pizza-ca-mortazza.jpg (41683 bytes)",
+    "OK   media-raw/menu/pizza-amuni.jpg (44971 bytes)",
+    "OK   media-raw/menu/pizza-vegan-spacchiosa.jpg (41662 bytes)",
+    "OK   media-raw/menu/pizza-pepperoni.jpg (43275 bytes)",
+    "OK   media-raw/menu/pizza-cotto-funghi.jpg (50815 bytes)",
+    "OK   media-raw/menu/pizza-al-funghi.jpg (46453 bytes)",
+    "OK   media-raw/menu/pizza-super-diavola-vegan.jpg (40464 bytes)",
+    "OK   media-raw/menu/pizza-stracciata.jpg (41385 bytes)",
+    "OK   media-raw/brand/amuni-logo.png (4986 bytes)",
+    "OK   media-raw/brand/amuni-avatar.jpg (35831 bytes)",
+    "OK   media-raw/brand/menu-thumb.png (215612 bytes)",
+    "site oficial: HTTP 200, 19408 bytes"
+  ]
+}
