@@ -1,0 +1,8 @@
+# Arquivos de trabalho / scratch (não vão para o repositório do site)
+google_drive/
+image-search/
+.studio/
+node_modules/
+.vercel/
+.env.local
+*.log
