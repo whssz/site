@@ -1,0 +1,64 @@
+# Deploy do site Amunì a Caparica na Vercel.
+# Dispara em push nas branches de sessão (arena/*) e manualmente.
+# O runner tem rede livre: cria o deployment de produção direto pela API
+# da Vercel (token em Settings → Secrets → VERCEL_TOKEN, curta duração)
+# e mantém o link público sem Deployment Protection (mesmo padrão da conta).
+name: deploy-vercel
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "index.html"
+      - ".vercelignore"
+      - ".github/workflows/deploy-vercel.yml"
+
+env:
+  PROJECT: prj_ylT7BNxO9CMskMFJMRcOkr2QQ2g7
+  TEAM: team_z6tahC0dowvMZFiASHvvIgBP
+  REPO_ID: 1440125649
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link público + deploy de produção do commit atual
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -e
+          T="$VERCEL_TOKEN"
+          echo "::group::proteção/branch de produção (escopo: só este projeto)"
+          curl -sS -X PATCH "https://api.vercel.com/v9/projects/$PROJECT?teamId=$TEAM" \
+            -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+            -d "{\"ssoProtection\":null}" | head -c 300 || true
+          echo; echo "::endgroup::"
+
+          echo "::group::criando deployment de produção"
+          RESP=$(curl -sS -X POST "https://api.vercel.com/v13/deployments?teamId=$TEAM" \
+            -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+            -d "{\"name\":\"amuni-a-caparica\",\"project\":\"$PROJECT\",\"target\":\"production\",\"gitSource\":{\"type\":\"github\",\"ref\":\"$GITHUB_REF_NAME\",\"sha\":\"$GITHUB_SHA\",\"repoId\":$REPO_ID}}")
+          echo "$RESP" | head -c 800
+          ID=$(printf '%s' "$RESP" | sed -n 's/.*"uid":"\(dpl_[A-Za-z0-9]*\)".*/\1/p' | head -1)
+          echo; echo "deployment: $ID"
+          echo "::endgroup::"
+          if [ -z "$ID" ]; then echo "::error::resposta sem uid de deployment"; exit 1; fi
+
+          echo "::group::aguardando build"
+          ST=""
+          for i in $(seq 1 60); do
+            ST=$(curl -sS "https://api.vercel.com/v13/deployments/$ID?teamId=$TEAM" -H "Authorization: Bearer $T" \
+              | sed -n 's/.*"readyState":"\([A-Za-z]*\)".*/\1/p' | head -1)
+            echo "[$i] readyState=$ST"
+            [ "$ST" = "READY" ] && break
+            [ "$ST" = "ERROR" ] && break
+            sleep 10
+          done
+          echo "::endgroup::"
+          if [ "$ST" != "READY" ]; then
+            echo "::error::build terminou em $ST — ver eventos do deployment no dashboard"
+            exit 1
+          fi
+          echo "✓ produção publicada: https://amuni-a-caparica.vercel.app"
