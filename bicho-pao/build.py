@@ -2,7 +2,7 @@
 import base64, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # /home/user/site
-A = os.path.join(ROOT, 'assets')
+A = os.path.join(ROOT, 'public', 'assets')
 
 def b64(p, mime):
     return f"data:{mime};base64," + base64.b64encode(open(p, 'rb').read()).decode()
@@ -32,6 +32,6 @@ for k, (f, mime) in TOK.items():
 left = re.findall(r'\{\{[A-Z0-9_]+\}\}', html)
 assert not left, f"tokens não substituídos: {left}"
 
-out = os.path.join(ROOT, 'index.html')
+out = os.path.join(ROOT, 'public', 'index.html')
 open(out, 'w', encoding='utf-8').write(html)
 print('index.html', round(os.path.getsize(out) / 1024 / 1024, 2), 'MB')
