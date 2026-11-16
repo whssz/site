@@ -1,0 +1,70 @@
+# Confere que o site publicado responde e serve o arquivo único correto.
+# O deploy é feito pela integração Git da Vercel a cada push na branch.
+name: verify
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: URL a verificar
+        required: false
+        default: https://quatro-em-1.vercel.app/
+  push:
+    branches: ["arena/**"]
+    paths: ["index.html", "public/**", "vercel.json"]
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir HTTP, tamanho e título
+        run: |
+          URL="${{ github.event.inputs.url || 'https://quatro-em-1.vercel.app/' }}"
+          echo "verificando $URL"
+          for i in $(seq 1 20); do
+            CODE=$(curl -sS -o /tmp/page.html -w '%{http_code}' -L "$URL" || echo 000)
+            HTTP_VER=$(curl -sS -o /dev/null -w '%{http_version}' -L "$URL" || echo 0)
+            echo "tentativa $i -> HTTP $CODE (versao $HTTP_VER)"
+            [ "$CODE" = "200" ] && break
+            sleep 10
+          done
+          echo "bytes: $(wc -c < /tmp/page.html)"
+          echo "titulo: $(grep -o '<title>[^<]*</title>' /tmp/page.html | head -1)"
+          echo "lang:   $(grep -o '<html[^>]*lang="[^"]*"' /tmp/page.html | head -1)"
+          test "$CODE" = "200" || { echo "FALHOU: nao respondeu 200"; exit 1; }
+
+      - name: Conferir que o arquivo é autossuficiente
+        run: |
+          python3 - <<'PY'
+          import re, sys
+          h = open('/tmp/page.html', encoding='utf-8', errors='replace').read()
+          ext = re.findall(r'(?:src|href)="(https?://[^"]+)"', h)
+          externos = [u for u in ext if 'vercel.app' not in u]
+          print('midia/fonte embutida:', len(re.findall(r'data:(?:image|video|font)/', h)))
+          print('requisicoes externas:', externos if externos else 'nenhuma')
+          print('tamanho: %.2f MB' % (len(h.encode()) / 1048576))
+          sys.exit(1 if externos else 0)
+          PY
+
+      - name: Salvar verificação
+        run: |
+          mkdir -p qa
+          { echo "# Verificação do site publicado"; echo
+            echo "Data: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo "URL: ${{ github.event.inputs.url || 'https://quatro-em-1.vercel.app/' }}"
+            echo "HTTP: $CODE · bytes: $(wc -c < /tmp/page.html)"
+            echo "Título: $(grep -o '<title>[^<]*</title>' /tmp/page.html | head -1)"
+          } > qa/VERIFICACAO.md
+          cat qa/VERIFICACAO.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add qa/VERIFICACAO.md
+          git commit -m "QA: verificação do site publicado [skip ci]" || echo "nada a commitar"
+          git pull --rebase origin ${GITHUB_REF_NAME} || true
+          git push origin HEAD:${GITHUB_REF_NAME} || echo "nada a enviar"
