@@ -29,6 +29,7 @@
    ============================================================ */
 :root{
   --accent:#C9A46A; /* definido pelo injetor */
+  --accent:#C9A46A; /* definido pelo injetor */
   --ink:#0B0A08;
   --ink-2:#12100C;
   --ink-3:#191612;
@@ -433,7 +434,23 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--ink
 .legal-box p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:10px}
 .legal-box p b{color:var(--cream);font-weight:600}
 .legal-foot{font-size:11px;color:rgba(244,236,222,.42);letter-spacing:.06em;text-align:center;margin-top:34px;line-height:1.9}
+
+/* unidades da casa */
+.units{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.unit{
+  display:block;border:1px solid var(--line);border-radius:14px;background:var(--ink-2);
+  padding:18px 20px;transition:border-color .35s,transform .4s var(--ease);
+}
+.unit:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateY(-2px)}
+.unit h4{font-size:13.5px;font-weight:700;color:var(--gold-2);letter-spacing:-.01em}
+.unit p{font-size:12.5px;color:var(--muted);margin:7px 0 12px;line-height:1.6}
+.unit .go{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
+.unit .go svg{transition:transform .4s var(--ease)}
+.unit:hover .go svg{transform:translate(3px,-3px)}
+@media(max-width:620px){.units{grid-template-columns:1fr}}
 @media(max-width:620px){.legal-box{padding:26px 22px 28px}}
+
+/* ANIM-KIT v2 */
 
 /* ANIM-KIT v2 */
 
@@ -704,6 +721,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 
 
 
+
 <!-- ===================== HEADER ===================== -->
 <header id="hdr">
   <div class="wrap nav">
@@ -735,9 +753,9 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
       </div>
     </div>
     <div class="stack" aria-hidden="true">
-      <figure class="s1"><img src="{{IMG_1}}" alt=""></figure>
-      <figure class="s2"><img src="{{IMG_2}}" alt=""></figure>
-      <figure class="s3"><img src="{{IMG_PAO}}" alt=""></figure>
+      <figure class="s1"><img src="{{IMG_LUGAR_INTERIOR}}" alt=""></figure>
+      <figure class="s2"><img src="{{IMG_LUGAR_VITRINE}}" alt=""></figure>
+      <figure class="s3"><img src="{{IMG_LUGAR_MESA}}" alt=""></figure>
     </div>
   </div>
 </section>
@@ -754,7 +772,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 <div class="wrap">
   <div class="stats rev">
     <div class="stat"><b>4,7<i>★</i></b><p>Nota no Google</p></div>
-    <div class="stat"><b>969<i>+</i></b><p>Avaliações no Google</p></div>
+    <div class="stat"><b>972<i>+</i></b><p>Avaliações no Google</p></div>
     <div class="stat"><b>3<i>·</i></b><p>Bairros atendidos</p></div>
     <div class="stat"><b>24.469<i>+</i></b><p>Seguidores no Instagram</p></div>
   </div>
@@ -846,12 +864,26 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
       <div class="rev"><div class="sec-label">Sobre</div><h2>Uma casa de <em>pão e café</em></h2></div>
     </div>
     <div class="about">
-      <div class="about-photo rev"><img src="{{IMG_5}}" alt="Pães artesanais sobre a bancada de madeira da casa"><span class="ring"></span></div>
+      <div class="about-photo rev"><img src="{{IMG_LUGAR_BALCAO}}" alt="Balcão e vitrine da padaria Bicho Pão"><span class="ring"></span></div>
       <div class="about-body rev rev-d1">
         <p>A <strong>Bicho Pão</strong> é uma padaria e confeitaria artesanal no Flamengo, entre o Catete e Laranjeiras. Aqui o pão não é produção de linha: é feito no dia, no forno da casa, para abrir o café da manhã e acompanhar o café coado da tarde.</p>
         <p>O cardápio acompanha o ritmo do bairro: croissants quentinhos pela manhã, sanduíches e panelinhas no almoço executivo, e um brunch que dá vontade de voltar. Os pedidos acontecem pelo WhatsApp — sem fila, sem app, sem cadastro.</p>
         <div class="signature">Equipe Bicho Pão</div>
-        <div class="tools"><span>Pães artesanais</span><span>Café coado</span><span>Brunch</span><span>Almoço executivo</span><span>Pedidos pelo WhatsApp</span></div>
+        <div class="tools"><span>Pães artesanais</span><span>Sourdough de longa fermentação</span><span>Café coado</span><span>Brunch</span><span>Almoço executivo</span><span>Pedidos pelo WhatsApp</span></div>
+        <div class="units">
+          <a class="unit" href="https://www.google.com/maps/place/Padaria+Bicho+P%C3%A3o+-+Catete/data=!4m7!3m6!1s0x997faaec9d2f63:0xb3d8a5fd2bcd58ef!8m2!3d-22.9280446!4d-43.1754183!16s%2Fg%2F11j4tzm_tf!19sChIJYy-d7Kp_mQAR71jNK_2l2LM?hl=pt-BR" target="_blank" rel="noopener">
+            <h4>Unidade Corrêa Dutra</h4>
+            <p>R. Corrêa Dutra, 39 B — Flamengo, Rio de Janeiro — RJ</p>
+            <span class="go">Ver no Mapa
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          </a>
+          <a class="unit" href="https://www.google.com/maps/place/Padaria+Bicho+P%C3%A3o/@-22.9313729,-43.1789949,17z/data=!4m6!3m5!1s0x997f17c70d5bd3:0x9db5779acc889ada!8m2!3d-22.9347012!4d-43.1774216!16s%2Fg%2F11rts2nqjb?hl=pt-BR" target="_blank" rel="noopener">
+            <h4>Unidade Paissandu</h4>
+            <p>Rua Paissandu, 111 — Flamengo, Rio de Janeiro — RJ</p>
+            <span class="go">Ver no Mapa
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -861,7 +893,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 <section class="cta" id="contato" data-bridge="b">
   <div class="wrap">
     <h2 class="rev">Venha probar o <em>pão da casa</em></h2>
-    <p class="rev rev-d1">Abra o WhatsApp, diga o que quer e a gente prepara com o pão ainda quentinho. A casa abre a partir das 08:00 — confirme os horários de funcionamento pelo chat.</p>
+    <p class="rev rev-d1">Abra o WhatsApp, diga o que quer e a gente prepara com o pão ainda quentinho. A casa abre a partir das 08:00 e fecha às 19:30 — confira os horários de cada dia pelo chat.</p>
     <div class="hero-cta rev rev-d2">
       <a class="btn btn-gold" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -890,7 +922,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
       <p><b>4. Devolução e arrependimento.</b> Alimentos são perecíveis e preparados no dia. Em caso de problema com o pedido, entre em contato pelo WhatsApp assim que receber — a casa busca a melhor solução, conforme as regras do CDC. Valores pagos são restituídos ou ajustados conforme o caso.</p>
       <p><b>5. Responsabilidades.</b> Este site é uma apresentação institucional. Os produtos e serviços oferecidos são regidos pelas condições confirmadas no atendimento.</p>
     </div>
-    <p class="legal-foot">Bicho Pão · Padaria e confeitaria artesanal · R. Corrêa Dutra, 39 B — Flamengo, Rio de Janeiro — RJ · +55 21 98396-6852 · instagram.com/bicho_pao</p>
+    <p class="legal-foot">Bicho Pão · Padaria e confeitaria artesanal · R. Corrêa Dutra, 39 B — Flamengo, Rio de Janeiro — RJ · Rua Paissandu, 111 — Flamengo, Rio de Janeiro — RJ · +55 21 98396-6852 · instagram.com/bicho_pao</p>
   </section>
 </div>
 
