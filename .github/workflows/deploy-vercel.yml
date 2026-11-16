@@ -37,14 +37,14 @@ jobs:
           echo; echo "::endgroup::"
 
           echo "::group::criando deployment de produção"
-          RESP=$(curl -sS -X POST "https://api.vercel.com/v13/deployments?teamId=$TEAM" \
+          RESP=$(curl -sS -X POST "https://api.vercel.com/v13/deployments?teamId=$TEAM&skipAutoDetectionConfirmation=1" \
             -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
             -d "{\"name\":\"amuni-a-caparica\",\"project\":\"$PROJECT\",\"target\":\"production\",\"gitSource\":{\"type\":\"github\",\"ref\":\"$GITHUB_REF_NAME\",\"sha\":\"$GITHUB_SHA\",\"repoId\":$REPO_ID}}")
-          echo "$RESP" | head -c 800
+          echo "$RESP" | head -c 1000
           ID=$(printf '%s' "$RESP" | sed -n 's/.*"uid":"\(dpl_[A-Za-z0-9]*\)".*/\1/p' | head -1)
           echo; echo "deployment: $ID"
           echo "::endgroup::"
-          if [ -z "$ID" ]; then echo "::error::resposta sem uid de deployment"; exit 1; fi
+          if [ -z "$ID" ]; then echo "::error::resposta sem uid de deployment: $(printf '%s' "$RESP" | head -c 700)"; exit 1; fi
 
           echo "::group::aguardando build"
           ST=""
