@@ -1,0 +1,3 @@
+width=720
+height=1280
+duration=70.144626
