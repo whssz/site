@@ -1,5 +1,9 @@
-# Portão de qualidade da Quatro em 1: QA de animação/layout, QA de conformidade
-# e teste funcional real do fluxo de pedido. Roda com navegador de verdade.
+# Portão de qualidade da Quatro em 1:
+#   1. QA de animação e layout
+#   2. QA de conformidade (LGPD / WCAG)
+#   3. Teste funcional real do fluxo de pedido
+#   4. Conferência do site publicado (HTTP 200 e arquivo autossuficiente)
+# Roda em runner com navegador de verdade.
 name: qa
 
 on:
@@ -8,11 +12,15 @@ on:
     branches: ["arena/**"]
     paths:
       - "index.html"
+      - "public/**"
       - "scripts/test-flow.mjs"
       - ".github/workflows/qa.yml"
 
 permissions:
   contents: write
+
+env:
+  SITE_URL: https://quatro-em-1.vercel.app/
 
 jobs:
   qa:
@@ -29,44 +37,37 @@ jobs:
           npx playwright install chromium
 
       - name: QA de animação e layout
-        run: node tools/qa.mjs index.html --min-loop 2 | tee qa-animacao.txt
+        run: node tools/qa.mjs index.html --min-loop 2 2>&1 | tee qa-animacao.txt
 
       - name: QA de conformidade (LGPD/WCAG)
-        run: node tools/qa-legal.mjs index.html | tee qa-conformidade.txt
+        run: node tools/qa-legal.mjs index.html 2>&1 | tee qa-conformidade.txt
 
       - name: Teste funcional do fluxo de pedido
-        run: node scripts/test-flow.mjs index.html | tee qa-fluxo.txt
+        run: node scripts/test-flow.mjs index.html 2>&1 | tee qa-fluxo.txt
 
-      - name: Conferir site publicado (HTTP 200)
+      - name: Conferir site publicado
         run: |
-          URL="https://quatro-em-1.vercel.app/"
           for i in $(seq 1 20); do
-            CODE=$(curl -sS -o /tmp/page.html -w '%{http_code}' -L "$URL" || echo 000)
+            CODE=$(curl -sS -o /tmp/page.html -w '%{http_code}' -L "$SITE_URL" || echo 000)
             echo "tentativa $i -> HTTP $CODE"
-            [ "$CODE" = "200" ] && break
+            if [ "$CODE" = "200" ]; then break; fi
             sleep 10
           done
           echo "bytes: $(wc -c < /tmp/page.html)"
           echo "titulo: $(grep -o '<title>[^<]*</title>' /tmp/page.html | head -1)"
-          test "$CODE" = "200" || { echo "FALHOU: site nao respondeu 200"; exit 1; }
-          python3 - <<'PYX'
-import re, sys
-h = open('/tmp/page.html', encoding='utf-8', errors='replace').read()
-ext = [u for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', h) if 'vercel.app' not in u]
-print('midia/fonte embutida:', len(re.findall(r'data:(?:image|video|font)/', h)))
-print('requisicoes externas:', ext if ext else 'nenhuma')
-print('tamanho: %.2f MB' % (len(h.encode()) / 1048576))
-sys.exit(1 if ext else 0)
-PYX
+          if [ "$CODE" != "200" ]; then echo "FALHOU: site nao respondeu 200"; exit 1; fi
+          python3 scripts/check-self-contained.py /tmp/page.html 2>&1 | tee qa-publicado.txt
 
       - name: Consolidar relatório
         if: always()
         run: |
           mkdir -p qa
-          { echo "# Relatório de QA — Quatro em 1"
+          {
+            echo "# Relatório de QA — Quatro em 1"
             echo
             echo "Gerado em: $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo "Arquivo: index.html ($(stat -c%s index.html) bytes)"
+            echo "Arquivo: index.html ($(stat -c%s index.html 2>/dev/null || echo '?') bytes)"
+            echo "Site: $SITE_URL"
             echo
             echo "## 1. Animação e layout (tools/qa.mjs)"
             echo '```'; cat qa-animacao.txt 2>/dev/null; echo '```'
@@ -78,11 +79,9 @@ PYX
             echo '```'; cat qa-fluxo.txt 2>/dev/null; echo '```'
             echo
             echo "## 4. Site publicado"
-            echo '```'
-            curl -sS -o /dev/null -w 'https://quatro-em-1.vercel.app/ -> HTTP %{http_code} (HTTP/%{http_version})\n' -L https://quatro-em-1.vercel.app/ || true
-            echo '```'
+            echo '```'; cat qa-publicado.txt 2>/dev/null; echo '```'
           } > qa/RELATORIO.md
-          cat qa/RELATORIO.md | head -80
+          cat qa/RELATORIO.md
 
       - name: Publicar relatório
         if: always()
@@ -91,5 +90,5 @@ PYX
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A qa
           git commit -m "QA: relatório de animação, conformidade e fluxo [skip ci]" || echo "nada a commitar"
-          git pull --rebase origin ${GITHUB_REF_NAME} || true
-          git push origin HEAD:${GITHUB_REF_NAME} || echo "nada a enviar"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push origin HEAD:"${GITHUB_REF_NAME}" || echo "nada a enviar"
