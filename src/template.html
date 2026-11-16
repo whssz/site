@@ -181,8 +181,12 @@ section{position:relative}
 .tab[aria-selected="true"]{background:var(--choc);color:var(--cream-2);border-color:var(--choc);box-shadow:0 12px 26px -16px rgba(59,20,17,.8)}
 .tab-n{font-size:9px;opacity:.6;margin-left:7px;font-weight:700}
 .grid-p{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.p-card{background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-l);overflow:hidden;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .5s var(--ease);position:relative}
-.p-card:hover{transform:translateY(-8px);box-shadow:var(--sh-l);border-color:rgba(199,154,78,.5)}
+.p-card{background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-l);overflow:hidden;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .5s var(--ease),opacity .85s var(--ease);position:relative}
+/* entrada dos cards: a classe p-anim é colocada pelo JS, então sem JS
+   os produtos continuam visíveis. Re-observada a cada troca de aba. */
+.p-card.p-anim{opacity:0;transform:translate3d(0,26px,0) scale(.975)}
+.p-card.p-anim.card-in{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.p-card.p-anim.card-in:hover{transform:translate3d(0,-8px,0) scale(1)}
 .p-card.hide{display:none}
 .p-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--cream-2)}
 .p-shot{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
@@ -255,7 +259,7 @@ section{position:relative}
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
 .quote{margin:0;background:var(--white);border:1px solid var(--line-2);border-radius:var(--r-l);padding:30px 28px;position:relative;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .5s var(--ease)}
 .quote:hover{transform:translateY(-6px);box-shadow:var(--sh-l);border-color:rgba(199,154,78,.45)}
-.q-mark{position:absolute;top:8px;right:22px;font-family:Georgia,serif;font-size:82px;line-height:1;color:var(--gold-2);opacity:.5}
+.q-mark{position:absolute;top:8px;right:22px;font-family:Georgia,serif;font-size:82px;line-height:1;color:var(--gold-3);opacity:.42}
 .q-stars{display:flex;gap:3px;margin-bottom:14px}
 .q-stars i{width:14px;height:14px;background:var(--gold);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 .quote blockquote{margin:0}
@@ -310,7 +314,7 @@ footer h4{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:upp
 .f-links a{font-size:13.5px;color:rgba(247,239,227,.78);transition:color .4s var(--ease),transform .4s var(--ease);display:inline-flex;align-items:center;gap:8px}
 .f-links a:hover{color:var(--gold-2);transform:translateX(4px)}
 .f-links svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;flex:none}
-.f-bot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:26px;font-size:11.5px;color:rgba(247,239,227,.5)}
+.f-bot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:26px;font-size:11.5px;color:rgba(247,239,227,.66)}
 .f-bot a{color:rgba(247,239,227,.7);text-decoration:underline;text-underline-offset:3px}
 .f-bot a:hover{color:var(--gold-2)}
 .legal{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -496,7 +500,7 @@ footer h4{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:upp
   .p-shot,.g-item img,.r-item img,.about-photo img,.quote,.p-card,.tab,.chip,.btn,.ico{animation:none!important;transition:none!important;transform:none!important}
   .steam,.sugar{display:none}
   html{scroll-behavior:auto}
-  .rev,.rv-fade,.rv-scale,.rv-left,.rv-right{opacity:1!important;transform:none!important}
+  .rev,.rv-fade,.rv-scale,.rv-left,.rv-right,.p-card.p-anim{opacity:1!important;transform:none!important}
   .rv-clip{clip-path:none!important}
 }
 @media print{.hdr,.mbar,.drawer,.scrim,.toast,.marquee{display:none!important}}
@@ -781,7 +785,7 @@ footer h4{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:upp
     </div>
 
     <div class="legal">
-      <details>
+      <details id="privacidade">
         <summary>Política de Privacidade</summary>
         <div class="l-body">
           <h5>Quais dados coletamos</h5>
@@ -792,7 +796,7 @@ footer h4{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:upp
           <p>Você pode apagar a qualquer momento os dados guardados no seu navegador usando o botão “Limpar pedido” no resumo do pedido. Como os dados não são enviados a este site nem armazenados por ele, não há base de dados para consultar, corrigir ou excluir aqui. Para qualquer questão sobre o tratamento dos seus dados pela loja, fale diretamente com a Quatro em 1 pelo WhatsApp oficial: <span class="wa-inline"></span>.</p>
         </div>
       </details>
-      <details>
+      <details id="termos">
         <summary>Termos de Uso</summary>
         <div class="l-body">
           <h5>O que este site é</h5>
@@ -809,7 +813,7 @@ footer h4{font-size:10px;font-weight:800;letter-spacing:.24em;text-transform:upp
 
     <div class="f-bot">
       <span>Quatro em 1 · Av. Cesário de Melo, 4555 — Loja C, Campo Grande, Rio de Janeiro/RJ · CEP 23055-002</span>
-      <span>Site informativo — pedidos finalizados no WhatsApp oficial da loja.</span>
+      <span><a href="#privacidade">Política de Privacidade</a> · <a href="#termos">Termos de Uso</a> · Site informativo — pedidos finalizados no WhatsApp oficial da loja.</span>
     </div>
   </div>
 </footer>
@@ -915,13 +919,36 @@ function buildTabs() {
       tabsEl.querySelectorAll('.tab').forEach(function (x) {
         x.setAttribute('aria-selected', String(x.dataset.t === catAtiva));
       });
-      document.querySelectorAll('.p-card').forEach(function (c) {
-        c.classList.toggle('hide', c.dataset.cat !== catAtiva);
-      });
+      aplicarAba();
     });
   });
+  aplicarAba();
+}
+function aplicarAba() {
   document.querySelectorAll('.p-card').forEach(function (c) {
     c.classList.toggle('hide', c.dataset.cat !== catAtiva);
+  });
+  observarCards();
+}
+/* cards de abas ocultas nunca cruzam o viewport, então o observer
+   precisa ser reconstruído a cada troca — senão ficam invisíveis. */
+let ioCards = null;
+function observarCards() {
+  if (ioCards) ioCards.disconnect();
+  ioCards = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('card-in');
+      ioCards.unobserve(e.target);
+    });
+  }, { threshold: .06, rootMargin: '0px 0px -3% 0px' });
+  let i = 0;
+  document.querySelectorAll('.p-card').forEach(function (c) {
+    c.classList.add('p-anim');
+    if (c.classList.contains('hide')) return;
+    c.style.transitionDelay = (i % 4) * 55 + 'ms';
+    i++;
+    ioCards.observe(c);
   });
 }
 buildTabs();

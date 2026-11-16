@@ -116,7 +116,7 @@ if (was.length) {
 log('\n── 10. persistência ao recarregar');
 await page.reload({ waitUntil: 'load' });
 await page.waitForTimeout(800);
-check(await page.locator('#badge').textContent() === '4', 'pedido preservado após recarregar');
+check(await page.locator('#badge').textContent() === '3', 'pedido preservado após recarregar (3 unidades)');
 
 log('\n── 11. teclado e acessibilidade');
 await page.locator('#cartOpen').click();

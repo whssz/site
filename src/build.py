@@ -64,6 +64,7 @@ for p in dados['produtos']:
     if p.get('sem_foto'):
         art = ('<div class="p-shot p-shot--txt" aria-hidden="true">'
                '<span class="p-glyph">%s</span></div>') % esc(p['nome'][:1].upper())
+        tag = '<span class="p-tag">Bebida</span>'
     else:
         img = 'assets/prod/%s.jpg' % slug
         if not os.path.exists(img):
@@ -71,17 +72,17 @@ for p in dados['produtos']:
         tokens.add(img)
         art = ('<img class="p-shot" src="__M:%s__" alt="%s" width="400" height="400" '
                'loading="lazy" decoding="async">' % (img, esc(p['nome'])))
+        tag = ''
     cards.append(
-        '<article class="p-card rev rv-scale" data-cat="%s" data-slug="%s" '
+        '<article class="p-card" data-cat="%s" data-slug="%s" '
         'data-nome="%s" data-preco="%.2f">'
-        '<div class="p-media">%s<span class="p-tag">%s</span></div>'
+        '<div class="p-media">%s%s</div>'
         '<div class="p-body"><h3 class="p-name">%s</h3>'
         '<p class="p-desc">%s</p>'
         '<div class="p-foot"><span class="p-price">%s</span>'
         '<button class="p-add" type="button" data-add="%s">'
         '<span class="p-add-i">+</span>Adicionar</button></div></div></article>'
-        % (cat, slug, esc(p['nome']), p['preco'], art,
-           'Bebida' if cat == 'bebidas' else '',
+        % (cat, slug, esc(p['nome']), p['preco'], art, tag,
            esc(p['nome']), esc(p['desc']), preco, slug))
 template = template.replace('<!--__CARDS__-->', '\n'.join(cards))
 
