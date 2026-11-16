@@ -133,7 +133,7 @@ for (const murl of MAPS_URLS) {
 }
 note('maps: URLs de foto encontradas: ' + mapsFound.size);
 let mi = 0;
-for (const u of [...mapsFound].slice(0, 70)) {
+for (const u of [...mapsFound].slice(0, 45)) {
   mi++;
   const f = `maps-${String(mi).padStart(2, '0')}.jpg`;
   if (await save(u + '=w1600-h1600-k-no', `${OUT}/maps/${f}`, 5000)) manifest.maps.push({ file: f, url: u });

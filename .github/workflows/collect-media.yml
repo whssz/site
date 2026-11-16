@@ -13,12 +13,12 @@ on:
       - ".github/workflows/collect-media.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -47,14 +47,30 @@ jobs:
           du -sh media-raw/* || true
           ls -la media-raw/ig/web | head -60
 
-      - name: Empacotar mídia
+      - name: Normalizar imagens (tamanho e peso, sem perder nitidez)
         run: |
-          tar czf media-raw.tgz media-raw
-          ls -lh media-raw.tgz
+          set +e
+          sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick >/dev/null 2>&1 || true
+          n=0
+          find media-raw -maxdepth 2 -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' -o -iname '*.png' -o -iname '*.img' \) -print0 | while IFS= read -r -d '' f; do
+            d=$(dirname "$f"); b=$(basename "$f"); b="${b%.*}"
+            case "$b" in _*|*logo*|*submarca*|*perfil*|*poster*) continue;; esac
+            convert "$f" -auto-orient -strip -resize '1200x1200>' -quality 82 "$d/$b.jpg" 2>/dev/null
+            [ -f "$d/$b.jpg" ] && rm -f "$f"
+            n=$((n+1))
+          done
+          echo "imagens normalizadas: $n"
+          du -sh media-raw/*
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: media-raw
-          path: media-raw.tgz
-          if-no-files-found: error
-          retention-days: 3
+      - name: Relatório
+        run: |
+          find media-raw -type f | sed 's/^/  /' | sort | head -200
+          echo "total: $(find media-raw -type f | wc -l) arquivos"
+
+      - name: Devolver para a branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A media-raw
+          git commit -m "Mídia bruta oficial coletada (Instagram + Maps + cardápio) [skip ci]" || echo "nada a commitar"
+          git push origin HEAD:${GITHUB_REF_NAME}
