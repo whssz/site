@@ -19,7 +19,6 @@ TOK = {
     '{{IMG_6}}': ('image-6.webp', 'image/webp'),
     '{{IMG_7}}': ('image-7.webp', 'image/webp'),
     '{{IMG_8}}': ('image-8.webp', 'image/webp'),
-    '{{IMG_INSTAGRAM_PAO}}': ('instagram-pao.webp', 'image/webp'),
     '{{IMG_LUGAR_INTERIOR}}': ('lugar-interior.webp', 'image/webp'),
     '{{IMG_LUGAR_VITRINE}}': ('lugar-vitrine.webp', 'image/webp'),
     '{{IMG_LUGAR_MESA}}': ('lugar-mesa.webp', 'image/webp'),
