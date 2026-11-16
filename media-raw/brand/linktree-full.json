@@ -1,0 +1,1974 @@
+{
+  "props": {
+    "pageProps": {
+      "account": {
+        "id": 136342437,
+        "uuid": "e25a506b-7046-4233-aa78-74390d065dea",
+        "username": "cloesaint2026",
+        "pages": [
+          {
+            "id": 68222847,
+            "kind": "LINKS"
+          }
+        ],
+        "isActive": true,
+        "status": "",
+        "deleted": false,
+        "profilePictureUrl": "https://ugc.production.linktr.ee/6ea068aa-688b-4987-8b4f-75ffadb80527_WhatsApp-Image-2026-06-28-at-14.10.38.jpeg",
+        "avatarMode": "CIRCLE_SMALL",
+        "avatarType": "IMAGE",
+        "avatarShapeType": null,
+        "bannerImage": null,
+        "bannerImageAttributes": null,
+        "bannerVideo": null,
+        "bannerType": "IMAGE",
+        "pageTitle": "Clô&Saint",
+        "googleAnalyticsId": null,
+        "facebookPixelId": null,
+        "tiktokPixelId": null,
+        "donationsActive": false,
+        "causeBanner": null,
+        "contentWarning": null,
+        "description": null,
+        "isLogoVisible": true,
+        "socialLinksPosition": "TOP",
+        "useSignupLink": false,
+        "createdAt": 1782666064000,
+        "updatedAt": 1782933556000,
+        "defaultProfilePage": "LINKS",
+        "verticals": [
+          "no-option"
+        ],
+        "seoPrimaryVertical": null,
+        "customAvatar": "https://ugc.production.linktr.ee/6ea068aa-688b-4987-8b4f-75ffadb80527_WhatsApp-Image-2026-06-28-at-14.10.38.jpeg",
+        "customAvatarVideo": null,
+        "customAvatarAttributes": null,
+        "backgroundImageAttributes": null,
+        "profileBadges": null,
+        "stickers": [],
+        "isVenmoEnabled": true,
+        "isSquareWalletEnabled": true,
+        "isCookieBannerEnabled": true,
+        "isInitialsProfileEnabled": true,
+        "isWhatsappNotificationsEnabled": true,
+        "isShareLinksEnabled": true,
+        "isOnlyfansSEOEnabled": false,
+        "linkTypesForSEO": null,
+        "manualTitleTag": null,
+        "dynamicMetaTitle": "Clô&Saint Official: Instagram | Linktree",
+        "dynamicMetaDescription": "Linktree. Make your link do more.",
+        "tier": "free1",
+        "enableDynamicProfilePageMetadata": true,
+        "linkPlatforms": [
+          "Instagram"
+        ],
+        "isAmazonAffiliateEnabled": true,
+        "profileLinkContentDisplayType": "dialog1",
+        "complementaryThemeProperties": false,
+        "timezone": "America/Sao_Paulo",
+        "showSignupOption": true,
+        "country": "BR",
+        "isReportLinktreeEnabled": true,
+        "isVisualLinkPreviewsEnabled": true,
+        "isStoreTabEnabled": false,
+        "isShopPageBackedTabEnabled": true,
+        "isMigratedShopUnification": false,
+        "contentTranslationsEnabled": false,
+        "contentTranslationsPrimaryLanguage": null,
+        "contentTranslationLocales": [],
+        "isFetchCoMoFromLinktreeBackendEnabled": true,
+        "canAccessMonetizationTab": true,
+        "eligibleForMonetization": "NONE",
+        "isMessagingEnabled": false,
+        "hasOptedIntoTotalFollowerCount": false,
+        "isSensitive": false,
+        "isSensitiveWithGracePeriod": false,
+        "isSeoNoindex": false,
+        "userGeneratedBio": "Clô&Saint has been a member of Linktree for 4 months and joined in June 2026.\n\nThe social media accounts linked to from Clô&Saint are:\n• Instagram\n• WhatsApp\n\nBesides social media accounts, cloesaint2026 has populated their site with:\n• Fornecimento para empresas B2B\n• 99Food\n• Localização",
+        "showGeneratedBio": true,
+        "hasMediaKit": false,
+        "isDigitalWalletActive": null,
+        "messagingSettings": null,
+        "isAdsPolicyEligible": true,
+        "isUnclaimedAccount": false,
+        "socialIntegrations": [],
+        "connectors": [],
+        "affiliateTokens": [],
+        "ownedBy": {
+          "id": 145309212,
+          "uuid": "238d4428-2833-4d46-8422-d09a3e736016",
+          "isEmailVerified": true
+        },
+        "pageMeta": null,
+        "integrations": [],
+        "links": [
+          {
+            "context": {
+              "layoutOption": "stack",
+              "legacySocoCollectionId": null,
+              "fakeSocoCollectionId": null,
+              "groupLinkVariant": "DEFAULT"
+            },
+            "googleBusinessAgent": null,
+            "id": 574744169,
+            "type": "GROUP",
+            "title": "",
+            "position": 1,
+            "pageLinkId": 327756222,
+            "url": "",
+            "shouldRouteToProfile": true,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": null
+          },
+          {
+            "context": {
+              "layoutOption": "stack",
+              "legacySocoCollectionId": null,
+              "fakeSocoCollectionId": null,
+              "groupLinkVariant": "DEFAULT"
+            },
+            "googleBusinessAgent": null,
+            "id": 574740485,
+            "type": "GROUP",
+            "title": "",
+            "position": 2,
+            "pageLinkId": 327756224,
+            "url": "",
+            "shouldRouteToProfile": true,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": null
+          },
+          {
+            "context": {
+              "monetizationOptOut": null,
+              "monetization": null
+            },
+            "googleBusinessAgent": null,
+            "id": 574734974,
+            "type": "CLASSIC",
+            "title": "Fornecimento para empresas B2B ",
+            "position": 3,
+            "pageLinkId": 327756227,
+            "url": "https://wa.me/5521994866035",
+            "shouldRouteToProfile": false,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": null
+          },
+          {
+            "context": {
+              "layoutOption": "stack",
+              "legacySocoCollectionId": null,
+              "fakeSocoCollectionId": null,
+              "groupLinkVariant": "DEFAULT"
+            },
+            "googleBusinessAgent": null,
+            "id": 574738224,
+            "type": "GROUP",
+            "title": "",
+            "position": 4,
+            "pageLinkId": 327756233,
+            "url": "",
+            "shouldRouteToProfile": true,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": null
+          },
+          {
+            "context": {
+              "monetizationOptOut": null,
+              "monetization": null
+            },
+            "googleBusinessAgent": null,
+            "id": 574738350,
+            "type": "CLASSIC",
+            "title": "99Food",
+            "position": 0,
+            "pageLinkId": 327756220,
+            "url": "https://oia.99app.com/dlp9/f4lZFm?area=BR",
+            "shouldRouteToProfile": false,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": {
+              "id": 574738224,
+              "context": {
+                "layoutOption": "stack"
+              }
+            }
+          },
+          {
+            "context": {
+              "linkTypeId": "maps",
+              "data": "{\"behavior\":\"embedLabel\",\"__typename\":\"MapsLinkAppData\",\"embedUrl\":\"https://www.google.com/maps/embed/v1/place?key=AIzaSyBHEIamPaljiaFeIRJX0TknCEi84x47yfc&center=-22.9551832%2C-43.179052299999995&zoom=17&q=place_id%3AChIJQ8FDjvl_mQARAVj7LSohzN8\",\"imageUrl\":\"https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBHEIamPaljiaFeIRJX0TknCEi84x47yfc&center=-22.9551832%2C-43.179052299999995&markers=-22.9551832%2C-43.179052299999995&zoom=17&size=680x300&scale=2&style=feature%3Alandscape.man_made%7Celement%3Ageometry%7Ccolor%3A0xf7f1df&style=feature%3Alandscape.natural%7Celement%3Ageometry%7Ccolor%3A0xd0e3b4&style=feature%3Alandscape.natural.terrain%7Celement%3Ageometry%7Cvisibility%3Asimplified&style=feature%3Apoi%7Celement%3Alabels%7Cvisibility%3Aoff&style=feature%3Apoi.business%7Celement%3Aall%7Cvisibility%3Aoff&style=feature%3Apoi.park%7Celement%3Ageometry%7Ccolor%3A0xbde6ab%7Cvisibility%3Asimplified&style=feature%3Aroad%7Celement%3Ageometry.stroke%7Cvisibility%3Aoff&style=feature%3Aroad%7Celement%3Alabels%7Cvisibility%3Aoff&style=feature%3Aroad.highway%7Celement%3Ageometry.fill%7Ccolor%3A0xffe15f&style=feature%3Aroad.highway%7Celement%3Ageometry.stroke%7Ccolor%3A0xefd151&style=feature%3Aroad.arterial%7Celement%3Ageometry.fill%7Ccolor%3A0xffffff&style=feature%3Aroad.local%7Celement%3Ageometry.fill%7Ccolor%3A0xffffff&style=feature%3Awater%7Celement%3Ageometry%7Ccolor%3A0xa2daf2&style=feature%3Atransit%7Celement%3Alabels%7Cvisibility%3Aoff&signature=28LI_I2fgvO7cnnNs2tKI8c_e5Y=\",\"cachedImageUrl\":\"https://ugc.production.linktr.ee/6f596dd1-e304-4ce6-8690-f66f21300f58_staticmap.png\",\"displayName\":\"Av. Lauro Sodré, 150\",\"formattedAddress\":\"Av. Lauro Sodré, 150 - Botafogo, Rio de Janeiro - RJ, 22290-070, Brazil\",\"shortFormattedAddress\":\"Av. Lauro Sodré, 150 - Botafogo, Rio de Janeiro\",\"resolvedAt\":\"2026-06-28T17:46:12.515Z\",\"nextResolvedAt\":\"2026-12-28T07:39:40.546Z\"}",
+              "embedOption": "EMBED_EVERYTHING",
+              "extensionDisplayType": null,
+              "extensionMediaType": null,
+              "order": null,
+              "selectedContent": null
+            },
+            "googleBusinessAgent": null,
+            "id": 574740723,
+            "type": "EXTENSION",
+            "title": "Localização",
+            "position": 0,
+            "pageLinkId": 327756217,
+            "url": "https://www.google.com/maps/place/Av.+Lauro+Sodr%C3%A9,+150+-+Botafogo,+Rio+de+Janeiro+-+RJ,+22290-070/@-22.9550359,-43.1811161,17z/data=!3m1!4b1!4m6!3m5!1s0x997ff98e983ad1:0x6bde3e6d9ee66ecd!8m2!3d-22.9550409!4d-43.1785412!16s%2Fg%2F11bytph887?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3Dhttps://www.google.com/maps/place/Av.+Lauro+Sodr%C3%A9,+150+-+Botafogo,+Rio+de+Janeiro+-+RJ,+22290-070/@-22.9550359,-43.1811161,17z/data=!3m1!4b1!4m6!3m5!1s0x997ff98e983ad1:0x6bde3e6d9ee66ecd!8m2!3d-22.9550409!4d-43.1785412!16s%2Fg%2F11bytph887?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D",
+            "shouldRouteToProfile": true,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": "https://ugc.production.linktr.ee/6fc202f4-adb1-4f24-adfe-ddb7c170da62_staticmap.png",
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": {
+              "title": null,
+              "ogTitle": null,
+              "description": null,
+              "ogDescription": null,
+              "image": null,
+              "imageAlt": null,
+              "thumbnail": null
+            },
+            "ltMetadata": {
+              "ltIsLinkTitleAiGenerated": null
+            },
+            "parent": {
+              "id": 574740485,
+              "context": {
+                "layoutOption": "stack"
+              }
+            }
+          },
+          {
+            "context": {
+              "linkTypeId": "document",
+              "data": "{\"documentUrl\":\"https:\\/\\/ugc.production.linktr.ee\\/374a6dfd-c887-41f7-bd85-578820e3bffd_CARDPIO.pdf\",\"documentUrlSetEpochSeconds\":1782670043}",
+              "embedOption": "EMBED_EVERYTHING",
+              "extensionDisplayType": null,
+              "extensionMediaType": null,
+              "order": null,
+              "selectedContent": null
+            },
+            "googleBusinessAgent": null,
+            "id": 574744226,
+            "type": "EXTENSION",
+            "title": "Cardápio",
+            "position": 0,
+            "pageLinkId": 327756214,
+            "url": "",
+            "shouldRouteToProfile": true,
+            "modifiers": {
+              "animation": null,
+              "autoExpand": false,
+              "animationContext": null,
+              "isForwarding": false,
+              "isForwardingActive": false,
+              "sponsorshipId": null,
+              "thumbnailUrl": null,
+              "thumbnailAttributes": null,
+              "amazonAffiliate": null,
+              "layoutOption": "stack",
+              "itemStyle": null,
+              "scheduleStart": null,
+              "scheduleCountdown": false,
+              "scheduleCountdownSubscribe": false
+            },
+            "rules": {
+              "gate": {
+                "activeOrder": [],
+                "sensitiveContent": {
+                  "domain": ""
+                },
+                "age": null,
+                "passcode": null,
+                "password": null,
+                "nft": null
+              }
+            },
+            "metadata": null,
+            "ltMetadata": null,
+            "parent": {
+              "id": 574744169,
+              "context": {
+                "layoutOption": "stack"
+              }
+            }
+          }
+        ],
+        "pinnedLinks": [],
+        "socialLinks": [
+          {
+            "type": "INSTAGRAM",
+            "url": "https://instagram.com/cloesaintpadaria",
+            "position": 1
+          },
+          {
+            "type": "WHATSAPP",
+            "url": "https://api.whatsapp.com/send?phone=5521994866035",
+            "position": 2
+          }
+        ],
+        "socialFeeds": [],
+        "theme": {
+          "key": "custom",
+          "luminance": "LIGHT",
+          "background": {
+            "color": "#f5e1e4",
+            "style": "FLAT",
+            "type": "COLOR",
+            "noise": false
+          },
+          "buttonStyle": {
+            "type": "OUTLINE",
+            "backgroundStyle": {
+              "color": "#FFFFFF"
+            },
+            "cornerStyle": {
+              "type": "ROUNDED_LG"
+            },
+            "shadowStyle": {
+              "type": "SHADOW_NONE",
+              "color": "#000000"
+            },
+            "textStyle": {
+              "color": "#362630"
+            }
+          },
+          "socialStyle": {
+            "color": "#173831"
+          },
+          "typeface": {
+            "color": "#173831",
+            "family": "link sans product"
+          },
+          "heading": {
+            "type": "text",
+            "font": null,
+            "color": null,
+            "size": "normal",
+            "effect": "none",
+            "logo": null,
+            "logoSize": "normal"
+          },
+          "footer": {
+            "logoUrl": null,
+            "url": null,
+            "color": null,
+            "type": null,
+            "ctaTarget": null,
+            "experiment": null
+          }
+        }
+      },
+      "theme": {
+        "key": "custom",
+        "luminance": "LIGHT",
+        "background": {
+          "color": "#f5e1e4",
+          "style": "FLAT",
+          "type": "COLOR",
+          "noise": false
+        },
+        "buttonStyle": {
+          "type": "OUTLINE",
+          "backgroundStyle": {
+            "color": "#FFFFFF"
+          },
+          "cornerStyle": {
+            "type": "ROUNDED_LG"
+          },
+          "shadowStyle": {
+            "type": "SHADOW_NONE",
+            "color": "#000000"
+          },
+          "textStyle": {
+            "color": "#362630"
+          }
+        },
+        "socialStyle": {
+          "color": "#173831"
+        },
+        "typeface": {
+          "color": "#173831",
+          "family": "link sans product"
+        },
+        "heading": {
+          "type": "text",
+          "font": null,
+          "color": null,
+          "size": "normal",
+          "effect": "none",
+          "logo": null,
+          "logoSize": "normal"
+        },
+        "footer": {
+          "logoUrl": null,
+          "url": null,
+          "color": null,
+          "type": null,
+          "ctaTarget": null,
+          "experiment": null
+        },
+        "baseTheme": true
+      },
+      "fontTags": {
+        "primary": {
+          "style": "\n@font-face {\n  font-family: 'Link Sans Product';\n  src: url(https://assets.production.linktr.ee/fonts/v1/LinkSansProduct.woff2) format('woff2');\n  font-display: swap;\n}\n",
+          "title": "Link Sans Product",
+          "type": "google",
+          "fontVariationSettings": "\"PRDT\" 300",
+          "fontVariantLigatures": "discretionary-ligatures"
+        }
+      },
+      "isProfileVerified": true,
+      "hasConsentedToView": true,
+      "hasPagePassword": false,
+      "pageLockType": null,
+      "pageLockDescription": null,
+      "hasUnlockedProfile": true,
+      "username": "cloesaint2026",
+      "pageTitle": "Clô&Saint",
+      "description": null,
+      "socialLinks": [
+        {
+          "type": "INSTAGRAM",
+          "url": "https://instagram.com/cloesaintpadaria",
+          "position": 1
+        },
+        {
+          "type": "WHATSAPP",
+          "url": "https://api.whatsapp.com/send?phone=5521994866035",
+          "position": 2
+        }
+      ],
+      "integrations": [],
+      "seoSchemaClassifications": {
+        "typeClassification": null
+      },
+      "seoPrimaryVertical": null,
+      "localBusinesses": [],
+      "books": [],
+      "musicPlaylists": [],
+      "tourEvents": [],
+      "metaTitle": "Clô&Saint Official: Instagram | Linktree",
+      "metaDescription": "Linktree. Make your link do more.",
+      "customAvatar": "https://ugc.production.linktr.ee/6ea068aa-688b-4987-8b4f-75ffadb80527_WhatsApp-Image-2026-06-28-at-14.10.38.jpeg",
+      "links": [
+        {
+          "id": "574744169",
+          "title": "",
+          "context": {
+            "layoutOption": "stack",
+            "legacySocoCollectionId": null,
+            "fakeSocoCollectionId": null,
+            "groupLinkVariant": "DEFAULT"
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "",
+          "amazonAffiliate": null,
+          "type": "GROUP",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 1,
+          "pageLinkId": 327756222,
+          "locked": null,
+          "parent": null,
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        },
+        {
+          "id": "574740485",
+          "title": "",
+          "context": {
+            "layoutOption": "stack",
+            "legacySocoCollectionId": null,
+            "fakeSocoCollectionId": null,
+            "groupLinkVariant": "DEFAULT"
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "",
+          "amazonAffiliate": null,
+          "type": "GROUP",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 2,
+          "pageLinkId": 327756224,
+          "locked": null,
+          "parent": null,
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        },
+        {
+          "id": "574734974",
+          "title": "Fornecimento para empresas B2B ",
+          "context": {
+            "monetizationOptOut": null,
+            "monetization": null
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "https://wa.me/5521994866035",
+          "amazonAffiliate": null,
+          "type": "CLASSIC",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 3,
+          "pageLinkId": 327756227,
+          "locked": null,
+          "parent": null,
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        },
+        {
+          "id": "574738224",
+          "title": "",
+          "context": {
+            "layoutOption": "stack",
+            "legacySocoCollectionId": null,
+            "fakeSocoCollectionId": null,
+            "groupLinkVariant": "DEFAULT"
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "",
+          "amazonAffiliate": null,
+          "type": "GROUP",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 4,
+          "pageLinkId": 327756233,
+          "locked": null,
+          "parent": null,
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        },
+        {
+          "id": "574738350",
+          "title": "99Food",
+          "context": {
+            "monetizationOptOut": null,
+            "monetization": null
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "https://oia.99app.com/dlp9/f4lZFm?area=BR",
+          "amazonAffiliate": null,
+          "type": "CLASSIC",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 0,
+          "pageLinkId": 327756220,
+          "locked": null,
+          "parent": {
+            "id": 574738224,
+            "context": {
+              "layoutOption": "stack"
+            }
+          },
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        },
+        {
+          "id": "574740723",
+          "title": "Localização",
+          "context": {
+            "linkTypeId": "maps",
+            "data": "{\"behavior\":\"embedLabel\",\"__typename\":\"MapsLinkAppData\",\"embedUrl\":\"https://www.google.com/maps/embed/v1/place?key=AIzaSyBHEIamPaljiaFeIRJX0TknCEi84x47yfc&center=-22.9551832%2C-43.179052299999995&zoom=17&q=place_id%3AChIJQ8FDjvl_mQARAVj7LSohzN8\",\"imageUrl\":\"https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBHEIamPaljiaFeIRJX0TknCEi84x47yfc&center=-22.9551832%2C-43.179052299999995&markers=-22.9551832%2C-43.179052299999995&zoom=17&size=680x300&scale=2&style=feature%3Alandscape.man_made%7Celement%3Ageometry%7Ccolor%3A0xf7f1df&style=feature%3Alandscape.natural%7Celement%3Ageometry%7Ccolor%3A0xd0e3b4&style=feature%3Alandscape.natural.terrain%7Celement%3Ageometry%7Cvisibility%3Asimplified&style=feature%3Apoi%7Celement%3Alabels%7Cvisibility%3Aoff&style=feature%3Apoi.business%7Celement%3Aall%7Cvisibility%3Aoff&style=feature%3Apoi.park%7Celement%3Ageometry%7Ccolor%3A0xbde6ab%7Cvisibility%3Asimplified&style=feature%3Aroad%7Celement%3Ageometry.stroke%7Cvisibility%3Aoff&style=feature%3Aroad%7Celement%3Alabels%7Cvisibility%3Aoff&style=feature%3Aroad.highway%7Celement%3Ageometry.fill%7Ccolor%3A0xffe15f&style=feature%3Aroad.highway%7Celement%3Ageometry.stroke%7Ccolor%3A0xefd151&style=feature%3Aroad.arterial%7Celement%3Ageometry.fill%7Ccolor%3A0xffffff&style=feature%3Aroad.local%7Celement%3Ageometry.fill%7Ccolor%3A0xffffff&style=feature%3Awater%7Celement%3Ageometry%7Ccolor%3A0xa2daf2&style=feature%3Atransit%7Celement%3Alabels%7Cvisibility%3Aoff&signature=28LI_I2fgvO7cnnNs2tKI8c_e5Y=\",\"cachedImageUrl\":\"https://ugc.production.linktr.ee/6f596dd1-e304-4ce6-8690-f66f21300f58_staticmap.png\",\"displayName\":\"Av. Lauro Sodré, 150\",\"formattedAddress\":\"Av. Lauro Sodré, 150 - Botafogo, Rio de Janeiro - RJ, 22290-070, Brazil\",\"shortFormattedAddress\":\"Av. Lauro Sodré, 150 - Botafogo, Rio de Janeiro\",\"resolvedAt\":\"2026-06-28T17:46:12.515Z\",\"nextResolvedAt\":\"2026-12-28T07:39:40.546Z\"}",
+            "embedOption": "EMBED_EVERYTHING",
+            "extensionDisplayType": null,
+            "extensionMediaType": null,
+            "order": null,
+            "selectedContent": null
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": "https://ugc.production.linktr.ee/6fc202f4-adb1-4f24-adfe-ddb7c170da62_staticmap.png",
+          "url": "https://www.google.com/maps/place/Av.+Lauro+Sodr%C3%A9,+150+-+Botafogo,+Rio+de+Janeiro+-+RJ,+22290-070/@-22.9550359,-43.1811161,17z/data=!3m1!4b1!4m6!3m5!1s0x997ff98e983ad1:0x6bde3e6d9ee66ecd!8m2!3d-22.9550409!4d-43.1785412!16s%2Fg%2F11bytph887?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3Dhttps://www.google.com/maps/place/Av.+Lauro+Sodr%C3%A9,+150+-+Botafogo,+Rio+de+Janeiro+-+RJ,+22290-070/@-22.9550359,-43.1811161,17z/data=!3m1!4b1!4m6!3m5!1s0x997ff98e983ad1:0x6bde3e6d9ee66ecd!8m2!3d-22.9550409!4d-43.1785412!16s%2Fg%2F11bytph887?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D",
+          "amazonAffiliate": null,
+          "type": "EXTENSION",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 0,
+          "pageLinkId": 327756217,
+          "locked": null,
+          "parent": {
+            "id": 574740485,
+            "context": {
+              "layoutOption": "stack"
+            }
+          },
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": "https://ugc.production.linktr.ee/6fc202f4-adb1-4f24-adfe-ddb7c170da62_staticmap.png",
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": {
+            "title": null,
+            "ogTitle": null,
+            "description": null,
+            "ogDescription": null,
+            "image": null,
+            "imageAlt": null,
+            "thumbnail": null
+          }
+        },
+        {
+          "id": "574744226",
+          "title": "Cardápio",
+          "context": {
+            "linkTypeId": "document",
+            "data": "{\"documentUrl\":\"https:\\/\\/ugc.production.linktr.ee\\/374a6dfd-c887-41f7-bd85-578820e3bffd_CARDPIO.pdf\",\"documentUrlSetEpochSeconds\":1782670043}",
+            "embedOption": "EMBED_EVERYTHING",
+            "extensionDisplayType": null,
+            "extensionMediaType": null,
+            "order": null,
+            "selectedContent": null
+          },
+          "animation": null,
+          "autoExpand": false,
+          "animationEmoji": null,
+          "thumbnail": null,
+          "url": "",
+          "amazonAffiliate": null,
+          "type": "EXTENSION",
+          "rules": {
+            "gate": {
+              "activeOrder": [],
+              "sensitiveContent": {
+                "domain": ""
+              },
+              "age": null,
+              "passcode": null,
+              "password": null,
+              "nft": null
+            }
+          },
+          "position": 0,
+          "pageLinkId": 327756214,
+          "locked": null,
+          "parent": {
+            "id": 574744169,
+            "context": {
+              "layoutOption": "stack"
+            }
+          },
+          "modifiers": {
+            "animation": null,
+            "autoExpand": false,
+            "animationContext": null,
+            "isForwarding": false,
+            "isForwardingActive": false,
+            "sponsorshipId": null,
+            "thumbnailUrl": null,
+            "thumbnailAttributes": null,
+            "amazonAffiliate": null,
+            "layoutOption": "stack",
+            "itemStyle": null,
+            "scheduleStart": null,
+            "scheduleCountdown": false,
+            "scheduleCountdownSubscribe": false
+          },
+          "children": [],
+          "layoutOption": "stack",
+          "itemStyle": null,
+          "scheduleStart": null,
+          "scheduleCountdown": false,
+          "scheduleCountdownSubscribe": false,
+          "metaData": null
+        }
+      ],
+      "pinnedLinks": [],
+      "shopLinks": [],
+      "leapLink": null,
+      "isOwner": false,
+      "isLogoVisible": true,
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+      "stage": "production",
+      "commerceStorefrontItems": {
+        "hasCommissionProducts": false,
+        "items": [],
+        "posts": [],
+        "postsTotalCount": 0
+      },
+      "canAccessStore": false,
+      "isShopPageBacked": false,
+      "storeStructuredDataInDocument": false,
+      "hasDigitalWalletConnection": false,
+      "profileHasAffiliateContent": false,
+      "affiliateLinkIds": [],
+      "defaultPage": "LINKS",
+      "environment": {
+        "INGRESS_API_ENDPOINT": "https://ingress.linktr.ee/uLZfGRmpj7",
+        "INGRESS_API_INSTRUMENTATION_ENDPOINT": "https://ingress.linktr.ee/i/uLZfGRmpj7",
+        "LINK_TYPES_ASSETS_ENDPOINT": "https://link-types-assets.production.linktr.ee",
+        "STRIPE_PAYMENTS_PUBLISHABLE_KEY": "pk_live_51Oi0EUGvyzkgvy9S2SEkE4iyCqW6a9LFlqPgVqaz40N03QLLh6wKjOKLzGB0sDciohZzzTYNd07GRfhtySne076D00RGhZNo0d",
+        "FRAME_PUBLISHABLE_KEY": "1A]8Gc6<c:k?ob;y\"ua^Brc{OwNGj\"f/",
+        "META_IMAGE_URL": "https://assets.production.linktr.ee/profiles/_next/static/logo-assets/default-meta-image.png",
+        "RECAPTCHA_SITE_KEY": "6LdGYT4cAAAAANW9oE1Sa2AxBi8b9ZAbmvYBPnZm",
+        "RECAPTCHA_SITE_KEY_INVISIBLE": "6LcGlm0dAAAAAMfsVsJl3MZtjI-cKhBYzq5RPEo4",
+        "CLOUDFLARE_TURNSTILE_SITE_KEY": "0x4AAAAAACNVc8HcA4LUvsV-",
+        "GRAPHQL_API_ENDPOINT": "https://graph.linktr.ee/graphql",
+        "GRAPHQL_API_CLIENT_NAME": "profiles",
+        "GRAPHQL_API_CLIENT_VERSION": "1.0.0",
+        "BASE_PROFILE_URL": "https://linktr.ee",
+        "CDN_DISTRIBUTION_URL": "https://assets.production.linktr.ee/profiles/",
+        "LTAUTH_ENDPOINT": "https://public.ltauth.production.linktr.ee",
+        "CHAT_SERVICE_API_KEY": "rvs79kmnjdrs"
+      },
+      "contentGating": "none",
+      "messagingSmsAuthEnabled": true,
+      "messagingSmsAuthEnabledInternal": false,
+      "videoStructuredData": [],
+      "hasSensitiveContent": false,
+      "followerNotificationsEnabled": false,
+      "followerCapabilities": {
+        "isFollowingOtcRequired": false,
+        "voiceNotesEnabled": false
+      },
+      "followerConsentRequirements": {
+        "isFollowSubscriptionConsentRequiredForFreeProduct": false,
+        "isFollowSubscriptionConsentRequiredForPaidProduct": true,
+        "followSubscriptionConsentInitialChecked": true
+      },
+      "isPreview": false,
+      "isDraftSession": false,
+      "isConsumerPreviewModeEnabled": false,
+      "isBookmarkSaveIconEnabled": false,
+      "isFullScreenMobilePreview": false,
+      "statsigInitValues": {
+        "featureGates": {
+          "curate--google-business-agent": false,
+          "feature_consumer_app_profile_entry": true,
+          "messaging_sms_auth_internal": false,
+          "interstitial_ads_account_allowlist": false,
+          "profile_ads_contextual_signals": true,
+          "data_feeds_profile_enabled": true,
+          "data_feeds_profile_self_url_enabled": true,
+          "earn--product_bundles": true,
+          "data_feeds_content_instagram_enabled": false,
+          "data_feeds_content_tiktok_enabled": false,
+          "data_feeds_content_youtube_enabled": true,
+          "earn--checkout_load_timing": true,
+          "earn--multiline_checkout": true,
+          "earn--profiles--gpt_limited_ads": true,
+          "seo--featured_profile": true,
+          "builder--schedule-countdown": false,
+          "stickers--sorta-spooky-bats": true,
+          "curate--apple-podcast_link_app": false
+        },
+        "experiments": {
+          "trust--link-app-cookie-consent": {
+            "groupName": null
+          },
+          "earn--profiles--interstitial_ads_account_rollout": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_india": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_malaysia": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_argentina": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_colombia": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_philippines": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_thailand": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_egypt": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_morocco": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_turkey": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_peru": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_chile": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--profiles--interstitial_ads_account_rollout_brazil": {
+            "variant": "test",
+            "groupName": "Test"
+          },
+          "earn--checkout_cta_copy": {
+            "variant": "",
+            "groupName": "Control"
+          }
+        },
+        "layers": {
+          "profile--signup--footer_cta_button": {
+            "footer_cta_button_key": "control",
+            "footer_cta_button_label": "Create your Linktree",
+            "footer_cta_button_url_path": "",
+            "footer_cta_button_color": "white"
+          }
+        },
+        "dynamicConfigs": {
+          "mobile_in_app_browser_user_agents": {
+            "facebook": [
+              "FBAN/",
+              "FBAV/",
+              "FB_IAB/",
+              "FBIOS",
+              "FB4A"
+            ],
+            "daum": [
+              "DaumApps/",
+              "DaumDevice/"
+            ],
+            "linkedin": [
+              "LinkedInApp"
+            ],
+            "twitter": [
+              "Twitter for ",
+              "TwitterAndroid"
+            ],
+            "wechat": [
+              "MicroMessenger",
+              "Weixin",
+              "WeChat/"
+            ],
+            "line": [
+              " Line/"
+            ],
+            "snapchat": [
+              "Snapchat/"
+            ],
+            "kakaotalk": [
+              "KAKAOTALK"
+            ],
+            "naver": [
+              "NAVER(inapp"
+            ],
+            "tiktok": [
+              "musical_ly",
+              "Bytedance",
+              "ByteLocale"
+            ],
+            "instagram": [
+              "Instagram"
+            ]
+          }
+        }
+      },
+      "isInternalEmail": false,
+      "seoLinkedUsernames": [
+        "soul_engenharia",
+        "swvstore.official",
+        "AngeloDeDamiani",
+        "Venda_em_foco1",
+        "GreenTools",
+        "XITFREE1",
+        "glevinzfashion",
+        "autumnjupitumnlee",
+        "marianices.ensina",
+        "mikebgaming",
+        "MYCAR",
+        "langpromenaden",
+        "Triplealivio",
+        "miruljelah",
+        "alielokl",
+        "mandapandmoments",
+        "sofia.iram459",
+        "Kln2007",
+        "sfyws89nfw",
+        "ktbeachwear",
+        "globalingua.ec",
+        "jadenmiesel",
+        "tracymatonwriter",
+        "mibtrading",
+        "gottibreaks",
+        "lifeofchibs",
+        "LifeCare_Hospitals",
+        "s.ways",
+        "japile",
+        "cadanw",
+        "jynx7rs",
+        "abas2013",
+        "viaambiental.ar",
+        "Makisensei",
+        "THBKY",
+        "stacey_at_hilton",
+        "darrenakoragye",
+        "hashcrew",
+        "rodiatajuwon",
+        "frama.gt",
+        "a.por.ia",
+        "GrandmaBettysAnimalRescue",
+        "yumeumeru",
+        "heloklin.id",
+        "Baratugu"
+      ],
+      "trustedProfiles": [
+        {
+          "username": "sagawards",
+          "profileName": "SAG Awards"
+        },
+        {
+          "username": "padmalakshmi",
+          "profileName": "padmalakshmi"
+        },
+        {
+          "username": "goodnoticingspod",
+          "profileName": "goodnoticingspod"
+        },
+        {
+          "username": "keneurich",
+          "profileName": "Ken Eurich"
+        },
+        {
+          "username": "eatpistakio",
+          "profileName": "eatpistakio"
+        },
+        {
+          "username": "fibsandfriends",
+          "profileName": "Fibs and Friends"
+        },
+        {
+          "username": "carianneolder",
+          "profileName": "Carianne Older"
+        },
+        {
+          "username": "nymphiawind",
+          "profileName": "nymphiawind"
+        },
+        {
+          "username": "popcast",
+          "profileName": "Popcast"
+        },
+        {
+          "username": "chappellroan",
+          "profileName": "chappellroan"
+        }
+      ],
+      "shouldNoIndex": false,
+      "dataFeedsProfileUrl": null,
+      "dataFeedsDerivedMetricsUrl": null,
+      "dataFeedsContentUrls": null,
+      "dataGrailContainerConfig": {
+        "containerId": "bdebe460-46f3-470f-8bb7-09929c22ee50",
+        "customerId": "b8f6c3bf-2519-4023-963a-974547789e46",
+        "snapchatCreativeKitConsentId": "1opgPhFpOU4TFoRWR1JSWP",
+        "metaPixelConsentId": "6StlrDkNFNcBNFbPe7JJRF",
+        "tiktokPixelConsentId": "1h9aMwwDHM0koRqcj6Qj83",
+        "googleAnalyticsConsentId": "3uHVvLaeoiEoDIJE633jmJ"
+      },
+      "datagrailConsentPreferences": {},
+      "blogBatchIndex": 4,
+      "latestBlogPosts": [
+        {
+          "title": "Best digital products to sell as a creator, ranked by 400,000+ listings",
+          "href": "https://linktr.ee/blog/digital-products-to-sell"
+        },
+        {
+          "title": "How much does YouTube pay per view?",
+          "href": "https://linktr.ee/blog/how-much-does-youtube-pay-per-view"
+        },
+        {
+          "title": "A realtor’s guide to creating an open house sign-in sheet [template included]",
+          "href": "https://linktr.ee/blog/open-house-sign-in-sheet"
+        },
+        {
+          "title": "How to add links to your YouTube channel and description",
+          "href": "https://linktr.ee/blog/how-to-add-links-to-youtube-description"
+        },
+        {
+          "title": "YouTube DMs: How to message someone on YouTube",
+          "href": "https://linktr.ee/blog/youtube-dms"
+        },
+        {
+          "title": "How to write a real estate agent bio",
+          "href": "https://linktr.ee/blog/how-to-write-real-estate-agent-bio"
+        },
+        {
+          "title": "How YouTube creators can build stronger audience relationships",
+          "href": "https://linktr.ee/blog/youtube-creators-grow-audience-linktree"
+        }
+      ],
+      "googleAdConfig": {
+        "shouldShowAds": false,
+        "decision": {
+          "reason": "visitor_not_in_target",
+          "visitorCountryCode": null,
+          "isSuspiciousHosting": false,
+          "accountCountry": "BR",
+          "experimentKey": "earn--profiles--interstitial_ads_account_rollout_brazil",
+          "experimentVariant": "test",
+          "isAllowlisted": false
+        },
+        "profileContext": null,
+        "limitedAdsEnabled": false,
+        "networkCode": "23324369058",
+        "interstitialAdUnitPath": "/production/web_interstitial",
+        "bannerAdUnitPath": "/production/web_banner",
+        "adNetwork": "Google"
+      },
+      "locale": "en",
+      "i18n": {
+        "resource": {},
+        "browserResources": {
+          "ar": {
+            "InlineAdOverlay": {
+              "label": "إعلان",
+              "redirectingIn_one": "سيتم تحويلك خلال {{count}}...",
+              "redirectingIn_other": "سيتم تحويلك خلال {{count}}...",
+              "redirectingNow": "يتم تحويلك الآن"
+            },
+            "LinkChinCta": {
+              "follow": "تابع"
+            },
+            "MessagingOption": {
+              "titleText": "راسل {{username}} بشأن هذا الرابط",
+              "titleTextAccount": "راسل {{username}}",
+              "callToActionText": "راسل"
+            },
+            "ProfileTranslation": {
+              "translate": "ترجم الملف الشخصي",
+              "translateTo": "ترجم إلى…",
+              "suggested": "مقترحة",
+              "other": "أخرى",
+              "english": "الإنجليزية (الافتراضية)",
+              "portuguese": "البرتغالية (البرازيل)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "انضم إلى {{username}} على Linktree",
+              "claimYours": "احصل على Linktree الخاص بك",
+              "footerCtaGetYourOwn": "احصل على Linktree الخاص بك",
+              "dismiss": "إغلاق"
+            },
+            "SignupOption": {
+              "titleText": "انضم إلى {{username}} على Linktree",
+              "subTitleText": "احصل على Linktree مجاني خاص بك. رابط البايو الوحيد الذي يثق به أكثر من 70 مليون شخص.",
+              "signupCtaText": "سجّل مجانًا",
+              "homePageCtaText": "اكتشف المزيد"
+            }
+          },
+          "de": {
+            "InlineAdOverlay": {
+              "label": "Anzeige",
+              "redirectingIn_one": "Du wirst in {{count}} weitergeleitet...",
+              "redirectingIn_other": "Du wirst in {{count}} weitergeleitet...",
+              "redirectingNow": "Du wirst jetzt weitergeleitet"
+            },
+            "LinkChinCta": {
+              "follow": "Folgen"
+            },
+            "MessagingOption": {
+              "titleText": "Schreib {{username}} zu diesem Link",
+              "titleTextAccount": "Schreib {{username}} eine Nachricht",
+              "callToActionText": "Schreib eine Nachricht"
+            },
+            "ProfileTranslation": {
+              "translate": "Profil übersetzen",
+              "translateTo": "Übersetzen in …",
+              "suggested": "Empfohlen",
+              "other": "Weitere Sprachen",
+              "english": "Englisch (Standard)",
+              "portuguese": "Portugiesisch (Brasilien)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Starte wie {{username}} mit Linktree",
+              "claimYours": "Hol dir deinen Linktree",
+              "footerCtaGetYourOwn": "Hol dir deinen eigenen Linktree",
+              "dismiss": "Schließen"
+            },
+            "SignupOption": {
+              "titleText": "Starte wie {{username}} mit Linktree",
+              "subTitleText": "Hol dir deinen kostenlosen Linktree. Der einzige Link in Bio, dem über 70 Mio. Menschen vertrauen.",
+              "signupCtaText": "Melde dich kostenlos an",
+              "homePageCtaText": "Erfahre mehr"
+            }
+          },
+          "es": {
+            "InlineAdOverlay": {
+              "label": "Publicidad",
+              "redirectingIn_one": "Te redirigimos en {{count}}...",
+              "redirectingIn_other": "Te redirigimos en {{count}}...",
+              "redirectingNow": "Te estamos redirigiendo"
+            },
+            "LinkChinCta": {
+              "follow": "Sigue esta cuenta"
+            },
+            "MessagingOption": {
+              "titleText": "Envíale un mensaje a {{username}} sobre este enlace",
+              "titleTextAccount": "Envíale un mensaje a {{username}}",
+              "callToActionText": "Envíale un mensaje"
+            },
+            "ProfileTranslation": {
+              "translate": "Traducir el perfil",
+              "translateTo": "Traducir a…",
+              "suggested": "Sugeridos",
+              "other": "Otros",
+              "english": "Inglés (predeterminado)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Únete a {{username}} en Linktree",
+              "claimYours": "Consigue tu Linktree",
+              "footerCtaGetYourOwn": "Consigue tu propio Linktree",
+              "dismiss": "Cerrar"
+            },
+            "SignupOption": {
+              "titleText": "Únete a {{username}} en Linktree",
+              "subTitleText": "Consigue tu propio Linktree gratis. El único enlace en bio en el que confían más de 70 millones de personas.",
+              "signupCtaText": "Regístrate gratis",
+              "homePageCtaText": "Conoce más"
+            }
+          },
+          "fr": {
+            "InlineAdOverlay": {
+              "label": "Publicité",
+              "redirectingIn_one": "Redirection dans {{count}}...",
+              "redirectingIn_other": "Redirection dans {{count}}...",
+              "redirectingNow": "Redirection en cours"
+            },
+            "LinkChinCta": {
+              "follow": "Suis"
+            },
+            "MessagingOption": {
+              "titleText": "Envoie un message à {{username}} à propos de ce lien",
+              "titleTextAccount": "Envoie un message à {{username}}",
+              "callToActionText": "Envoie un message"
+            },
+            "ProfileTranslation": {
+              "translate": "Traduire le profil",
+              "translateTo": "Traduire en…",
+              "suggested": "Suggérées",
+              "other": "Autres",
+              "english": "English (par défaut)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Rejoins {{username}} sur Linktree",
+              "claimYours": "Crée ton Linktree",
+              "footerCtaGetYourOwn": "Crée ton Linktree",
+              "dismiss": "Fermer"
+            },
+            "SignupOption": {
+              "titleText": "Rejoins {{username}} sur Linktree",
+              "subTitleText": "Crée ton propre Linktree gratuit. Le seul lien en bio auquel plus de 70 M de personnes font confiance.",
+              "signupCtaText": "Inscris-toi gratuitement",
+              "homePageCtaText": "Découvre-en plus"
+            }
+          },
+          "id": {
+            "InlineAdOverlay": {
+              "label": "Iklan",
+              "redirectingIn_one": "Kamu akan dialihkan dalam {{count}}...",
+              "redirectingIn_other": "Kamu akan dialihkan dalam {{count}}...",
+              "redirectingNow": "Kamu sedang dialihkan"
+            },
+            "LinkChinCta": {
+              "follow": "Ikuti"
+            },
+            "MessagingOption": {
+              "titleText": "Kirim pesan ke {{username}} tentang tautan ini",
+              "titleTextAccount": "Kirim pesan ke {{username}}",
+              "callToActionText": "Kirim pesan"
+            },
+            "ProfileTranslation": {
+              "translate": "Terjemahkan profil",
+              "translateTo": "Terjemahkan ke…",
+              "suggested": "Disarankan",
+              "other": "Lainnya",
+              "english": "English (bawaan)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Gabung dengan {{username}} di Linktree",
+              "claimYours": "Klaim Linktreemu",
+              "footerCtaGetYourOwn": "Dapatkan Linktreemu",
+              "dismiss": "Tutup"
+            },
+            "SignupOption": {
+              "titleText": "Gabung dengan {{username}} di Linktree",
+              "subTitleText": "Dapatkan Linktree gratismu. Satu-satunya link in bio yang dipercaya 70 juta+ orang.",
+              "signupCtaText": "Daftar gratis",
+              "homePageCtaText": "Cari tahu lebih lanjut"
+            }
+          },
+          "it": {
+            "InlineAdOverlay": {
+              "label": "Pubblicità",
+              "redirectingIn_one": "Reindirizzamento tra {{count}}...",
+              "redirectingIn_other": "Reindirizzamento tra {{count}}...",
+              "redirectingNow": "Ti stiamo reindirizzando"
+            },
+            "LinkChinCta": {
+              "follow": "Segui"
+            },
+            "MessagingOption": {
+              "titleText": "Scrivi a {{username}} su questo link",
+              "titleTextAccount": "Scrivi a {{username}}",
+              "callToActionText": "Scrivi"
+            },
+            "ProfileTranslation": {
+              "translate": "Traduci il profilo",
+              "translateTo": "Traduci in…",
+              "suggested": "Suggerite",
+              "other": "Altre",
+              "english": "English (predefinita)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Unisciti a {{username}} su Linktree",
+              "claimYours": "Crea il tuo Linktree",
+              "footerCtaGetYourOwn": "Crea il tuo Linktree",
+              "dismiss": "Chiudi"
+            },
+            "SignupOption": {
+              "titleText": "Unisciti a {{username}} su Linktree",
+              "subTitleText": "Crea il tuo Linktree gratis. L'unico link in bio scelto da oltre 70 milioni di persone.",
+              "signupCtaText": "Registrati gratis",
+              "homePageCtaText": "Scopri di più"
+            }
+          },
+          "ja": {
+            "InlineAdOverlay": {
+              "label": "広告",
+              "redirectingIn_one": "あと{{count}}秒で移動します...",
+              "redirectingIn_other": "あと{{count}}秒で移動します...",
+              "redirectingNow": "移動中です"
+            },
+            "LinkChinCta": {
+              "follow": "フォローする"
+            },
+            "MessagingOption": {
+              "titleText": "{{username}}にこのリンクについてメッセージを送る",
+              "titleTextAccount": "{{username}}にメッセージを送る",
+              "callToActionText": "メッセージを送る"
+            },
+            "ProfileTranslation": {
+              "translate": "プロフィールを翻訳",
+              "translateTo": "翻訳先…",
+              "suggested": "おすすめ",
+              "other": "その他",
+              "english": "英語（デフォルト）",
+              "portuguese": "ポルトガル語（ブラジル）"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Linktreeを{{username}}と一緒に始める",
+              "claimYours": "Linktreeを作成",
+              "footerCtaGetYourOwn": "自分のLinktreeを作成",
+              "dismiss": "閉じる"
+            },
+            "SignupOption": {
+              "titleText": "Linktreeを{{username}}と一緒に始める",
+              "subTitleText": "無料で自分のLinktreeを作成。7000万人以上に信頼される唯一のリンクインバイオです",
+              "signupCtaText": "無料で登録",
+              "homePageCtaText": "詳しく見る"
+            }
+          },
+          "ko": {
+            "InlineAdOverlay": {
+              "label": "광고",
+              "redirectingIn_one": "{{count}}초 후에 이동해요...",
+              "redirectingIn_other": "{{count}}초 후에 이동해요...",
+              "redirectingNow": "지금 이동하고 있어요"
+            },
+            "LinkChinCta": {
+              "follow": "팔로우"
+            },
+            "MessagingOption": {
+              "titleText": "이 링크에 대해 {{username}}에게 메시지 보내기",
+              "titleTextAccount": "{{username}}에게 메시지 보내기",
+              "callToActionText": "메시지 보내기"
+            },
+            "ProfileTranslation": {
+              "translate": "프로필 번역하기",
+              "translateTo": "번역할 언어…",
+              "suggested": "추천",
+              "other": "기타",
+              "english": "영어 (기본값)",
+              "portuguese": "포르투갈어 (브라질)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Linktree에서 {{username}}님과 함께하기",
+              "claimYours": "내 Linktree 만들기",
+              "footerCtaGetYourOwn": "나만의 Linktree 만들기",
+              "dismiss": "닫기"
+            },
+            "SignupOption": {
+              "titleText": "Linktree에서 {{username}}님과 함께하기",
+              "subTitleText": "나만의 Linktree를 무료로 만들어요. 7천만 명 이상이 신뢰하는 유일한 프로필 링크예요",
+              "signupCtaText": "무료로 가입하기",
+              "homePageCtaText": "더 알아보기"
+            }
+          },
+          "nl": {
+            "InlineAdOverlay": {
+              "label": "Advertentie",
+              "redirectingIn_one": "Je wordt over {{count}} seconde doorgestuurd...",
+              "redirectingIn_other": "Je wordt over {{count}} seconden doorgestuurd...",
+              "redirectingNow": "Je wordt nu doorgestuurd"
+            },
+            "LinkChinCta": {
+              "follow": "Volg"
+            },
+            "MessagingOption": {
+              "titleText": "Stuur {{username}} een bericht over deze link",
+              "titleTextAccount": "Stuur {{username}} een bericht",
+              "callToActionText": "Stuur een bericht"
+            },
+            "ProfileTranslation": {
+              "translate": "Profiel vertalen",
+              "translateTo": "Vertalen naar…",
+              "suggested": "Aanbevolen",
+              "other": "Andere talen",
+              "english": "Engels (standaard)",
+              "portuguese": "Portugees (Brazilië)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Word net als {{username}} lid van Linktree",
+              "claimYours": "Leg je Linktree vast",
+              "footerCtaGetYourOwn": "Maak je eigen Linktree",
+              "dismiss": "Sluiten"
+            },
+            "SignupOption": {
+              "titleText": "Word net als {{username}} lid van Linktree",
+              "subTitleText": "Maak je eigen gratis Linktree. De enige link in bio die 70M+ mensen vertrouwen.",
+              "signupCtaText": "Meld je gratis aan",
+              "homePageCtaText": "Lees meer"
+            }
+          },
+          "pt": {
+            "InlineAdOverlay": {
+              "label": "Publicidade",
+              "redirectingIn_one": "Você será redirecionado em {{count}}...",
+              "redirectingIn_other": "Você será redirecionado em {{count}}...",
+              "redirectingNow": "Você está sendo redirecionado agora",
+              "redirectingIn_many": "Você será redirecionado em {{count}}..."
+            },
+            "LinkChinCta": {
+              "follow": "Siga"
+            },
+            "MessagingOption": {
+              "titleText": "Enviar mensagem para {{username}} sobre este link",
+              "titleTextAccount": "Enviar mensagem para {{username}}",
+              "callToActionText": "Envie uma mensagem"
+            },
+            "ProfileTranslation": {
+              "translate": "Traduzir perfil",
+              "translateTo": "Traduzir para…",
+              "suggested": "Sugeridos",
+              "other": "Outros",
+              "english": "Inglês (padrão)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Junte-se a {{username}} no Linktree",
+              "claimYours": "Garanta seu Linktree",
+              "footerCtaGetYourOwn": "Crie seu Linktree",
+              "dismiss": "Fechar"
+            },
+            "SignupOption": {
+              "titleText": "Junte-se a {{username}} no Linktree",
+              "subTitleText": "Crie seu Linktree grátis. O único link na bio em que 70M+ pessoas confiam.",
+              "signupCtaText": "Cadastre-se grátis",
+              "homePageCtaText": "Saiba mais"
+            }
+          },
+          "ru": {
+            "InlineAdOverlay": {
+              "label": "Реклама",
+              "redirectingIn_one": "Перенаправление через {{count}}...",
+              "redirectingIn_other": "Перенаправление через {{count}}...",
+              "redirectingNow": "Перенаправляем"
+            },
+            "LinkChinCta": {
+              "follow": "Подпишись"
+            },
+            "MessagingOption": {
+              "titleText": "Напиши {{username}} об этой ссылке",
+              "titleTextAccount": "Напиши {{username}}",
+              "callToActionText": "Напиши"
+            },
+            "ProfileTranslation": {
+              "translate": "Перевести профиль",
+              "translateTo": "Перевести на…",
+              "suggested": "Рекомендуемые",
+              "other": "Другие",
+              "english": "Английский (по умолчанию)",
+              "portuguese": "Португальский (Бразилия)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Присоединяйся к Linktree вместе с {{username}}",
+              "claimYours": "Забери свой Linktree",
+              "footerCtaGetYourOwn": "Создай свой Linktree",
+              "dismiss": "Закрыть"
+            },
+            "SignupOption": {
+              "titleText": "Присоединяйся к Linktree вместе с {{username}}",
+              "subTitleText": "Создай свой бесплатный Linktree. Единственная платформа для ссылки в био, которой доверяют более 70 млн человек.",
+              "signupCtaText": "Зарегистрируйся бесплатно",
+              "homePageCtaText": "Узнай больше"
+            }
+          },
+          "th": {
+            "InlineAdOverlay": {
+              "label": "โฆษณา",
+              "redirectingIn_one": "กำลังเปลี่ยนเส้นทางในอีก {{count}}...",
+              "redirectingIn_other": "กำลังเปลี่ยนเส้นทางในอีก {{count}}...",
+              "redirectingNow": "กำลังเปลี่ยนเส้นทาง"
+            },
+            "LinkChinCta": {
+              "follow": "ติดตาม"
+            },
+            "MessagingOption": {
+              "titleText": "ส่งข้อความถึง {{username}} เรื่องลิงก์นี้",
+              "titleTextAccount": "ส่งข้อความถึง {{username}}",
+              "callToActionText": "ส่งข้อความ"
+            },
+            "ProfileTranslation": {
+              "translate": "แปลโปรไฟล์",
+              "translateTo": "แปลเป็น…",
+              "suggested": "แนะนำ",
+              "other": "ภาษาอื่นๆ",
+              "english": "อังกฤษ (ค่าเริ่มต้น)",
+              "portuguese": "โปรตุเกส (บราซิล)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "มาอยู่บน Linktree กับ {{username}}",
+              "claimYours": "รับ Linktree ของตัวเอง",
+              "footerCtaGetYourOwn": "สร้าง Linktree ของตัวเอง",
+              "dismiss": "ปิด"
+            },
+            "SignupOption": {
+              "titleText": "มาอยู่บน Linktree กับ {{username}}",
+              "subTitleText": "สร้าง Linktree ฟรีของตัวเอง ลิงก์ในไบโอหนึ่งเดียวที่ 70M+ คนไว้ใจ",
+              "signupCtaText": "สมัครฟรี",
+              "homePageCtaText": "ดูเพิ่มเติม"
+            }
+          },
+          "tr": {
+            "InlineAdOverlay": {
+              "label": "Reklam",
+              "redirectingIn_one": "{{count}} içinde yönlendirileceksin...",
+              "redirectingIn_other": "{{count}} içinde yönlendirileceksin...",
+              "redirectingNow": "Şimdi yönlendiriliyorsun"
+            },
+            "LinkChinCta": {
+              "follow": "Takip et"
+            },
+            "MessagingOption": {
+              "titleText": "{{username}} kullanıcısına bu bağlantı hakkında mesaj gönder",
+              "titleTextAccount": "{{username}} kullanıcısına mesaj gönder",
+              "callToActionText": "Mesaj gönder"
+            },
+            "ProfileTranslation": {
+              "translate": "Profili çevir",
+              "translateTo": "Şu dile çevir…",
+              "suggested": "Önerilen",
+              "other": "Diğer",
+              "english": "İngilizce (varsayılan)",
+              "portuguese": "Portekizce (Brezilya)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Linktree'de {{username}} ile yerini al",
+              "claimYours": "Linktree'ni al",
+              "footerCtaGetYourOwn": "Kendi Linktree'ni al",
+              "dismiss": "Kapat"
+            },
+            "SignupOption": {
+              "titleText": "Linktree'de {{username}} ile yerini al",
+              "subTitleText": "Kendi ücretsiz Linktree'ni al. 70 milyondan fazla kişinin güvendiği tek bio linki.",
+              "signupCtaText": "Ücretsiz kaydol",
+              "homePageCtaText": "Daha fazla bilgi al"
+            }
+          },
+          "vi": {
+            "InlineAdOverlay": {
+              "label": "Quảng cáo",
+              "redirectingIn_one": "Bạn sẽ được chuyển hướng sau {{count}} giây...",
+              "redirectingIn_other": "Bạn sẽ được chuyển hướng sau {{count}} giây...",
+              "redirectingNow": "Đang chuyển hướng"
+            },
+            "LinkChinCta": {
+              "follow": "Theo dõi"
+            },
+            "MessagingOption": {
+              "titleText": "Nhắn cho {{username}} về liên kết này",
+              "titleTextAccount": "Nhắn cho {{username}}",
+              "callToActionText": "Nhắn tin"
+            },
+            "ProfileTranslation": {
+              "translate": "Dịch trang cá nhân",
+              "translateTo": "Dịch sang…",
+              "suggested": "Đề xuất",
+              "other": "Khác",
+              "english": "English (mặc định)",
+              "portuguese": "Português (Brasil)"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "Tham gia cùng {{username}} trên Linktree",
+              "claimYours": "Nhận Linktree của bạn",
+              "footerCtaGetYourOwn": "Tạo Linktree của bạn",
+              "dismiss": "Đóng"
+            },
+            "SignupOption": {
+              "titleText": "Tham gia cùng {{username}} trên Linktree",
+              "subTitleText": "Tạo Linktree miễn phí của bạn. Nền tảng link in bio duy nhất được 70M+ người tin dùng.",
+              "signupCtaText": "Đăng ký miễn phí",
+              "homePageCtaText": "Tìm hiểu thêm"
+            }
+          },
+          "zh": {
+            "InlineAdOverlay": {
+              "label": "广告",
+              "redirectingIn_one": "{{count}} 秒后跳转...",
+              "redirectingIn_other": "{{count}} 秒后跳转...",
+              "redirectingNow": "正在跳转"
+            },
+            "LinkChinCta": {
+              "follow": "关注"
+            },
+            "MessagingOption": {
+              "titleText": "就这个链接给{{username}}发消息",
+              "titleTextAccount": "给{{username}}发消息",
+              "callToActionText": "发消息"
+            },
+            "ProfileTranslation": {
+              "translate": "翻译主页",
+              "translateTo": "翻译为…",
+              "suggested": "推荐",
+              "other": "其他",
+              "english": "英语（默认）",
+              "portuguese": "葡萄牙语（巴西）"
+            },
+            "SignupCta": {
+              "linktreeUrl": "linktr.ee/",
+              "joinLinkTree": "和 {{username}} 一起加入 Linktree",
+              "claimYours": "认领你的 Linktree",
+              "footerCtaGetYourOwn": "创建专属 Linktree",
+              "dismiss": "关闭"
+            },
+            "SignupOption": {
+              "titleText": "和 {{username}} 一起加入 Linktree",
+              "subTitleText": "免费创建专属 Linktree。7000万+ 人信赖之选",
+              "signupCtaText": "免费注册",
+              "homePageCtaText": "了解更多"
+            }
+          }
+        }
+      }
+    },
+    "__N_SSP": true
+  },
+  "page": "/[profile]",
+  "query": {
+    "profile": "cloesaint2026"
+  },
+  "buildId": "7bc139c2ff0b0626ee2b3e0c520f73570f81ccad",
+  "assetPrefix": "https://assets.production.linktr.ee/profiles",
+  "isFallback": false,
+  "isExperimentalCompile": false,
+  "dynamicIds": [
+    64924,
+    78664,
+    19902,
+    5994,
+    93057
+  ],
+  "gssp": true,
+  "locale": "en",
+  "locales": [
+    "en"
+  ],
+  "defaultLocale": "en",
+  "scriptLoader": []
+}
