@@ -1,0 +1,67 @@
+# Portão de qualidade da Quatro em 1: QA de animação/layout, QA de conformidade
+# e teste funcional real do fluxo de pedido. Roda com navegador de verdade.
+name: qa
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "index.html"
+      - "scripts/test-flow.mjs"
+      - ".github/workflows/qa.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      - name: Playwright
+        run: |
+          npm i --no-audit --no-fund playwright@1.49.1
+          npx playwright install chromium
+
+      - name: QA de animação e layout
+        run: node tools/qa.mjs index.html --min-loop 2 | tee qa-animacao.txt
+
+      - name: QA de conformidade (LGPD/WCAG)
+        run: node tools/qa-legal.mjs index.html | tee qa-conformidade.txt
+
+      - name: Teste funcional do fluxo de pedido
+        run: node scripts/test-flow.mjs index.html | tee qa-fluxo.txt
+
+      - name: Consolidar relatório
+        if: always()
+        run: |
+          mkdir -p qa
+          { echo "# Relatório de QA — Quatro em 1"
+            echo
+            echo "Gerado em: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo "Arquivo: index.html ($(stat -c%s index.html) bytes)"
+            echo
+            echo "## 1. Animação e layout (tools/qa.mjs)"
+            echo '```'; cat qa-animacao.txt 2>/dev/null; echo '```'
+            echo
+            echo "## 2. Conformidade (tools/qa-legal.mjs)"
+            echo '```'; cat qa-conformidade.txt 2>/dev/null; echo '```'
+            echo
+            echo "## 3. Fluxo funcional do pedido (scripts/test-flow.mjs)"
+            echo '```'; cat qa-fluxo.txt 2>/dev/null; echo '```'
+          } > qa/RELATORIO.md
+          cat qa/RELATORIO.md | head -80
+
+      - name: Publicar relatório
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A qa
+          git commit -m "QA: relatório de animação, conformidade e fluxo [skip ci]" || echo "nada a commitar"
+          git push origin HEAD:${GITHUB_REF_NAME}

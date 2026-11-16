@@ -1,0 +1,119 @@
+{
+  "empresa": {
+    "nome": "Quatro em 1",
+    "frase": "Nosso principal ingrediente é o amor",
+    "categoria": "Confeitaria",
+    "endereco": "Av. Cesário de Melo, 4555 — Loja C, Campo Grande",
+    "cidade": "Rio de Janeiro — RJ",
+    "cep": "23055-002",
+    "referencia": "Em frente à estação de BRT Pina Rangel, sentido Campo Grande. Do ladinho da Peixaria Azul, esquina com a Rua Alvorada.",
+    "telefone": "+55 21 98249-3190",
+    "whatsapp": "5521982493190",
+    "instagram": "https://www.instagram.com/quatroem1/",
+    "instagram_handle": "@quatroem1",
+    "cardapio_oficial": "https://whatsmenu.com.br/quatroem1",
+    "maps": "https://www.google.com/maps/place/Quatro+em+1/@-22.9076336,-43.5754456,17z/",
+    "nota": "4,9",
+    "avaliacoes": "1.140",
+    "seguidores": "71,2 mil",
+    "horario_loja": "Todos os dias, 09h às 22h30",
+    "horario_delivery": "Todos os dias, 10h às 20h",
+    "pagamento": "PIX na máquina no momento da entrega"
+  },
+  "prova": {
+    "resumo_google": [
+      { "termo": "doces", "mencoes": 103 },
+      { "termo": "coxinha", "mencoes": 73 },
+      { "termo": "salgados", "mencoes": 71 },
+      { "termo": "atendente", "mencoes": 62 },
+      { "termo": "simpático", "mencoes": 37 },
+      { "termo": "camarão", "mencoes": 35 }
+    ],
+    "depoimentos": [
+      {
+        "nome": "Sara Albuquerque",
+        "origem": "Avaliação publicada no Google",
+        "quando": "há uma semana",
+        "texto": "A melhor experiência, fomos comemorar 25 anos da minha filha…"
+      },
+      {
+        "nome": "Sara Fernandes",
+        "origem": "Avaliação publicada no Google",
+        "quando": "há 3 meses",
+        "texto": "A coxinha estava MA.RA.VI.LHO.SA, surpreendente, e um valor justo."
+      },
+      {
+        "nome": "Brenda Rodrigues",
+        "origem": "Avaliação publicada no Google",
+        "quando": "há um mês",
+        "texto": "Gente, vocês não estão entendendo de como é maravilhoso tudo que se encontra nessa lanchonete cafeteria."
+      }
+    ]
+  },
+  "categorias": [
+    { "id": "doces", "nome": "Doces", "linha": "Brigadeiros, copos, pavês e sobremesas de pote" },
+    { "id": "bolos", "nome": "Bolos", "linha": "Bolos de pote, naked cake, fatias e caseirinhos" },
+    { "id": "chocolates", "nome": "Chocolates", "linha": "Bombons, cookies, cones trufados e palha italiana" },
+    { "id": "salgados", "nome": "Salgados", "linha": "Coxinhas, assados, pães recheados e sanduíches" },
+    { "id": "bebidas", "nome": "Bebidas", "linha": "Para acompanhar" }
+  ],
+  "produtos": [
+    { "slug": "charlotte-morango-grande", "cat": "doces", "nome": "Charlotte de morango grande", "preco": 23.50, "desc": "Brigadeiro de ninho, morangos picados, chantininho e biscoito champanhe." },
+    { "slug": "charlotte-morango-pequena", "cat": "doces", "nome": "Charlotte de morango pequena", "preco": 17.00, "desc": "Brigadeiro de ninho, chantininho, geleia de morango e biscoito champanhe." },
+    { "slug": "charlotte-pessego", "cat": "doces", "nome": "Charlotte de pêssego", "preco": 17.00, "desc": "Brigadeiro de ninho, chantininho, pêssego e biscoito champanhe." },
+    { "slug": "banoffe", "cat": "doces", "nome": "Banoffe", "preco": 17.50, "desc": "Brigadeiro de leite Ninho, doce de leite cremoso, bananas fatiadas e chantilly com canela, sobre farofa crocante de biscoito." },
+    { "slug": "bombom-morango", "cat": "doces", "nome": "Bombom de morango", "preco": 17.50, "desc": "Farofa crocante de biscoito, brigadeiro de Ninho, chantininho, geleia de morango e muitos morangos frescos picados." },
+    { "slug": "bombom-uva", "cat": "doces", "nome": "Bombom de uva", "preco": 17.50, "desc": "Pote de 250 ml com farofa de biscoito, brigadeiro de Ninho, chantilly com uvas picadas e brigadeiro de chocolate 50%." },
+    { "slug": "cheesecake-morango", "cat": "doces", "nome": "Cheesecake de morango", "preco": 17.00, "desc": "Farofa de biscoito, cream cheese e geleia de morango." },
+    { "slug": "copo-ninho-duplo", "cat": "doces", "nome": "Copo ninho duplo", "preco": 19.00, "desc": "Brigadeiro de ninho, chantininho, geleia de morango e brownie." },
+    { "slug": "copo-morango", "cat": "doces", "nome": "Copo morango", "preco": 19.00, "desc": "Geleia de morango, chantininho, brigadeiro de ninho e brownie." },
+    { "slug": "copudim", "cat": "doces", "nome": "Copudim", "preco": 23.50, "desc": "Brigadeiro de ninho, chantininho, brigadeiro, brownie e pudim." },
+    { "slug": "pave-oreo-brigadeiro", "cat": "doces", "nome": "Pavê de Oreo com brigadeiro", "preco": 22.00, "desc": "Camadas de pavê de Oreo com brigadeiro cremoso." },
+    { "slug": "pudim-leite-condensado", "cat": "doces", "nome": "Pudim de leite condensado", "preco": 17.00, "desc": "Pudim cremoso de leite condensado." },
+    { "slug": "quindim", "cat": "doces", "nome": "Quindim", "preco": 16.00, "desc": "Quindim tradicional, brilhante e cremoso." },
+    { "slug": "brigadeiro-gourmet", "cat": "doces", "nome": "Brigadeiro gourmet", "preco": 5.00, "desc": "O brigadeiro da casa, em versão gourmet." },
+
+    { "slug": "bolo-pote-ninho-morango", "cat": "bolos", "nome": "Bolo de pote ninho com morango", "preco": 20.00, "desc": "Massa branca, brigadeiro de ninho e morango picado." },
+    { "slug": "bolo-pote-morango-suspiro", "cat": "bolos", "nome": "Bolo de pote morango com suspiro", "preco": 20.00, "desc": "Massa branca fofinha, creme de Ninho supercremoso, geleia de morango e morangos frescos. Acompanha saquinho de suspiro crocante para colocar na hora." },
+    { "slug": "bolo-pote-bem-casado", "cat": "bolos", "nome": "Bolo de pote bem-casado", "preco": 18.00, "desc": "Massa de baunilha recheada com mousse de ninho, brigadeiro cremoso de ninho e doce de leite artesanal." },
+    { "slug": "bolo-pote-limao", "cat": "bolos", "nome": "Bolo de pote limão", "preco": 18.00, "desc": "Bolo de pote no sabor limão." },
+    { "slug": "bolo-pote-cafe-chocolate", "cat": "bolos", "nome": "Bolo de pote café com lascas de chocolate", "preco": 19.00, "desc": "Massa de café com lascas de chocolate." },
+    { "slug": "bolo-pote-pudim", "cat": "bolos", "nome": "Bolo de pote pudim", "preco": 20.00, "desc": "Bolo de pote na versão pudim." },
+    { "slug": "bolo-pote-ninho-pistache", "cat": "bolos", "nome": "Bolo de pote ninho com pistache", "preco": 18.00, "desc": "Creme de Ninho com pistache." },
+    { "slug": "naked-cake-15cm", "cat": "bolos", "nome": "Naked cake 15 cm", "preco": 135.00, "desc": "Bolo de 15 cm. Consultar sabores disponíveis." },
+    { "slug": "fatia-pistache-frutas-vermelhas", "cat": "bolos", "nome": "Fatia pistache com frutas vermelhas", "preco": 23.00, "desc": "Fatia de bolo de pistache com frutas vermelhas." },
+    { "slug": "fatia-torta-alema", "cat": "bolos", "nome": "Fatia torta alemã crocante com doce de leite", "preco": 21.00, "desc": "Fatia da torta alemã crocante com doce de leite." },
+    { "slug": "caseirinho-laranja", "cat": "bolos", "nome": "Caseirinho de laranja", "preco": 26.50, "desc": "Bolo caseiro de laranja." },
+
+    { "slug": "copo-kinder-bueno", "cat": "chocolates", "nome": "Copo Kinder Bueno", "preco": 22.00, "desc": "Brigadeiro de ninho, chantininho, nutella e brownie." },
+    { "slug": "cookie-nutella", "cat": "chocolates", "nome": "Cookie tradicional com Nutella", "preco": 16.00, "desc": "Cookie com Nutella." },
+    { "slug": "cookie-mm", "cat": "chocolates", "nome": "Cookie M&M", "preco": 16.00, "desc": "Cookie com M&M." },
+    { "slug": "cookie-kinder-bueno", "cat": "chocolates", "nome": "Cookie Kinder Bueno", "preco": 17.50, "desc": "Cookie com Kinder Bueno." },
+    { "slug": "bombom-nutella", "cat": "chocolates", "nome": "Bombom de Nutella", "preco": 16.00, "desc": "Bombom recheado com Nutella." },
+    { "slug": "bombom-nutella-kinder", "cat": "chocolates", "nome": "Bombom de Nutella e Kinder Bueno", "preco": 16.00, "desc": "Bombom com Nutella e Kinder Bueno." },
+    { "slug": "bombom-oreo", "cat": "chocolates", "nome": "Bombom de Oreo", "preco": 16.00, "desc": "Bombom com Oreo." },
+    { "slug": "bombom-ferrero", "cat": "chocolates", "nome": "Bombom Ferrero", "preco": 16.00, "desc": "Bombom estilo Ferrero Rocher." },
+    { "slug": "bombom-cenoura", "cat": "chocolates", "nome": "Bombom de cenoura", "preco": 16.00, "desc": "Bolo de cenoura recheado com brigadeiro e banhado no chocolate." },
+    { "slug": "cone-trufado-ninho-nutella", "cat": "chocolates", "nome": "Cone trufado de ninho com Nutella", "preco": 17.00, "desc": "Cone trufado com brigadeiro de ninho e Nutella." },
+    { "slug": "palha-italiana-oreo", "cat": "chocolates", "nome": "Palha italiana de Oreo", "preco": 15.00, "desc": "Palha italiana de Oreo." },
+
+    { "slug": "coxinha-frango", "cat": "salgados", "nome": "Coxinha de frango", "preco": 11.50, "desc": "Coxinha de frango da casa." },
+    { "slug": "coxinha-costela-requeijao", "cat": "salgados", "nome": "Coxinha de costela com requeijão", "preco": 15.90, "desc": "Coxinha recheada com costela e requeijão." },
+    { "slug": "assado-calabresa-requeijao", "cat": "salgados", "nome": "Assado de calabresa com requeijão", "preco": 11.50, "desc": "Salgado assado de calabresa com requeijão." },
+    { "slug": "paosinho-batata", "cat": "salgados", "nome": "Pãozinho de batata", "preco": 21.00, "desc": "Pão de batata recheado com frango e catupiry." },
+    { "slug": "enroladinho-salsicha", "cat": "salgados", "nome": "Enroladinho de salsicha", "preco": 11.50, "desc": "Enroladinho de salsicha assado." },
+    { "slug": "mini-assados-sortidos", "cat": "salgados", "nome": "Mini assados sortidos", "preco": 23.50, "desc": "10 mini assados sortidos." },
+    { "slug": "pastel-forno-frango", "cat": "salgados", "nome": "Pastel de forno de frango com molho branco", "preco": 14.90, "desc": "Pastel de forno recheado com frango e molho branco." },
+    { "slug": "hot-dog-recheado", "cat": "salgados", "nome": "Hot dog recheado", "preco": 11.50, "desc": "Salsicha, catupiry e batata palha." },
+    { "slug": "sanduiche-contra-filet", "cat": "salgados", "nome": "Sanduíche de contrafilé", "preco": 25.90, "desc": "Pão de provolone, contrafilé, maionese defumada, mussarela e anel de cebola." },
+    { "slug": "sanduiche-natural", "cat": "salgados", "nome": "Sanduíche natural", "preco": 16.00, "desc": "Pasta de frango, peito de peru, alface, cenoura, batata palha e milho." },
+    { "slug": "lasanha-bolonhesa", "cat": "salgados", "nome": "Lasanha bolonhesa", "preco": 20.00, "desc": "Lasanha ao molho bolonhês." },
+    { "slug": "escondidinho-carne", "cat": "salgados", "nome": "Escondidinho de carne", "preco": 20.00, "desc": "Escondidinho cremoso de carne." },
+
+    { "slug": "beb-coca", "cat": "bebidas", "nome": "Coca-Cola", "preco": 7.50, "desc": "Refrigerante.", "sem_foto": true },
+    { "slug": "beb-coca-zero", "cat": "bebidas", "nome": "Coca-Cola Zero", "preco": 7.50, "desc": "Refrigerante.", "sem_foto": true },
+    { "slug": "beb-guaranita", "cat": "bebidas", "nome": "Guaravita", "preco": 3.50, "desc": "Refrigerante.", "sem_foto": true },
+    { "slug": "beb-h2oh-limao", "cat": "bebidas", "nome": "H2OH limão", "preco": 8.00, "desc": "Água saborizada.", "sem_foto": true },
+    { "slug": "beb-agua", "cat": "bebidas", "nome": "Água mineral", "preco": 3.50, "desc": "Água mineral sem gás.", "sem_foto": true }
+  ]
+}
