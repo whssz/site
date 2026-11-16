@@ -1,0 +1,162 @@
+name: Verify and deploy Clô & Saint
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "index.html"
+      - "src/**"
+      - "assets/**"
+      - "scripts/build-site.mjs"
+      - "scripts/e2e-site.mjs"
+      - "tools/**"
+      - ".vercelignore"
+      - ".github/workflows/deploy-vercel.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clo-saint-production-deploy
+  cancel-in-progress: false
+
+env:
+  VERCEL_PROJECT: prj_M0RdlLHpxAGSFyBWqx4TB0vJXBrB
+  VERCEL_PROJECT_NAME: clo-saint
+  VERCEL_TEAM: team_z6tahC0dowvMZFiASHvvIgBP
+  REPO_ID: 1440125649
+  SITE_URL: https://clo-saint.vercel.app
+
+jobs:
+  verify-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.49.1
+          npx playwright install --with-deps chromium
+
+      - name: Rebuild the self-contained page and inject the official animation kit
+        run: |
+          node scripts/build-site.mjs
+          node tools/inject-anim.mjs index.html --refresh
+
+      - name: Full browser QA — layout, motion, reduced motion and errors
+        run: node tools/qa.mjs index.html
+
+      - name: Legal and accessibility QA (strict)
+        run: node tools/qa-legal.mjs index.html --strict
+
+      - name: Functional end-to-end checks — menu, cart, consent, dialogs, tabs
+        run: node scripts/e2e-site.mjs index.html
+
+      - name: Configure the Vercel static output and make the project public
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${VERCEL_TOKEN:-}" ]; then
+            echo "::error::Configure the repository secret VERCEL_TOKEN before deploying."
+            exit 1
+          fi
+          SETTINGS=$(jq -n \
+            --arg cmd 'mkdir -p public && cp index.html public/index.html' \
+            '{"framework":"other","buildCommand":$cmd,"installCommand":"echo no dependencies","outputDirectory":"public","ssoProtection":null}')
+          RESPONSE=$(curl --fail-with-body -sS -X PATCH \
+            "https://api.vercel.com/v9/projects/${VERCEL_PROJECT}?teamId=${VERCEL_TEAM}" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "$SETTINGS")
+          echo "$RESPONSE" | jq '{name, framework, buildCommand, installCommand, outputDirectory, ssoProtection}'
+          echo "$RESPONSE" | jq -e '
+            .id == env.VERCEL_PROJECT and
+            .framework == "other" and
+            .outputDirectory == "public" and
+            .ssoProtection == null
+          ' >/dev/null
+
+      - name: Create a production deployment from this branch and commit
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          BODY=$(jq -n \
+            --arg name "$VERCEL_PROJECT_NAME" \
+            --arg project "$VERCEL_PROJECT" \
+            --arg ref "$GITHUB_REF_NAME" \
+            --arg sha "$GITHUB_SHA" \
+            --arg repoId "$REPO_ID" \
+            '{"name":$name,"project":$project,"target":"production","gitSource":{"type":"github","ref":$ref,"sha":$sha,"repoId":$repoId}}')
+          RESPONSE=$(curl --fail-with-body -sS -X POST \
+            "https://api.vercel.com/v13/deployments?teamId=${VERCEL_TEAM}&skipAutoDetectionConfirmation=1" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "$BODY")
+          echo "$RESPONSE" | jq '{id, uid, url, readyState, target, error}'
+          ID=$(echo "$RESPONSE" | jq -r '.id // .uid // empty')
+          if [ -z "$ID" ]; then
+            echo "::error::Vercel did not return a deployment ID"
+            echo "$RESPONSE"
+            exit 1
+          fi
+          echo "deployment_id=$ID" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for the production build
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          DEPLOYMENT_ID: ${{ steps.deploy.outputs.deployment_id }}
+        run: |
+          set -euo pipefail
+          STATE=""
+          for i in $(seq 1 60); do
+            RESPONSE=$(curl --fail-with-body -sS \
+              "https://api.vercel.com/v13/deployments/${DEPLOYMENT_ID}?teamId=${VERCEL_TEAM}" \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}")
+            STATE=$(echo "$RESPONSE" | jq -r '.readyState // "UNKNOWN"')
+            echo "[$i/60] readyState=$STATE"
+            if [ "$STATE" = "READY" ]; then
+              echo "$RESPONSE" | jq '{id, url, readyState, target, alias, readySubstate}'
+              break
+            fi
+            if [ "$STATE" = "ERROR" ] || [ "$STATE" = "CANCELED" ]; then
+              echo "$RESPONSE" | jq '{id, url, readyState, error}'
+              exit 1
+            fi
+            sleep 10
+          done
+          if [ "$STATE" != "READY" ]; then
+            echo "::error::Deployment did not become READY (state=$STATE)"
+            exit 1
+          fi
+
+      - name: Verify public HTTP 200 and live page content
+        run: |
+          set -euo pipefail
+          CODE=""
+          for i in $(seq 1 24); do
+            CODE=$(curl -L -sS --connect-timeout 15 --max-time 45 -o /tmp/clo-saint-live.html -w '%{http_code}' "$SITE_URL/") || true
+            echo "[$i/24] $SITE_URL → HTTP $CODE"
+            if [ "$CODE" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$CODE" = "200"
+          grep -q 'Clô &amp; Saint' /tmp/clo-saint-live.html
+          echo "✓ Public page returns HTTP 200 and the Clô & Saint HTML is present."
+          echo "## Production deployment" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URL: $SITE_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Public HTTP status: $CODE" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Full browser QA against the live Vercel deployment
+        run: |
+          node tools/qa.mjs "$SITE_URL"
+          node tools/qa-legal.mjs "$SITE_URL" --strict
+          node scripts/e2e-site.mjs "$SITE_URL"
