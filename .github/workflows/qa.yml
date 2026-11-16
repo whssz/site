@@ -37,6 +37,28 @@ jobs:
       - name: Teste funcional do fluxo de pedido
         run: node scripts/test-flow.mjs index.html | tee qa-fluxo.txt
 
+      - name: Conferir site publicado (HTTP 200)
+        run: |
+          URL="https://quatro-em-1.vercel.app/"
+          for i in $(seq 1 20); do
+            CODE=$(curl -sS -o /tmp/page.html -w '%{http_code}' -L "$URL" || echo 000)
+            echo "tentativa $i -> HTTP $CODE"
+            [ "$CODE" = "200" ] && break
+            sleep 10
+          done
+          echo "bytes: $(wc -c < /tmp/page.html)"
+          echo "titulo: $(grep -o '<title>[^<]*</title>' /tmp/page.html | head -1)"
+          test "$CODE" = "200" || { echo "FALHOU: site nao respondeu 200"; exit 1; }
+          python3 - <<'PYX'
+import re, sys
+h = open('/tmp/page.html', encoding='utf-8', errors='replace').read()
+ext = [u for u in re.findall(r'(?:src|href)="(https?://[^"]+)"', h) if 'vercel.app' not in u]
+print('midia/fonte embutida:', len(re.findall(r'data:(?:image|video|font)/', h)))
+print('requisicoes externas:', ext if ext else 'nenhuma')
+print('tamanho: %.2f MB' % (len(h.encode()) / 1048576))
+sys.exit(1 if ext else 0)
+PYX
+
       - name: Consolidar relatório
         if: always()
         run: |
@@ -54,6 +76,11 @@ jobs:
             echo
             echo "## 3. Fluxo funcional do pedido (scripts/test-flow.mjs)"
             echo '```'; cat qa-fluxo.txt 2>/dev/null; echo '```'
+            echo
+            echo "## 4. Site publicado"
+            echo '```'
+            curl -sS -o /dev/null -w 'https://quatro-em-1.vercel.app/ -> HTTP %{http_code} (HTTP/%{http_version})\n' -L https://quatro-em-1.vercel.app/ || true
+            echo '```'
           } > qa/RELATORIO.md
           cat qa/RELATORIO.md | head -80
 
