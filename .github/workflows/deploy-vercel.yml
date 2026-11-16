@@ -57,7 +57,21 @@ jobs:
       - name: Functional end-to-end checks — menu, cart, consent, dialogs, tabs
         run: node scripts/e2e-site.mjs index.html
 
+      - name: Check whether the Vercel deployment credential is configured
+        id: deploy_auth
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -n "${VERCEL_TOKEN:-}" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::VERCEL_TOKEN is not configured; automatic Vercel API deployment is skipped."
+            echo "- Automatic Vercel API deployment: skipped (repository secret VERCEL_TOKEN is not configured)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Configure the Vercel static output and make the project public
+        if: ${{ steps.deploy_auth.outputs.available == 'true' }}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
@@ -68,21 +82,23 @@ jobs:
           fi
           SETTINGS=$(jq -n \
             --arg cmd 'mkdir -p public && cp index.html public/index.html' \
-            '{"framework":"other","buildCommand":$cmd,"installCommand":"echo no dependencies","outputDirectory":"public","ssoProtection":null}')
+            '{"buildCommand":$cmd,"installCommand":"echo no dependencies","outputDirectory":"public","ssoProtection":null}')
           RESPONSE=$(curl --fail-with-body -sS -X PATCH \
             "https://api.vercel.com/v9/projects/${VERCEL_PROJECT}?teamId=${VERCEL_TEAM}" \
             -H "Authorization: Bearer ${VERCEL_TOKEN}" \
             -H "Content-Type: application/json" \
             --data "$SETTINGS")
-          echo "$RESPONSE" | jq '{name, framework, buildCommand, installCommand, outputDirectory, ssoProtection}'
+          echo "$RESPONSE" | jq '{name, buildCommand, installCommand, outputDirectory, ssoProtection}'
           echo "$RESPONSE" | jq -e '
             .id == env.VERCEL_PROJECT and
-            .framework == "other" and
+            .buildCommand == "mkdir -p public && cp index.html public/index.html" and
+            .installCommand == "echo no dependencies" and
             .outputDirectory == "public" and
             .ssoProtection == null
           ' >/dev/null
 
       - name: Create a production deployment from this branch and commit
+        if: ${{ steps.deploy_auth.outputs.available == 'true' }}
         id: deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -110,6 +126,7 @@ jobs:
           echo "deployment_id=$ID" >> "$GITHUB_OUTPUT"
 
       - name: Wait for the production build
+        if: ${{ steps.deploy_auth.outputs.available == 'true' }}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           DEPLOYMENT_ID: ${{ steps.deploy.outputs.deployment_id }}
