@@ -1,0 +1,12 @@
+# Dependencies and platform-local state
+node_modules
+.vercel/
+.env*
+
+# Research downloads and browser screenshots are not part of the site
+/google_drive/
+/analysis-media/
+/image-search/
+/*-review.png
+/mobile-top-after.png
+/mobile-top-updated.png

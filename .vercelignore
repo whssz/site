@@ -1,0 +1,4 @@
+# Only the standalone HTML and Vercel's config are needed for deployment.
+/*
+!index.html
+!vercel.json
