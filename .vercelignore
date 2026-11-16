@@ -1,0 +1,12 @@
+# Só o site final (index.html autocontido) vai para a CDN da Vercel
+media-raw/
+assets/
+scripts/
+tools/
+image-search/
+google_drive/
+qa-shots/
+node_modules/
+.git/
+.gitignore
+index.html.txt

@@ -1,0 +1,7 @@
+node_modules/
+image-search/
+google_drive/
+qa-shots/
+.vercel/
+.env.local
+*.log
