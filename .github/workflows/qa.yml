@@ -64,4 +64,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A qa
           git commit -m "QA: relatório de animação, conformidade e fluxo [skip ci]" || echo "nada a commitar"
-          git push origin HEAD:${GITHUB_REF_NAME}
+          git pull --rebase origin ${GITHUB_REF_NAME} || true
+          git push origin HEAD:${GITHUB_REF_NAME} || echo "nada a enviar"
