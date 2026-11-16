@@ -1,7 +1,7 @@
 # Relatório de QA — Quatro em 1
 
-Gerado em: 2026-11-16 01:29 UTC
-Arquivo: index.html (3355586 bytes)
+Gerado em: 2026-11-16 01:33 UTC
+Arquivo: index.html (3354700 bytes)
 
 ## 1. Animação e layout (tools/qa.mjs)
 ```
@@ -9,17 +9,13 @@ Arquivo: index.html (3355586 bytes)
   QA · index.html
   ────────────────────────────────────────────────────────────────
   viewport   h-scroll  loop   keyframes  revela   erros
-  desktop    0px       44     14         51/90    0
-  tablet     0px       44     14         51/90    0
-  mobile     0px       29     12         51/90    0
+  desktop    0px       44     14         37/37    0
+  tablet     0px       44     14         37/37    0
+  mobile     0px       29     12         37/37    0
   ────────────────────────────────────────────────────────────────
   reduced-motion: desliga tudo ✓
 
-  ✗ FAIL
-
-    · desktop: 39 elemento(s) que nunca revelam — p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE
-    · tablet: 39 elemento(s) que nunca revelam — p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE
-    · mobile: 39 elemento(s) que nunca revelam — p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE, p-card rev rv-scale hide ARTICLE
+  ✓ PASS — pode publicar
 
 ```
 
@@ -30,17 +26,14 @@ Arquivo: index.html (3355586 bytes)
   ────────────────────────────────────────────────────────────────────
    · lang=pt-BR · title="Quatro em 1 — Confeitaria em Campo Grande | Doce"
    · imagens: 67 · sem alt: 0
-   · links legais: privacidade=false termos=false cookies=false reembolso=false
+   · links legais: privacidade=true termos=true cookies=false reembolso=false
    · formulário: 0 campo(s) · consentimento: não
    · trackers: nenhum · banner: não
-   · contraste: 5 abaixo do mínimo
+   · contraste: todos os textos medidos passaram
    · teclado: foco visível em todos os 14 primeiros
   ────────────────────────────────────────────────────────────────────
 
-  ⚠ ALERTA (3)
-    - nenhum link de Política de Privacidade encontrado
-    - nenhum link de Termos de Uso encontrado
-    - 5 texto(s) abaixo do contraste mínimo — pior: "“" 1.47:1 (min 3) · "“" 1.47:1 (min 3) · "“" 1.47:1 (min 3) · "Quatro em 1 · Av. Cesário de Melo," 4.48:1 (min 4.5) · "Site informativo — pedidos finaliz" 4.48:1 (min 4.5)
+  ✓ Nada pendente.
 
   ✓ PASSOU
 
@@ -106,7 +99,7 @@ _Aguardando a confirmação de vocês!_
 ─────────────────────
 
 ── 10. persistência ao recarregar
-  FAIL pedido preservado após recarregar
+  OK   pedido preservado após recarregar (3 unidades)
 
 ── 11. teclado e acessibilidade
   OK   Esc fecha a gaveta
@@ -119,5 +112,5 @@ _Aguardando a confirmação de vocês!_
 ── erros de JS: nenhum
   OK   nenhum erro de JavaScript
 
-✘ 1 FALHA(S) NO FLUXO
+✔ FLUXO APROVADO — 0 falhas
 ```
