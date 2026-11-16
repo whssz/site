@@ -35,6 +35,14 @@ jobs:
           cp -f index.html public/index.html
           ls -l public/index.html
 
+      - name: Conferir credencial
+        run: |
+          if [ -z "${VERCEL_TOKEN:-}" ]; then
+            echo "ERRO: o secret VERCEL_TOKEN não está definido neste repositório."
+            exit 1
+          fi
+          echo "VERCEL_TOKEN presente (${#VERCEL_TOKEN} caracteres)"
+
       - name: Publicar na Vercel (produção)
         id: deploy
         run: |
