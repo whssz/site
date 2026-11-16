@@ -1,0 +1,7 @@
+node_modules/
+media-raw/
+media-raw.tgz
+_ws/
+.vercel/
+.vercelignore
+.env.local

@@ -1,0 +1,60 @@
+# Coleta a mídia pública oficial da Quatro em 1 (confeitaria · Campo Grande, RJ)
+# no runner do GitHub Actions, que tem rede livre:
+# Instagram @quatroem1 + Google Maps + cardápio oficial whatsmenu + marca.
+# Entrega tudo como artefato (não volta para o git).
+name: collect-media
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "scripts/collect-media.mjs"
+      - ".github/workflows/collect-media.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      - name: yt-dlp + ffmpeg
+        run: |
+          pip install -q -U yt-dlp || true
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg) || true
+
+      - name: Coletar mídia oficial
+        run: node scripts/collect-media.mjs
+
+      - name: Otimizar vídeos e gerar posters
+        run: |
+          mkdir -p media-raw/ig/web
+          for v in media-raw/ig/*.mp4; do
+            [ -f "$v" ] || continue
+            b=$(basename "$v" .mp4)
+            echo "--- $b"
+            ffprobe -v error -show_entries format=duration:stream=width,height -of default=nw=1 "$v" > "media-raw/ig/web/${b}.probe.txt" 2>&1 || true
+            ffmpeg -v error -y -i "$v" -an -vf "scale='min(720,iw)':-2" -c:v libx264 -crf 30 -preset veryfast -movflags +faststart "media-raw/ig/web/${b}_web.mp4" || true
+            ffmpeg -v error -y -i "$v" -frames:v 1 -vf "scale=640:-2" -q:v 6 "media-raw/ig/web/${b}_poster.jpg" || true
+          done
+          du -sh media-raw/* || true
+          ls -la media-raw/ig/web | head -60
+
+      - name: Empacotar mídia
+        run: |
+          tar czf media-raw.tgz media-raw
+          ls -lh media-raw.tgz
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: media-raw
+          path: media-raw.tgz
+          if-no-files-found: error
+          retention-days: 3
