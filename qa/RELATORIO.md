@@ -1,7 +1,8 @@
 # Relatório de QA — Quatro em 1
 
-Gerado em: 2026-11-16 01:35 UTC
+Gerado em: 2026-11-16 01:47 UTC
 Arquivo: index.html (3354700 bytes)
+Site: https://quatro-em-1.vercel.app/
 
 ## 1. Animação e layout (tools/qa.mjs)
 ```
@@ -113,4 +114,12 @@ _Aguardando a confirmação de vocês!_
   OK   nenhum erro de JavaScript
 
 ✔ FLUXO APROVADO — 0 falhas
+```
+
+## 4. Site publicado
+```
+mídia/fonte embutida em data: URI : 79
+requisições externas de recurso : nenhuma
+tamanho                         : 3.20 MB
+APROVADO: arquivo único e autossuficiente
 ```
