@@ -2,6 +2,7 @@
 node_modules
 .vercel/
 .env*
+/faz-de-conta-deploy/public/
 
 # Research downloads and browser screenshots are not part of the site
 /google_drive/

@@ -1,4 +1,5 @@
-# Only the standalone HTML and Vercel's config are needed for deployment.
+# Upload only the standalone site and its isolated deployment configuration.
 /*
 !index.html
 !vercel.json
+!faz-de-conta-deploy/

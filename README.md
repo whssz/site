@@ -43,6 +43,10 @@ node tests/flow.cjs
 
 O kit de movimento é injetado por `node tools/inject-anim.mjs index.html --refresh`. O bloco de `<noscript>` precisa permanecer antes do `<style>` principal: o injetor acrescenta o CSS ao último bloco de estilos. O `tools/setup.sh` contém a instalação do Playwright para uma nova sessão. O teste do fluxo intercepta a abertura de `wa.me` localmente: verifica a mensagem e a abertura de nova aba, mas não envia mensagem real.
 
-`.vercelignore` permite apenas o HTML; um deploy pode usar `mkdir -p public && cp index.html public/index.html` com diretório de saída `public` para servir apenas o arquivo autossuficiente.
+## Publicação isolada
 
-O repositório é compartilhado por outros projetos Vercel. `vercel.json` permite o build deste ramo apenas no projeto `faz-de-conta-doces` (pelo nome ou ID) e ignora builds acionados automaticamente nos demais projetos, para não substituir sites de outros clientes. Ao mover o site para outro projeto, ajuste essa condição de proteção.
+O repositório é compartilhado com projetos de outros clientes. Os arquivos `vercel.json` desta branch desligam deployments automáticos por push; o da raiz também contém uma segunda proteção para ignorar os builds desta branch nos demais projetos Vercel. Essas configurações só se aplicam aos commits que as contêm, não às outras branches. O projeto `faz-de-conta-doces` usa como Root Directory `faz-de-conta-deploy/`, uma pasta exclusiva desta branch; a opção de incluir fontes fora da pasta está ligada para que seu build leia o `index.html` único na raiz. O comando configurado no projeto é `sh build.sh`, com saída em `public/`.
+
+O `ignoreCommand` dessa pasta e `build.sh` permitem builds somente no projeto `prj_dIzw8KxetIlZbV8R6hs7M6O91LDV` e na branch `arena/39713bc9-site`. Uma branch alheia sem essa pasta não tem fonte para construir este projeto; o script também interrompe o build se o HTML esperado não estiver presente. `.vercelignore` permite apenas o HTML e as configurações necessárias; o diretório de saída contém apenas o HTML.
+
+**Atualizações:** faça alterações nesta branch e teste-as; o push não publica automaticamente. Crie explicitamente um deployment de produção do commit desta branch no projeto `faz-de-conta-doces` e depois confirme o domínio público e o conteúdo. Para mudar de branch ou projeto, atualize ambas as proteções e as configurações Vercel conscientemente. Nunca publique `main` ou a branch de outro cliente neste projeto.
