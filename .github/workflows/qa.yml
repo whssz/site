@@ -58,9 +58,6 @@ jobs:
           if [ "$CODE" != "200" ]; then echo "FALHOU: site nao respondeu 200"; exit 1; fi
           python3 scripts/check-self-contained.py /tmp/page.html 2>&1 | tee qa-publicado.txt
 
-      - name: Capturar telas para conferência visual
-        run: node scripts/shots.mjs index.html
-
       - name: Consolidar relatório
         if: always()
         run: |
