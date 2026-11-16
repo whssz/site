@@ -1,0 +1,38 @@
+# Monta a pasta assets/ final (mídia otimizada + fontes) a partir de media-raw/.
+# Roda no runner, que tem rede livre: ffmpeg, ImageMagick e Playwright.
+name: build-assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "scripts/build-assets.sh"
+      - "scripts/maps-photos.py"
+      - ".github/workflows/build-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Montar assets
+        run: bash scripts/build-assets.sh
+
+      - name: Publicar na branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --cached -q media-raw --ignore-unmatch
+          rm -rf media-raw
+          git add -A assets
+          git commit -m "assets: mídia otimizada da Quatro em 1 (reels, Maps, cardápio) + fontes [skip ci]" || echo "nada a commitar"
+          git push origin HEAD:${GITHUB_REF_NAME}
