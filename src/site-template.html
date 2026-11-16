@@ -124,7 +124,7 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 .hero-main{z-index:2;left:22%;top:4%;width:58%;height:83%;border-radius:240px 240px 12px 12px;transform:rotate(2.3deg);animation:heroFloat 9.5s ease-in-out infinite}
 .hero-main video{object-position:center}
 .hero-main::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,33,29,.64));pointer-events:none}
-.hero-main figcaption{position:absolute;z-index:2;left:22px;right:18px;bottom:22px;color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.hero-main figcaption{position:absolute;z-index:2;left:22px;right:18px;bottom:22px;padding:9px 12px;border-radius:2px 12px 2px 12px;background:rgba(0,33,29,.86);color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 .hero-main figcaption strong{display:block;margin-top:5px;font-family:var(--serif);font-size:23px;font-weight:400;letter-spacing:0;text-transform:none}
 .hero-side{z-index:3;left:0;bottom:8%;width:37%;height:39%;border-radius:150px 150px 10px 10px;transform:rotate(-7deg);animation:sideFloat 11s ease-in-out infinite}
 .hero-side img{object-position:center}
@@ -189,7 +189,7 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 .value-icon svg{width:22px;height:22px}
 .value-card h3{margin:19px 0 8px;color:var(--accent);font-family:var(--serif);font-size:23px;font-weight:400;line-height:1.15}
 .value-card p{max-width:33ch;margin:0;color:#53655E;font-size:12px;line-height:1.8}
-.value-card .value-index{position:absolute;right:20px;top:20px;color:#8B7A58;font-family:var(--serif);font-size:13px}
+.value-card .value-index{position:absolute;right:20px;top:20px;color:#765D34;font-family:var(--serif);font-size:13px}
 @media(max-width:740px){.values-section{padding-bottom:78px}.values-grid{grid-template-columns:1fr}.value-card{min-height:0;padding:25px}}
 
 /* Menu */
@@ -237,7 +237,7 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 .brunch-card:hover img{transform:scale(1.055)}
 .brunch-card::after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(0,34,29,.78));z-index:1}
 .brunch-card figcaption{position:absolute;z-index:2;left:17px;right:14px;bottom:17px;color:#fff;font-family:var(--serif);font-size:22px;line-height:1.1}
-.brunch-card figcaption small{display:block;margin-top:6px;color:#F6DED5;font-family:var(--sans);font-size:8px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.brunch-card figcaption small{display:inline-block;max-width:100%;margin-top:6px;padding:4px 7px;border-radius:2px 7px 2px 7px;background:#003C34;color:#FCF4E8;font-family:var(--sans);font-size:8px;font-weight:600;letter-spacing:.1em;line-height:1.45;text-transform:uppercase}
 .brunch-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:22px;padding-top:17px;border-top:1px solid var(--line);color:#53655E;font-size:10px}
 @media(max-width:850px){.brunch-grid{grid-template-columns:repeat(2,1fr)}.brunch-card{aspect-ratio:5/4}.brunch-intro{align-items:flex-start;flex-direction:column}}
 @media(max-width:480px){.brunch-grid{gap:9px}.brunch-card{aspect-ratio:4/5;border-radius:3px 34px 3px 3px}.brunch-card figcaption{left:12px;right:10px;bottom:13px;font-size:18px}.brunch-card figcaption small{font-size:7px}.brunch-bottom{align-items:flex-start;flex-direction:column}}
@@ -344,6 +344,7 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
 .footer-brand p{max-width:34ch;margin:13px 0 0;color:#D8E7DF;font-size:10px;line-height:1.8}
 .footer-column h3{margin:0 0 13px;color:#F3D7A4;font-size:9px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
 .footer-column a,.footer-column button{display:block;margin:8px 0;color:#F6F4EB;font-size:11px;text-align:left;transition:color .2s}
+.footer-column button{padding:0;border:0;background:transparent;appearance:none;cursor:pointer}
 .footer-column a:hover,.footer-column button:hover{color:#F2A095}
 .footer-legal{max-width:40ch;color:#DCE7E0;font-size:9px;line-height:1.8}
 .footer-legal strong{color:#fff;font-weight:600}
