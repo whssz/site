@@ -1,0 +1,64 @@
+# Publica o site da Quatro em 1 na Vercel.
+# A CLI lê vercel.json e envia o projectSettings exigido no primeiro deploy.
+name: deploy-vercel
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "index.html"
+      - "public/**"
+      - "vercel.json"
+      - ".github/workflows/deploy-vercel.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VERCEL_ORG_ID: team_z6tahC0dowvMZFiASHvvIgBP
+      VERCEL_PROJECT_ID: prj_NYgXQRR9hEzC2MXfm4T4kB2XIe18
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      - name: Preparar arquivo único
+        run: |
+          mkdir -p public
+          cp -f index.html public/index.html
+          ls -l public/index.html
+
+      - name: Publicar na Vercel (produção)
+        id: deploy
+        run: |
+          set -euo pipefail
+          URL=$(npx --yes vercel@latest deploy \
+            --prod \
+            --yes \
+            --token="$VERCEL_TOKEN" \
+            --scope="$VERCEL_ORG_ID" \
+            --archive=tgz \
+            --meta githubCommitSha="${GITHUB_SHA}")
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "URL_PUBLICADA=$URL" >> "$GITHUB_ENV"
+          echo ">>> $URL"
+
+      - name: Conferir HTTP 200
+        run: |
+          for i in $(seq 1 15); do
+            CODE=$(curl -s -o /tmp/page.html -w '%{http_code}' -L "$URL_PUBLICADA" || echo 000)
+            echo "tentativa $i -> $CODE"
+            [ "$CODE" = "200" ] && break
+            sleep 8
+          done
+          echo "HTTP=$CODE"
+          echo "bytes recebidos: $(wc -c < /tmp/page.html)"
+          grep -o '<title>[^<]*</title>' /tmp/page.html | head -1
+          [ "$CODE" = "200" ] || { echo "site não respondeu 200"; exit 1; }
