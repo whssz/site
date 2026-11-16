@@ -1,458 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bicho Pão — Padaria artesanal no Flamengo, Rio de Janeiro</title>
-<meta name="description" content="Padaria e confeitaria artesanal no Flamengo, Rio de Janeiro. Pães feitos no dia, croissants, cafés e brunch. Monte seu pedido pelo WhatsApp.">
-<meta property="og:title" content="Bicho Pão — Padaria artesanal no Flamengo, Rio de Janeiro">
-<meta property="og:description" content="Pães feitos no dia, croissants, cafés e brunch no Flamengo. Pedidos pelo WhatsApp.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="/assets/image-1.webp">
-<meta name="theme-color" content="#0B0A08">
-<!--
-  ============================================================================
-  ESQUELETO PADRÃO — todo site novo nasce daqui.
-  Regras e racional: GUIA-DE-ESTILO.md
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bicho Pão — Pães artesanais, café da manhã e brunch no Flamengo, RJ</title>
+<meta name="description" content="Padaria e confeitaria artesanal no Flamengo, entre o Catete e Laranjeiras. Pães de longa fermentação, croissants, panelinhas, brunch e café coado. Pedidos pelo WhatsApp.">
+<meta name="theme-color" content="#14100B">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2314100B'/><text x='16' y='23' font-size='18' text-anchor='middle' fill='%23C9A46A' font-family='Georgia,serif'>🍞</text></svg>">
 
-  COMO USAR
-  1. Copie este arquivo para <projeto>/index.html
-  2. Troque SÓ o bloco :root (cores + fontes) pela identidade do cliente
-  3. Troque os textos {{...}} e ajuste as seções ao nicho
-  4. Substitua os .ph (placeholders) por mídia REAL do cliente
-  5. Embuta imagens/fontes em base64 antes de publicar (arquivo único)
-  ============================================================================
--->
+<!-- Dancing Script — src: @fontsource/dancing-script 5.3.0 (latin) -->
 <style>
+@font-face{
+  font-family:'Dancing Script';font-style:normal;font-weight:400;font-display:swap;
+  src:url("{{F_DANCING_400}}") format('woff2');
+}
+@font-face{
+  font-family:'Dancing Script';font-style:normal;font-weight:500;font-display:swap;
+  src:url("{{F_DANCING_500}}") format('woff2');
+}
+@font-face{
+  font-family:'Dancing Script';font-style:normal;font-weight:700;font-display:swap;
+  src:url("{{F_DANCING_700}}") format('woff2');
+}
+
 /* ============================================================
-   1. TOKENS — ↓ ESTE É O ÚNICO BLOCO QUE MUDA ENTRE CLIENTES ↓
+   BICHO PÃO · SISTEMA DE DESIGN (reforma total)
+   paleta: espresso / creme / dourado
    ============================================================ */
 :root{
   --accent:#C9A46A; /* definido pelo injetor */
-  --accent:#C9A46A; /* definido pelo injetor */
-  --ink:#0B0A08;
-  --ink-2:#12100C;
-  --ink-3:#191612;
-  --cream:#F4ECDE;
+  --ink:#14100B;          /* fundo espresso */
+  --ink-2:#1C1610;        /* superfície */
+  --ink-3:#271F15;        /* superfície destacada */
+  --cream:#F4ECDE;        /* texto principal */
+  --cream-2:#E7DCCB;      /* texto secundário */
+  --muted:rgba(244,236,222,.62);
+  --line:rgba(201,164,106,.22);
   --gold:#C9A46A;
-  --gold-2:#E7CB96;
-  --line:rgba(244,236,222,.13);
-  --muted:rgba(244,236,222,.56);
-  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --serif:Georgia,"Times New Roman",serif;
-  --script:"Dancing Script",cursive;
-  --ease:cubic-bezier(.16,.72,.28,1);
-  --ok:#5FCE8E;
+  --gold-2:#E4C690;
+  --accent:#C9A46A;
+  --radius:16px;
+  --radius-lg:24px;
+  --wrap:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
-
-/* Dancing Script 5.3.0 (SIL Open Font License) — letra do logotipo */
-@font-face{
-  font-family:"Dancing Script";font-style:normal;font-weight:400;font-display:swap;
-  src:url("{{F_DANCING_400}}") format("woff2");
-}
-@font-face{
-  font-family:"Dancing Script";font-style:normal;font-weight:700;font-display:swap;
-  src:url("{{F_DANCING_700}}") format("woff2");
-}
-
-/* ============================================================
-   2. BASE
-   ============================================================ */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth}
 body{
-  background:var(--ink);color:var(--cream);font-family:var(--sans);
-  font-size:16px;line-height:1.6;overflow-x:hidden;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
-img,video{display:block;max-width:100%}
+img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-::selection{background:var(--gold);color:var(--ink)}
-.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{font-family:Georgia,"Times New Roman",serif;line-height:1.15;letter-spacing:-.01em}
+em{font-family:"Dancing Script",Georgia,serif;font-style:normal;color:var(--gold-2);font-weight:500}
+::selection{background:rgba(201,164,106,.35);color:#fff}
 
-/* grão — o acabamento que tira o "plástico" do digital */
-body::after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+/* ---------- layout ---------- */
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{position:relative}
 
-/* ============================================================
-   3. HEADER (fixo + blur ao rolar)
-   ============================================================ */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  border-bottom:1px solid transparent;padding:18px 0;
-  transition:background .4s var(--ease),border-color .4s var(--ease),padding .4s var(--ease);
+/* ---------- header ---------- */
+.site-head{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  transition:background .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);
+  border-bottom:1px solid transparent;
 }
-header.stuck{
-  background:color-mix(in srgb,var(--ink) 82%,transparent);
-  backdrop-filter:blur(14px) saturate(140%);
-  border-bottom-color:var(--line);padding:12px 0;
+.site-head.solid{
+  background:rgba(20,16,11,.86);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.16em;font-size:12px;text-transform:uppercase}
-.brand .dot{
-  width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);
-  display:grid;place-items:center;font-family:var(--serif);font-size:13px;
-  color:var(--gold);letter-spacing:0;font-weight:400;
-}
-.nav-links{display:flex;gap:30px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.nav-links a{position:relative;transition:color .3s}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:width .35s var(--ease)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:44px;width:auto}
+.brand-tag{display:none;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+@media(min-width:560px){.brand-tag{display:block}}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:14px;color:var(--cream-2);position:relative;padding:6px 0;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--gold);transition:width .35s var(--ease)}
 .nav-links a:hover{color:var(--cream)}
 .nav-links a:hover::after{width:100%}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .nav .btn{padding:9px 16px;font-size:10px;letter-spacing:.1em}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:transparent;cursor:pointer;color:var(--cream);align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:880px){
+  .nav-links{
+    position:fixed;top:74px;left:16px;right:16px;
+    flex-direction:column;align-items:stretch;gap:4px;
+    background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.45);
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 8px;font-size:15px}
+  .nav-links a::after{display:none}
+  .burger{display:flex}
+  .nav .btn{display:none}
 }
 
-/* ============================================================
-   4. BOTÕES
-   ============================================================ */
+/* ---------- botões ---------- */
 .btn{
-  display:inline-flex;align-items:center;gap:10px;padding:13px 24px;
-  border-radius:100px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:700;border:1px solid transparent;
-  transition:transform .35s var(--ease),background .35s,color .35s,border-color .35s;
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;border-radius:999px;
+  font-size:14.5px;font-weight:600;letter-spacing:.01em;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s,border-color .35s;
+  white-space:nowrap;
 }
-.btn svg{width:13px;height:13px;flex:none}
-.btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-.btn-gold:hover{background:var(--gold-2);border-color:var(--gold-2);transform:translateY(-2px)}
-.btn-ghost{border-color:var(--line);color:var(--cream)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-.btn:active{transform:translateY(0) scale(.98)}
-.nav .btn{padding:11px 20px}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold) 10%,var(--gold-2) 90%);color:#241B0C;box-shadow:0 10px 30px rgba(201,164,106,.25)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(201,164,106,.4)}
+.btn-ghost{border:1px solid var(--line);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--gold);transform:translateY(-2px)}
+.btn-block{width:100%;justify-content:center}
 
-/* ============================================================
-   5. HERO — headline enorme + mídia + glow em loop lento
-   ============================================================ */
-.hero{position:relative;padding:150px 0 70px;overflow:hidden}
-.hero::before{
-  content:"";position:absolute;width:820px;height:820px;border-radius:50%;
-  right:-320px;top:-330px;pointer-events:none;
-  background:radial-gradient(circle,color-mix(in srgb,var(--gold) 16%,transparent),transparent 66%);
-  animation:glow 14s ease-in-out infinite;
-}
-.hero::after{
-  content:"";position:absolute;width:600px;height:600px;border-radius:50%;
-  left:-280px;bottom:-260px;pointer-events:none;
-  background:radial-gradient(circle,color-mix(in srgb,var(--gold) 7%,transparent),transparent 70%);
-  animation:glow 18s ease-in-out infinite reverse;
-}
-@keyframes glow{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.12);opacity:.65}}
-
+/* ---------- hero ---------- */
+.hero{padding:150px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .kicker{
-  display:inline-flex;align-items:center;gap:11px;font-size:10.5px;
-  letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:22px;
 }
-.kicker::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7}
-h1{
-  font-size:clamp(44px,8.6vw,108px);line-height:.92;letter-spacing:-.045em;
-  font-weight:800;text-transform:uppercase;max-width:13ch;
-}
-h1 em,h2 em{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  text-transform:none;color:var(--gold);letter-spacing:-.02em;
-}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;position:relative;z-index:2}
-.hero-sub{color:var(--muted);font-size:16.5px;max-width:44ch;margin-top:30px;line-height:1.7}
-.hero-sub strong{color:var(--cream);font-weight:600}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700}
+.hero h1 em{display:block;font-size:1.06em}
+.hero-sub{margin:24px 0 34px;color:var(--cream-2);font-size:clamp(1rem,1.6vw,1.12rem);max-width:34em}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:26px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:9px}
+.hero-note svg{width:15px;height:15px;color:var(--gold);flex:none}
 
-/* pilha de mídia flutuante — loop perpétuo (nunca sincronizar as durações) */
-.stack{position:relative;height:min(520px,58vw);perspective:1400px}
-.stack figure{
-  position:absolute;border-radius:14px;overflow:hidden;
-  border:1px solid rgba(244,236,222,.16);
-  box-shadow:0 34px 70px -22px rgba(0,0,0,.9);
-  background:var(--ink-3);
+/* stack de fotos do hero (parallax pelo anim-kit) */
+.stack{position:relative;height:min(520px,62vh);min-height:340px}
+.stack figure{position:absolute;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.stack figure img{width:100%;height:100%;object-fit:cover;filter:saturate(.95)}
+.stack .s1{top:0;left:0;width:62%;height:72%}
+.stack .s2{top:8%;right:0;width:46%;height:52%}
+.stack .s3{bottom:0;left:14%;width:40%;height:46%}
+.stack figure::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(20,16,11,.55));
 }
-.stack img,.stack video,.stack .ph{width:100%;height:100%;object-fit:cover;object-position:center}
-.stack .s1{width:52%;left:2%;top:4%;aspect-ratio:4/5;transform:rotate(-6deg);z-index:1;animation:float1 9s ease-in-out infinite}
-.stack .s2{width:56%;right:4%;top:16%;aspect-ratio:4/5;transform:rotate(4deg);z-index:3;animation:float2 11s ease-in-out infinite}
-.stack .s3{width:40%;left:16%;bottom:0;aspect-ratio:4/5;transform:rotate(-2deg);z-index:2;animation:float3 13s ease-in-out infinite}
-@keyframes float1{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-14px)}}
-@keyframes float2{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(4deg) translateY(-20px)}}
-@keyframes float3{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-10px)}}
-
-/* placeholder para quando ainda não há mídia do cliente */
-.ph{
-  display:grid;place-items:center;text-align:center;padding:0 18px;
-  font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;line-height:1.9;
-  color:rgba(244,236,222,.32);
-  background:
-    repeating-linear-gradient(45deg,transparent 0 10px,rgba(244,236,222,.035) 10px 20px),
-    var(--ink-3);
+.stack .badge{
+  position:absolute;z-index:2;left:-18px;bottom:34px;
+  background:var(--ink-2);border:1px solid var(--line);
+  border-radius:999px;padding:10px 18px;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+  box-shadow:0 16px 40px rgba(0,0,0,.45);
 }
-@media(max-width:900px){
+@media(max-width:960px){
   .hero-grid{grid-template-columns:1fr;gap:44px}
-  .stack{height:min(430px,86vw);order:2}
-  .hero{padding:124px 0 50px}
+  .stack{height:min(420px,58vh);min-height:300px}
 }
 
-/* ============================================================
-   6. MARQUEE — loop infinito (duplique o conteúdo no HTML)
-   ============================================================ */
+/* ---------- marquee ---------- */
 .marquee{
+  margin:10px 0 0;padding:16px 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  overflow:hidden;padding:20px 0;background:var(--ink-2);
+  overflow:hidden;background:var(--ink-2);
 }
-.marquee-track{display:flex;width:max-content;animation:slide 34s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee span{
-  font-family:var(--serif);font-style:italic;font-size:20px;
-  color:rgba(244,236,222,.42);padding:0 26px;white-space:nowrap;
-  display:flex;align-items:center;gap:26px;
-}
-.marquee span::after{content:"✦";font-style:normal;font-size:11px;color:var(--gold);opacity:.85}
-@keyframes slide{to{transform:translateX(-50%)}}
+.marquee-track{display:flex;width:max-content;animation:mq 34s linear infinite;gap:44px;padding-left:44px}
+.marquee-track span{font-family:"Dancing Script",Georgia,serif;font-size:1.35rem;color:var(--gold);opacity:.85;white-space:nowrap}
+.marquee-track span::after{content:"✦";margin-left:44px;color:var(--line);font-size:.9rem}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* ============================================================
-   7. STATS — números REAIS, divididos por linhas de 1px
-   ============================================================ */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.stat{padding:46px 26px;border-right:1px solid var(--line);text-align:center}
-.stat:last-child{border-right:none}
-.stat b{display:block;font-size:clamp(30px,4.4vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1}
-.stat b i{color:var(--gold);font-style:normal}
-.stat p{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:12px}
-@media(max-width:700px){
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:none}
-  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:54px 0 0}
+.stat{
+  text-align:center;background:var(--ink-2);border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px 14px;
 }
+.stat b{display:block;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--gold-2);font-family:Georgia,serif}
+.stat b i{font-style:normal;font-size:.7em;color:var(--gold)}
+.stat p{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+@media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:16px 10px}}
 
-/* ============================================================
-   8. CABEÇALHO DE SEÇÃO
-   ============================================================ */
-section{position:relative}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;padding:88px 0 44px;flex-wrap:wrap}
+/* ---------- seções genéricas ---------- */
+.sec{padding:96px 0}
+.sec-head{max-width:46em;margin-bottom:48px}
 .sec-label{
-  font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
-  display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;
 }
-.sec-label::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
-h2{font-size:clamp(30px,5.2vw,56px);line-height:1.02;letter-spacing:-.04em;font-weight:800;text-transform:uppercase;max-width:20ch}
-.sec-note{color:var(--muted);font-size:14.5px;max-width:34ch;line-height:1.7}
+.sec-label::before{content:"";width:30px;height:1px;background:var(--gold)}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700}
+.sec-note{margin-top:16px;color:var(--muted);font-size:14.5px}
 
-/* ============================================================
-   9. CARDS
-   ============================================================ */
-.grid-proj{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:28px}
-@media(max-width:980px){.grid-proj{grid-template-columns:repeat(2,1fr);gap:20px}}
-@media(max-width:620px){.grid-proj{grid-template-columns:1fr}}
-.card{
-  display:block;border-radius:16px;overflow:hidden;background:var(--ink-2);
-  border:1px solid var(--line);position:relative;
-  transition:transform .55s var(--ease),border-color .45s;
+/* ---------- cardápio ---------- */
+.menu-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.menu-nav a{
+  font-size:13px;padding:9px 18px;border-radius:999px;
+  border:1px solid var(--line);color:var(--cream-2);
+  transition:border-color .3s,color .3s,background .3s;
 }
-.card:hover{transform:translateY(-7px);border-color:color-mix(in srgb,var(--gold) 50%,transparent)}
-.card .shot{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3)}
-.card .shot img,.card .shot video,.card .shot .ph{
-  width:100%;height:100%;object-fit:cover;object-position:center;
-  transition:transform 1s var(--ease),filter .5s;
-  filter:grayscale(.18) contrast(1.03);
+.menu-nav a:hover{border-color:var(--gold);color:var(--cream);background:rgba(201,164,106,.07)}
+.menu-cat{margin-bottom:52px}
+.menu-cat h3{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  font-size:1.35rem;margin-bottom:20px;
 }
-.card:hover .shot img,.card:hover .shot video{transform:scale(1.055);filter:grayscale(0) contrast(1.03)}
-.card .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,10,8,.92),rgba(11,10,8,.05) 52%)}
-.card .tag{
-  position:absolute;top:14px;left:14px;z-index:2;
-  background:rgba(11,10,8,.72);backdrop-filter:blur(8px);
-  border:1px solid rgba(244,236,222,.18);border-radius:100px;
-  padding:6px 12px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);
+.menu-cat h3 small{font-size:.75rem;font-family:-apple-system,sans-serif;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.menu-row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:13px 0;border-bottom:1px dashed var(--line);
+  min-width:0;
 }
-.card .meta{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px;
-  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+.menu-row .nm{flex:1;min-width:0;color:var(--cream)}
+.menu-row .ds{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
+.menu-row .pr{color:var(--gold-2);font-weight:600;font-size:14.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.menu-foot{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 22px;
 }
-.card h3{font-size:19px;letter-spacing:-.02em;font-weight:700;line-height:1.2}
-.card .meta small{display:block;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:7px}
-.card .arrow{
-  flex:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(244,236,222,.28);
-  display:grid;place-items:center;
-  transition:background .4s,border-color .4s,transform .4s var(--ease);
-}
-.card .arrow svg{width:14px;height:14px;stroke:var(--cream);transition:stroke .4s}
-.card:hover .arrow{background:var(--gold);border-color:var(--gold);transform:rotate(-45deg)}
-.card:hover .arrow svg{stroke:var(--ink)}
+.menu-foot p{font-size:13.5px;color:var(--muted);max-width:40em}
+@media(max-width:760px){.menu-grid{grid-template-columns:1fr;gap:0}}
 
-/* ============================================================
-   10. FAIXA "AO VIVO" / LISTA DE PROVAS
-   ============================================================ */
-.live{margin-top:22px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--ink-2)}
-.live-head{
-  display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid var(--line);
-  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+/* ---------- pães da casa ---------- */
+.pao-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pao-card{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px 24px;transition:transform .4s var(--ease),border-color .4s var(--ease);
+  min-width:0;
 }
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 color-mix(in srgb,var(--ok) 60%,transparent);animation:pulse 2.2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.live-row{
-  display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:center;
-  padding:18px 22px;border-bottom:1px solid var(--line);transition:background .35s;
+.pao-card:hover{transform:translateY(-4px);border-color:rgba(201,164,106,.5)}
+.pao-card .ico{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(201,164,106,.18),rgba(201,164,106,.06));
+  border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:18px;
 }
-.live-row:last-child{border-bottom:none}
-.live-row:hover{background:color-mix(in srgb,var(--gold) 5%,transparent)}
-.live-row img{width:96px;aspect-ratio:1;object-fit:cover;border-radius:10px}
-.live-row h4{font-size:15.5px;font-weight:700;letter-spacing:-.01em}
-.live-row p{font-size:13px;color:var(--muted);margin-top:3px}
-.live-row .go{
-  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
-  display:flex;align-items:center;gap:8px;white-space:nowrap;transition:color .3s;
-}
-.live-row:hover .go{color:var(--gold-2)}
-@media(max-width:600px){
-  .live-row{grid-template-columns:64px 1fr;gap:14px}
-  .live-row img{width:64px}
-  .live-row .go{grid-column:2;padding-top:6px}
-}
+.pao-card h4{font-size:1.12rem;margin-bottom:8px}
+.pao-card p{font-size:13.5px;color:var(--muted)}
+@media(max-width:900px){.pao-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pao-grid{grid-template-columns:1fr}}
 
-/* ============================================================
-   11. PROCESSO — linha que se desenha no hover
-   ============================================================ */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-bottom:30px}
-.step{padding-top:24px;border-top:1px solid var(--line);position:relative}
-.step::before{content:"";position:absolute;top:-1px;left:0;width:0;height:1px;background:var(--gold);transition:width .6s var(--ease)}
-.step:hover::before{width:100%}
-.step i{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold);font-weight:400}
-.step h4{font-size:16.5px;font-weight:700;margin:12px 0 9px;letter-spacing:-.01em}
-.step p{font-size:13.5px;color:var(--muted);line-height:1.65}
-@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.steps{grid-template-columns:1fr}}
-
-/* ============================================================
-   12. SOBRE
-   ============================================================ */
-.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;padding:34px 0 40px}
-.about-photo{
-  position:relative;aspect-ratio:4/5;border-radius:160px 160px 18px 18px;overflow:hidden;
-  border:1px solid color-mix(in srgb,var(--gold) 35%,transparent);background:var(--ink-3);
+/* feature do pão dourado */
+.pao-feature{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;
+  background:linear-gradient(135deg,var(--ink-2),var(--ink-3));
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:36px;margin-bottom:28px;
 }
-.about-photo img{width:100%;height:100%;object-fit:cover}
-.about-photo .ring{position:absolute;inset:14px;border:1px solid rgba(244,236,222,.12);border-radius:148px 148px 12px 12px;pointer-events:none}
-.about-body p{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:18px;max-width:56ch}
-.about-body p strong{color:var(--cream);font-weight:600}
-.signature{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--gold);margin-top:26px}
-.tools{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
-.tools span{
-  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-  border:1px solid var(--line);border-radius:100px;padding:8px 15px;transition:.35s;
-}
-.tools span:hover{border-color:var(--gold);color:var(--gold-2)}
-@media(max-width:880px){.about{grid-template-columns:1fr;gap:36px}.about-photo{max-width:330px;margin:0 auto}}
+.pao-feature .ph{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.pao-feature .ph img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pao-feature h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:14px}
+.pao-feature p{color:var(--cream-2);margin-bottom:14px}
+.pao-feature .specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pao-feature .specs span{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+@media(max-width:860px){.pao-feature{grid-template-columns:1fr;padding:24px}.pao-feature .ph img{aspect-ratio:4/3}}
 
-/* ============================================================
-   13. DEPOIMENTOS — só reais, com nome
-   ============================================================ */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:30px}
+/* ---------- galeria ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px}
+.gal figure{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-width:0}
+.gal figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figure figcaption{
+  position:absolute;inset:auto 0 0 0;padding:34px 14px 12px;
+  font-size:12px;color:var(--cream);
+  background:linear-gradient(180deg,transparent,rgba(20,16,11,.85));
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.gal figure:hover figcaption{opacity:1}
+.gal .big{grid-column:span 2;grid-row:span 2}
+.gal .tall{grid-row:span 2}
+@media(max-width:820px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}.gal .big{grid-column:span 2}}
+@media(max-width:480px){.gal{grid-template-columns:1fr;grid-auto-rows:180px}.gal .big,.gal .tall{grid-column:auto;grid-row:auto}}
+
+/* ---------- avaliações ---------- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .quote{
-  border:1px solid var(--line);border-radius:16px;padding:30px 26px;background:var(--ink-2);
-  display:flex;flex-direction:column;gap:18px;
-  transition:border-color .4s,transform .5s var(--ease);
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:28px 26px;position:relative;min-width:0;
 }
-.quote:hover{border-color:color-mix(in srgb,var(--gold) 45%,transparent);transform:translateY(-4px)}
-.quote .mark{font-family:var(--serif);font-size:42px;line-height:.6;color:var(--gold);opacity:.6}
-.quote p{font-size:14.5px;line-height:1.75;color:rgba(244,236,222,.85);flex:1}
-.quote .who{display:flex;align-items:center;gap:12px;padding-top:6px;border-top:1px solid var(--line)}
-.avatar{
-  width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:color-mix(in srgb,var(--gold) 14%,transparent);
-  border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);
-  font-size:12px;font-weight:700;color:var(--gold-2);
+.quote .mark{
+  position:absolute;top:6px;right:22px;
+  font-family:"Dancing Script",Georgia,serif;font-size:4rem;line-height:1;color:var(--gold);opacity:.35;
 }
-.who b{display:block;font-size:13px;font-weight:600}
-.who small{font-size:11px;color:var(--muted);letter-spacing:.06em}
+.quote p{position:relative;color:var(--cream-2);font-size:14.5px;margin-bottom:20px}
+.quote .who{display:flex;align-items:center;gap:12px}
+.quote .avatar{
+  width:40px;height:40px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold-2));
+  color:#241B0C;font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.quote .who b{display:block;font-size:14px;font-weight:600}
+.quote .who small{font-size:11.5px;color:var(--muted)}
 @media(max-width:900px){.quotes{grid-template-columns:1fr}}
 
-/* ============================================================
-   14. CTA FINAL
-   ============================================================ */
-.cta{position:relative;overflow:hidden;text-align:center;padding:110px 0 118px;border-top:1px solid var(--line);margin-top:56px}
-.cta::before{
-  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:900px;height:900px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,color-mix(in srgb,var(--gold) 15%,transparent),transparent 62%);
-  animation:glow 16s ease-in-out infinite;
+/* stories do instagram */
+.live{margin-top:44px}
+.live-head{display:flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.live-head .pulse{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,164,106,.6);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,164,106,.55)}70%{box-shadow:0 0 0 12px rgba(201,164,106,0)}100%{box-shadow:0 0 0 0 rgba(201,164,106,0)}}
+.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.live-row{
+  display:flex;gap:16px;align-items:center;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px;transition:border-color .35s var(--ease),transform .35s var(--ease);
+  min-width:0;
 }
-.cta h2{max-width:22ch;margin:0 auto 26px;font-size:clamp(32px,6.4vw,68px)}
-.cta p{color:var(--muted);max-width:46ch;margin:0 auto 38px;font-size:15.5px}
-.cta .hero-cta{justify-content:center;position:relative;z-index:2}
+.live-row:hover{border-color:rgba(201,164,106,.5);transform:translateY(-2px)}
+.live-row img{width:74px;height:74px;border-radius:12px;object-fit:cover;flex:none;border:1px solid var(--line)}
+.live-row h4{font-size:14px;margin-bottom:3px}
+.live-row p{font-size:12.5px;color:var(--muted)}
+.live-row .go{margin-left:auto;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:7px;white-space:nowrap;flex:none}
+.live-row .go svg{width:12px;height:12px}
+@media(max-width:820px){.live-grid{grid-template-columns:1fr}}
 
-/* ============================================================
-   15. FOOTER
-   ============================================================ */
-footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--ink-2)}
-.foot{display:flex;justify-content:space-between;gap:30px;align-items:center;flex-wrap:wrap}
-.foot-links{display:flex;gap:26px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.foot-links a:hover{color:var(--gold)}
-.copy{font-size:11px;color:rgba(244,236,222,.34);letter-spacing:.06em;margin-top:22px;text-align:center}
-
-/* ============================================================
-   16. REVEAL NO SCROLL
-   ============================================================ */
-.rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rev.in{opacity:1;transform:none}
-.rev-d1{transition-delay:.09s}.rev-d2{transition-delay:.18s}.rev-d3{transition-delay:.27s}
-
-/* ============================================================
-   17. ACESSIBILIDADE — desliga todo movimento
-   ============================================================ */
-@media(prefers-reduced-motion:reduce){
-  .rev{opacity:1;transform:none}
-  .marquee-track,.stack figure,.hero::before,.hero::after,.cta::before,.pulse{animation:none}
-  html{scroll-behavior:auto}
-  *{transition-duration:.01ms!important}
+/* ---------- como funciona ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px 22px;position:relative;min-width:0;
+  transition:transform .4s var(--ease),border-color .4s var(--ease);
 }
-
-
-
-/* ============================================================
-   18. BICHO PÃO — identidade do cliente
-   ============================================================ */
-/* logotipo (wordmark do cliente) no cabeçalho */
-.brand{gap:10px}
-.brand img{height:36px;width:auto;display:block;filter:drop-shadow(0 2px 10px rgba(201,164,106,.25))}
-.brand .brand-tag{font-size:9.5px;letter-spacing:.2em;color:var(--muted);font-weight:500}
-@media(max-width:600px){.brand img{height:30px}.brand .brand-tag{display:none}}
-/* marquee em letra script — a voz do logotipo */
-.marquee span{font-family:var(--script);font-style:normal;font-weight:700;font-size:23px}
-/* assinatura e destaques em script */
-.signature{font-family:var(--script);font-style:normal;font-weight:700}
-.quote .mark{font-family:var(--script);font-style:normal;font-weight:700}
-.kicker{font-family:var(--script);font-style:normal;font-weight:700;letter-spacing:.02em;font-size:14px;text-transform:none}
-.kicker::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7}
-/* seções legais */
-.legal-sec{padding:56px 0 8px}
-.legal-box{
-  border:1px solid var(--line);border-radius:16px;background:var(--ink-2);
-  padding:34px 34px 36px;margin-bottom:22px;
+.step:hover{transform:translateY(-4px);border-color:rgba(201,164,106,.5)}
+.step i{
+  display:block;font-style:normal;font-family:"Dancing Script",Georgia,serif;
+  font-size:2rem;color:var(--gold);margin-bottom:14px;line-height:1;
 }
-.legal-box h3{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.legal-box h4{font-size:13.5px;font-weight:700;color:var(--cream);margin:20px 0 7px;letter-spacing:-.01em}
-.legal-box h4:first-of-type{margin-top:0}
-.legal-box p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:10px}
-.legal-box p b{color:var(--cream);font-weight:600}
-.legal-foot{font-size:11px;color:rgba(244,236,222,.42);letter-spacing:.06em;text-align:center;margin-top:34px;line-height:1.9}
+.step h4{font-size:1.05rem;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted)}
+@media(max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
 
-/* unidades da casa */
-.units{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+/* ---------- sobre / unidades ---------- */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.about-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo .ring{position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(201,164,106,.25)}
+.about-body p{color:var(--cream-2);margin-bottom:16px}
+.about-body p strong{color:var(--cream)}
+.signature{font-family:"Dancing Script",Georgia,serif;font-size:1.6rem;color:var(--gold-2);margin:8px 0 22px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.tools span{font-size:12px;letter-spacing:.05em;color:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--ink-2)}
+.units{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .unit{
-  display:block;border:1px solid var(--line);border-radius:14px;background:var(--ink-2);
-  padding:18px 20px;transition:border-color .35s,transform .4s var(--ease);
+  display:block;border:1px solid var(--line);border-radius:var(--radius);background:var(--ink-2);
+  padding:20px 22px;transition:border-color .35s var(--ease),transform .4s var(--ease);
+  min-width:0;
 }
-.unit:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent);transform:translateY(-2px)}
-.unit h4{font-size:13.5px;font-weight:700;color:var(--gold-2);letter-spacing:-.01em}
-.unit p{font-size:12.5px;color:var(--muted);margin:7px 0 12px;line-height:1.6}
+.unit:hover{border-color:rgba(201,164,106,.55);transform:translateY(-2px)}
+.unit .pin{font-size:18px;margin-bottom:10px}
+.unit h4{font-size:14.5px;font-weight:700;color:var(--gold-2);letter-spacing:-.01em}
+.unit p{font-size:13px;color:var(--muted);margin:7px 0 14px;line-height:1.6}
 .unit .go{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:8px}
-.unit .go svg{transition:transform .4s var(--ease)}
+.unit .go svg{width:13px;height:13px;transition:transform .4s var(--ease)}
 .unit:hover .go svg{transform:translate(3px,-3px)}
-@media(max-width:620px){.units{grid-template-columns:1fr}}
-@media(max-width:620px){.legal-box{padding:26px 22px 28px}}
+@media(max-width:880px){.about{grid-template-columns:1fr}.about-photo{aspect-ratio:16/10}}
+@media(max-width:560px){.units{grid-template-columns:1fr}}
 
-/* ANIM-KIT v2 */
+/* ---------- cta ---------- */
+.cta{padding:90px 0}
+.cta-inner{
+  background:linear-gradient(135deg,var(--ink-2),var(--ink-3));
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:60px 48px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-inner::before{
+  content:"";position:absolute;inset:-60%;
+  background:radial-gradient(40% 50% at 50% 0%,rgba(201,164,106,.14),transparent 70%);
+  pointer-events:none;
+}
+.cta-inner h2{position:relative;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:16px}
+.cta-inner p{position:relative;color:var(--cream-2);max-width:42em;margin:0 auto 30px}
+.cta-btns{position:relative;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-hours{position:relative;margin-top:22px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta-hours svg{width:14px;height:14px;color:var(--gold);flex:none}
+@media(max-width:620px){.cta-inner{padding:40px 22px}}
 
-/* ANIM-KIT v2 */
+/* ---------- legal ---------- */
+.legal{padding:60px 0 20px}
+.legal-sec{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.legal-box{
+  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 30px;min-width:0;
+}
+.legal-box h3{font-size:1.15rem;margin-bottom:16px;color:var(--gold-2)}
+.legal-box p{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.7}
+.legal-box p b{color:var(--cream-2);font-weight:600}
+.legal-foot{
+  margin-top:30px;text-align:center;font-size:11.5px;color:rgba(244,236,222,.45);
+  letter-spacing:.06em;line-height:1.9;
+}
+@media(max-width:820px){.legal-sec{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line);padding:44px 0 36px;margin-top:20px}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand img{height:42px;width:auto}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:13px;color:var(--muted);transition:color .3s}
+.foot-links a:hover{color:var(--gold)}
+.copy{margin-top:24px;text-align:center;font-size:12px;color:rgba(244,236,222,.35)}
+
+/* ---------- reveals (anim-kit gerencia) ---------- */
+.rev,.rv-fade,.rv-scale,.rv-left,.rv-right{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.in,.rv-fade.in,.rv-scale.in,.rv-left.in,.rv-right.in{opacity:1;transform:none}
+.rv-left{transform:translateX(-30px)}
+.rv-right{transform:translateX(30px)}
+.rv-left.in,.rv-right.in{transform:none}
+.rv-scale{transform:scale(.94)}
+.rv-clip{clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease)}
+.rv-clip.in{clip-path:inset(0 0 0 0)}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rev,.rv-fade,.rv-scale,.rv-left,.rv-right{opacity:1;transform:none}
+  .rv-clip{clip-path:none}
+}
 
 /* ANIM-KIT v2 */
 /* ============================================================
@@ -718,135 +688,246 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 <!-- /ANIM-KIT v2 -->
 
 
-
-
-
-
 <!-- ===================== HEADER ===================== -->
-<header id="hdr">
+<header class="site-head" id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="{{LOGO_LIGHT}}" alt="Bicho Pão" width="195" height="95"><span class="brand-tag">Padaria · Confeitaria</span></a>
-    <nav class="nav-links">
+    <a class="brand" href="#top"><img src="{{LOGO_LIGHT}}" alt="Bicho Pão — logotipo" width="195" height="95"><span class="brand-tag">Padaria · Confeitaria</span></a>
+    <nav class="nav-links" id="navlinks" aria-label="Navegação">
       <a href="#cardapio">Cardápio</a>
-      <a href="#sobre">Sobre</a>
+      <a href="#paes">Pães da casa</a>
+      <a href="#galeria">Galeria</a>
       <a href="#avaliacoes">Avaliações</a>
-      <a href="#contato">Contato</a>
+      <a href="#sobre">Unidades</a>
     </nav>
     <a class="btn btn-gold" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- ===================== HERO (ENTRAR) ===================== -->
+<!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="kicker">Padaria artesanal · Catete — Rio de Janeiro</span>
-      <h1>Pão artesanal, <em>café de bairro</em></h1>
-      <p class="hero-sub">Pães feitos no dia, croissants quentinhos, café coado e brunch no Flamengo. Monte o seu pedido e a gente finaliza tudo pelo WhatsApp — sem cadastro, sem complicação.</p>
+      <span class="kicker">Padaria artesanal · Flamengo — Rio de Janeiro</span>
+      <h1>Pães do dia,<em>café de bairro</em></h1>
+      <p class="hero-sub">Feitos no forno da casa, entre o Catete e Laranjeiras: sourdough de longa fermentação, croissants quentinhos, panelinhas, brunch e café coado. Monte o pedido e a gente finaliza tudo pelo WhatsApp — sem cadastro, sem complicação.</p>
       <div class="hero-cta">
-        <a class="btn btn-gold" href="#cardapio">Ver cardápio
+        <a class="btn btn-gold" href="#cardapio">Ver o cardápio
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp</a>
       </div>
+      <p class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+        Dois pontos na casa: Corrêa Dutra, 39 B — e Paissandu, 111
+      </p>
     </div>
     <div class="stack" aria-hidden="true">
       <figure class="s1"><img src="{{IMG_LUGAR_INTERIOR}}" alt=""></figure>
       <figure class="s2"><img src="{{IMG_LUGAR_VITRINE}}" alt=""></figure>
       <figure class="s3"><img src="{{IMG_LUGAR_MESA}}" alt=""></figure>
+      <span class="badge">Feito no dia · no forno da casa</span>
     </div>
   </div>
 </section>
 
-<!-- ===================== MARQUEE (loop infinito) ===================== -->
+<!-- ===================== MARQUEE ===================== -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Pão artesanal</span><span>Croissant</span><span>Café coado</span><span>Brunch</span><span>Panelinhas</span><span>Smoothie</span><span>Tarte</span><span>Bicho Mexido</span>
-    <span>Pão artesanal</span><span>Croissant</span><span>Café coado</span><span>Brunch</span><span>Panelinhas</span><span>Smoothie</span><span>Tarte</span><span>Bicho Mexido</span>
+    <span>Pão artesanal</span><span>Sourdough</span><span>Croissant</span><span>Café coado</span><span>Brunch</span><span>Panelinhas</span><span>Smoothie</span><span>Tarte</span><span>Combo</span>
+    <span>Pão artesanal</span><span>Sourdough</span><span>Croissant</span><span>Café coado</span><span>Brunch</span><span>Panelinhas</span><span>Smoothie</span><span>Tarte</span><span>Combo</span>
   </div>
 </div>
 
-<!-- ===================== STATS (números reais) ===================== -->
+<!-- ===================== STATS ===================== -->
 <div class="wrap">
-  <div class="stats rev">
-    <div class="stat"><b>4,7<i>★</i></b><p>Nota no Google</p></div>
-    <div class="stat"><b>972<i>+</i></b><p>Avaliações no Google</p></div>
-    <div class="stat"><b>3<i>·</i></b><p>Bairros atendidos</p></div>
-    <div class="stat"><b>24.469<i>+</i></b><p>Seguidores no Instagram</p></div>
+  <div class="stats">
+    <div class="stat rev"><b>4,7<i>★</i></b><p>Nota no Google</p></div>
+    <div class="stat rev rev-d1"><b>972<i>+</i></b><p>Avaliações no Google</p></div>
+    <div class="stat rev rev-d2"><b>3<i>·</i></b><p>Bairros atendidos</p></div>
+    <div class="stat rev rev-d3"><b>24.469<i>+</i></b><p>Seguidores no Instagram</p></div>
   </div>
 </div>
 
-<!-- ===================== CARDÁPIO (EXPLORAR) ===================== -->
-<section id="cardapio" data-bridge="a">
+<!-- ===================== CARDÁPIO ===================== -->
+<section class="sec" id="cardapio" data-bridge="a">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rev">
-        <div class="sec-label">O que a casa prepara</div>
-        <h2>O cardápio <em>da casa</em></h2>
-      </div>
-      <p class="sec-note rev rev-d1">Cada preparo é feito no dia. Os valores do cardápio são confirmados no atendimento, pelo WhatsApp.</p>
+      <div class="rev"><div class="sec-label">O que a casa prepara</div><h2>O cardápio <em>da casa</em></h2></div>
+      <p class="sec-note rev rev-d1">Cada preparo é feito no dia, no forno da casa. Os valores abaixo seguem o cardápio da casa e podem ser confirmados com o atendimento, pelo WhatsApp — junto com a disponibilidade de cada item.</p>
     </div>
-    <div class="grid-proj">
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20P%C3%83ES%20E%20CROISSANTS." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_1}}" alt="Croissants e pães artesanais sobre a bancada da padaria"></div>
-        <div class="meta"><div><h3>Pães e croissants</h3><small>Americano · Caprese · a partir de R$20</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20SANDUICHES." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_2}}" alt="Sanduíche quente e café sobre a mesa da casa"></div>
-        <div class="meta"><div><h3>Sanduíches</h3><small>Bicho Quente · Croque Madame · a partir de R$20</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20PANELINHAS%20E%20TOASTS." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_3}}" alt="Panelinha e lanches servidos na mesa da casa"></div>
-        <div class="meta"><div><h3>Panelinhas e torradas</h3><small>Ovos · Cogumelos · a partir de R$12</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20COMBOS." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_4}}" alt="Bebida gelada e lanche montado na mesa da casa"></div>
-        <div class="meta"><div><h3>Combos</h3><small>P1 · P2 · a partir de R$44</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20SMOOTHIES%20E%20CH%C3%81S." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_5}}" alt="Pães artesanais sobre a toalha da bancada"></div>
-        <div class="meta"><div><h3>Smoothies e chás</h3><small>Manga · Maracujá · a partir de R$18</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20casa%20e%20tirar%20d%C3%BAvidas%20sobre%20o%20card%C3%A1pio." target="_blank" rel="noopener"><div class="shot"><span class="tag">A casa</span><img src="{{IMG_6}}" alt="Pão dourado da casa com o logotipo Bicho Pão"></div>
-        <div class="meta"><div><h3>A arte do pão dourado</h3><small>Feito no dia, no Flamengo</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20CAF%C3%89S." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_7}}" alt="Banqueta de pães e cafés na vitrine da casa"></div>
-        <div class="meta"><div><h3>Cafés da casa</h3><small>Quentes e gelados · a partir de R$10</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="card rev" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20BRUNCH%20E%20TARTES." target="_blank" rel="noopener"><div class="shot"><span class="tag">Cardápio</span><img src="{{IMG_8}}" alt="Mesa de brunch com pães, frios e bebidas na casa"></div>
-        <div class="meta"><div><h3>Brunch e tartes</h3><small>Tartes · Bicho Mexido · a partir de R$12</small></div><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+
+    <nav class="menu-nav" aria-label="Categorias do cardápio">
+      <a href="#mc-paes">Pães &amp; croissants</a>
+      <a href="#mc-sand">Sanduíches</a>
+      <a href="#mc-pan">Panelinhas &amp; torradas</a>
+      <a href="#mc-combo">Combos</a>
+      <a href="#mc-beb">Bebidas</a>
+      <a href="#mc-brunch">Brunch &amp; tartes</a>
+    </nav>
+
+    <!-- Pães e croissants -->
+    <div class="menu-cat" id="mc-paes">
+      <h3 class="rev">Pães e croissants <small>a partir de R$ 20</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Croissant tradicional<span class="ds">Massa folhada doce, farinha francesa · ~70 g</span></span><span class="pr">R$ 20</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Croissant à escolha<span class="ds">Coberturas da casa · a partir de R$ 20</span></span><span class="pr">R$ 20–24</span></div>
+        <div class="menu-row rev"><span class="nm">Pão italiano sourdough<span class="ds">Longa fermentação · 500 g</span></span><span class="pr">A confirmar</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Ciabatta tradicional<span class="ds">Fermentação longa · ~150 g</span></span><span class="pr">A confirmar</span></div>
+        <div class="menu-row rev"><span class="nm">Focaccia<span class="ds">Ervas, azeite e alecrim · ~400 g</span></span><span class="pr">A confirmar</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Pão de hambúrguer<span class="ds">Blend nacional e francesa · 60 g · 10 cm</span></span><span class="pr">A confirmar</span></div>
+      </div>
+    </div>
+
+    <!-- Sanduíches -->
+    <div class="menu-cat" id="mc-sand">
+      <h3 class="rev">Sanduíches <small>R$ 20 – 54</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Bicho Quente</span><span class="pr">R$ 20</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Croque Monsieur</span><span class="pr">R$ 23</span></div>
+        <div class="menu-row rev"><span class="nm">Croque Madame</span><span class="pr">R$ 26</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Sacanagem</span><span class="pr">R$ 28</span></div>
+        <div class="menu-row rev"><span class="nm">Lombo Curado</span><span class="pr">R$ 40</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Pastrami</span><span class="pr">R$ 54</span></div>
+      </div>
+    </div>
+
+    <!-- Panelinhas e torradas -->
+    <div class="menu-cat" id="mc-pan">
+      <h3 class="rev">Panelinhas e torradas <small>a partir de R$ 12</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Misto na chapa</span><span class="pr">R$ 22</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Panelinhas<span class="ds">Ovos, frios e acompanhamentos</span></span><span class="pr">R$ 36–40</span></div>
+        <div class="menu-row rev"><span class="nm">Toasts da casa<span class="ds">Vários ingredientes · a partir de R$ 12</span></span><span class="pr">R$ 12–40</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Torradas e acompanhamentos<span class="ds">Café da manhã ou almoço executivo</span></span><span class="pr">A confirmar</span></div>
+      </div>
+    </div>
+
+    <!-- Combos -->
+    <div class="menu-cat" id="mc-combo">
+      <h3 class="rev">Combos <small>lanche + bebida</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Combo P1<span class="ds">Escolha de lanche + bebida</span></span><span class="pr">R$ 44</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Combo P2<span class="ds">Escolha de lanche + bebida</span></span><span class="pr">R$ 82</span></div>
+      </div>
+    </div>
+
+    <!-- Bebidas -->
+    <div class="menu-cat" id="mc-beb">
+      <h3 class="rev">Bebidas <small>cafés, smoothies e chás</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Smoothies<span class="ds">Manga, maracujá e outras frutas</span></span><span class="pr">R$ 18–23</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Chás gelados</span><span class="pr">R$ 18</span></div>
+        <div class="menu-row rev"><span class="nm">Cafés gelados</span><span class="pr">R$ 18–22</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Cafés quentes<span class="ds">Coado e preparos da casa</span></span><span class="pr">R$ 10–22</span></div>
+      </div>
+    </div>
+
+    <!-- Brunch e tartes -->
+    <div class="menu-cat" id="mc-brunch">
+      <h3 class="rev">Brunch e tartes <small>a partir de R$ 12</small></h3>
+      <div class="menu-grid">
+        <div class="menu-row rev"><span class="nm">Tartes<span class="ds">Doces e salgadas da confeitaria</span></span><span class="pr">R$ 24–25</span></div>
+        <div class="menu-row rev rev-d1"><span class="nm">Brunch da casa<span class="ds">Pães, frios, ovos e bebidas</span></span><span class="pr">A confirmar</span></div>
+        <div class="menu-row rev"><span class="nm">Bicho Mexido<span class="ds">Preparo executivo da casa</span></span><span class="pr">A confirmar</span></div>
+      </div>
+    </div>
+
+    <div class="menu-foot rev">
+      <p>Valores do cardápio sujeitos à confirmação no atendimento — itens e disponibilidade podem variar conforme a produção do dia.</p>
+      <a class="btn btn-gold" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20da%20categoria%20CARDA%C3%87IO.%20Gostaria%20de%20saber%20os%20valores%20e%20a%20disponibilidade%20dos%20itens." target="_blank" rel="noopener">Confirmar no WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===================== AVALIAÇÕES (CONFIRMAR) ===================== -->
-<section id="avaliacoes" data-bridge="b">
+<!-- ===================== PÃES DA CASA ===================== -->
+<section class="sec" id="paes" data-bridge="b">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rev">
-        <div class="sec-label">Quem passa por aqui</div>
-        <h2>Avaliações <em>de verdade</em></h2>
+      <div class="rev"><div class="sec-label">A arte do pão</div><h2>Os pães <em>da casa</em></h2></div>
+      <p class="sec-note rev rev-d1">Não é produção de linha: cada pão nasce da massa da casa, com tempo de fermentação e forno próprios. Esses são os signatures que a casa prepara no dia.</p>
+    </div>
+
+    <div class="pao-feature rev rv-clip">
+      <div class="ph"><img src="{{IMG_PAO}}" alt="Pão dourado da casa, recém-saído do forno"></div>
+      <div>
+        <h3>Pão italiano sourdough</h3>
+        <p>Massa de longa fermentação, feita com starter da casa: 32 horas de fermentação e 72% de hidratação, com blend de farinhas italiana e brasileira. Pão de casca grossa, migha elástica e aroma profundo — 500 g.</p>
+        <p>A base dos sanduíches da casa e do pão de mesa do dia. Peça pedaços para café da manhã ou a fatia para o seu lanche.</p>
+        <div class="specs"><span>32 h fermentação</span><span>72% hidratação</span><span>500 g</span></div>
       </div>
     </div>
+
+    <div class="pao-grid">
+      <div class="pao-card rev"><div class="ico">🥐</div><h4>Croissant tradicional</h4><p>Massa folhada doce com farinha francesa, assado no dia e quentinho quando chega à vitrine. ~70 g.</p></div>
+      <div class="pao-card rev rev-d1"><div class="ico">🍞</div><h4>Ciabatta tradicional</h4><p>Pão italiano de casca crocante e migha aberta, com fermentação longa de 32 horas. ~150 g.</p></div>
+      <div class="pao-card rev rev-d2"><div class="ico">🌿</div><h4>Focaccia</h4><p>Aroma de alecrim e azeite, macia por dentro e dourada por cima. ~400 g, em fatias.</p></div>
+      <div class="pao-card rev"><div class="ico">🍔</div><h4>Pão de hambúrguer</h4><p>Blend de farinhas nacional e francesa, 60 g e 10 cm de diâmetro — a base dos sanduíches da casa.</p></div>
+      <div class="pao-card rev rev-d1"><div class="ico">🥖</div><h4>Pães do dia</h4><p>A produção do dia varia conforme a massa: pães de mesa, baguetes e preparações sazonais.</p></div>
+      <div class="pao-card rev rev-d2"><div class="ico">☕</div><h4>Café coado</h4><p>Coado na hora para acompanhar o pão — quente ou gelado, na medida do seu pedido.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="sec" id="galeria" data-bridge="c">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rev"><div class="sec-label">A casa</div><h2>Um pouco do <em>dia a dia</em></h2></div>
+      <p class="sec-note rev rev-d1">O forno, a vitrine e o balcão: onde o pão nasce e onde ele chega até você.</p>
+    </div>
+    <div class="gal">
+      <figure class="big rv-clip"><img src="{{IMG_LUGAR_INTERIOR}}" alt="Interior da padaria Bicho Pão, com mesas e bancada"><figcaption>Interior da casa</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_1}}" alt="Preparações da casa sobre a bancada"><figcaption>Preparações do dia</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_LUGAR_BALCAO}}" alt="Balcão da padaria Bicho Pão"><figcaption>Balcão da casa</figcaption></figure>
+      <figure class="tall rv-clip"><img src="{{IMG_LUGAR_VITRINE}}" alt="Vitrine da padaria Bicho Pão"><figcaption>Vitrine</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_2}}" alt="Sanduíche e café sobre a mesa da casa"><figcaption>Lanches da casa</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_LUGAR_MESA}}" alt="Mesa de brunch da Bicho Pão"><figcaption>Mesa e brunch</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_3}}" alt="Panelinha e lanches servidos na mesa"><figcaption>Panelinhas</figcaption></figure>
+      <figure class="rv-clip"><img src="{{IMG_4}}" alt="Bebida gelada e lanche montado na mesa"><figcaption>Combos e bebidas</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AVALIAÇÕES ===================== -->
+<section class="sec" id="avaliacoes" data-bridge="a">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rev"><div class="sec-label">Quem passa por aqui</div><h2>Avaliações <em>de verdade</em></h2></div>
+      <p class="sec-note rev rev-d1">A nota do Google é de quem já passou pela casa — textos reais de clientes do Catete, do Flamengo e de fora.</p>
+    </div>
     <div class="quotes">
-      <div class="quote rev"><span class="mark">&ldquo;</span><p>Uma deliciosa descoberta no Catete!&hellip; Serviço impecável, atencioso, os lanches chegaram rápido e aquecidos na medida. Tanto o mocha quanto o cappuccino estavam perfeitos.</p>
+      <div class="quote rev"><span class="mark">&ldquo;</span><p>Uma deliciosa descoberta no Catete!… Serviço impecável, atencioso, os lanches chegaram rápido e aquecidos na medida. Tanto o mocha quanto o cappuccino estavam perfeitos.</p>
         <div class="who"><span class="avatar">AC</span><div><b>Anna Cecília Araujo</b><small>Google · 5 estrelas</small></div></div></div>
       <div class="quote rev rev-d1"><span class="mark">&ldquo;</span><p>Uma experiência daquelas que dá vontade de voltar! Tudo estava delicioso, o atendimento foi excelente e o ambiente é superagradável e acolhedor.</p>
         <div class="who"><span class="avatar">FH</span><div><b>Fernanda H.</b><small>Google · 5 estrelas</small></div></div></div>
-      <div class="quote rev rev-d2"><span class="mark">&ldquo;</span><p>Uma visita certa para o café da manhã. Tudo muito fresco, café de qualidade&hellip; O atendimento do Mike, do André e da Fernanda foi outro diferencial fortíssimo.</p>
+      <div class="quote rev rev-d2"><span class="mark">&ldquo;</span><p>Uma visita certa para o café da manhã. Tudo muito fresco, café de qualidade… O atendimento do Mike, do André e da Fernanda foi outro diferencial fortíssimo.</p>
         <div class="who"><span class="avatar">JD</span><div><b>João Duque Pinho</b><small>Google · 5 estrelas</small></div></div></div>
     </div>
 
     <div class="live">
-      <div class="live-head"><span class="pulse"></span>No ar &mdash; Instagram da casa</div>
-      <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_05}}" alt="Publicação da Bicho Pão com preparações do cardápio"><div><h4>Cardápio na vitrine</h4><p>Os preparos do dia, postados pelo Instagram da casa.</p></div><span class="go">Ver no Instagram
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
-      <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_07}}" alt="Publicação da Bicho Pão com pães e cafés"><div><h4>Pães e cafés</h4><p>O clássico da casa, sempre postado na véspera.</p></div><span class="go">Ver no Instagram
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
-      <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_08}}" alt="Publicação da Bicho Pão com lanches e bebidas"><div><h4>Lanches e bebidas</h4><p>O que está rolando no cardápio da semana.</p></div><span class="go">Ver no Instagram
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <div class="live-head"><span class="pulse"></span>No ar — Instagram da casa</div>
+      <div class="live-grid">
+        <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_05}}" alt="Publicação da Bicho Pão com preparações do cardápio"><div><h4>Cardápio na vitrine</h4><p>Os preparos do dia, postados pelo Instagram da casa.</p></div><span class="go">Ver no Instagram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+        <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_07}}" alt="Publicação da Bicho Pão com pães e cafés"><div><h4>Pães e cafés</h4><p>O clássico da casa, sempre postado na véspera.</p></div><span class="go">Ver no Instagram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+        <a class="live-row" href="https://instagram.com/bicho_pao" target="_blank" rel="noopener"><img src="{{STORY_08}}" alt="Publicação da Bicho Pão com lanches e bebidas"><div><h4>Lanches e bebidas</h4><p>O que está rolando no cardápio da semana.</p></div><span class="go">Ver no Instagram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== COMO FUNCIONA ===================== -->
-<section id="como-funciona" data-bridge="c">
+<section class="sec" id="como-funciona" data-bridge="b">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rev">
-        <div class="sec-label">Como funciona</div>
-        <h2>Do cardápio <em>à sua mesa</em></h2>
-      </div>
+      <div class="rev"><div class="sec-label">Como funciona</div><h2>Do cardápio <em>à sua mesa</em></h2></div>
     </div>
     <div class="steps">
       <div class="step rev"><i>01</i><h4>Escolha no cardápio</h4><p>Veja os preparos, as fotos e os valores, e escolha o que mais te apetece.</p></div>
@@ -857,14 +938,14 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
   </div>
 </section>
 
-<!-- ===================== SOBRE ===================== -->
-<section id="sobre" data-bridge="a">
+<!-- ===================== SOBRE + UNIDADES ===================== -->
+<section class="sec" id="sobre" data-bridge="c">
   <div class="wrap">
     <div class="sec-head">
       <div class="rev"><div class="sec-label">Sobre</div><h2>Uma casa de <em>pão e café</em></h2></div>
     </div>
     <div class="about">
-      <div class="about-photo rev"><img src="{{IMG_LUGAR_BALCAO}}" alt="Balcão e vitrine da padaria Bicho Pão"><span class="ring"></span></div>
+      <div class="about-photo rev"><img src="{{IMG_LUGAR_INTERIOR}}" alt="Interior acolhedor da padaria Bicho Pão"><span class="ring"></span></div>
       <div class="about-body rev rev-d1">
         <p>A <strong>Bicho Pão</strong> é uma padaria e confeitaria artesanal no Flamengo, entre o Catete e Laranjeiras. Aqui o pão não é produção de linha: é feito no dia, no forno da casa, para abrir o café da manhã e acompanhar o café coado da tarde.</p>
         <p>O cardápio acompanha o ritmo do bairro: croissants quentinhos pela manhã, sanduíches e panelinhas no almoço executivo, e um brunch que dá vontade de voltar. Os pedidos acontecem pelo WhatsApp — sem fila, sem app, sem cadastro.</p>
@@ -872,16 +953,16 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
         <div class="tools"><span>Pães artesanais</span><span>Sourdough de longa fermentação</span><span>Café coado</span><span>Brunch</span><span>Almoço executivo</span><span>Pedidos pelo WhatsApp</span></div>
         <div class="units">
           <a class="unit" href="https://www.google.com/maps/place/Padaria+Bicho+P%C3%A3o+-+Catete/data=!4m7!3m6!1s0x997faaec9d2f63:0xb3d8a5fd2bcd58ef!8m2!3d-22.9280446!4d-43.1754183!16s%2Fg%2F11j4tzm_tf!19sChIJYy-d7Kp_mQAR71jNK_2l2LM?hl=pt-BR" target="_blank" rel="noopener">
-            <h4>Unidade Corrêa Dutra</h4>
+            <div class="pin">📍</div><h4>Unidade Corrêa Dutra</h4>
             <p>R. Corrêa Dutra, 39 B — Flamengo, Rio de Janeiro — RJ</p>
             <span class="go">Ver no Mapa
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
           </a>
           <a class="unit" href="https://www.google.com/maps/place/Padaria+Bicho+P%C3%A3o/@-22.9313729,-43.1789949,17z/data=!4m6!3m5!1s0x997f17c70d5bd3:0x9db5779acc889ada!8m2!3d-22.9347012!4d-43.1774216!16s%2Fg%2F11rts2nqjb?hl=pt-BR" target="_blank" rel="noopener">
-            <h4>Unidade Paissandu</h4>
+            <div class="pin">📍</div><h4>Unidade Paissandu</h4>
             <p>Rua Paissandu, 111 — Flamengo, Rio de Janeiro — RJ</p>
             <span class="go">Ver no Mapa
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
           </a>
         </div>
       </div>
@@ -889,23 +970,29 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
   </div>
 </section>
 
-<!-- ===================== CTA FINAL (AGIR) ===================== -->
-<section class="cta" id="contato" data-bridge="b">
+<!-- ===================== CTA FINAL ===================== -->
+<section class="cta" id="contato" data-bridge="a">
   <div class="wrap">
-    <h2 class="rev">Venha probar o <em>pão da casa</em></h2>
-    <p class="rev rev-d1">Abra o WhatsApp, diga o que quer e a gente prepara com o pão ainda quentinho. A casa abre a partir das 08:00 e fecha às 19:30 — confira os horários de cada dia pelo chat.</p>
-    <div class="hero-cta rev rev-d2">
-      <a class="btn btn-gold" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-ghost" href="tel:+55219839666852">+55 21 98396-6852</a>
+    <div class="cta-inner">
+      <h2 class="rev">Venha probar o <em>pão da casa</em></h2>
+      <p class="rev rev-d1">Abra o WhatsApp, diga o que quer e a gente prepara com o pão ainda quentinho. A casa abre a partir das 08:00 e fecha às 19:30 — confira os horários de cada dia pelo chat.</p>
+      <div class="cta-btns rev rev-d2">
+        <a class="btn btn-gold" href="https://wa.me/55219839666852?text=Ol%C3%A1%21%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir no WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="tel:+55219839666852">+55 21 98396-6852</a>
+      </div>
+      <div class="cta-hours">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+        Aberto todos os dias · das 08:00 às 19:30 — horários confirmáveis pelo WhatsApp
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== LEGAL ===================== -->
-<div class="wrap">
-  <section class="legal-sec" id="privacidade" data-bridge="a">
+<div class="wrap legal">
+  <section class="legal-sec" id="privacidade" data-bridge="b">
     <div class="legal-box">
       <h3>Política de Privacidade</h3>
       <p><b>1. Quais dados coletamos.</b> Quando você inicia um pedido ou conversa conosco pelo WhatsApp, tratamos apenas os dados que você compartilha: número do telefone, nome (se informado) e os detalhes do pedido — itens, quantidades, horário e endereço de entrega, quando aplicável.</p>
@@ -927,10 +1014,10 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 </div>
 
 <!-- ===================== FOOTER ===================== -->
-<footer>
+<footer class="site-foot">
   <div class="wrap">
     <div class="foot">
-      <a class="brand" href="#top"><img src="{{LOGO_LIGHT}}" alt="Bicho Pão" width="195" height="95"></a>
+      <a class="brand" href="#top"><img src="{{LOGO_LIGHT}}" alt="Bicho Pão — logotipo" width="195" height="95"></a>
       <div class="foot-links">
         <a href="https://instagram.com/bicho_pao" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.google.com/maps/search/?api=1&query=Padaria+Bicho+P%C3%A3o+Flamengo+Rio+de+Janeiro" target="_blank" rel="noopener">Endereço</a>
@@ -944,121 +1031,34 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 </footer>
 
 <script>
-/* ============================================================
-   MOTION — header · progresso · reveal variado · parallax
-   Tudo em transform/opacity. Respeita prefers-reduced-motion.
-   ============================================================ */
-const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-const isMobile = matchMedia('(max-width:760px)').matches;
+/* ---------- script da página (sem dependências) ---------- */
+(function(){
+  "use strict";
+  var head = document.getElementById('hdr');
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('navlinks');
 
-/* header com blur ao rolar + barra de progresso */
-const hdr = document.getElementById('hdr');
-const bar = document.getElementById('bar');
-let lastY = -1;
-function onScroll(){
-  const y = window.scrollY;
-  if (y === lastY) return;
-  lastY = y;
-  if (hdr) hdr.classList.toggle('stuck', y > 40);
-  if (bar){
-    const max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+  function onScroll(){
+    if (window.scrollY > 24) head.classList.add('solid');
+    else head.classList.remove('solid');
   }
-}
-addEventListener('scroll', onScroll, {passive:true});
-onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-/* ---- variedade de entrada por família de elemento ---- */
-const VARIANTS = [
-  ['.sec-head h2',        'rv-clip'],
-  ['.sec-head .sec-label','rv-fade'],
-  ['.sec-note',           'rv-fade'],
-  ['.stats .stat',        'rv-fade', 90],
-  ['.grid-serv .serv',    'rv-fade', 80],
-  ['.steps .step',        'rv-left', 90],
-  ['.quotes .quote',      'rv-scale', 110],
-  ['.about-photo',        'rv-left'],
-  ['.about-body',         'rv-right'],
-  ['.live-row',           'rv-fade', 70]
-];
-VARIANTS.forEach(([sel, cls, stagger]) => {
-  document.querySelectorAll(sel).forEach((el, i) => {
-    if (!el.classList.contains(cls)) el.classList.add(cls);
-    if (stagger) el.style.transitionDelay = (i % 4) * stagger + 'ms';
-  });
-});
-
-/* ---- reveal unificado ---- */
-const io = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    io.unobserve(el);
-    setTimeout(() => el.classList.add('in'), Math.min(i * 70, 350));
-  });
-}, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
-
-document.querySelectorAll('.rev,.rv-fade,.rv-scale,.rv-left,.rv-right')
-  .forEach(el => io.observe(el));
-
-/* clip-path:inset(0 100% 0 0) zera a área visual do elemento e o
-   IntersectionObserver nunca o considera visível — então observamos o
-   container dele, que não é recortado, e revelamos o filho junto.        */
-const ioClip = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    ioClip.unobserve(e.target);
-    setTimeout(() => {
-      e.target.querySelectorAll('.rv-clip').forEach(k => k.classList.add('in'));
-      if (e.target.classList && e.target.classList.contains('rv-clip')) e.target.classList.add('in');
-    }, 120);
-  });
-}, {threshold:.05, rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.rv-clip').forEach(el => {
-  const host = el.parentElement || el;
-  if (!host.dataset.clipHost){ host.dataset.clipHost = '1'; ioClip.observe(host); }
-});
-
-/* stagger por posição no grid (3 colunas) */
-document.querySelectorAll('.grid-proj .card').forEach((c,i)=>c.style.transitionDelay=(i%3)*90+'ms');
-
-/* ---- parallax ---- */
-if (!reduce){
-  const items = [];
-  const add = (sel, speed) => document.querySelectorAll(sel).forEach(el => {
-    el.dataset.par = speed; items.push(el);
-  });
-  add('.about-photo', -0.06);
-  add('.live-row img', 0.04);
-  add('.cta h2', 0.05);
-  add('.services .serv', 0.02);
-
-  const stack = document.querySelector('.stack');
-  let ticking = false;
-
-  function frame(){
-    const vh = innerHeight;
-    /* hero */
-    if (stack){
-      const y = Math.min(window.scrollY, 800);
-      stack.style.transform = 'translate3d(0,' + (y * 0.06) + 'px,0)';
-    }
-    /* elementos com data-par */
-    items.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.bottom < -200 || r.top > vh + 200) return;
-      const center = r.top + r.height / 2;
-      const delta = (center - vh / 2) / vh;
-      const s = parseFloat(el.dataset.par) * 100 * delta;
-      el.style.transform = 'translate3d(0,' + s.toFixed(2) + 'px,0)';
-    });
-    ticking = false;
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    nav.classList.toggle('open', open);
   }
-  addEventListener('scroll', () => {
-    if (!ticking && !isMobile){ ticking = true; requestAnimationFrame(frame); }
-  }, {passive:true});
-  if (!isMobile) frame();
-}
+  burger.addEventListener('click', function(){
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
 </script>
 <script data-anim-kit>
 /* ============================================================

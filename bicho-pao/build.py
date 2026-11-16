@@ -19,6 +19,7 @@ TOK = {
     '{{IMG_6}}': ('image-6.webp', 'image/webp'),
     '{{IMG_7}}': ('image-7.webp', 'image/webp'),
     '{{IMG_8}}': ('image-8.webp', 'image/webp'),
+    '{{IMG_PAO}}': ('pao-dourado.webp', 'image/webp'),
     '{{IMG_LUGAR_INTERIOR}}': ('lugar-interior.webp', 'image/webp'),
     '{{IMG_LUGAR_VITRINE}}': ('lugar-vitrine.webp', 'image/webp'),
     '{{IMG_LUGAR_MESA}}': ('lugar-mesa.webp', 'image/webp'),
@@ -27,6 +28,7 @@ TOK = {
     '{{STORY_07}}': ('20.00.07.webp', 'image/webp'),
     '{{STORY_08}}': ('20.00.08.webp', 'image/webp'),
     '{{F_DANCING_400}}': ('dancing-script-latin-400-normal.woff2', 'font/woff2'),
+    '{{F_DANCING_500}}': ('dancing-script-latin-500-normal.woff2', 'font/woff2'),
     '{{F_DANCING_700}}': ('dancing-script-latin-700-normal.woff2', 'font/woff2'),
 }
 for k, (f, mime) in TOK.items():
