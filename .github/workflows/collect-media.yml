@@ -16,36 +16,36 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Ferramentas (yt-dlp, ffmpeg, poppler-utils, playwright)
+      - name: Ferramentas (ffmpeg, poppler-utils, playwright)
         run: |
-          pip install -q yt-dlp || true
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg poppler-utils webp || true
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg poppler-utils || true
           npm init -y >/dev/null 2>&1 || true
           npm install --no-save playwright@latest >/dev/null 2>&1 || true
           npx playwright install chromium
-      - name: Coletar mídia e dados oficiais
+      - name: Coletar pass 2 (Linktree PDF, carrosséis IG, horários Maps, stills HD)
         run: node scripts/collect-media.mjs
-      - name: Extrair PDF do Cardápio e otimizar vídeos/posters
+      - name: Extrair PDF do Cardápio e vídeo limpo sem tela final
         run: |
           if [ -f media-raw/menu/cardapio.pdf ]; then
             pdftotext -layout media-raw/menu/cardapio.pdf media-raw/menu/cardapio.txt || true
             pdftoppm -png -r 180 media-raw/menu/cardapio.pdf media-raw/menu/cardapio-page || true
           fi
-          mkdir -p media-raw/ig/web
-          for v in media-raw/ig/*.mp4; do
-            [ -f "$v" ] || continue
-            b=$(basename "$v" .mp4)
-            ffprobe -v error -show_entries format=duration:stream=width,height,codec_name -of default=nw=1 "$v" > "media-raw/ig/web/${b}.probe.txt" 2>&1 || true
-            ffmpeg -v error -y -i "$v" -an -t 10 -vf "scale='min(540,iw)':-2" -c:v libx264 -crf 29 -preset veryfast -movflags +faststart "media-raw/ig/web/${b}_web.mp4" || true
-            ffmpeg -v error -y -i "$v" -ss 00:00:01 -frames:v 1 -vf "scale=720:-2" "media-raw/ig/web/${b}_poster.webp" || true
-            ffmpeg -v error -y -i "$v" -vf "fps=1/2,scale=240:-2,tile=5x2" -frames:v 1 "media-raw/ig/web/${b}_sheet.jpg" || true
-          done
+          # Gera loops curtos e ultraleves (sem legendas queimadas!) para o Hero e para a seção Experiência
+          if [ -f media-raw/ig/DfXB2A2vndu.mp4 ]; then
+            ffmpeg -v error -y -ss 0 -t 11.5 -i media-raw/ig/DfXB2A2vndu.mp4 -an -vf "scale=540:-2" -c:v libx264 -crf 28 -preset slow -movflags +faststart media-raw/ig/web/hero-brunch-loop.mp4 || true
+          fi
+          if [ -f media-raw/ig/DfAIvjwhlTJ.mp4 ]; then
+            ffmpeg -v error -y -ss 0 -t 8.5 -i media-raw/ig/DfAIvjwhlTJ.mp4 -an -vf "scale=480:-2" -c:v libx264 -crf 29 -preset slow -movflags +faststart media-raw/ig/web/massa-artesanal-loop.mp4 || true
+          fi
+          if [ -f media-raw/ig/DfFdEltBd2c.mp4 ]; then
+            ffmpeg -v error -y -ss 0 -t 8.5 -i media-raw/ig/DfFdEltBd2c.mp4 -an -vf "scale=480:-2" -c:v libx264 -crf 29 -preset slow -movflags +faststart media-raw/ig/web/croissant-pizza-loop.mp4 || true
+          fi
           rm -f package.json package-lock.json
-          du -sh media-raw/* || true
+          ls -lh media-raw/menu media-raw/brand media-raw/ig/photos media-raw/ig/stills || true
       - name: Devolver para a branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A media-raw
-          git commit -m "Mídia e cardápio oficiais coletados (Instagram + Linktree + Maps) [skip ci]" || echo "nada a commitar"
+          git commit -m "Cardápio PDF, carrosséis IG, horários Maps e stills HD coletados [skip ci]" || echo "nada a commitar"
           git push origin HEAD:${GITHUB_REF_NAME}

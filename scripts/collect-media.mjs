@@ -1,340 +1,148 @@
 #!/usr/bin/env node
 /**
- * COLLECT-MEDIA — roda no GitHub Actions (rede livre).
- * Coleta APENAS informações e mídias públicas e oficiais da Clô & Saint:
- *  1. Linktree oficial (linktr.ee/cloesaint2026) -> JSON, logo/avatar e PDF do Cardápio (2 páginas)
- *  2. Instagram oficial (@cloesaintpadaria) -> fotos, carrosséis e Reels publicados pela própria marca
- *  3. Google Maps oficial (Clô & Saint, Botafogo) -> dados da ficha, avaliações reais em texto e aba "Pelo proprietário"
- *  4. Site institucional (cloesaint.com.br, se acessível)
+ * COLLECT-MEDIA PASS 2 — coleta via Playwright real:
+ *  1. Linktree oficial (linktr.ee/cloesaint2026) -> JSON + PDF do Cardápio 2026 (2 páginas) + logo
+ *  2. Carrosséis de fotos oficiais @cloesaintpadaria (Dfmd5CXFZl7, DfuKPw-lfY8, DfSKV9dlY8Z, DezEKWxlTxU)
+ *  3. Google Maps oficial -> horários expandidos completos + mais avaliações 5 estrelas reais
+ *  4. Extração de frames limpos em alta resolução dos MP4s oficiais já baixados
  */
-import { writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 const OUT = 'media-raw';
-for (const d of ['ig', 'maps', 'maps/owner', 'menu', 'brand']) {
+for (const d of ['ig/photos', 'ig/stills', 'menu', 'brand', 'maps']) {
   mkdirSync(`${OUT}/${d}`, { recursive: true });
 }
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
-const H = { 'user-agent': UA, 'accept-language': 'pt-BR,pt;q=0.9,en;q=0.8' };
 const log = [];
 const note = (m) => { console.log(m); log.push(m); };
-const unesc = (s) => s.replace(/\\u0026/g, '&').replace(/\\&/g, '&').replace(/\\=/g, '=').replace(/\\\//g, '/').replace(/&amp;/g, '&');
 
-async function get(url, headers = {}) {
-  return fetch(url, { headers: { ...H, ...headers }, redirect: 'follow' });
-}
+const { chromium } = await import('playwright');
+const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-dev-shm-usage'] });
+const ctx = await browser.newContext({
+  locale: 'pt-BR',
+  viewport: { width: 1440, height: 1000 },
+  userAgent: UA
+});
 
-async function save(url, dest, min = 1500) {
-  try {
-    const r = await get(url);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const b = Buffer.from(await r.arrayBuffer());
-    if (b.length < min) throw new Error('pequeno: ' + b.length);
-    writeFileSync(dest, b);
-    note(`OK   ${dest} (${b.length} bytes)`);
-    return b.length;
-  } catch (e) {
-    note(`FAIL ${dest}: ${String(e).slice(0, 120)}`);
-    return 0;
-  }
-}
-
-const manifest = {
-  collectedAt: new Date().toISOString(),
-  client: 'Clô & Saint',
-  linktree: {},
-  ig: [],
-  maps: { ownerPhotos: [], info: {}, reviews: [] },
-  brand: []
-};
-
-/* ---------- 1. Linktree oficial (linktr.ee/cloesaint2026) ---------- */
+/* ---------- 1. Linktree oficial via navegador real ---------- */
 try {
-  const r = await get('https://linktr.ee/cloesaint2026');
-  const html = await r.text();
-  note(`linktree: HTTP ${r.status}, ${html.length} bytes`);
-  const m = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-  if (m) {
-    const nextData = JSON.parse(m[1]);
-    const acc = nextData?.props?.pageProps?.account || {};
-    const links = nextData?.props?.pageProps?.links || acc?.links || [];
-    manifest.linktree = {
-      username: acc.username,
-      pageTitle: acc.pageTitle,
-      description: acc.description,
-      profilePictureUrl: acc.profilePictureUrl,
-      customAvatar: acc.customAvatar,
-      theme: acc.theme,
-      links: links.map(l => ({
-        id: l.id,
-        title: l.title,
-        url: l.url,
-        type: l.type,
-        modifiers: l.modifiers,
-        rules: l.rules
-      }))
+  const page = await ctx.newPage();
+  await page.goto('https://linktr.ee/cloesaint2026', { waitUntil: 'domcontentloaded', timeout: 45000 });
+  await page.waitForTimeout(3000);
+  const ltData = await page.evaluate(() => {
+    const el = document.getElementById('__NEXT_DATA__');
+    if (el) {
+      try { return JSON.parse(el.textContent); } catch {}
+    }
+    return {
+      htmlLinks: [...document.querySelectorAll('a[href]')].map(a => ({ text: a.innerText.trim(), href: a.href }))
     };
-    writeFileSync(`${OUT}/brand/linktree.json`, JSON.stringify(manifest.linktree, null, 2));
-    if (acc.profilePictureUrl) {
-      const cleanAvatar = acc.profilePictureUrl.split('?')[0];
-      if (await save(cleanAvatar, `${OUT}/brand/linktree-avatar.jpg`, 500)) {
-        manifest.brand.push({ file: 'linktree-avatar.jpg', url: cleanAvatar, source: 'Linktree oficial @cloesaint2026' });
-      }
-    }
-    // Procura todos os PDFs ou imagens do Linktree
-    const allUrls = [...new Set([...m[1].matchAll(/https:\/\/ugc\.production\.linktr\.ee\/[^"\\?\s]+/g)].map(x => x[0]))];
-    note(`linktree ugc urls: ${allUrls.length}`);
-    let ui = 0;
-    for (const u of allUrls) {
-      ui++;
-      if (/\.pdf$/i.test(u)) {
-        await save(u, `${OUT}/menu/cardapio.pdf`, 2000);
-        manifest.linktree.pdfUrl = u;
-      } else {
-        const ext = (u.match(/\.(jpe?g|png|webp|svg)$/i)?.[1] || 'jpg').toLowerCase();
-        await save(u, `${OUT}/brand/lt-ugc-${ui}.${ext}`, 500);
-      }
-    }
-    // Também checa links com PDF em l.url ou modifiers
-    for (const l of links) {
-      const candidates = [l.url, l?.modifiers?.amazonAffiliate, JSON.stringify(l)].join(' ');
-      const pdfMatch = candidates.match(/https?:\/\/[^"\\\s]+\.pdf[^"\\\s]*/i);
-      if (pdfMatch && !existsSync(`${OUT}/menu/cardapio.pdf`)) {
-        await save(pdfMatch[0], `${OUT}/menu/cardapio.pdf`, 2000);
-        manifest.linktree.pdfUrl = pdfMatch[0];
-      }
-    }
-  }
-} catch (e) {
-  note('linktree erro: ' + String(e).slice(0, 160));
-}
-
-/* ---------- 2. Instagram oficial (@cloesaintpadaria) ---------- */
-// Posts confirmados como publicados pela própria @cloesaintpadaria (excluído DexUf-lNIXl que é de @aboadazs)
-const OFFICIAL_CODES = [
-  'DfuKPw-lfY8',
-  'Dfmd5CXFZl7',
-  'DfZ5WXXBUsT',
-  'DfXB2A2vndu',
-  'DfSKV9dlY8Z',
-  'DfFdEltBd2c',
-  'DfAIvjwhlTJ',
-  'DezEKWxlTxU',
-  'DdbtiTFx39g',
-  'DdMOpwvB_N1',
-  'Dc1Gj1wBpnA'
-];
-const seenCodes = new Set();
-
-try {
-  const r = await get('https://www.instagram.com/api/v1/users/web_profile_info/?username=cloesaintpadaria', {
-    'x-ig-app-id': '936619743392459',
-    'x-requested-with': 'XMLHttpRequest',
-    referer: 'https://www.instagram.com/cloesaintpadaria/'
   });
-  note('ig web_profile_info: HTTP ' + r.status);
-  if (r.ok) {
-    const j = await r.json();
-    const u = j?.data?.user;
-    if (u) {
-      manifest.igProfile = {
-        username: u.username,
-        name: u.full_name,
-        bio: u.biography,
-        followers: u.edge_followed_by?.count,
-        category: u.category_name,
-        external_url: u.external_url,
-        business_address: u.business_address_json,
-        business_phone: u.business_phone_number,
-        business_email: u.business_email
-      };
-      if (u.profile_pic_url_hd) {
-        await save(u.profile_pic_url_hd, `${OUT}/brand/ig-profile-hd.jpg`, 800);
-      }
-      const edges = [
-        ...(u.edge_owner_to_timeline_media?.edges || []),
-        ...(u.edge_felix_video_timeline?.edges || [])
-      ];
-      note('ig edges no JSON: ' + edges.length);
-      for (const { node: n } of edges) {
-        const ownerUser = n?.owner?.username;
-        if (ownerUser && ownerUser !== 'cloesaintpadaria') {
-          note(`SKIP collab/terceiro ${n.shortcode} (owner=${ownerUser})`);
-          continue;
+  writeFileSync(`${OUT}/brand/linktree-full.json`, JSON.stringify(ltData, null, 2));
+  const rawJson = JSON.stringify(ltData);
+  const ugcUrls = [...new Set([...rawJson.matchAll(/https:\/\/ugc\.production\.linktr\.ee\/[^"\\?\s]+/g)].map(m => m[0]))];
+  note(`linktree ugc urls encontradas: ${ugcUrls.length}`);
+  let idx = 0;
+  for (const u of ugcUrls) {
+    idx++;
+    try {
+      const resp = await ctx.request.get(u);
+      if (resp.ok()) {
+        const buf = await resp.body();
+        const ct = resp.headers()['content-type'] || '';
+        if (/pdf/i.test(ct) || /\.pdf$/i.test(u)) {
+          writeFileSync(`${OUT}/menu/cardapio.pdf`, buf);
+          note(`OK cardapio.pdf (${buf.length} bytes) <- ${u}`);
+        } else {
+          const ext = /\.png$/i.test(u) || /png/i.test(ct) ? 'png' : 'jpg';
+          writeFileSync(`${OUT}/brand/lt-${idx}.${ext}`, buf);
+          note(`OK brand/lt-${idx}.${ext} (${buf.length} bytes) <- ${u}`);
         }
-        const code = n.shortcode;
-        if (seenCodes.has(code)) continue;
-        seenCodes.add(code);
-        if (!OFFICIAL_CODES.includes(code)) OFFICIAL_CODES.push(code);
-        const cap = n.edge_media_to_caption?.edges?.[0]?.node?.text || '';
-        const entry = {
-          code,
-          owner: ownerUser || 'cloesaintpadaria',
-          type: n.__typename,
-          is_video: n.is_video,
-          date: n.taken_at_timestamp ? new Date(n.taken_at_timestamp * 1000).toISOString().slice(0, 10) : null,
-          caption: cap,
-          files: []
-        };
-        if (n.display_url && await save(n.display_url, `${OUT}/ig/${code}.jpg`)) entry.files.push(`${code}.jpg`);
-        if (n.is_video && n.video_url && await save(n.video_url, `${OUT}/ig/${code}.mp4`, 15000)) entry.files.push(`${code}.mp4`);
-        const kids = n.edge_sidecar_to_children?.edges || [];
-        let ki = 0;
-        for (const { node: k } of kids) {
-          ki++;
-          if (k.display_url && await save(k.display_url, `${OUT}/ig/${code}_${ki}.jpg`)) entry.files.push(`${code}_${ki}.jpg`);
-          if (k.is_video && k.video_url && await save(k.video_url, `${OUT}/ig/${code}_${ki}.mp4`, 15000)) entry.files.push(`${code}_${ki}.mp4`);
-        }
-        manifest.ig.push(entry);
       }
+    } catch (e) {
+      note(`erro baixando ${u}: ${String(e).slice(0, 100)}`);
     }
   }
+  await page.close();
 } catch (e) {
-  note('ig web_profile_info erro: ' + String(e).slice(0, 150));
+  note('linktree playwright erro: ' + String(e).slice(0, 160));
 }
 
-// Fallback por embed público para cada shortcode oficial
-for (const code of OFFICIAL_CODES) {
+/* ---------- 2. Carrosséis de fotos oficiais do Instagram via Playwright ---------- */
+const PHOTO_POSTS = ['Dfmd5CXFZl7', 'DfuKPw-lfY8', 'DfSKV9dlY8Z', 'DezEKWxlTxU'];
+for (const code of PHOTO_POSTS) {
   try {
-    const r = await get(`https://www.instagram.com/p/${code}/embed/captioned/`);
-    const html = await r.text();
-    note(`embed ${code}: HTTP ${r.status}, ${html.length} bytes`);
-    // Verifica autor no embed para nunca pegar post de terceiro
-    const userMatch = html.match(/class="UsernameText"[^>]*>([^<]+)</);
-    const embedAuthor = userMatch ? userMatch[1].trim() : '';
-    if (embedAuthor && embedAuthor !== 'cloesaintpadaria') {
-      note(`SKIP embed ${code}: autor=${embedAuthor}`);
-      continue;
-    }
-    let entry = manifest.ig.find(x => x.code === code);
-    if (!entry) {
-      entry = { code, owner: embedAuthor || 'cloesaintpadaria', via: 'embed', files: [] };
-      manifest.ig.push(entry);
-    }
-    const disp = [...html.matchAll(/\\?"display_url\\?":\\?"([^"\\]+(?:\\\\\/[^"\\]+|\\[^"])*?)\\?"/g)]
-      .map(m => unesc(m[1].replace(/\\\\/g, '\\')));
-    const img = html.match(/class="EmbeddedMediaImage"[^>]*src="([^"]+)"/);
-    const vid = html.match(/\\?"video_url\\?":\\?"(https:[^"]+?)\\?"/);
-    const urls = [...new Set([...(img ? [unesc(img[1])] : []), ...disp])]
-      .filter(u => !/s150x150|profile_pic/i.test(u));
-    let i = 0;
-    for (const u of urls.slice(0, 6)) {
-      i++;
-      const f = i === 1 ? `${code}.jpg` : `${code}_${i}.jpg`;
-      if (!existsSync(`${OUT}/ig/${f}`) && await save(u, `${OUT}/ig/${f}`)) {
-        entry.files.push(f);
+    const page = await ctx.newPage();
+    const captured = new Map();
+    page.on('response', async (resp) => {
+      const u = resp.url();
+      if (/cdninstagram\.com|fbcdn\.net/.test(u) && /\.(jpe?g|webp)/i.test(u.split('?')[0]) && !/s150x150|p50x50|t51\.2885-19/i.test(u)) {
+        try {
+          const b = await resp.body();
+          if (b.length > 18000) captured.set(u.split('?')[0], b);
+        } catch {}
       }
-    }
-    if (vid && !existsSync(`${OUT}/ig/${code}.mp4`)) {
-      const vu = unesc(vid[1].replace(/\\\\/g, '\\'));
-      if (await save(vu, `${OUT}/ig/${code}.mp4`, 15000)) entry.files.push(`${code}.mp4`);
-    }
-    const cap = html.match(/class="Caption"[\s\S]*?<\/div>/);
-    if (cap && !entry.caption) {
-      entry.caption = cap[0].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 900);
-    }
-  } catch (e) {
-    note(`embed ${code} erro: ${String(e).slice(0, 120)}`);
-  }
-}
-
-// Reels via yt-dlp para garantir vídeos MP4 reais
-const REEL_CODES = ['Dc1Gj1wBpnA', 'DdMOpwvB_N1', 'DfXB2A2vndu', 'DfAIvjwhlTJ', 'DfFdEltBd2c', 'DdbtiTFx39g', 'DfZ5WXXBUsT'];
-for (const code of REEL_CODES) {
-  if (existsSync(`${OUT}/ig/${code}.mp4`)) continue;
-  try {
-    execSync(`yt-dlp -q --no-warnings --no-playlist -f "mp4/best" -o "${OUT}/ig/${code}.mp4" "https://www.instagram.com/p/${code}/"`, {
-      stdio: 'pipe',
-      timeout: 75000
     });
-    if (existsSync(`${OUT}/ig/${code}.mp4`)) {
-      note(`OK   yt-dlp ${code}.mp4 (${statSync(`${OUT}/ig/${code}.mp4`).size} bytes)`);
+    await page.goto(`https://www.instagram.com/p/${code}/embed/captioned/`, { waitUntil: 'networkidle', timeout: 40000 }).catch(() => {});
+    await page.waitForTimeout(1800);
+    // Clica na seta "Avançar" do carrossel até 5 vezes para carregar todos os slides
+    for (let s = 0; s < 5; s++) {
+      const nextBtn = page.locator('button.coreSpriteRightChevron, button[aria-label*="Avan" i], button[aria-label*="Next" i], .RightChevron').first();
+      if (await nextBtn.count()) {
+        await nextBtn.click().catch(() => {});
+        await page.waitForTimeout(1100);
+      } else break;
     }
-  } catch (e) {
-    note(`yt-dlp ${code}: ${String(e.stderr || e).slice(0, 120).replace(/\n/g, ' ')}`);
-  }
-}
-
-/* ---------- 3. Site antigo (cloesaint.com.br) se responder ---------- */
-try {
-  const r = await get('https://cloesaint.com.br/');
-  if (r.ok) {
-    const html = await r.text();
-    writeFileSync(`${OUT}/brand/cloesaint-site.html`, html.slice(0, 120000));
-    const imgs = [...new Set([...html.matchAll(/https?:\/\/[^"'\s>]+\.(?:png|svg|webp|jpe?g)/gi)].map(m => m[0]))];
     let si = 0;
-    for (const u of imgs.slice(0, 15)) {
+    for (const [, buf] of captured) {
       si++;
-      const ext = (u.match(/\.(png|svg|webp|jpe?g)$/i)?.[1] || 'png').toLowerCase();
-      await save(u, `${OUT}/brand/site-${si}.${ext}`, 400);
+      const fname = `${OUT}/ig/photos/${code}_${si}.jpg`;
+      writeFileSync(fname, buf);
+      note(`OK ${fname} (${buf.length} bytes)`);
     }
+    await page.close();
+  } catch (e) {
+    note(`ig carousel ${code} erro: ${String(e).slice(0, 120)}`);
   }
-} catch (e) {
-  note('cloesaint.com.br indisponivel: ' + String(e).slice(0, 100));
 }
 
-/* ---------- 4. Google Maps via Playwright (ficha + avaliações reais + aba Pelo proprietário) ---------- */
+/* ---------- 3. Google Maps: horários completos dia a dia + avaliações 5 estrelas ---------- */
 try {
-  const { chromium } = await import('playwright');
-  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-dev-shm-usage'] });
-  const ctx = await browser.newContext({
-    locale: 'pt-BR',
-    viewport: { width: 1440, height: 960 },
-    userAgent: UA
-  });
   const page = await ctx.newPage();
   const mapsUrl = 'https://www.google.com/maps/place/Cl%C3%B4+%26+Saint/@-22.9554073,-43.1784101,17z/data=!4m15!1m8!3m7!1s0x997f3ce80fa82f:0xeabf2f0579e7b1af!2zQ2zDtCAmIFNhaW50!8m2!3d-22.9554073!4d-43.1784101!10e9!16s%2Fg%2F11vc58f397!3m5!1s0x997f3ce80fa82f:0xeabf2f0579e7b1af!8m2!3d-22.9554073!4d-43.1784101!16s%2Fg%2F11vc58f397?hl=pt-BR';
   await page.goto(mapsUrl, { waitUntil: 'domcontentloaded', timeout: 45000 });
   await page.waitForTimeout(3500);
-
-  // Aceita banner de cookies do Google se aparecer
   const acceptBtn = page.locator('button:has-text("Aceitar tudo"), button:has-text("Accept all"), form[action*="consent"] button').first();
   if (await acceptBtn.count()) {
     await acceptBtn.click().catch(() => {});
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2800);
   }
-
-  await page.screenshot({ path: `${OUT}/maps/ficha-overview.png` });
-
-  // Extrai dados visíveis da visão geral
-  const info = await page.evaluate(() => {
-    const txt = (sel) => document.querySelector(sel)?.innerText?.trim() || '';
-    const allButtons = [...document.querySelectorAll('button,[data-item-id],[aria-label]')]
-      .map(el => ({
-        itemId: el.getAttribute('data-item-id') || '',
-        aria: el.getAttribute('aria-label') || '',
-        text: (el.innerText || '').trim().slice(0, 200)
-      }))
-      .filter(x => x.itemId || /endere|hor[áa]rio|telefone|avali|estrela|website|card[áa]pio|menu/i.test(x.aria));
-    return {
-      title: txt('h1'),
-      ratingText: txt('.F7nice'),
-      category: txt('button[jsaction*="category"]'),
-      panelText: (document.querySelector('[role="main"]')?.innerText || '').slice(0, 5000),
-      items: allButtons.slice(0, 40)
-    };
+  // Extrai tabela de horários direto do DOM (mesmo oculta em table.eK4R0e / tr.y0skZc)
+  const hoursTable = await page.evaluate(() => {
+    const rows = [...document.querySelectorAll('table tr')].map(tr => tr.innerText.trim().replace(/\s+/g, ' ')).filter(Boolean);
+    const ariaHours = [...document.querySelectorAll('[aria-label*="feira" i], [aria-label*="domingo" i], [aria-label*="sábado" i], [data-item-id="oh"]')]
+      .map(e => e.getAttribute('aria-label') || e.innerText);
+    // Foto de capa da ficha
+    const heroImg = document.querySelector('button[jsaction*="heroHeaderImage"] img, .ZKCDEc img')?.getAttribute('src') || '';
+    return { rows, ariaHours, heroImg };
   });
-  manifest.maps.info = info;
-  writeFileSync(`${OUT}/maps/place-info.json`, JSON.stringify(info, null, 2));
+  writeFileSync(`${OUT}/maps/hours-table.json`, JSON.stringify(hoursTable, null, 2));
 
-  // Abre horários completos se houver botão de expansão
-  const hoursToggle = page.locator('[data-item-id*="oh"], [aria-label*="horário" i], [aria-label*="Hours" i]').first();
-  if (await hoursToggle.count()) {
-    await hoursToggle.click().catch(() => {});
-    await page.waitForTimeout(1000);
-    const hoursText = await page.evaluate(() => (document.querySelector('[role="main"]')?.innerText || '').slice(0, 6000));
-    writeFileSync(`${OUT}/maps/hours-expanded.txt`, hoursText);
-  }
-
-  // Aba Avaliações (somente texto real e nome do autor, sem baixar foto de cliente)
+  // Mais avaliações reais rolando o painel de avaliações
   const revTab = page.locator('button[role="tab"]:has-text("Avalia"), button[role="tab"]:has-text("Reviews")').first();
   if (await revTab.count()) {
     await revTab.click().catch(() => {});
-    await page.waitForTimeout(2800);
-    // Expande botões "Mais" nos textos de avaliação
-    const moreBtns = await page.locator('button[aria-label*="Ver mais" i], button:has-text("Mais")').all();
-    for (const b of moreBtns.slice(0, 12)) {
+    await page.waitForTimeout(2500);
+    // Rola a lista de avaliações para pegar 15+ avaliações completas
+    const feed = page.locator('div[role="main"] div.m6QErb.DxyBCb').first();
+    for (let s = 0; s < 5; s++) {
+      await feed.evaluate(el => { el.scrollTop += 1400; }).catch(() => {});
+      await page.waitForTimeout(900);
+    }
+    const moreBtns = await page.locator('button.w8nwRe, button[aria-label*="Ver mais" i], button:has-text("Mais")').all();
+    for (const b of moreBtns.slice(0, 25)) {
       await b.click().catch(() => {});
     }
     await page.waitForTimeout(800);
@@ -346,59 +154,61 @@ try {
         const id = c.getAttribute('data-review-id');
         if (!id || seen.has(id)) continue;
         seen.add(id);
-        const author = c.querySelector('.d4r55')?.innerText?.trim() || c.getAttribute('aria-label') || '';
+        const author = c.querySelector('.d4r55')?.innerText?.trim() || '';
         const stars = c.querySelector('[role="img"][aria-label*="estrela" i], [role="img"][aria-label*="star" i]')?.getAttribute('aria-label') || '';
         const when = c.querySelector('.rsqaWe')?.innerText?.trim() || '';
         const text = c.querySelector('.wiI7pd')?.innerText?.trim() || '';
         if (author && text) out.push({ author, stars, when, text });
       }
-      return out.slice(0, 15);
+      return out;
     });
-    manifest.maps.reviews = reviews;
-    writeFileSync(`${OUT}/maps/reviews.json`, JSON.stringify(reviews, null, 2));
-    note(`maps reviews reais extraídas: ${reviews.length}`);
+    writeFileSync(`${OUT}/maps/reviews-full.json`, JSON.stringify(reviews, null, 2));
+    note(`maps reviews completas: ${reviews.length}`);
   }
-
-  // Aba Fotos -> procura especificamente "Pelo proprietário" / "By owner"
-  const photosTab = page.locator('button[role="tab"]:has-text("Fotos"), button[role="tab"]:has-text("Photos"), button[aria-label*="Foto" i]').first();
-  if (await photosTab.count()) {
-    await photosTab.click().catch(() => {});
-    await page.waitForTimeout(2800);
-    const ownerChip = page.locator('button[role="tab"]:has-text("proprietário"), button[role="tab"]:has-text("By owner"), button:has-text("Pelo proprietário"), button:has-text("By owner")').first();
-    const hasOwnerTab = (await ownerChip.count()) > 0;
-    note(`maps aba Pelo proprietário encontrada: ${hasOwnerTab}`);
-    if (hasOwnerTab) {
-      await ownerChip.click().catch(() => {});
-      await page.waitForTimeout(2500);
-      await page.screenshot({ path: `${OUT}/maps/owner-tab.png` });
-      const ownerUrls = await page.evaluate(() => {
-        const urls = new Set();
-        for (const el of document.querySelectorAll('a[data-photo-index] div[style*="background-image"], div[role="img"][style*="background-image"], img[src*="googleusercontent.com"]')) {
-          const st = el.getAttribute('style') || '';
-          const m = st.match(/https:\/\/lh3\.googleusercontent\.com\/[^")]+/);
-          if (m) urls.add(m[0].split('=')[0]);
-          const src = el.getAttribute('src') || '';
-          if (/lh3\.googleusercontent\.com\/(p|gps|places|grass)/.test(src)) urls.add(src.split('=')[0]);
-        }
-        return [...urls];
-      });
-      note(`maps fotos do proprietário: ${ownerUrls.length}`);
-      let oi = 0;
-      for (const u of ownerUrls.slice(0, 20)) {
-        oi++;
-        const f = `owner-${String(oi).padStart(2, '0')}.jpg`;
-        if (await save(`${u}=w1400-h1400-k-no`, `${OUT}/maps/owner/${f}`, 4000)) {
-          manifest.maps.ownerPhotos.push({ file: f, url: u, byOwner: true });
-        }
-      }
-    }
-  }
-
-  await browser.close();
+  await page.close();
 } catch (e) {
-  note('maps playwright erro: ' + String(e).slice(0, 200));
+  note('maps extra erro: ' + String(e).slice(0, 160));
 }
 
-manifest.log = log;
-writeFileSync(`${OUT}/manifest.json`, JSON.stringify(manifest, null, 2));
-note('manifesto finalizado.');
+await browser.close();
+
+/* ---------- 4. Frames limpos em alta resolução dos vídeos oficiais ---------- */
+const STILLS = [
+  // DfZ5WXXBUsT.mp4: croissants forno, croissant partido, focaccia, sourdough, pão embalado c/ selo, logo oficial no fim
+  ['DfZ5WXXBUsT.mp4', '00:00:00.8', 'croissants-forno.webp'],
+  ['DfZ5WXXBUsT.mp4', '00:00:10.5', 'focaccia-alecrim.webp'],
+  ['DfZ5WXXBUsT.mp4', '00:00:12.5', 'sourdough-forno.webp'],
+  ['DfZ5WXXBUsT.mp4', '00:00:15.0', 'pao-selo-cloesaint.webp'],
+  ['DfZ5WXXBUsT.mp4', '00:00:17.5', 'brand-card-oficial.png'],
+  // DfXB2A2vndu.mp4 (sem legendas!): salão vidro, manhã da clô, panquecas, mesa da clô, fachada
+  ['DfXB2A2vndu.mp4', '00:00:00.6', 'salao-vidro-botafogo.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:02.2', 'manha-da-clo-poche.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:04.2', 'panquecas-maple.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:06.2', 'mesa-da-clo-flor.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:08.5', 'panquecas-frutas-brunch.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:10.5', 'manha-da-clo-mesa.webp'],
+  ['DfXB2A2vndu.mp4', '00:00:12.2', 'fachada-letreiro-cloesaint.webp'],
+  // DfFdEltBd2c.mp4 (sem legendas!): croissant rasgando + pizzas na massa de croissant
+  ['DfFdEltBd2c.mp4', '00:00:00.5', 'croissant-maos.webp'],
+  ['DfFdEltBd2c.mp4', '00:00:03.8', 'croissant-alveolos.webp'],
+  ['DfFdEltBd2c.mp4', '00:00:09.0', 'pizzas-massa-croissant.webp'],
+  // DfAIvjwhlTJ.mp4 (sem legendas!): preparo artesanal da massa e bannetons
+  ['DfAIvjwhlTJ.mp4', '00:00:03.5', 'massa-artesanal-bancada.webp'],
+  // Dc1Gj1wBpnA.mp4: Dadá fundadora + salão visto do alto
+  ['Dc1Gj1wBpnA.mp4', '00:00:03.6', 'dada-fundadora.webp'],
+  ['Dc1Gj1wBpnA.mp4', '00:00:17.5', 'salao-alto-plantas.webp']
+];
+
+for (const [vid, ts, outName] of STILLS) {
+  const src = `${OUT}/ig/${vid}`;
+  if (!existsSync(src)) continue;
+  try {
+    execSync(`ffmpeg -v error -y -ss ${ts} -i "${src}" -frames:v 1 -q:v 82 "${OUT}/ig/stills/${outName}"`);
+    note(`OK still ${outName}`);
+  } catch (e) {
+    note(`FAIL still ${outName}: ${String(e).slice(0, 90)}`);
+  }
+}
+
+writeFileSync(`${OUT}/pass2-log.json`, JSON.stringify(log, null, 2));
+note('pass 2 concluído.');
