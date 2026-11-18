@@ -1,0 +1,22 @@
+{
+  "name": "dai-friarielli-malagueta",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "node tools/dev.mjs",
+    "test": "node --test tests/pedido.test.mjs",
+    "test:browser": "node tests/site.mjs",
+    "qa": "npm run build && node tools/qa.mjs public/index.html --min-kf 5 && node tools/qa-legal.mjs public/index.html --strict && npm test && npm run test:browser"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "131.0.1",
+    "axe-core": "4.10.3",
+    "playwright": "1.49.1",
+    "pngjs": "7.0.0"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+public/
+coverage/
+.vercel/
+.env*
+.qa/
+google_drive/
+image-search/

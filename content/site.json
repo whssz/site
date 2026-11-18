@@ -1,0 +1,99 @@
+{
+  "name": "Dai Friarielli Malagueta",
+  "indexable": false,
+  "location": {
+    "street": "Largo João dos Santos 13A",
+    "locality": "Murtal, 2775-102 Parede",
+    "phone": "+351 21 598 6555",
+    "maps": "https://www.google.com/maps?cid=9029508608175829570&hl=pt-PT",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=38.7018391,-9.3656343",
+    "hours": []
+  },
+  "instagram": "https://www.instagram.com/daifriariellimalagueta/",
+  "complaints": "https://www.livroreclamacoes.pt/Inicio/",
+  "menuSource": "https://www.ubereats.com/pt/store/dai-friarielli-malagueta/jbKPBI8IT8CLSLdkKLpEkw",
+  "order": {
+    "whatsapp": null,
+    "platform": { "name": "Uber Eats", "url": "https://www.ubereats.com/pt/store/dai-friarielli-malagueta/jbKPBI8IT8CLSLdkKLpEkw", "modes": ["pickup", "delivery"] },
+    "directModes": [],
+    "requiresDeliveryAddress": false
+  },
+  "media": {
+    "logo": null,
+    "hero": null,
+    "house": null,
+    "visit": null
+  },
+  "gallery": [
+    { "kind": "forno", "label": "Bastidores", "title": "O forno da casa", "text": "Fabricado em Itália por artesãos especializados.", "url": "https://www.instagram.com/p/DVlMcw6l5gs/", "type": "Publicação" },
+    { "kind": "tavola", "label": "À mesa", "title": "Pizza, massa e tiramisù", "text": "Reel da Dai Friarielli Malagueta.", "url": "https://www.instagram.com/reel/DORr-JbjQ1S/", "type": "Reel" },
+    { "kind": "sabores", "label": "Da cozinha", "title": "Sabores de Itália", "text": "Um convite da casa para a mesa.", "url": "https://www.instagram.com/p/DORsMn6FYgx/", "type": "Publicação" }
+  ],
+  "news": [],
+  "features": [
+    { "itemId": "malagueta", "theme": "chilli", "label": "Do forno" },
+    { "itemId": "gnocchi", "theme": "pasta", "label": "Primi piatti" },
+    { "itemId": "tiramisu", "theme": "dolce", "label": "Para terminar" }
+  ],
+  "menu": [
+    {
+      "id": "pizzas", "title": "Pizzas", "italian": "Pizze", "icon": "pizza",
+      "items": [
+        { "id": "malagueta", "name": "Pizza Malagueta", "description": "’Nduja, mozzarella, grelos, ricota, manjericão, grana padano e óleo de malagueta.", "priceCents": null, "tag": "Picante" },
+        { "id": "margherita", "name": "Pizza Margherita", "description": "Tomate, mozzarella, manjericão e parmesão.", "priceCents": null },
+        { "id": "salsicce-friarielli", "name": "Pizza Salsicce e Friarielli", "description": "Creme de grelos, grelos salteados, salsicha esfarelada, mozzarella e grana padano.", "priceCents": null },
+        { "id": "capricciosa", "name": "Pizza Capricciosa", "description": "Tomate, mozzarella, fiambre cozido, cogumelos, azeitonas pretas, manjericão e grana padano.", "priceCents": null },
+        { "id": "marinara", "name": "Pizza Marinara", "description": "Tomate, alho e orégãos.", "priceCents": null },
+        { "id": "formaggi", "name": "Pizza 4 Formaggi", "description": "Mozzarella, gorgonzola, fontina e grana padano.", "priceCents": null },
+        { "id": "siciliana", "name": "Pizza Siciliana", "description": "Tomate, mozzarella, parmesão, beringela e manjericão.", "priceCents": null },
+        { "id": "diavola", "name": "Pizza Diavola", "description": "Salame picante, mozzarella, manjericão, óleo de pimenta e grana padano.", "priceCents": null, "tag": "Picante" },
+        { "id": "ripieno", "name": "Pizza Ripieno ao Forno", "description": "Pizza recheada com tomate, provola, pimenta, parmesão e manjericão.", "priceCents": null },
+        { "id": "wurstel", "name": "Pizza Wurstel e Patatine", "description": "Mozzarella, salsicha, batata frita e grana padano.", "priceCents": null }
+      ]
+    },
+    {
+      "id": "massas", "title": "Massas e risoto", "italian": "Primi piatti", "icon": "fork",
+      "items": [
+        { "id": "gnocchi", "name": "Gnocchi à Moda de Sorrento", "description": "Gnocchi de batata com molho de tomate, mozzarella e manjericão.", "priceCents": null },
+        { "id": "rigatoni", "name": "Rigatoni Estilo Carbonara", "description": "Rigatoni com molho cremoso à carbonara.", "priceCents": null },
+        { "id": "penne", "name": "Penne com Molho Scarpariello", "description": "Tomate, alho e queijo ralado.", "priceCents": null },
+        { "id": "risoto-cogumelos", "name": "Risoto de Cogumelos", "priceCents": null }
+      ]
+    },
+    {
+      "id": "principais", "title": "Carne e peixe", "italian": "Secondi piatti", "icon": "plate",
+      "items": [
+        { "id": "escalope", "name": "Escalope de Carne com Vinho Branco", "priceCents": null },
+        { "id": "camarao-lulas", "name": "Camarão e Lulas Fritas", "priceCents": null },
+        { "id": "baccala", "name": "Perle di Baccalà Frito", "description": "Bolinhas de bacalhau fritas, de interior macio.", "priceCents": null }
+      ]
+    },
+    {
+      "id": "acompanhamentos", "title": "Acompanhamentos", "italian": "Contorni", "icon": "leaf",
+      "items": [
+        { "id": "friarielli", "name": "Friarielli com Pimenta", "description": "Grelos napolitanos com pimenta.", "priceCents": null },
+        { "id": "beringelas", "name": "Beringelas Fritas", "description": "Com tomate cereja e manjericão.", "priceCents": null },
+        { "id": "cogumelos", "name": "Cogumelos Champignon Salteados", "priceCents": null },
+        { "id": "batatas", "name": "Batatas Fritas", "priceCents": null }
+      ]
+    },
+    {
+      "id": "sobremesas", "title": "Sobremesas", "italian": "Dolci", "icon": "dessert",
+      "items": [
+        { "id": "tiramisu", "name": "Tiramisù", "description": "Biscoitos de champanhe embebidos em café, creme de mascarpone e cacau em pó.", "priceCents": null }
+      ]
+    },
+    {
+      "id": "bebidas", "title": "Bebidas", "italian": "Bibite", "icon": "drink",
+      "items": [
+        { "id": "agua", "name": "Água Natural (50 cl)", "priceCents": null },
+        { "id": "agua-gas", "name": "Água com Gás (50 cl)", "priceCents": null },
+        { "id": "te-limone", "name": "Té al Limone (33 cl)", "priceCents": null },
+        { "id": "te-pesca", "name": "Té alla Pesca (33 cl)", "priceCents": null },
+        { "id": "cola", "name": "Coca-Cola (33 cl)", "priceCents": null },
+        { "id": "cola-zero", "name": "Coca-Cola Zero (33 cl)", "priceCents": null },
+        { "id": "sprite", "name": "Sprite (33 cl)", "priceCents": null }
+      ]
+    }
+  ]
+}
