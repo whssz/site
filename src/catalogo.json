@@ -1,0 +1,92 @@
+{
+  "whatsapp": "552131574883",
+  "categories": {
+    "sorvetes": { "label": "Sorvetes", "singular": "Sorvete", "icon": "scoop" },
+    "picoles": { "label": "Picolés", "singular": "Picolé", "icon": "popsicle" },
+    "paletas": { "label": "Paletas", "singular": "Paleta", "icon": "paleta" }
+  },
+  "products": [
+    {
+      "id": "doce-de-leite",
+      "category": "sorvetes",
+      "name": "Doce de leite e canela",
+      "orderName": "Sorvete de doce de leite com canela",
+      "description": "Doce de leite com um leve toque de canela.",
+      "tone": "caramelo",
+      "source": "https://www.instagram.com/p/CN-TQ03rvVK/"
+    },
+    {
+      "id": "maracuja",
+      "category": "sorvetes",
+      "name": "Maracujá",
+      "orderName": "Sorvete de maracujá",
+      "description": "Sorvete sabor maracujá.",
+      "tone": "baunilha",
+      "source": "https://www.instagram.com/p/CG3KXw6Lhm3/"
+    },
+    {
+      "id": "milho-verde",
+      "category": "sorvetes",
+      "name": "Milho verde",
+      "orderName": "Sorvete de milho verde",
+      "description": "Sorvete no sabor milho verde.",
+      "tone": "milho",
+      "source": "https://www.instagram.com/p/CG3KXw6Lhm3/"
+    },
+    {
+      "id": "tapioca",
+      "category": "sorvetes",
+      "name": "Tapioca",
+      "orderName": "Sorvete de tapioca",
+      "description": "Sorvete no sabor tapioca.",
+      "tone": "coco",
+      "source": "https://www.foodyas.com/BR/Rio-de-Janeiro/414346018770338/Sorvete-Supremo"
+    },
+    {
+      "id": "picole-amendoim",
+      "category": "picoles",
+      "name": "Amendoim",
+      "orderName": "Picolé de amendoim",
+      "description": "Picolé no sabor amendoim.",
+      "tone": "caramelo",
+      "source": "https://www.foodyas.com/BR/Rio-de-Janeiro/414346018770338/Sorvete-Supremo"
+    },
+    {
+      "id": "picole-chocolate",
+      "category": "picoles",
+      "name": "Cobertura de chocolate",
+      "orderName": "Picolé com cobertura de chocolate",
+      "description": "Escolha o sabor da massa.",
+      "tone": "cacau",
+      "options": ["Chocolate", "Banana", "Coco", "Morango", "Amendoim"],
+      "source": "https://www.foodyas.com/BR/Rio-de-Janeiro/414346018770338/Sorvete-Supremo"
+    },
+    {
+      "id": "paleta-coco-beijinho",
+      "category": "paletas",
+      "name": "Coco com beijinho",
+      "orderName": "Paleta de coco com beijinho",
+      "description": "Paleta de coco com recheio de beijinho.",
+      "tone": "coco",
+      "source": "https://www.instagram.com/p/CGIHytFjWXU/"
+    },
+    {
+      "id": "paleta-coco-brigadeiro",
+      "category": "paletas",
+      "name": "Coco com brigadeiro",
+      "orderName": "Paleta de coco com brigadeiro de coco",
+      "description": "Paleta de coco recheada com brigadeiro de coco.",
+      "tone": "rosa",
+      "source": "https://www.instagram.com/p/CGIHytFjWXU/"
+    },
+    {
+      "id": "paleta-banana",
+      "category": "paletas",
+      "name": "Banana com Nutella",
+      "orderName": "Paleta de banana com Nutella",
+      "description": "Paleta no sabor banana com Nutella.",
+      "tone": "baunilha",
+      "source": "https://www.instagram.com/p/CFXg8BuDxN4/"
+    }
+  ]
+}
