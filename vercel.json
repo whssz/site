@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "",
+  "installCommand": "exit 0",
+  "outputDirectory": "public",
+  "ignoreCommand": "if [ \"$VERCEL_PROJECT_NAME\" = \"amuni-a-caparica\" ]; then exit 1; else exit 0; fi",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Content-Disposition", "value": "inline" }
+      ]
+    }
+  ]
+}
