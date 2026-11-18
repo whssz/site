@@ -97,10 +97,13 @@ Não foram adicionados tamanhos, extras, personalizações, reserva, stock, paga
 | 12 | Fluxo ponta a ponta | **OK no site:** carrinho → revisão → cópia e canal oficial; confirmação continua fora do site. |
 | 13 | Nenhum botão decorativo | **OK:** links e controlos têm ações, SVGs decorativos não são controlos. |
 | 14 | Fotos/vídeos reais com origem | **Pendente:** faltam originais e autorização. Galeria provisória apenas com grafismos e links oficiais. |
-| 15 | URL Vercel pública verificada | Ver estado da publicação abaixo. |
+| 15 | URL Vercel pública verificada | **OK para revisão:** HTTP 200 anónimo, título e HTML conferidos. |
 
 **Secção 16:** termos/privacidade, minimização, ausência de tracking, adaptação ao fluxo sem venda e QA técnico **OK**. Identificação jurídica do fornecedor, enquadramento RAL e confirmação do Livro de Reclamações **pendentes de validação**. Não equivale a um lançamento oficial completo.
 
-## Publicação
+## Publicação verificada
 
-O deploy deve usar apenas um projeto separado da Brutta e o commit da branch `arena/ad59ad84-site`. Entregar o endereço como versão de revisão, com acesso anónimo verificado; manter `noindex` até à revisão final. Não usar nem atualizar um projeto de outro cliente.
+- **URL de revisão:** [brutta-pizzeria.vercel.app](https://brutta-pizzeria.vercel.app/). Abre sem autenticação. A página tem `noindex`; o link não é privado.
+- Projeto dedicado `brutta-pizzeria`, Vercel em `READY` / `PROMOTED`, a partir do commit `be686634728f54e99bda707fe6e75ea27dd8287c` na branch `arena/ad59ad84-site`. A integração Git criou o primeiro deploy, depois de o conector rejeitar o primeiro build direto. O build Brutta foi limitado ao ID deste novo projeto.
+- [Verificação pública automatizada](https://github.com/whssz/site/actions/runs/44422140862): GET anónimo **HTTP 200**, documento HTML aberto inline (não como anexo), título **Brutta — Pizzeria Napoletana em Paço de Arcos**, **269 685 bytes**, SHA-256 igual ao do build local. A leitura pública independente confirmou o título e o conteúdo.
+- O ficheiro `public/index.html` também funciona fora da Vercel. Não ativar indexação nem apresentar como lançamento oficial até concluir as pendências.
