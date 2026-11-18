@@ -121,11 +121,11 @@
       <div class="menu-workbench" id="escolher">
         <div class="menu-bar">
           <div class="category-controls" id="category-controls" aria-label="Categorias da carta">{{filters}}</div>
-          <p class="price-source" id="price-source">Preços de referência da <a href="{{biz:store}}" target="_blank" rel="noopener">Uber Eats</a>.</p>
+          <p class="price-source" id="price-source"><a href="{{biz:store}}" target="_blank" rel="noopener">Preços de referência da Uber Eats {{icon:external}}</a></p>
         </div>
         <div id="menu-list" class="menu-grid" aria-describedby="price-source">{{initial-menu}}</div>
         <div class="menu-end">
-          <p>Em caso de alergias, <a href="tel:{{biz:phone}}">contacta a pizzaria</a> antes de pedir.</p>
+          <p><a href="tel:{{biz:phone}}">Alergénios: confirma com a pizzaria antes de pedir</a></p>
           <button type="button" class="line-link" id="menu-more" hidden>Ver mais {{icon:down}}</button>
         </div>
         <noscript><p class="callout-note">Ativa o JavaScript para preparar um pedido neste site ou <a href="{{biz:store}}">consulta a carta completa na Uber Eats</a>.</p></noscript>
@@ -216,7 +216,7 @@
         </div>
         <div class="visit-info rv-fade">
           <div class="visit-detail">{{icon:pin}}<div><h3>Morada</h3><address>{{biz:address}}<br>{{biz:postalAddress}}</address></div></div>
-          <div class="visit-detail">{{icon:clock}}<div><h3>Horário no Google Maps</h3><dl class="hours">{{hours}}</dl><a class="line-link subtle-link" href="{{biz:maps}}" target="_blank" rel="noopener">Confirmar antes de sair {{icon:external}}</a></div></div>
+          <div class="visit-detail">{{icon:clock}}<div><h3>Horário no Google Maps</h3><dl class="hours">{{hours}}</dl><p class="hours-note">Os horários publicados não coincidem. Confirma por telefone antes de sair.</p><a class="line-link subtle-link" href="{{biz:maps}}" target="_blank" rel="noopener">Consultar no Google Maps {{icon:external}}</a></div></div>
           <div class="visit-detail">{{icon:phone}}<div><h3>Telefone</h3><a class="line-link subtle-link" href="tel:{{biz:phone}}">{{biz:phoneLabel}}</a></div></div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 # Avó Maria Pizza
 
-Site da pizzaria da Parede, em português de Portugal. A identidade parte do logótipo publicado no Linktree oficial e do briefing: creme, verde-petróleo, tipografia retrô robusta e apontamentos de rosa, ocre e vermelho.
+Site da pizzaria da Parede, em português de Portugal. A identidade parte do logótipo publicado no Linktree oficial e do briefing: creme, verde-petróleo, tipografia robusta e apontamentos de rosa, ocre e vermelho.
+
+**Versão de revisão:** [avo-maria-pizza.vercel.app](https://avo-maria-pizza.vercel.app/).
 
 ## Executar e verificar
 

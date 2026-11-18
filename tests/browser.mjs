@@ -29,6 +29,14 @@ async function runAxe(page, area) {
   assert.deepEqual(failures, [], `WCAG A/AA: ${area ?? 'site'}`);
 }
 
+async function checkTapTargets(page, root = 'body') {
+  const small = await page.locator(root).evaluate(scope => [...scope.querySelectorAll('button:not(:disabled), a[href], .mode-options label')]
+    .filter(el => el.getClientRects().length && !el.closest('.legal-scroll, .callout-note'))
+    .flatMap(el => el.offsetWidth < 44 || el.offsetHeight < 44
+      ? [`${el.getAttribute('aria-label') ?? el.textContent.trim()}: ${el.offsetWidth}×${el.offsetHeight}`] : []));
+  assert.deepEqual(small, [], 'Tap targets measure at least 44 × 44 CSS pixels, excluding links inline in prose');
+}
+
 async function openAtSize(width, height, reducedMotion = 'no-preference') {
   const context = await browser.newContext({ viewport: { width, height }, reducedMotion });
   const page = await context.newPage();
@@ -72,6 +80,7 @@ try {
   const { page, context } = await openAtSize(390, 844, 'reduce');
   await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin });
   assert.equal(await page.evaluate(() => document.getAnimations().filter(a => a.playState === 'running').length), 0);
+  await checkTapTargets(page);
   await runAxe(page);
   const navToggle = page.getByRole('button', { name: 'Abrir menu de navegação' });
   await navToggle.click();
@@ -106,6 +115,7 @@ try {
   await page.getByRole('button', { name: 'Remover Tiramisusi' }).click();
   assert.equal(await page.locator('#order-items li').count(), 1);
   assert.equal(normalize(await page.locator('#order-total').textContent()), normalize(money(2500)));
+  await checkTapTargets(page, '#order-dialog');
   await runAxe(page, '#order-dialog');
   await page.getByRole('button', { name: 'Rever pedido' }).click();
   assert.equal(await page.locator('#mode-error').isVisible(), true);
