@@ -47,7 +47,7 @@ Os links de cada item e suas variantes estão no `src/catalogo.json`. As publica
 | 12 | Conversão testada | Filtros, variante, adição, edição de quantidades, valor inválido, remoção, rascunho, preferência de retirada, observações, cópia, consentimento e URL/mensagem exatas. WhatsApp interceptado no teste, sem envio real. |
 | 13 | Nenhum botão decorativo | CTAs levam ao cardápio, carrinho, rota, publicações ou WhatsApp; diálogos fecham com Esc. |
 | 14 | Mídia real de produto/ambiente | **Parcial:** logo real e posts oficiais linkados. Sem fotos ou vídeos de produtos/ambiente verificáveis neste ambiente. |
-| 15 | Link público | A publicação usa o projeto Vercel `sorvete-supremo`. O resultado da verificação pública é reportado na entrega. |
+| 15 | Link público | **Pendente:** a Vercel rejeitou o primeiro deploy (`projectSettings` ausente na requisição do conector). O projeto e o domínio existem, mas não há implantação ativa e o endereço retorna `404 DEPLOYMENT_NOT_FOUND`. O `README.md` descreve como publicar pela interface. |
 | 16 | Conformidade e acessibilidade | Termos e privacidade, rascunho local sem dados pessoais solicitados, opt-in antes de abrir o resumo no WhatsApp, sem trackers. Não existe checkout próprio. QA legal estrito e axe no site e na sacola sem violações encontradas. |
 
 As verificações técnicas podem ser repetidas com `npm test`. A auditoria automatizada não substitui autorização sobre mídia nem revisão jurídica do fornecedor.

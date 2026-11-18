@@ -26,4 +26,11 @@ Cada entrada tem `photo` (nome do arquivo), `alt` (o que realmente aparece), `wi
 
 ## Vercel
 
-A configuração versionada usa o build `npm run build`, saída `public`, sem instalar dependências de produção. Use o projeto **sorvete-supremo**; não reaproveite a configuração nem os domínios de outros clientes. A fonte desta versão é a branch `arena/ca3cb3fc-site`. A pasta `public` é gerada e não deve ser enviada ao Git.
+A configuração versionada usa o build `npm run build`, saída `public`, sem instalar dependências de produção. A pasta `public` é gerada e não deve ser enviada ao Git.
+
+O projeto [sorvete-supremo](https://vercel.com/whsszxx-9424/sorvete-supremo) já existe. O conector rejeitou o primeiro deploy porque não repassou `projectSettings`. Não há deployment ativo. Para publicar pelo painel:
+
+1. No projeto existente, abra **Settings → Git** e conecte `whssz/site`.
+2. Em **Settings → Environments → Production → Branch Tracking**, defina `arena/ca3cb3fc-site`. Não publique `main`, que não contém este site.
+3. Em **Deployments → Create Deployment**, selecione `arena/ca3cb3fc-site` para construir a versão testada. Confirme no painel que ficou `Ready` em produção.
+4. Abra `https://sorvete-supremo.vercel.app/` sem sessão e confirme HTTP 200, título e conteúdo da Sorvete Supremo. Antes desse passo o domínio reservado retorna `404 DEPLOYMENT_NOT_FOUND`.
