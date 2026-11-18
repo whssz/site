@@ -1,0 +1,17 @@
+{
+  "name": "la-pizzaria-napolitana",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
+    "test": "node tests/order-flow.mjs",
+    "qa": "node tools/qa.mjs index.html && node tools/qa-legal.mjs index.html --strict"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "133.0.0",
+    "playwright": "1.50.1"
+  }
+}

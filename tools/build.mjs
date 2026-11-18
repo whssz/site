@@ -1,0 +1,24 @@
+import {readFileSync,writeFileSync,mkdirSync,copyFileSync,statSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {dirname,join,extname} from 'node:path';
+import {withVerifiedExtras} from './verified-media.mjs';
+import {execFileSync} from 'node:child_process';
+const root=dirname(dirname(fileURLToPath(import.meta.url)));
+const read=p=>readFileSync(join(root,p),'utf8');
+const restaurant=JSON.parse(read('src/restaurant.json')),menu=JSON.parse(read('src/menu.json'));
+if(new Set(menu.map(p=>p.id)).size!==menu.length || menu.some(p=>p.cents!==null && (!Number.isSafeInteger(p.cents)||p.cents<0)))throw Error('Dados inválidos no cardápio');
+const icon=name=>`<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-${name}"></use></svg>`;
+const htmlEsc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const json=obj=>JSON.stringify(obj).replaceAll('<','\\u003c');
+const special=menu.find(p=>p.id==='a-moda');
+let html=read('src/site.html').replace('@@CSS@@',()=>read('src/foundation.css')+'\n'+read('src/site.css')).replace('@@ICONS@@',()=>read('src/icons.svg')).replace('@@APP@@',()=>read('src/app.js')).replace('@@MENU@@',()=>json(menu)).replace('@@RESTAURANT@@',()=>json(restaurant)).replaceAll('@@stars@@',icon('star').repeat(5)).replaceAll(/@@i:([\w-]+)@@/g,(_,name)=>icon(name)).replace('@@favouriteDescription@@',htmlEsc(special.description)).replace('@@favouritePrice@@',new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(special.cents/100));
+html=withVerifiedExtras(html,root,menu);
+for(const [key,val] of Object.entries(restaurant))html=html.replaceAll(`@@${key}@@`,()=>htmlEsc(val));
+html=html.replaceAll(/@@file:([\w./-]+)@@/g,(_,p)=>{const mime={'.webp':'image/webp','.png':'image/png','.avif':'image/avif','.mp4':'video/mp4','.woff2':'font/woff2'}[extname(p)];if(!mime||p.includes('..'))throw Error('Recurso inválido: '+p);return `data:${mime};base64,${readFileSync(join(root,'src',p)).toString('base64')}`;});
+if(/@@[\w:-]+@@/.test(html))throw Error('Campo não preenchido no HTML');
+// Keep the font licences with the single-file, offline deliverable as well.
+html=html.replace('</head>',()=>`<!-- Embedded font licences\n${read('src/fonts/Cormorant-OFL.txt')}\n${read('src/fonts/DM-Sans-OFL.txt')}\n-->\n</head>`);
+writeFileSync(join(root,'index.html'),html);
+execFileSync(process.execPath,[join(root,'tools/inject-anim.mjs'),join(root,'index.html')],{stdio:'inherit'});
+mkdirSync(join(root,'dist'),{recursive:true});copyFileSync(join(root,'index.html'),join(root,'dist/index.html'));copyFileSync(join(root,'src/assets/pizza-hero.webp'),join(root,'dist/capa.webp'));
+console.log(`Entrega autossuficiente: ${statSync(join(root,'index.html')).size.toLocaleString('pt-BR')} bytes. ${menu.length} itens no cardápio.`);
