@@ -1,0 +1,27 @@
+name: Verificar publicação da Dai
+
+on:
+  push:
+    branches: ['arena/0b9dcd18-site']
+    paths: ['.github/workflows/verificar-publicacao.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    if: github.ref == 'refs/heads/arena/0b9dcd18-site'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Reconstruir o HTML
+        run: npm run build
+      - name: Confirmar HTTP 200, título e SHA-256 sem autenticação
+        run: node tools/verify.mjs https://dai-friarielli-malagueta.vercel.app/
