@@ -90,3 +90,11 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 - Sem analytics, píxeis ou trackers: sem banner de cookies (não é necessário).
 - Sem reembolso: o site não vende nem cobra — há regras de atendimento (sem reservas, confirmação humana da equipa).
 - `lang="pt-PT"`, alt descritivo em 100% das imagens, foco visível, `Esc` fecha o carrinho, alvos de toque ≥ 44 px.
+
+---
+
+## Publicação (Vercel)
+
+- Projeto Vercel: `pizzeria-santa-chiara-v2` (equipe `team_z6tahC0dowvMZFiASHvvIgBP`).
+- Build: `bash build.sh` → saída estática em `dist/` (output directory `dist`).
+- A integração GitHub do Vercel constrói a branch `arena/df6311cd-site` automaticamente.
