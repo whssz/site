@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node tools/build.mjs",
     "dev": "npm run build && node tools/serve.mjs",
-    "test": "npm run build && node tools/qa.mjs public/index.html --min-kf 12 && node tools/qa-legal.mjs public/index.html --strict && node tools/qa-pedido.mjs public/index.html"
+    "test": "npm run build && node tools/qa.mjs public/index.html --min-kf 12 && node tools/qa-legal.mjs public/index.html --strict && node tools/qa-pedido.mjs public/index.html && node tools/qa-midia.mjs",
+    "verify:vercel": "npm run build && node tools/verificar-publicacao.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

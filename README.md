@@ -22,7 +22,7 @@ O HTML gerado é autossuficiente: CSS, JS, fontes e imagens estão embutidos. Ab
 
 Use apenas arquivos da Sorvete Supremo com autorização de publicação. Coloque WebP ou AVIF em `src/assets/` e declare os dados em `src/midia.json`. As chaves de seção são `hero`, `experiencia` e `cta`; `produtos` aceita objetos por `id` do catálogo; `galeria` aceita `doce-de-leite`, `maracuja-milho` e `paleta-coco`. As chaves vazias mantêm o acabamento editorial, não um quadro de imagem quebrado.
 
-Cada entrada tem `photo` (nome do arquivo), `alt` (o que realmente aparece), `width` e `height` (dimensões da foto). `mobile` aceita uma versão menor com a mesma proporção; `video` aceita um MP4 curto, comprimido e sem áudio, usando `photo` como capa. O site só inicia um clipe visível por vez no desktop e mantém a capa em celular, com movimento reduzido ou pausado. Rode o build e os testes novamente com as novas mídias; elas devem manter o HTML abaixo de ~3 MB.
+Cada entrada tem `photo` (nome do arquivo), `alt` (o que realmente aparece), `width` e `height` (dimensões da foto). `mobile` aceita uma versão menor com a mesma proporção; `video` aceita um MP4 curto, comprimido e sem áudio, usando `photo` como capa. O site só inicia um clipe visível por vez no desktop e mantém a capa em celular, com movimento reduzido ou pausado. `npm test` verifica esse comportamento em um build temporário com amostras técnicas que nunca entram no site. Repita os testes e confira visualmente a relação de cada foto com seu produto ao incluir os arquivos reais; eles devem manter o HTML abaixo de ~3 MB.
 
 ## Vercel
 
@@ -30,7 +30,7 @@ A configuração versionada usa o build `npm run build`, saída `public`, sem in
 
 O projeto [sorvete-supremo](https://vercel.com/whsszxx-9424/sorvete-supremo) já existe. O conector rejeitou o primeiro deploy porque não repassou `projectSettings`. Não há deployment ativo. Para publicar pelo painel:
 
-1. No projeto existente, abra **Settings → Git** e conecte `whssz/site`.
+1. No projeto existente, abra [**Settings → Git**](https://vercel.com/whsszxx-9424/sorvete-supremo/settings/git) e conecte `whssz/site`.
 2. Em **Settings → Environments → Production → Branch Tracking**, defina `arena/ca3cb3fc-site`. Não publique `main`, que não contém este site.
-3. Em **Deployments → Create Deployment**, selecione `arena/ca3cb3fc-site` para construir a versão testada. Confirme no painel que ficou `Ready` em produção.
-4. Abra `https://sorvete-supremo.vercel.app/` sem sessão e confirme HTTP 200, título e conteúdo da Sorvete Supremo. Antes desse passo o domínio reservado retorna `404 DEPLOYMENT_NOT_FOUND`.
+3. Em [**Deployments**](https://vercel.com/whsszxx-9424/sorvete-supremo/deployments), use **Create Deployment** com a branch `arena/ca3cb3fc-site`. Os deploys automáticos por push estão desabilitados no projeto. Confirme o estado `Ready` em produção.
+4. Abra `https://sorvete-supremo.vercel.app/` sem sessão. Em uma máquina com acesso ao domínio, `npm run verify:vercel` confirma HTTP 200, título e correspondência exata entre o HTML publicado e o build local. Antes do primeiro deploy, o domínio reservado retorna `404 DEPLOYMENT_NOT_FOUND`.

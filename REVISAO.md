@@ -50,4 +50,6 @@ Os links de cada item e suas variantes estão no `src/catalogo.json`. As publica
 | 15 | Link público | **Pendente:** a Vercel rejeitou o primeiro deploy (`projectSettings` ausente na requisição do conector). O projeto e o domínio existem, mas não há implantação ativa e o endereço retorna `404 DEPLOYMENT_NOT_FOUND`. O `README.md` descreve como publicar pela interface. |
 | 16 | Conformidade e acessibilidade | Termos e privacidade, rascunho local sem dados pessoais solicitados, opt-in antes de abrir o resumo no WhatsApp, sem trackers. Não existe checkout próprio. QA legal estrito e axe no site e na sacola sem violações encontradas. |
 
-As verificações técnicas podem ser repetidas com `npm test`. A auditoria automatizada não substitui autorização sobre mídia nem revisão jurídica do fornecedor.
+As verificações técnicas podem ser repetidas com `npm test`. O espaço para fotos e vídeos passou em teste isolado no Chromium com um quadro de cor e um MP4 curto: um clipe por vez no desktop, capa leve no celular e nenhum vídeo iniciado com movimento reduzido. As amostras são apenas de teste e não entram no site.
+
+Depois do primeiro deploy, `npm run verify:vercel` confirma HTTP 200, título, tamanho e correspondência do HTML servido com o build. O verificador foi testado na prévia local; o endereço público ainda aguarda publicação. A auditoria automatizada não substitui autorização sobre mídia nem revisão jurídica do fornecedor.
