@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizzeria Santa Chiara — Pizza napolitana a lenha em Lisboa | Entrecampos</title>
+<meta name="description" content="Pizzeria napolitana na Avenida 5 de Outubro, 265, Entrecampos, Lisboa. Forno a lenha, pizza napolitana autêntica, 55 lugares, sem reservas. Menu da casa, happy hour e pedido pelo site.">
+<meta name="theme-color" content="#F3EADA">
+<link rel="canonical" href="https://pizzeria-santachiara.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pizzeria Santa Chiara">
+<meta property="og:title" content="Pizzeria Santa Chiara — Santa Chiara é Nápoles">
+<meta property="og:description" content="Pizza napolitana autêntica, assada em forno a lenha, em Entrecampos, Lisboa.">
+<meta property="og:image" content="https://pizzeria-santachiara.vercel.app/assets/img/margherita-heart-700.webp">
+<meta property="og:locale" content="pt_PT">
+<link rel="icon" href="assets/img/logo-placa.webp" type="image/webp">
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<noscript><style>
+  .rv,.rv-clip,.rv-fade,.rv-left,.rv-right,.rv-scale{opacity:1!important;transform:none!important;clip-path:none!important}
+  .bg{display:none}
+  .fab{display:none!important}
+</style></noscript>
+<style>
+/* ============================================================
+   PIZZERIA SANTA CHIARA — Lisboa
+   Identidade: creme envelhecido · vermelho queimado · grafite
+   Tipografia: Marcellus (display) · Cormorant Garamond (serif) · Jost (texto)
+   ============================================================ */
+
+/* ---------- 1. FONTES (locais, sem pedidos externos) ---------- */
+@font-face{font-family:"Marcellus";src:url("assets/fonts/marcellus-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Jost";src:url("assets/fonts/jost-latin-300-normal.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Jost";src:url("assets/fonts/jost-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Jost";src:url("assets/fonts/jost-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+/* ---------- 2. TOKENS ---------- */
+:root{
+  --cream:#F3EADA;
+  --cream-2:#EADFCC;
+  --paper:#FBF7EF;
+  --paper-2:#F7F0E4;
+  --ink:#191714;
+  --ink-2:#2B2723;
+  --graphite:#3A352F;
+  --muted:#6E6355;
+  --muted-2:#8A7E6D;
+  --red:#9E2B21;
+  --red-2:#BE3B2A;
+  --red-soft:rgba(158,43,33,.10);
+  --line:rgba(25,23,20,.14);
+  --line-2:rgba(25,23,20,.08);
+  --shadow-sm:0 1px 2px rgba(25,23,20,.05), 0 6px 18px rgba(25,23,20,.06);
+  --shadow-md:0 2px 6px rgba(25,23,20,.06), 0 22px 48px rgba(25,23,20,.10);
+  --shadow-lg:0 30px 70px rgba(25,23,20,.16);
+  --display:"Marcellus","Cormorant Garamond",Georgia,serif;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.16,.72,.28,1);
+  --ease-2:cubic-bezier(.33,1,.68,1);
+  --wrap:1200px;
+  --r-s:6px; --r-m:14px; --r-l:22px;
+}
+
+/* ---------- 3. BASE ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:400;line-height:1.04;letter-spacing:-.01em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--red);color:var(--cream)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:12px 18px;z-index:999}
+.skip:focus{left:8px;top:8px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- 4. GRÃO + FUNDO CONTEXTUAL ANIMADO ---------- */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-aurora{
+  position:absolute;inset:-40%;opacity:.55;
+  background:
+    radial-gradient(38% 42% at 22% 18%, rgba(158,43,33,.16), transparent 62%),
+    radial-gradient(34% 38% at 78% 26%, rgba(43,35,28,.12), transparent 64%),
+    radial-gradient(46% 44% at 58% 86%, rgba(190,59,42,.10), transparent 66%);
+  animation:aurora 26s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.bg-blob{
+  position:absolute;filter:blur(48px);opacity:.42;mix-blend-mode:multiply;
+  will-change:transform,border-radius;
+}
+.bg-blob.b1{width:46vw;height:46vw;left:-12vw;top:-10vw;background:radial-gradient(circle at 40% 40%, rgba(158,43,33,.24), rgba(158,43,33,0) 68%);animation:morph1 23s ease-in-out infinite, float1 17s ease-in-out infinite}
+.bg-blob.b2{width:38vw;height:38vw;right:-10vw;top:18vh;background:radial-gradient(circle at 50% 50%, rgba(58,50,40,.20), rgba(58,50,40,0) 70%);animation:morph2 29s ease-in-out infinite, float2 19s ease-in-out infinite}
+.bg-blob.b3{width:44vw;height:44vw;left:22vw;bottom:-18vw;background:radial-gradient(circle at 50% 50%, rgba(190,59,42,.16), rgba(190,59,42,0) 70%);animation:morph3 37s ease-in-out infinite, float3 23s ease-in-out infinite}
+.bg-grid{
+  position:absolute;inset:-20%;
+  background-image:linear-gradient(rgba(25,23,20,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(25,23,20,.075) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(closest-side at 50% 42%, rgba(0,0,0,.85), transparent 88%);
+  mask-image:radial-gradient(closest-side at 50% 42%, rgba(0,0,0,.85), transparent 88%);
+  animation:gridDrift 32s linear infinite;
+  will-change:transform;
+}
+.bg-motes{position:absolute;inset:0}
+.bg-motes span{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:rgba(158,43,33,.5);box-shadow:0 0 8px rgba(190,59,42,.45);
+  animation:mote 22s linear infinite;
+}
+.bg-motes span:nth-child(1){left:12%;top:88%;animation-duration:19s;animation-delay:-3s}
+.bg-motes span:nth-child(2){left:27%;top:96%;animation-duration:26s;animation-delay:-11s;width:2px;height:2px}
+.bg-motes span:nth-child(3){left:44%;top:99%;animation-duration:17s;animation-delay:-7s}
+.bg-motes span:nth-child(4){left:61%;top:92%;animation-duration:28s;animation-delay:-15s;width:4px;height:4px;background:rgba(58,50,40,.42)}
+.bg-motes span:nth-child(5){left:78%;top:97%;animation-duration:21s;animation-delay:-5s}
+.bg-motes span:nth-child(6){left:90%;top:88%;animation-duration:24s;animation-delay:-18s;width:2px;height:2px}
+.bg-motes span:nth-child(7){left:8%;top:70%;animation-duration:27s;animation-delay:-9s}
+.bg-motes span:nth-child(8){left:34%;top:78%;animation-duration:16s;animation-delay:-13s;width:2px;height:2px}
+.bg-motes span:nth-child(9){left:56%;top:82%;animation-duration:25s;animation-delay:-2s}
+.bg-motes span:nth-child(10){left:72%;top:74%;animation-duration:18s;animation-delay:-20s;width:4px;height:4px}
+.bg-motes span:nth-child(11){left:86%;top:80%;animation-duration:23s;animation-delay:-6s}
+.bg-motes span:nth-child(12){left:18%;top:64%;animation-duration:20s;animation-delay:-16s;width:2px;height:2px}
+
+/* ---------- 5. KEYFRAMES ---------- */
+@keyframes aurora{
+  0%{transform:translate3d(-3%,-2%,0) scale(1)}
+  50%{transform:translate3d(4%,3%,0) scale(1.08)}
+  100%{transform:translate3d(-2%,4%,0) scale(1.03)}
+}
+@keyframes gridDrift{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(-72px,72px,0)}
+}
+@keyframes mote{
+  0%{transform:translate3d(0,0,0) scale(.6);opacity:0}
+  12%{opacity:.9}
+  85%{opacity:.5}
+  100%{transform:translate3d(24px,-108px,0) scale(1.1);opacity:0}
+}
+@keyframes morph1{
+  0%{border-radius:58% 42% 46% 54% / 48% 56% 44% 52%;transform:rotate(0deg) scale(1)}
+  50%{border-radius:42% 58% 62% 38% / 58% 42% 58% 42%;transform:rotate(9deg) scale(1.06)}
+  100%{border-radius:58% 42% 46% 54% / 48% 56% 44% 52%;transform:rotate(0deg) scale(1)}
+}
+@keyframes morph2{
+  0%{border-radius:44% 56% 60% 40% / 56% 44% 56% 44%;transform:rotate(0deg) scale(1.04)}
+  50%{border-radius:60% 40% 38% 62% / 40% 60% 40% 60%;transform:rotate(-11deg) scale(.96)}
+  100%{border-radius:44% 56% 60% 40% / 56% 44% 56% 44%;transform:rotate(0deg) scale(1.04)}
+}
+@keyframes morph3{
+  0%{border-radius:52% 48% 58% 42% / 46% 54% 46% 54%;transform:rotate(0deg) scale(.98)}
+  50%{border-radius:38% 62% 40% 60% / 62% 38% 62% 38%;transform:rotate(13deg) scale(1.08)}
+  100%{border-radius:52% 48% 58% 42% / 46% 54% 46% 54%;transform:rotate(0deg) scale(.98)}
+}
+@keyframes float1{
+  0%{translate:0 0}
+  50%{translate:0 -16px}
+  100%{translate:0 0}
+}
+@keyframes float2{
+  0%{translate:0 0}
+  50%{translate:12px -13px}
+  100%{translate:0 0}
+}
+@keyframes float3{
+  0%{translate:0 0}
+  50%{translate:-10px -20px}
+  100%{translate:0 0}
+}
+@keyframes glow{
+  0%{opacity:.35;transform:scale(.96)}
+  50%{opacity:.85;transform:scale(1.06)}
+  100%{opacity:.35;transform:scale(.96)}
+}
+@keyframes threadFlow{
+  0%{transform:translateY(-110%);opacity:0}
+  18%{opacity:1}
+  82%{opacity:1}
+  100%{transform:translateY(110%);opacity:0}
+}
+@keyframes marquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+@keyframes pulseRing{
+  0%{box-shadow:0 0 0 0 rgba(158,43,33,.42)}
+  70%{box-shadow:0 0 0 12px rgba(158,43,33,0)}
+  100%{box-shadow:0 0 0 0 rgba(158,43,33,0)}
+}
+@keyframes sweep{
+  0%{transform:translateX(-120%) skewX(-18deg)}
+  60%,100%{transform:translateX(240%) skewX(-18deg)}
+}
+@keyframes toastIn{
+  from{transform:translate3d(0,18px,0);opacity:0}
+  to{transform:translate3d(0,0,0);opacity:1}
+}
+
+/* ---------- 6. REVEAL ---------- */
+.rv{opacity:0;transform:translate3d(0,26px,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-clip{clip-path:inset(0 100% 0 0);opacity:1;transition:clip-path 1.05s var(--ease)}
+.rv-fade{opacity:0;transform:none;transition:opacity 1.1s var(--ease)}
+.rv-left{opacity:0;transform:translate3d(-32px,0,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-right{opacity:0;transform:translate3d(32px,0,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv-scale{opacity:0;transform:scale(.945);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.in{opacity:1 !important;transform:none !important;clip-path:inset(0 0 0 0) !important}
+
+/* ---------- 7. CABEÇALHO ---------- */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  transition:background .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.hdr.stuck{background:rgba(243,234,218,.86);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);border-bottom-color:var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand-mark{width:38px;height:38px;border-radius:4px;object-fit:cover;box-shadow:var(--shadow-sm);flex:none}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:var(--display);font-size:15px;letter-spacing:.14em;text-transform:uppercase}
+.brand-sub{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;position:relative;padding:4px 0;color:var(--graphite)}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--red);transition:width .45s var(--ease)}
+.nav a:hover::after{width:100%}
+.hdr-cta{display:flex;align-items:center;gap:10px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;border-radius:50%;align-items:center;justify-content:center;cursor:pointer}
+.burger span{display:block;width:18px;height:1.5px;background:var(--ink);position:relative;transition:transform .35s var(--ease),background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),top .3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger.open span{background:transparent}
+.burger.open span::before{top:0;transform:rotate(45deg)}
+.burger.open span::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- 8. BOTÕES ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:14px 26px;border-radius:100px;border:1px solid transparent;
+  background:var(--red);color:#FBF3E6;cursor:pointer;overflow:hidden;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  transition:transform .35s var(--ease),background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  box-shadow:0 8px 22px rgba(158,43,33,.22);
+}
+.btn:hover{transform:translateY(-2px);background:var(--red-2);box-shadow:0 14px 30px rgba(158,43,33,.28)}
+.btn:active{transform:translateY(0)}
+.btn::after{
+  content:"";position:absolute;top:-40%;bottom:-40%;left:0;width:42%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:translateX(-120%) skewX(-18deg);pointer-events:none;
+}
+.btn:hover::after{animation:sweep 1.5s var(--ease)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);box-shadow:none}
+.btn-ghost:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);box-shadow:var(--shadow-sm)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--graphite)}
+.btn-sm{min-height:40px;padding:9px 18px;font-size:10.5px}
+.btn-block{width:100%}
+
+/* ---------- 9. HERO ---------- */
+.hero{position:relative;z-index:2;padding:calc(74px + 72px) 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.kicker::before{content:"";width:34px;height:1px;background:var(--red)}
+.sec-label{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.sec-label::before{content:"";width:34px;height:1px;background:var(--red)}
+.hero h1{
+  font-family:var(--display);font-size:clamp(42px,6.4vw,86px);line-height:.98;letter-spacing:-.02em;
+  margin:26px 0 22px;text-transform:uppercase;
+}
+.hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--red);letter-spacing:0}
+.hero-lead{max-width:46ch;font-size:17.5px;color:var(--graphite);font-weight:300}
+.hero-lead strong{font-weight:500;color:var(--ink)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+.hero-facts div{display:flex;flex-direction:column;gap:4px}
+.hero-facts b{font-family:var(--display);font-size:22px;font-weight:400;letter-spacing:.02em}
+.hero-facts span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.hero-media{position:relative}
+.hero-frame{position:relative;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(25,23,20,.10)}
+.hero-frame img{width:100%;height:clamp(420px,52vw,600px);object-fit:cover}
+.hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,23,20,.06),transparent 42%,rgba(25,23,20,.34));pointer-events:none}
+.hero-stamp{
+  position:absolute;left:-34px;bottom:-28px;width:104px;border-radius:6px;overflow:hidden;
+  border:1px solid rgba(25,23,20,.14);box-shadow:var(--shadow-md);background:var(--paper);
+  animation:float2 13s ease-in-out infinite;
+}
+.hero-stamp img{width:100%;display:block}
+.hero-stamp figcaption{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:6px 4px 7px;color:var(--muted);border-top:1px solid var(--line-2)}
+.hero-chip{
+  position:absolute;right:-18px;top:26px;background:rgba(251,247,239,.94);backdrop-filter:blur(6px);
+  border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  box-shadow:var(--shadow-sm);animation:float3 11s ease-in-out infinite;
+}
+.hero-chip i{font-style:normal;color:var(--red)}
+.thread{position:fixed;left:38px;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;display:none}
+.thread i{position:absolute;left:-1px;width:3px;height:22vh;background:linear-gradient(180deg,transparent,var(--red),transparent);animation:threadFlow 9s ease-in-out infinite;opacity:.55}
+@media(min-width:1400px){.thread{display:block}}
+
+/* ---------- 10. MARQUEE ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(234,223,204,.55);overflow:hidden;position:relative;z-index:2}
+.marquee-track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.marquee-track span{
+  font-family:var(--serif);font-size:clamp(20px,2.6vw,30px);font-style:italic;color:var(--graphite);
+  opacity:.5;padding:20px 26px;white-space:nowrap;display:flex;align-items:center;gap:26px;
+}
+.marquee-track span::after{content:"✦";font-style:normal;font-size:13px;color:var(--red);opacity:.85}
+
+/* ---------- 11. SECÇÕES ---------- */
+section{position:relative;z-index:2}
+.sec{padding:96px 0 46px}
+.sec-head{max-width:780px;margin-bottom:44px}
+.sec-head h2{font-family:var(--display);font-size:clamp(30px,4.6vw,54px);text-transform:uppercase;letter-spacing:-.015em;margin:20px 0 16px;line-height:1.02}
+.sec-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--red);letter-spacing:0}
+.sec-head p{color:var(--muted);font-size:16.5px;max-width:58ch}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--red);opacity:.7}
+.ornament span{height:1px;width:min(120px,22vw);background:linear-gradient(90deg,transparent,var(--line))}
+.ornament span:last-child{background:linear-gradient(270deg,transparent,var(--line))}
+
+/* ponte entre secções (continuidade) */
+.bridge{position:absolute;left:50%;width:min(720px,86vw);height:190px;transform:translateX(-50%);pointer-events:none;z-index:0;
+  background:radial-gradient(50% 50% at 50% 50%, rgba(158,43,33,.16), transparent 70%);animation:glow 19s ease-in-out infinite}
+#historia{overflow-x:clip}
+#historia .bridge{top:-95px}
+#destaques{overflow-x:clip}
+#destaques .bridge{top:-95px}
+#ambiente{overflow-x:clip}
+#ambiente .bridge{top:-95px}
+
+/* ---------- 12. HISTÓRIA ---------- */
+.hist-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+.hist p+p{margin-top:18px}
+.hist p{color:var(--graphite);font-size:17px}
+.hist p strong{font-weight:500;color:var(--ink)}
+.hist-media{position:relative}
+.hist-media img{width:100%;border-radius:var(--r-m);box-shadow:var(--shadow-md);border:1px solid var(--line-2)}
+.hist-media figcaption{font-size:11.5px;color:var(--muted);margin-top:12px;letter-spacing:.02em}
+.pull{
+  margin:34px 0 0;padding:24px 26px;background:var(--paper);border:1px solid var(--line);
+  border-left:3px solid var(--red);border-radius:var(--r-m);box-shadow:var(--shadow-sm);
+}
+.pull q{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.4;color:var(--ink);quotes:"«" "»"}
+.pull cite{display:block;margin-top:12px;font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.fact-list{margin-top:34px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden}
+.fact-list div{background:var(--paper);padding:16px 18px;display:flex;gap:16px;align-items:baseline;transition:background .4s var(--ease)}
+.fact-list div:hover{background:var(--paper-2)}
+.fact-list b{font-family:var(--display);font-size:15px;min-width:150px;letter-spacing:.02em}
+.fact-list span{color:var(--muted);font-size:14.5px}
+
+/* ---------- 13. CARDÁPIO ---------- */
+.menu-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+.menu-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{
+  border:1px solid var(--line);background:rgba(251,247,239,.7);border-radius:100px;padding:10px 17px;cursor:pointer;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--graphite);
+  transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+.tab:hover{transform:translateY(-2px);border-color:var(--red)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.tab small{opacity:.6;margin-left:6px;font-size:9.5px}
+.menu-cat{margin-bottom:34px}
+.menu-cat.hide{display:none}
+.menu-cat>h3{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:400;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.menu-cat>h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.item{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:18px 18px 16px;
+  display:flex;flex-direction:column;gap:9px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+}
+.item:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(158,43,33,.34)}
+.item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.item-name{font-family:var(--display);font-size:17.5px;line-height:1.2}
+.item-price{font-family:var(--display);font-size:16px;color:var(--red);white-space:nowrap}
+.item-desc{font-size:13.8px;color:var(--muted);line-height:1.55;flex:1}
+.item-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.tags{display:flex;gap:5px}
+.tag{font-size:9px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:100px;padding:3px 8px;color:var(--muted)}
+.tag.v{border-color:rgba(80,120,60,.4);color:#4c6b3c}
+.tag.p{border-color:rgba(158,43,33,.4);color:var(--red)}
+.tag.b{border-color:rgba(120,100,60,.45);color:#6f5a30}
+.add{
+  border:1px solid var(--line);background:transparent;border-radius:100px;padding:8px 14px;cursor:pointer;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);
+  transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);
+  min-height:38px;white-space:nowrap;
+}
+.add:hover{background:var(--red);color:#FBF3E6;border-color:var(--red);transform:translateY(-1px)}
+.item-photo{margin:-18px -18px 4px;height:150px;overflow:hidden}
+.item-photo img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.item:hover .item-photo img{transform:scale(1.06)}
+.menu-side{position:sticky;top:100px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:22px;box-shadow:var(--shadow-sm)}
+.menu-side h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:400;margin-bottom:14px}
+.menu-side img{width:100%;border-radius:var(--r-s);border:1px solid var(--line-2)}
+.menu-side p{font-size:13.5px;color:var(--muted);margin:14px 0 16px}
+.menu-note{font-size:12.5px;color:var(--muted-2);margin-top:16px;line-height:1.5}
+
+/* ---------- 14. DESTAQUES ---------- */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{
+  position:relative;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);background:var(--paper);
+  display:flex;flex-direction:column;transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.feat:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg)}
+.feat-media{position:relative;overflow:hidden;background:var(--cream-2)}
+.feat-media img{width:100%;height:270px;object-fit:cover;transition:transform 1s var(--ease)}
+.feat:hover .feat-media img{transform:scale(1.07)}
+.feat-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(25,23,20,.55))}
+.feat-badge{position:absolute;left:14px;top:14px;z-index:2;background:rgba(251,247,239,.92);border-radius:100px;padding:6px 12px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.feat-price{position:absolute;right:14px;bottom:14px;z-index:2;color:#FBF3E6;font-family:var(--display);font-size:19px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.feat-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+.feat-body h3{font-size:20px}
+.feat-body p{font-size:13.8px;color:var(--muted);flex:1}
+.feat.quiet .feat-media img{height:0;display:none}
+.feat.quiet .feat-media{min-height:74px;background:linear-gradient(135deg,var(--red-soft),transparent)}
+.feat-quote{grid-column:span 3;background:var(--ink);color:var(--cream);border-radius:var(--r-m);padding:30px 34px;display:flex;gap:24px;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.feat-quote::before{content:"";position:absolute;right:-40px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(158,43,33,.5),transparent 68%);animation:glow 15s ease-in-out infinite}
+.feat-quote q{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.3vw,26px);line-height:1.35;quotes:"«" "»";position:relative}
+.feat-quote cite{display:block;font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,234,218,.62);margin-top:14px}
+.feat-quote .btn{position:relative;flex:none}
+
+/* ---------- 15. HAPPY HOUR ---------- */
+.hh{background:var(--ink);color:var(--cream);border-radius:var(--r-l);padding:clamp(32px,5vw,58px);position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.hh::before{content:"";position:absolute;left:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(158,43,33,.45),transparent 70%);animation:morph1 23s ease-in-out infinite,glow 17s ease-in-out infinite}
+.hh h2{font-size:clamp(28px,4vw,46px);text-transform:uppercase;position:relative}
+.hh h2 em{font-family:var(--serif);font-style:italic;text-transform:none;color:#E9A99E;font-weight:400}
+.hh p{color:rgba(243,234,218,.72);margin-top:16px;position:relative;max-width:44ch}
+.hh-days{display:inline-flex;gap:10px;margin-top:22px;position:relative;flex-wrap:wrap}
+.hh-days span{border:1px solid rgba(243,234,218,.28);border-radius:100px;padding:8px 16px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+.drinks{position:relative;display:grid;gap:1px;background:rgba(243,234,218,.14);border:1px solid rgba(243,234,218,.14);border-radius:var(--r-m);overflow:hidden}
+.drinks div{background:rgba(25,23,20,.35);padding:13px 18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;transition:background .4s var(--ease)}
+.drinks div:hover{background:rgba(158,43,33,.22)}
+.drinks b{font-family:var(--display);font-weight:400;font-size:15.5px}
+.drinks span{color:rgba(243,234,218,.62);font-size:13.5px}
+.drinks i{font-style:normal;color:#E9A99E;font-family:var(--display);font-size:15px}
+
+/* ---------- 16. AMBIENTE ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal figure{position:relative;margin:0;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);background:var(--cream-2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.gal figure:hover img{transform:scale(1.07)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;font-size:11.5px;color:#FBF3E6;background:linear-gradient(180deg,transparent,rgba(25,23,20,.78))}
+.gal .g-big{grid-column:span 2;grid-row:span 2}
+.gal .g-big img{height:100%;min-height:380px}
+.gal .g-tall img{height:210px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.chips span{border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite);background:rgba(251,247,239,.6);transition:background .3s var(--ease),color .3s var(--ease)}
+.chips span:hover{background:var(--ink);color:var(--cream)}
+
+/* ---------- 17. VISITE ---------- */
+.visit-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.visit-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:26px;box-shadow:var(--shadow-sm)}
+.visit-card h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:400;margin-bottom:14px}
+.hours{width:100%;border-collapse:collapse;font-size:14.5px}
+.hours td{padding:9px 0;border-bottom:1px dashed var(--line)}
+.hours tr:last-child td{border-bottom:0}
+.hours td:last-child{text-align:right;color:var(--muted)}
+.hours .closed td{color:var(--muted-2)}
+.visit-info{display:grid;gap:18px;margin-top:22px}
+.visit-info a,.visit-info p{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--graphite)}
+.visit-info b{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);min-width:92px;padding-top:4px}
+.visit-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.map-photo{position:relative;border-radius:var(--r-m);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+.map-photo img{width:100%;height:100%;object-fit:cover;min-height:420px}
+
+/* ---------- 18. CTA FINAL ---------- */
+.final{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:96px 0;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:-40%;width:820px;height:820px;transform:translateX(-50%);background:radial-gradient(circle,rgba(158,43,33,.14),transparent 62%);animation:glow 22s ease-in-out infinite;pointer-events:none}
+.final-in{position:relative;text-align:center;max-width:760px;margin:0 auto}
+.final h2{font-size:clamp(32px,5.4vw,62px);text-transform:uppercase;margin:20px 0 18px}
+.final h2 em{font-family:var(--serif);font-style:italic;text-transform:none;color:var(--red);font-weight:400}
+.final p{color:var(--muted);font-size:17px;max-width:56ch;margin:0 auto}
+.final-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.final-note{margin-top:22px;font-size:12.5px;color:var(--muted-2)}
+
+/* ---------- 19. CARRINHO ---------- */
+.fab{
+  position:fixed;right:22px;bottom:22px;z-index:55;display:none;align-items:center;gap:10px;
+  background:var(--ink);color:var(--cream);border:1px solid rgba(243,234,218,.2);border-radius:100px;
+  padding:14px 20px;cursor:pointer;box-shadow:var(--shadow-lg);
+  transition:transform .35s var(--ease),background .35s var(--ease);
+}
+.fab.show{display:inline-flex}
+.fab:hover{transform:translateY(-3px);background:var(--red)}
+.fab b{font-family:var(--display);font-weight:400;font-size:15px}
+.fab .count{background:var(--red);color:#FBF3E6;border-radius:100px;font-size:11px;padding:2px 9px;min-width:24px;text-align:center}
+.fab.bump{animation:pulseRing 1.2s ease-out}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);z-index:70;background:var(--paper);
+  box-shadow:-24px 0 60px rgba(25,23,20,.18);display:flex;flex-direction:column;
+  transform:translate3d(104%,0,0);transition:transform .5s var(--ease);
+}
+.drawer.open{transform:translate3d(0,0,0)}
+.scrim{position:fixed;inset:0;z-index:65;background:rgba(25,23,20,.42);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+.scrim.show{opacity:1;pointer-events:auto}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-family:var(--sans);font-weight:400}
+.drawer-head .close{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:18px;line-height:1;transition:background .3s var(--ease),color .3s var(--ease)}
+.drawer-head .close:hover{background:var(--ink);color:var(--cream)}
+.drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
+.cart-empty{text-align:center;color:var(--muted);padding:46px 10px;font-size:15px}
+.cart-empty b{display:block;font-family:var(--display);font-size:20px;color:var(--ink);margin-bottom:10px}
+.cart-line{display:grid;grid-template-columns:1fr auto;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cart-line .nm{font-family:var(--display);font-size:16px}
+.cart-line .ds{font-size:12.5px;color:var(--muted);margin-top:4px}
+.cart-line .pr{font-family:var(--display);font-size:16px;color:var(--red);text-align:right;white-space:nowrap}
+.qty{display:flex;align-items:center;gap:8px;margin-top:10px}
+.qty button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:15px;line-height:1;transition:background .3s var(--ease),color .3s var(--ease)}
+.qty button:hover{background:var(--ink);color:var(--cream)}
+.qty span{font-size:14px;min-width:20px;text-align:center}
+.rm{border:0;background:none;color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:underline;padding:4px 0;transition:color .3s}
+.rm:hover{color:var(--red)}
+.cart-notes{width:100%;border:1px solid var(--line);background:var(--cream);border-radius:var(--r-s);padding:9px 11px;font-size:13px;margin-top:10px;resize:vertical;min-height:40px}
+.cart-notes:focus{outline:none;border-color:var(--red)}
+.drawer-foot{border-top:1px solid var(--line);padding:18px 24px 22px;background:var(--paper-2)}
+.totals{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);margin-bottom:6px}
+.totals.grand{font-family:var(--display);font-size:20px;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px;margin-top:8px}
+.modes{display:grid;gap:8px;margin:16px 0}
+.mode{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r-s);padding:11px 13px;cursor:pointer;transition:border-color .3s var(--ease),background .3s var(--ease);font-size:14px}
+.mode:hover{border-color:var(--red)}
+.mode input{margin-top:4px;accent-color:var(--red)}
+.mode small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.fields{display:grid;gap:10px;margin-bottom:12px}
+.fields label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.fields input,.fields textarea{width:100%;border:1px solid var(--line);background:var(--cream);border-radius:var(--r-s);padding:11px 13px;font-size:15px;transition:border-color .3s var(--ease)}
+.fields input:focus,.fields textarea:focus{outline:none;border-color:var(--red)}
+.fields .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.err{color:var(--red);font-size:12px;margin-top:5px;display:none}
+.err.show{display:block}
+.invalid{border-color:var(--red) !important}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin:6px 0 14px;line-height:1.45}
+.consent input{margin-top:3px;accent-color:var(--red);width:18px;height:18px;flex:none}
+.consent a{color:var(--red);text-decoration:underline}
+.preview{width:100%;border:1px solid var(--line);background:var(--cream);border-radius:var(--r-s);padding:12px;font-size:12.5px;line-height:1.55;min-height:150px;resize:vertical;font-family:var(--sans)}
+.preview:focus{outline:none;border-color:var(--red)}
+.drawer-actions{display:grid;gap:9px}
+.drawer-actions .or{text-align:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin:4px 0}
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate3d(-50%,24px,0);z-index:80;opacity:0;pointer-events:none;
+  background:var(--ink);color:var(--cream);padding:14px 22px;border-radius:100px;font-size:12.5px;letter-spacing:.06em;
+  box-shadow:var(--shadow-lg);transition:opacity .4s var(--ease),transform .4s var(--ease);max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translate3d(-50%,0,0);animation:toastIn .5s var(--ease)}
+
+/* ---------- 20. LEGAL + RODAPÉ ---------- */
+.legal{padding:70px 0 40px;background:rgba(234,223,204,.5);border-top:1px solid var(--line);position:relative;z-index:2}
+.legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.legal h3{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-family:var(--sans);font-weight:400;color:var(--muted);margin-bottom:14px}
+.legal h4{font-family:var(--display);font-size:16px;margin:18px 0 6px}
+.legal p{font-size:13.6px;color:var(--graphite);line-height:1.62}
+.legal ul{margin:8px 0 0;display:grid;gap:5px}
+.legal li{font-size:13.6px;color:var(--graphite);padding-left:16px;position:relative}
+.legal li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--red)}
+.ftr{border-top:1px solid var(--line);padding:44px 0 34px;background:var(--cream)}
+.ftr-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+.ftr h4{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:400;margin-bottom:14px}
+.ftr p,.ftr a{font-size:14px;color:var(--graphite);display:block;margin-bottom:7px;transition:color .3s var(--ease)}
+.ftr a:hover{color:var(--red)}
+.ftr-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ftr-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted-2)}
+
+/* ---------- 21. RESPONSIVO ---------- */
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:1fr;gap:42px}
+  .hero-media{max-width:640px}
+  .menu-layout{grid-template-columns:1fr}
+  .menu-side{position:static;max-width:420px}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
+  .feat-quote{grid-column:span 2;flex-direction:column;align-items:flex-start;text-align:left}
+  .hist-grid,.visit-grid{grid-template-columns:1fr;gap:38px}
+  .hh{grid-template-columns:1fr;gap:34px}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal .g-big{grid-column:span 2;grid-row:span 1}
+  .gal .g-big img{min-height:260px}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+  .legal-grid{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .nav{
+    position:fixed;inset:0 0 auto 0;top:0;padding:96px 24px 30px;background:var(--cream);
+    flex-direction:column;align-items:flex-start;gap:20px;transform:translate3d(0,-102%,0);
+    transition:transform .5s var(--ease);z-index:49;box-shadow:var(--shadow-lg);
+  }
+  .nav.open{transform:translate3d(0,0,0)}
+  .nav a{font-family:var(--display);font-size:26px;letter-spacing:.04em;text-transform:none}
+  .nav a::after{display:none}
+  .burger{display:inline-flex}
+  .hdr-cta .btn{min-height:40px;padding:8px 13px;font-size:9.5px;letter-spacing:.12em}
+  .hero{padding-top:calc(74px + 44px)}
+  .hero-stamp{width:84px;left:-12px;bottom:-18px}
+  .hero-chip{right:8px;top:14px;font-size:9px;padding:8px 12px}
+  .fab{right:14px;bottom:14px}
+}
+@media(max-width:620px){
+  body{font-size:15.5px}
+  .wrap{padding:0 18px}
+  .sec{padding:68px 0 34px}
+  .feat-grid{grid-template-columns:1fr}
+  .feat-quote{grid-column:span 1;padding:26px 22px}
+  .hero-facts{gap:18px 26px}
+  .hero h1{font-size:clamp(38px,11vw,54px)}
+  .drawer{width:100%;top:auto;height:92vh;border-radius:18px 18px 0 0;transform:translate3d(0,102%,0)}
+  .drawer.open{transform:translate3d(0,0,0)}
+  .gal{grid-template-columns:1fr}
+  .gal .g-tall img{height:220px}
+  .ftr-grid{grid-template-columns:1fr}
+  .fields .row{grid-template-columns:1fr}
+  .tab{font-size:10px;padding:9px 14px}
+}
+@media(max-width:420px){
+  .hero-cta .btn{width:100%}
+  .final-cta .btn{width:100%}
+}
+
+/* ---------- 22. MOVIMENTO REDUZIDO ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
+  .rv,.rv-clip,.rv-fade,.rv-left,.rv-right,.rv-scale{opacity:1 !important;transform:none !important;clip-path:none !important}
+  .marquee-track{transform:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#cardapio">Saltar para o cardápio</a>
+
+<!-- ====== FUNDO CONTEXTUAL ANIMADO ====== -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-aurora"></div>
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+  <div class="bg-blob b3"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-motes">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+<div class="thread" aria-hidden="true"><i></i></div>
+
+<!-- ====== CABEÇALHO ====== -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Pizzeria Santa Chiara — início">
+      <img class="brand-mark" src="assets/img/logo-placa.webp" width="300" height="433" alt="Placa da Pizzeria Santa Chiara com a gravura da lagosta">
+      <span class="brand-txt">
+        <span class="brand-name">Santa Chiara</span>
+        <span class="brand-sub">Pizzeria · Lisboa</span>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#historia">História</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#destaques">Destaques</a>
+      <a href="#happy-hour">Happy Hour</a>
+      <a href="#ambiente">A casa</a>
+      <a href="#visite">Visite</a>
+      <button class="btn" data-open-cart style="margin-top:14px">Fazer um pedido</button>
+    </nav>
+    <div class="hdr-cta">
+      <button class="btn btn-sm" data-open-cart>Fazer um pedido</button>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ====== 1. HERO — ENTRAR ====== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker rv">Entrecampos · Lisboa · Forno a lenha</span>
+        <h1 class="rv rv-clip">Santa Chiara<br>é <em>Nápoles</em></h1>
+        <p class="hero-lead rv rv-fade" style="transition-delay:.12s">
+          Pizza napolitana autêntica assada em <strong>forno a lenha</strong>, na Avenida 5 de Outubro.
+          Feita por napolitanos, com o Napoli no peito e o balcão pintado de Diego.
+        </p>
+        <div class="hero-cta rv rv-fade" style="transition-delay:.2s">
+          <a class="btn" href="#cardapio">Ver o cardápio</a>
+          <button class="btn btn-ghost" data-open-cart>Montar o meu pedido</button>
+        </div>
+        <div class="hero-facts rv rv-fade" style="transition-delay:.28s">
+          <div><b>55</b><span>lugares</span></div>
+          <div><b>Sem</b><span>reservas</span></div>
+          <div><b>Forno</b><span>a lenha</span></div>
+          <div><b>Todos</b><span>os dias</span></div>
+        </div>
+      </div>
+      <div class="hero-media rv rv-right">
+        <figure class="hero-frame" data-par="0.06">
+          <img src="assets/img/margherita-heart-1000.webp" width="1000" height="1333" alt="Pizza napolitana com formato de coração, com tomate San Marzano, mozzarella e manjericão, sobre a toalha da pizzeria" fetchpriority="high" decoding="async">
+        </figure>
+        <figure class="hero-stamp" data-par="-0.05">
+          <img src="assets/img/logo-placa.webp" width="300" height="433" alt="Placa de azulejo da pizzeria com a gravura da lagosta e o nome Santa Chiara" loading="lazy" decoding="async">
+          <figcaption>Forno a lenha</figcaption>
+        </figure>
+        <div class="hero-chip"><i>●</i> Aberto ao domingo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MARQUEE (loop contínuo) ====== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Forno a lenha</span><span>Nápoles</span><span>Pizza napolitana</span><span>Sem reservas</span><span>55 lugares</span><span>Diego</span><span>Happy hour</span><span>Santa Chiara</span>
+      <span>Forno a lenha</span><span>Nápoles</span><span>Pizza napolitana</span><span>Sem reservas</span><span>55 lugares</span><span>Diego</span><span>Happy hour</span><span>Santa Chiara</span>
+    </div>
+  </div>
+
+  <!-- ====== 2. HISTÓRIA — ENTENDER ====== -->
+  <section class="sec" id="historia">
+    <div class="bridge" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">A história</span>
+        <h2 class="rv rv-clip">Um napolitano, um forno a lenha<br>e um balcão pintado de <em>Diego</em></h2>
+      </div>
+      <div class="hist-grid">
+        <div class="hist">
+          <p class="rv rv-left"><strong>Alfonso Cantarelli</strong> é napolitano de gema e chef da casa. Antes da Santa Chiara tinha a <em>Sul Osteria do Povo</em>, na Madragoa, onde há sete anos começou a transmitir os jogos do Napoli e a receber os adeptos que precisavam de um sítio em Lisboa. Quando o time joga, a Santa Chiara transforma-se na sala de estar dos napolitanos da cidade.</p>
+          <p class="rv rv-left" style="transition-delay:.08s">O endereço não tem ar de restaurante de.chain: tem <strong>55 lugares</strong>, um <strong>mural pintado sobre os azulejos brancos do balcão</strong> com a mão de Deus no Estádio Azteca, e as cartas escritas à mão na parede. Em dia de scudetto, como o de 2025, chegaram duas Correspondência de Nápoles a Lisboa e a esplanada encheu-se de gente.</p>
+          <p class="rv rv-left" style="transition-delay:.16s">A cozinha trabalha como em Nápoles: <strong>forno a lenha</strong>, ingredientes escritos no menu da casa e a massa trabalhada à napolitana. E, como diz o dono, há liberdade para o ananás — <em>desde que ninguém mexa no Diego</em>.</p>
+          <blockquote class="pull rv rv-scale">
+            <q>É mais do que a imagem de uma pessoa para nós, é uma entidade cultural.</q>
+            <cite>Alfonso Cantarelli, à Time Out Lisboa</cite>
+          </blockquote>
+          <div class="fact-list rv rv-fade">
+            <div><b>Chef e proprietário</b><span>Alfonso Cantarelli, napolitano</span></div>
+            <div><b>Gestão</b><span>Felipe, no balcão de Entrecampos</span></div>
+            <div><b>Capacidade</b><span>55 lugares, com esplanada na rua</span></div>
+            <div><b>Reservas</b><span>Não há — o lugar é de quem chega</span></div>
+          </div>
+        </div>
+        <figure class="hist-media rv rv-right">
+          <img src="assets/img/balcao-mural-700.webp" width="750" height="422" alt="Balcão da pizzeria com copos de vinho pendurados e o mural do Diego pintado em azulejos azuis" loading="lazy" decoding="async" data-par="0.05">
+          <figcaption>O balcão, os copos e o mural de Diego — foto Rita Chantre / Time Out Lisboa.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament" aria-hidden="true"><span></span>✦<span></span></div>
+
+  <!-- ====== 3. CARDÁPIO — EXPLORAR + PEDIDO ====== -->
+  <section class="sec" id="cardapio">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">O menu</span>
+        <h2 class="rv rv-clip">Tudo o que sai do <em>forno a lenha</em></h2>
+        <p class="rv rv-fade">Transcrito do menu da casa e do menu digital da pizzeria. Escolhe, adiciona ao pedido e envia — sem redescrever nada.</p>
+      </div>
+
+      <div class="menu-tabs rv rv-fade" role="tablist" aria-label="Categorias do menu">
+        <button class="tab" role="tab" aria-selected="true" data-cat="todas">Tudo</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="antipasti">Antipasti</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="classiche">Clássicas</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="especiais">Especiais</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="salitimbocca">Salitimbocca</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="fritta">Pizza fritta</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="sobremesa">Sobremesas</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="bebidas">Bebidas</button>
+      </div>
+
+      <div class="menu-layout">
+        <div id="menu-list">
+
+          <div class="menu-cat" data-group="antipasti">
+            <h3>Antipasti</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="burrata" data-name="Burrata" data-price="8.5" data-cat="antipasti" data-desc="Focaccia com burrata e cherry tomate">
+                <div class="item-top"><h4 class="item-name">Burrata</h4><span class="item-price">€8,50</span></div>
+                <p class="item-desc">Focaccia com burrata e cherry tomate</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="stracciatella" data-name="Stracciatella e Mortadella" data-price="12" data-cat="antipasti" data-desc="Focaccia com stracciatella napolitana, pistácio e raspas de limão">
+                <div class="item-top"><h4 class="item-name">Stracciatella e Mortadella</h4><span class="item-price">€12,00</span></div>
+                <p class="item-desc">Focaccia com stracciatella napolitana, pistácio e raspas de limão</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="classiche">
+            <h3>Classiche napolitane</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="cosacca" data-name="Cosacca" data-price="9.5" data-cat="classiche" data-desc="Tomate San Marzano, queijo pecorino, azeite" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Cosacca</h4><span class="item-price">€9,50</span></div>
+                <p class="item-desc">Tomate San Marzano, queijo pecorino, azeite</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="marinara" data-name="Marinara" data-price="9" data-cat="classiche" data-desc="Tomate San Marzano, alho, orégãos, azeite" data-tags="V B">
+                <div class="item-top"><h4 class="item-name">Marinara</h4><span class="item-price">€9,00</span></div>
+                <p class="item-desc">Tomate San Marzano, alho, orégãos, azeite</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="margherita" data-name="Margherita" data-price="10" data-cat="classiche" data-desc="Tomate San Marzano, mozzarella, manjericão" data-tags="V B" data-img="assets/img/margherita-1000.webp" data-alt="Pizza Margherita com tomate San Marzano, mozzarella e folha de manjericão">
+                <div class="item-photo"><img src="assets/img/margherita-1000.webp" width="1000" height="768" alt="Pizza Margherita com tomate San Marzano, mozzarella e folha de manjericão" loading="lazy" decoding="async"></div>
+                <div class="item-top"><h4 class="item-name">Margherita</h4><span class="item-price">€10,00</span></div>
+                <p class="item-desc">Tomate San Marzano, mozzarella, manjericão</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="provola-e-pepe" data-name="Provola e Pepe" data-price="12" data-cat="classiche" data-desc="Tomate San Marzano, queijo provola fumada, pimenta-do-reino" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Provola e Pepe</h4><span class="item-price">€12,00</span></div>
+                <p class="item-desc">Tomate San Marzano, queijo provola fumada, pimenta-do-reino</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="filetto" data-name="Filetto" data-price="12" data-cat="classiche" data-desc="Mozzarella, tomate cherry, azeite" data-tags="V B">
+                <div class="item-top"><h4 class="item-name">Filetto</h4><span class="item-price">€12,00</span></div>
+                <p class="item-desc">Mozzarella, tomate cherry, azeite</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="salsiccia-e-friarielli" data-name="Salsiccia e Friarielli" data-price="15" data-cat="classiche" data-desc="Mozzarella, queijo provola fumada, salsicha italiana, friarielli" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Salsiccia e Friarielli</h4><span class="item-price">€15,00</span></div>
+                <p class="item-desc">Mozzarella, queijo provola fumada, salsicha italiana, friarielli</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="diavola" data-name="Diavola" data-price="13" data-cat="classiche" data-desc="Tomate San Marzano, mozzarella, salame napolitano, azeite picante caseiro" data-tags="P" data-img="assets/img/diavola-1000.webp" data-alt="Pizza Diavola com salame napolitano, mozzarella, tomate e uma folha de manjericão">
+                <div class="item-photo"><img src="assets/img/diavola-1000.webp" width="1000" height="768" alt="Pizza Diavola com salame napolitano, mozzarella, tomate e uma folha de manjericão" loading="lazy" decoding="async"></div>
+                <div class="item-top"><h4 class="item-name">Diavola</h4><span class="item-price">€13,00</span></div>
+                <p class="item-desc">Tomate San Marzano, mozzarella, salame napolitano, azeite picante caseiro</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="crudo-e-scaglie" data-name="Crudo e Scaglie" data-price="14.5" data-cat="classiche" data-desc="Tomate San Marzano, mozzarella, prosciutto, rúcula" data-tags="B" data-img="assets/img/crudo-scaglie-480.webp" data-alt="Pizza Crudo e Scaglie com rúcula, cherry tomate, prosciutto e lascas de queijo">
+                <div class="item-photo"><img src="assets/img/crudo-scaglie-480.webp" width="480" height="640" alt="Pizza Crudo e Scaglie com rúcula, cherry tomate, prosciutto e lascas de queijo" loading="lazy" decoding="async"></div>
+                <div class="item-top"><h4 class="item-name">Crudo e Scaglie</h4><span class="item-price">€14,50</span></div>
+                <p class="item-desc">Tomate San Marzano, mozzarella, prosciutto, rúcula</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="especiais">
+            <h3>Pizza especiais</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="formaggi" data-name="5 Formaggi" data-price="14.5" data-cat="especiais" data-desc="Mozzarella, parmigiano, pecorino, gorgonzola, omental" data-tags="B">
+                <div class="item-top"><h4 class="item-name">5 Formaggi</h4><span class="item-price">€14,50</span></div>
+                <p class="item-desc">Mozzarella, parmigiano, pecorino, gorgonzola, omental</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="posillipo" data-name="Posillipo" data-price="16.5" data-cat="especiais" data-desc="Pesto, mozzarella, salame napolitano, burrata" data-tags="B" data-img="assets/img/posillipo-660.webp" data-alt="Pizza Posillipo com pesto, mozzarella, salame napolitano e uma burrata no centro">
+                <div class="item-photo"><img src="assets/img/posillipo-660.webp" width="660" height="560" alt="Pizza Posillipo com pesto, mozzarella, salame napolitano e uma burrata no centro" loading="lazy" decoding="async"></div>
+                <div class="item-top"><h4 class="item-name">Posillipo</h4><span class="item-price">€16,50</span></div>
+                <p class="item-desc">Pesto, mozzarella, salame napolitano, burrata</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="flegrea" data-name="Flegrea" data-price="16" data-cat="especiais" data-desc="Tomate napoleto Vesúvio, salsichas italianas, queijo provola fumada">
+                <div class="item-top"><h4 class="item-name">Flegrea</h4><span class="item-price">€16,00</span></div>
+                <p class="item-desc">Tomate napoleto Vesúvio, salsichas italianas, queijo provola fumada</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="schwob" data-name="Schwob" data-price="13.5" data-cat="especiais" data-desc="Queijo provola, pimenta preta, speck" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Schwob</h4><span class="item-price">€13,50</span></div>
+                <p class="item-desc">Queijo provola, pimenta preta, speck</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="coppa-e-porcini" data-name="Coppa e Porcini" data-price="16" data-cat="especiais" data-desc="Queijo provola, coppa, cogumelos porcini" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Coppa e Porcini</h4><span class="item-price">€16,00</span></div>
+                <p class="item-desc">Queijo provola, coppa, cogumelos porcini</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="angelina" data-name="Angelina" data-price="16" data-cat="especiais" data-desc="Mozzarella, berinjela e tomate cherry salteados, queijo ricota" data-tags="V B">
+                <div class="item-top"><h4 class="item-name">Angelina</h4><span class="item-price">€16,00</span></div>
+                <p class="item-desc">Mozzarella, berinjela e tomate cherry salteados, queijo ricota</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="pomodorini-e-cipollini" data-name="Pomodorini e Cipollini" data-price="15" data-cat="especiais" data-desc="Tomate amarelo Vesúvio, queijo anchovas, azeitona preta">
+                <div class="item-top"><h4 class="item-name">Pomodorini e Cipollini</h4><span class="item-price">€15,00</span></div>
+                <p class="item-desc">Tomate amarelo Vesúvio, queijo anchovas, azeitona preta</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="mortadella-e-pistacchio" data-name="Mortadella e Pistacchio" data-price="17.5" data-cat="especiais" data-desc="Mortadella, pesto de pistácio, stracciatella" data-tags="B" data-img="assets/img/mortadella-pistacchio-500.webp" data-alt="Pizza Mortadella e Pistacchio com mortadella, pesto de pistácio e stracciatella">
+                <div class="item-photo"><img src="assets/img/mortadella-pistacchio-500.webp" width="500" height="667" alt="Pizza Mortadella e Pistacchio com mortadella, pesto de pistácio e stracciatella" loading="lazy" decoding="async"></div>
+                <div class="item-top"><h4 class="item-name">Mortadella e Pistacchio</h4><span class="item-price">€17,50</span></div>
+                <p class="item-desc">Mortadella, pesto de pistácio, stracciatella</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="cotto-e-funghi" data-name="Cotto e Funghi" data-price="17.5" data-cat="especiais" data-desc="Tomate San Marzano, mozzarella, cogumelos salteados" data-tags="B">
+                <div class="item-top"><h4 class="item-name">Cotto e Funghi</h4><span class="item-price">€17,50</span></div>
+                <p class="item-desc">Tomate San Marzano, mozzarella, cogumelos salteados</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="paesana" data-name="Paesana" data-price="18" data-cat="especiais" data-desc="San Marzano, tomate, queijo provola fumada, pancetta, nduja" data-tags="P">
+                <div class="item-top"><h4 class="item-name">Paesana</h4><span class="item-price">€18,00</span></div>
+                <p class="item-desc">San Marzano, tomate, queijo provola fumada, pancetta, nduja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="palestine" data-name="Palestine" data-price="13.5" data-cat="especiais" data-desc="Mozzarella, za'atar, azeite" data-tags="V B">
+                <div class="item-top"><h4 class="item-name">Palestine</h4><span class="item-price">€13,50</span></div>
+                <p class="item-desc">Mozzarella, za'atar, azeite</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="mctominay" data-name="McTominay" data-price="15.5" data-cat="especiais" data-desc="Natale, mozzarella e cogumelos ostra assados" data-tags="">
+                <div class="item-top"><h4 class="item-name">McTominay</h4><span class="item-price">€15,50</span></div>
+                <p class="item-desc">Natale, mozzarella e cogumelos ostra assados</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="salitimbocca">
+            <h3>Salitimbocca — pão de massa de pizza</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="sal-crudo" data-name="Salitimbocca Crudo e Scaglie" data-price="14.5" data-cat="salitimbocca" data-desc="Mozzarella, prosciutto, rúcula">
+                <div class="item-top"><h4 class="item-name">Salitimbocca Crudo e Scaglie</h4><span class="item-price">€14,50</span></div>
+                <p class="item-desc">Mozzarella, prosciutto, rúcula</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="sal-salsiccia" data-name="Salitimbocca Salsiccia e Friarielli" data-price="14.5" data-cat="salitimbocca" data-desc="Salsicha friarielli, queijo provola fumada">
+                <div class="item-top"><h4 class="item-name">Salitimbocca Salsiccia e Friarielli</h4><span class="item-price">€14,50</span></div>
+                <p class="item-desc">Salsicha friarielli, queijo provola fumada</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="sal-parmigiana" data-name="Salitimbocca Parmigiana" data-price="15.5" data-cat="salitimbocca" data-desc="Parmigiana com queijo provola fumada">
+                <div class="item-top"><h4 class="item-name">Salitimbocca Parmigiana</h4><span class="item-price">€15,50</span></div>
+                <p class="item-desc">Parmigiana com queijo provola fumada</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="fritta">
+            <h3>Pizza fritta</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="fritta-completa" data-name="Pizza fritta Completa" data-price="15" data-cat="fritta" data-desc="Carnes curadas italianas, ricota, mozzarella, molho de tomate, manjericão">
+                <div class="item-top"><h4 class="item-name">Completa</h4><span class="item-price">€15,00</span></div>
+                <p class="item-desc">Carnes curadas italianas, ricota, mozzarella, molho de tomate, manjericão</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritta-angelina" data-name="Pizza fritta Angelina" data-price="16.5" data-cat="fritta" data-desc="Mozzarella, berinjela salteada e tomate cherry, ricota">
+                <div class="item-top"><h4 class="item-name">Angelina frita</h4><span class="item-price">€16,50</span></div>
+                <p class="item-desc">Mozzarella, berinjela salteada e tomate cherry, ricota</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="sobremesa">
+            <h3>Sobremesa</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="tiramisu" data-name="Tiramisù di Treviso" data-price="6.5" data-cat="sobremesa" data-desc="Creme de mascarpone, savoiardi embebidos em espresso e cacau">
+                <div class="item-top"><h4 class="item-name">Tiramisù di Treviso</h4><span class="item-price">€6,50</span></div>
+                <p class="item-desc">Creme de mascarpone, savoiardi embebidos em espresso e cacau</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="angioletti" data-name="Angioletti alla Nutella" data-price="5.5" data-cat="sobremesa" data-desc="Tiras de massa frita com Nutella">
+                <div class="item-top"><h4 class="item-name">Angioletti alla Nutella</h4><span class="item-price">€5,50</span></div>
+                <p class="item-desc">Tiras de massa frita com Nutella</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="cannoli" data-name="Cannoli Siciliani" data-price="6" data-cat="sobremesa" data-desc="Massa wafer recheada com creme de ricota, pistácio picado e creme de pistácio">
+                <div class="item-top"><h4 class="item-name">Cannoli Siciliani</h4><span class="item-price">€6,00</span></div>
+                <p class="item-desc">Massa wafer recheada com creme de ricota, pistácio picado e creme de pistácio</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="churros" data-name="Churros" data-price="4.5" data-cat="sobremesa" data-desc="Churros com Nutella">
+                <div class="item-top"><h4 class="item-name">Churros</h4><span class="item-price">€4,50</span></div>
+                <p class="item-desc">Churros com Nutella</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="calzone-nutella" data-name="Calzone Nutella" data-price="7.5" data-cat="sobremesa" data-desc="Massa assada recheada com Nutella">
+                <div class="item-top"><h4 class="item-name">Calzone Nutella</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Massa assada recheada com Nutella</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="menu-cat" data-group="bebidas">
+            <h3>Bebidas</h3>
+            <div class="menu-grid">
+              <article class="item rv rv-scale" data-id="aperol-spritz" data-name="Aperol Spritz" data-price="7.5" data-cat="bebidas" data-desc="Cocktail">
+                <div class="item-top"><h4 class="item-name">Aperol Spritz</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Cocktail</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="limoncello-spritz" data-name="Limoncello Spritz" data-price="7.5" data-cat="bebidas" data-desc="Cocktail">
+                <div class="item-top"><h4 class="item-name">Limoncello Spritz</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Cocktail</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="campari-spritz" data-name="Campari Spritz" data-price="7.5" data-cat="bebidas" data-desc="Cocktail">
+                <div class="item-top"><h4 class="item-name">Campari Spritz</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Cocktail</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="gin-tonic" data-name="Gin Tonic" data-price="7.5" data-cat="bebidas" data-desc="Cocktail">
+                <div class="item-top"><h4 class="item-name">Gin Tonic</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Cocktail</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="negroni" data-name="Negroni" data-price="7.5" data-cat="bebidas" data-desc="Cocktail">
+                <div class="item-top"><h4 class="item-name">Negroni</h4><span class="item-price">€7,50</span></div>
+                <p class="item-desc">Cocktail</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="peroni" data-name="Peroni 33cl" data-price="2.95" data-cat="bebidas" data-desc="Cerveja">
+                <div class="item-top"><h4 class="item-name">Peroni 33cl</h4><span class="item-price">€2,95</span></div>
+                <p class="item-desc">Cerveja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="moretti" data-name="Moretti 33cl" data-price="2.95" data-cat="bebidas" data-desc="Cerveja">
+                <div class="item-top"><h4 class="item-name">Moretti 33cl</h4><span class="item-price">€2,95</span></div>
+                <p class="item-desc">Cerveja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="caneca-estrella" data-name="Caneca Estrella Galicia 40cl" data-price="3.9" data-cat="bebidas" data-desc="Cerveja">
+                <div class="item-top"><h4 class="item-name">Caneca Estrella Galicia 40cl</h4><span class="item-price">€3,90</span></div>
+                <p class="item-desc">Cerveja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="nastro-azzurro" data-name="Nastro Azzurro 33cl" data-price="2.95" data-cat="bebidas" data-desc="Cerveja">
+                <div class="item-top"><h4 class="item-name">Nastro Azzurro 33cl</h4><span class="item-price">€2,95</span></div>
+                <p class="item-desc">Cerveja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="imperial-estrella" data-name="Imperial Estrella Galicia 20cl" data-price="1.9" data-cat="bebidas" data-desc="Cerveja">
+                <div class="item-top"><h4 class="item-name">Imperial Estrella Galicia 20cl</h4><span class="item-price">€1,90</span></div>
+                <p class="item-desc">Cerveja</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="cafe" data-name="Café" data-price="1.5" data-cat="bebidas" data-desc="Digestivo">
+                <div class="item-top"><h4 class="item-name">Café</h4><span class="item-price">€1,50</span></div>
+                <p class="item-desc">Digestivo</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="grappa" data-name="Grappa" data-price="4" data-cat="bebidas" data-desc="Digestivo">
+                <div class="item-top"><h4 class="item-name">Grappa</h4><span class="item-price">€4,00</span></div>
+                <p class="item-desc">Digestivo</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="amaro-lucano" data-name="Amaro Lucano" data-price="4" data-cat="bebidas" data-desc="Digestivo">
+                <div class="item-top"><h4 class="item-name">Amaro Lucano</h4><span class="item-price">€4,00</span></div>
+                <p class="item-desc">Digestivo</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="amaro-del-capo" data-name="Amaro del Capo" data-price="4" data-cat="bebidas" data-desc="Digestivo">
+                <div class="item-top"><h4 class="item-name">Amaro del Capo</h4><span class="item-price">€4,00</span></div>
+                <p class="item-desc">Digestivo</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="limoncello" data-name="Limoncello" data-price="3" data-cat="bebidas" data-desc="Digestivo">
+                <div class="item-top"><h4 class="item-name">Limoncello</h4><span class="item-price">€3,00</span></div>
+                <p class="item-desc">Digestivo</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritz-kola" data-name="Fritz Kola 33cl" data-price="3.5" data-cat="bebidas" data-desc="Refrigerante">
+                <div class="item-top"><h4 class="item-name">Fritz Kola 33cl</h4><span class="item-price">€3,50</span></div>
+                <p class="item-desc">Refrigerante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritz-zero" data-name="Fritz Kola Super Zero 33cl" data-price="3.5" data-cat="bebidas" data-desc="Refrigerante">
+                <div class="item-top"><h4 class="item-name">Fritz Kola Super Zero 33cl</h4><span class="item-price">€3,50</span></div>
+                <p class="item-desc">Refrigerante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritz-apple" data-name="Fritz Apple Soda Bio 33cl" data-price="3.75" data-cat="bebidas" data-desc="Refrigerante">
+                <div class="item-top"><h4 class="item-name">Fritz Apple Soda Bio 33cl</h4><span class="item-price">€3,75</span></div>
+                <p class="item-desc">Refrigerante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritz-orange" data-name="Fritz Orange Soda 33cl" data-price="3.5" data-cat="bebidas" data-desc="Refrigerante">
+                <div class="item-top"><h4 class="item-name">Fritz Orange Soda 33cl</h4><span class="item-price">€3,50</span></div>
+                <p class="item-desc">Refrigerante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="fritz-lemon" data-name="Fritz Lemon Soda 33cl" data-price="3.5" data-cat="bebidas" data-desc="Refrigerante">
+                <div class="item-top"><h4 class="item-name">Fritz Lemon Soda 33cl</h4><span class="item-price">€3,50</span></div>
+                <p class="item-desc">Refrigerante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="sumo-b" data-name="Sumo B! 33cl" data-price="2.75" data-cat="bebidas" data-desc="Refrigerante — laranja ou manga">
+                <div class="item-top"><h4 class="item-name">Sumo B! 33cl</h4><span class="item-price">€2,75</span></div>
+                <p class="item-desc">Refrigerante — laranja ou manga</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="agua-panna" data-name="Still Water 50cl" data-price="2.5" data-cat="bebidas" data-desc="Acqua Panna">
+                <div class="item-top"><h4 class="item-name">Still Water 50cl</h4><span class="item-price">€2,50</span></div>
+                <p class="item-desc">Acqua Panna</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="agua-pedras" data-name="Sparkling Water 25cl" data-price="2.5" data-cat="bebidas" data-desc="Pedras Salgadas">
+                <div class="item-top"><h4 class="item-name">Sparkling Water 25cl</h4><span class="item-price">€2,50</span></div>
+                <p class="item-desc">Pedras Salgadas</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="conde-monsul-copo" data-name="Conde de Monsul — Douro (copo)" data-price="4.75" data-cat="bebidas" data-desc="Tinto ou branco — Douro">
+                <div class="item-top"><h4 class="item-name">Conde de Monsul — Douro</h4><span class="item-price">€4,75</span></div>
+                <p class="item-desc">Copo · tinto ou branco</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="conde-monsul-garrafa" data-name="Conde de Monsul — Douro (garrafa)" data-price="18.5" data-cat="bebidas" data-desc="Garrafa · tinto ou branco — Douro">
+                <div class="item-top"><h4 class="item-name">Conde de Monsul — Douro</h4><span class="item-price">€18,50</span></div>
+                <p class="item-desc">Garrafa · tinto ou branco</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="cabriz" data-name="Cabriz — Dão (garrafa)" data-price="17.9" data-cat="bebidas" data-desc="Garrafa · tinto ou branco">
+                <div class="item-top"><h4 class="item-name">Cabriz — Dão</h4><span class="item-price">€17,90</span></div>
+                <p class="item-desc">Garrafa · tinto ou branco</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="alforge-copo" data-name="Alforge — Alentejo (copo)" data-price="4.25" data-cat="bebidas" data-desc="Copo · tinto ou branco">
+                <div class="item-top"><h4 class="item-name">Alforge — Alentejo</h4><span class="item-price">€4,25</span></div>
+                <p class="item-desc">Copo · tinto ou branco</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="alforge-garrafa" data-name="Alforge — Alentejo (garrafa)" data-price="16.9" data-cat="bebidas" data-desc="Garrafa · tinto ou branco">
+                <div class="item-top"><h4 class="item-name">Alforge — Alentejo</h4><span class="item-price">€16,90</span></div>
+                <p class="item-desc">Garrafa · tinto ou branco</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="prosecco" data-name="Prosecco — Treviso (garrafa)" data-price="18" data-cat="bebidas" data-desc="Espumante">
+                <div class="item-top"><h4 class="item-name">Prosecco — Treviso</h4><span class="item-price">€18,00</span></div>
+                <p class="item-desc">Garrafa · espumante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+              <article class="item rv rv-scale" data-id="espumante-brut" data-name="Espumante Brut (copo)" data-price="4.75" data-cat="bebidas" data-desc="Espumante">
+                <div class="item-top"><h4 class="item-name">Espumante Brut</h4><span class="item-price">€4,75</span></div>
+                <p class="item-desc">Copo · espumante</p>
+                <div class="item-foot"><span class="tags"></span><button class="add" data-add>Adicionar</button></div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="menu-side rv rv-right">
+          <h4>O menu da casa</h4>
+          <img src="assets/img/menu-casa.webp" width="500" height="667" alt="Menu impresso da casa com a marca Comida Santa Chiara e a gravura da lagosta ao centro" loading="lazy" decoding="async">
+          <p>A pizzeria serve a carta digital no telemóvel, em cada mesa. O menu da casa acima é o mesmo que está à mão no balcão.</p>
+          <a class="btn btn-ghost btn-sm btn-block" href="https://www.quickermenu.it/santachiara/" target="_blank" rel="noopener">Abrir o menu digital oficial</a>
+          <p class="menu-note">Preços transcritos do menu da casa e do menu digital da pizzeria. A confirmar na origem — sem portes, taxa de entrega ou prazos aqui prometidos.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament" aria-hidden="true"><span></span>✦<span></span></div>
+
+  <!-- ====== 4. DESTAQUES — CONFIAR ====== -->
+  <section class="sec" id="destaques">
+    <div class="bridge" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">Destaques</span>
+        <h2 class="rv rv-clip">As pizzas que <em>resumem a casa</em></h2>
+        <p class="rv rv-fade">Do menu da casa, com os ingredientes escritos à mão no balcão. Escolhe a tua e envia o pedido sem refazer nada.</p>
+      </div>
+      <div class="feat-grid">
+        <article class="feat rv rv-scale">
+          <div class="feat-media">
+            <span class="feat-badge">Clássica</span>
+            <img src="assets/img/margherita-heart-700.webp" width="700" height="933" alt="Pizza Margherita com formato de coração, tomate San Marzano, mozzarella e manjericão" loading="lazy" decoding="async" data-par="0.04">
+            <span class="feat-price">€10,00</span>
+          </div>
+          <div class="feat-body">
+            <h3>Margherita</h3>
+            <p>Tomate San Marzano, mozzarella e manjericão. A base de tudo — e o primeiro pedido de qualquer mesa.</p>
+            <div class="item-foot"><span class="tags"><span class="tag v">Vegetariana</span><span class="tag b">Branca</span></span><button class="add" data-add data-id="margherita" data-name="Margherita" data-price="10">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="feat rv rv-scale" style="transition-delay:.08s">
+          <div class="feat-media">
+            <span class="feat-badge">Piccante</span>
+            <img src="assets/img/diavola-700.webp" width="1000" height="768" alt="Pizza Diavola com salame napolitano, mozzarella, tomate e manjericão" loading="lazy" decoding="async" data-par="-0.03">
+            <span class="feat-price">€13,00</span>
+          </div>
+          <div class="feat-body">
+            <h3>Diavola</h3>
+            <p>Tomate San Marzano, mozzarella, salame napolitano e azeite picante caseiro.</p>
+            <div class="item-foot"><span class="tags"><span class="tag p">Piccante</span></span><button class="add" data-add data-id="diavola" data-name="Diavola" data-price="13">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="feat rv rv-scale" style="transition-delay:.16s">
+          <div class="feat-media">
+            <span class="feat-badge">Especial</span>
+            <img src="assets/img/posillipo-660.webp" width="660" height="560" alt="Pizza Posillipo com pesto, mozzarella, salame napolitano e burrata ao centro" loading="lazy" decoding="async" data-par="0.05">
+            <span class="feat-price">€16,50</span>
+          </div>
+          <div class="feat-body">
+            <h3>Posillipo</h3>
+            <p>Pesto, mozzarella, salame napolitano e burrata. O verde do pesto por cima, como a casa escreve no menu.</p>
+            <div class="item-foot"><span class="tags"><span class="tag b">Branca</span></span><button class="add" data-add data-id="posillipo" data-name="Posillipo" data-price="16.5">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="feat rv rv-scale">
+          <div class="feat-media">
+            <span class="feat-badge">Especial</span>
+            <img src="assets/img/crudo-scaglie-480.webp" width="480" height="640" alt="Pizza Crudo e Scaglie com rúcula, cherry tomate, prosciutto e lascas de queijo" loading="lazy" decoding="async">
+            <span class="feat-price">€14,50</span>
+          </div>
+          <div class="feat-body">
+            <h3>Crudo e Scaglie</h3>
+            <p>Tomate San Marzano, mozzarella, prosciutto e rúcula — servida crua, com o prosciutto por cima.</p>
+            <div class="item-foot"><span class="tags"><span class="tag b">Branca</span></span><button class="add" data-add data-id="crudo-e-scaglie" data-name="Crudo e Scaglie" data-price="14.5">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="feat rv rv-scale" style="transition-delay:.08s">
+          <div class="feat-media">
+            <span class="feat-badge">Especial</span>
+            <img src="assets/img/mortadella-pistacchio-500.webp" width="500" height="667" alt="Pizza Mortadella e Pistacchio com mortadella, pesto de pistácio e stracciatella" loading="lazy" decoding="async">
+            <span class="feat-price">€17,50</span>
+          </div>
+          <div class="feat-body">
+            <h3>Mortadella e Pistacchio</h3>
+            <p>Mortadella, pesto de pistácio e stracciatella. Mortadella, burrata e pesto de pistácio na mesma fatia.</p>
+            <div class="item-foot"><span class="tags"><span class="tag b">Branca</span></span><button class="add" data-add data-id="mortadella-e-pistacchio" data-name="Mortadella e Pistacchio" data-price="17.5">Adicionar</button></div>
+          </div>
+        </article>
+        <article class="feat quiet rv rv-scale" style="transition-delay:.16s">
+          <div class="feat-media"><span class="feat-badge">Tributo ao Napoli</span></div>
+          <div class="feat-body">
+            <h3>McTominay</h3>
+            <p>Natale, mozzarella e cogumelos ostra assados. A pizza que a casa dedicou ao capitão do Napoli.</p>
+            <div class="item-foot"><span class="tags"></span><button class="add" data-add data-id="mctominay" data-name="McTominay" data-price="15.5">Adicionar</button></div>
+          </div>
+        </article>
+        <div class="feat-quote rv rv-fade">
+          <div>
+            <q>Podes mexer em tudo. Queres pôr ananás na pizza? Não há problema. Mas no Diego não mexes.</q>
+            <cite>Alfonso Cantarelli, à Time Out Lisboa</cite>
+          </div>
+          <button class="btn btn-ghost" data-open-cart>Fazer um pedido</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 5. HAPPY HOUR / PROMOÇÕES ====== -->
+  <section class="sec" id="happy-hour">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">Hora do aperitivo</span>
+        <h2 class="rv rv-clip">Happy <em>Hour</em></h2>
+      </div>
+      <div class="hh rv rv-scale">
+        <div>
+          <h2>Happy <em>Hour</em></h2>
+          <p>À sexta e ao sábado, a esplanada enche-se entre as 15h00 e as 19h00. A pizza não pára — é a hora de pedir um Spritz e ficar pela rua.</p>
+          <div class="hh-days">
+            <span>Sexta · 15h–19h</span>
+            <span>Sábado · 15h–19h</span>
+            <span>Aberto ao domingo</span>
+          </div>
+          <p style="margin-top:22px;font-size:14px">Desde outubro, a Santa Chiara também abre ao domingo à noite. A confirmação é sempre feita pela equipa, no balcão.</p>
+        </div>
+        <div class="drinks">
+          <div><b>Aperol Spritz</b><i>€7,50</i></div>
+          <div><b>Limoncello Spritz</b><i>€7,50</i></div>
+          <div><b>Campari Spritz</b><i>€7,50</i></div>
+          <div><b>Gin Tonic</b><i>€7,50</i></div>
+          <div><b>Negroni</b><i>€7,50</i></div>
+          <div><b>Moretti 33cl</b><i>€2,95</i></div>
+          <div><b>Peroni 33cl</b><i>€2,95</i></div>
+          <div><b>Caneca Estrella Galicia 40cl</b><i>€3,90</i></div>
+          <div><b>Nastro Azzurro 33cl</b><i>€2,95</i></div>
+          <div><b>Imperial Estrella Galicia 20cl</b><i>€1,90</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 6. AMBIENTE ====== -->
+  <section class="sec" id="ambiente">
+    <div class="bridge" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">A casa</span>
+        <h2 class="rv rv-clip">Entre o balcão e a <em>esplanada</em></h2>
+        <p class="rv rv-fade">Um espaço pequeno, com 55 lugares, mesas na rua e um mural pintado sobre os azulejos brancos do balcão. Não há reservas — a fila do Napoli é mais antiga do que a pizzaria.</p>
+      </div>
+      <div class="gal">
+        <figure class="g-big rv rv-scale">
+          <img src="assets/img/balcao-mural-700.webp" width="750" height="422" alt="Balcão da pizzeria com a placa PIZZERIA SANTA CHIARA, copos de vinho pendurados e o mural de Diego nos azulejos" loading="lazy" decoding="async" data-par="0.05">
+          <figcaption>O balcão e o mural de Diego — foto Rita Chantre / Time Out Lisboa</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.06s">
+          <img src="assets/img/salao-500.webp" width="500" height="333" alt="Interior da pizzeria com mesas de madeira, candeeiros pendurados e o mural do balcão ao fundo" loading="lazy" decoding="async">
+          <figcaption>A sala</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.12s">
+          <img src="assets/img/forno-equipa-500.webp" width="500" height="333" alt="Cozinha da pizzeria com o forno de cúpula vermelha, caixas de massa e a equipa a trabalhar ao balcão" loading="lazy" decoding="async">
+          <figcaption>A cozinha e o forno</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.18s">
+          <img src="assets/img/fachada-700.webp" width="1024" height="768" alt="Fachada da pizzeria com a placa da lagosta, o quadro de ardósia e as mesas altas na esplanada" loading="lazy" decoding="async">
+          <figcaption>A fachada na Avenida 5 de Outubro</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.24s">
+          <img src="assets/img/mural-maradona-500.webp" width="500" height="333" alt="Fotografia emoldurada do Maradona nos azulejos do interior, ao lado de inscriptions escritas à mão" loading="lazy" decoding="async">
+          <figcaption>O retrato do Diego, emoldurado no azulejo</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.3s">
+          <img src="assets/img/equipa-maradona-1000.webp" width="1000" height="1333" alt="Colaborador da pizzeria com uma t-shirt do Maradona, ao balcão" loading="lazy" decoding="async" data-par="-0.04">
+          <figcaption>A equipa</figcaption>
+        </figure>
+        <figure class="g-tall rv rv-scale" style="transition-delay:.36s">
+          <img src="assets/img/mesa-cotto-funghi-700.webp" width="700" height="933" alt="Pizza com cogumelos e fiambre servida na mesa, junto à janela da esplanada" loading="lazy" decoding="async">
+          <figcaption>À mesa, na esplanada</figcaption>
+        </figure>
+      </div>
+      <div class="chips rv rv-fade">
+        <span>55 lugares</span><span>Esplanada</span><span>Wi-Fi grátis</span><span>Jogos no ecrã</span><span>Fritz Kola nas mesas</span><span>Sem reservas</span><span>Napoli ao domingo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 7. VISITE ====== -->
+  <section class="sec" id="visite">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label rv">Visite</span>
+        <h2 class="rv rv-clip">Avenida 5 de Outubro, <em>265</em></h2>
+      </div>
+      <div class="visit-grid">
+        <figure class="map-photo rv rv-left">
+          <img src="assets/img/fachada-1000.webp" width="1024" height="768" alt="Fachada da Pizzeria Santa Chiara com a placa da lagosta, o letreiro PIZZERIA SANTA CHIARA e a esplanada na Avenida 5 de Outubro" loading="lazy" decoding="async" data-par="0.04">
+        </figure>
+        <div>
+          <div class="visit-card rv rv-right">
+            <h3>Horários</h3>
+            <table class="hours">
+              <tbody>
+                <tr><td>Segunda a quinta</td><td>12h20 – 15h00 · 19h20 – 23h00</td></tr>
+                <tr><td>Sexta e sábado</td><td>12h20 – 23h00</td></tr>
+                <tr><td>Domingo</td><td>19h20 – 23h00</td></tr>
+              </tbody>
+            </table>
+            <p class="menu-note">Horários publicados pela pizzeria no Instagram oficial. A casa não aceita reservas — a espera faz-se na esplanada, como em Nápoles.</p>
+          </div>
+          <div class="visit-info rv rv-fade">
+            <p><b>Morada</b><span>Avenida 5 de Outubro 265<br>1600-034 Lisboa, Portugal<br><span style="color:var(--muted)">Plus code PRWX+6X</span></span></p>
+            <p><b>Telefone</b><a href="tel:+351211522801">+351 21 152 2801</a></p>
+            <p><b>Instagram</b><a href="https://www.instagram.com/santachiarapizza/" target="_blank" rel="noopener">@santachiarapizza</a></p>
+            <p><b>Menu digital</b><a href="https://www.quickermenu.it/santachiara/" target="_blank" rel="noopener">quickermenu.it/santachiara</a></p>
+          </div>
+          <div class="visit-cta rv rv-fade">
+            <a class="btn" href="https://www.maps.app.goo.gl/S4896HuHWuzmLbwe7" target="_blank" rel="noopener">Abrir no mapa</a>
+            <a class="btn btn-ghost" href="tel:+351211522801">Ligar para a pizzeria</a>
+            <button class="btn btn-ghost" data-open-cart>Montar pedido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 8. CTA FINAL — AGIR ====== -->
+  <section class="final">
+    <div class="wrap final-in">
+      <span class="sec-label rv">Pedir</span>
+      <h2 class="rv rv-clip">O forno está aceso.<br><em>Faz o teu pedido.</em></h2>
+      <p class="rv rv-fade">Monta o pedido aqui — pizzas, bebidas, sobremesa — e envia tudo organizado para a pizzeria, sem escrever nada duas vezes.</p>
+      <div class="final-cta rv rv-fade">
+        <button class="btn" data-open-cart>Montar o meu pedido</button>
+        <a class="btn btn-ghost" href="tel:+351211522801">Ligar: +351 21 152 2801</a>
+      </div>
+      <p class="final-note rv rv-fade">O pedido é enviado para a equipa da pizzeria, que confirma disponibilidade e valores finais. A confirmação é sempre humana.</p>
+    </div>
+  </section>
+
+  <!-- ====== 9. LEGAL ====== -->
+  <section class="legal" id="privacidade">
+    <div class="wrap">
+      <div class="legal-grid">
+        <div>
+          <h3>Política de privacidade</h3>
+          <h4>Que dados recolhemos</h4>
+          <p>Quando preparas um pedido neste site, recolhemos apenas o que é necessário para o entregar: o teu nome, o teu número de telefone e — se escolheres entrega — o endereço e a zona de entrega. As observações que escreves são guardadas apenas no resumo do pedido.</p>
+          <h4>Para que usamos</h4>
+          <p>Usamos esses dados exclusivamente para tratar o teu pedido: confirmar a disponibilidade, preparar a entrega ou a retirada e responder-te. Não vendemos, não partilhamos e não usamos os dados para publicidade.</p>
+          <h4>Os teus direitos</h4>
+          <ul>
+            <li>Pedir a confirmação do tratamento dos teus dados.</li>
+            <li>Solicitar a correção de dados inexatos.</li>
+            <li>Pedir a eliminação dos dados depois de o pedido estar tratado.</li>
+          </ul>
+          <p style="margin-top:14px">Exercês qualquer um destes direitos contacting a pizzeria pelo número <a href="tel:+351211522801" style="color:var(--red);text-decoration:underline">+351 21 152 2801</a> ou pelo Instagram oficial.</p>
+          <h4>Cookies</h4>
+          <p>Este site não instala analytics, píxeis de publicidade nem trackers de terceiros, e por isso não existe banner de cookies. Os únicos dados guardados no teu navegador são os itens do pedido que preparaste, para não perderes a seleção ao recarregar a página.</p>
+        </div>
+        <div id="termos">
+          <h3>Termos de uso e regras de atendimento</h3>
+          <h4>O que este site faz</h4>
+          <p>Este site apresenta a pizzeria, transcreve o seu menu e permite preparar um pedido. O botão de pedido é apenas uma ordem de serviço: nada é cobrado aqui e não existe pagamento online.</p>
+          <h4>Como funciona o pedido</h4>
+          <ul>
+            <li>Escolhes os produtos, a quantidade e a modalidade — retirada, consumo no local ou entrega.</li>
+            <li>Enviamos o resumo do pedido pelo canal que escolheres (WhatsApp, cópia do texto ou telefone).</li>
+            <li>A pizzeria confirma a disponibilidade, os valores finais e o tempo de preparação.</li>
+            <li>Nenhum pedido é considerado confirmado antes dessa resposta da equipa.</li>
+          </ul>
+          <h4>Preços e menu</h4>
+          <p>Os preços apresentados foram transcritos do menu da casa e do menu digital da pizzeria e podem mudar sem aviso. O menu digital oficial disponível em cada mesa prevalece sobre esta página.</p>
+          <h4>Entrega e consumo no local</h4>
+          <p>A casa tem 55 lugares e não aceita reservas. A entrega e os seus custos são tratados diretamente com a pizzeria: este site não promete zonas de entrega, taxas nem prazos.</p>
+          <h4>Conteúdo do site</h4>
+          <p>As fotografias e as ilustrações aqui usadas pertencem à pizzeria, aos seus fornecedores de imprensa e aos autores das imagens identificadas em cada legenda. Conteúdo, marcas e logótipos pertencem aos seus titulares.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== RODAPÉ ====== -->
+  <footer class="ftr">
+    <div class="wrap">
+      <div class="ftr-grid">
+        <div>
+          <div class="ftr-brand">
+            <img src="assets/img/logo-placa.webp" width="300" height="433" alt="Placa da Pizzeria Santa Chiara com a gravura da lagosta" loading="lazy" style="width:44px;border-radius:4px">
+            <span class="brand-txt">
+              <span class="brand-name">Santa Chiara</span>
+              <span class="brand-sub">Pizzeria · Lisboa</span>
+            </span>
+          </div>
+          <p>Pizza napolitana a lenha, feita por napolitanos, em Entrecampos. Santa Chiara é Nápoles.</p>
+        </div>
+        <div>
+          <h4>Onde estamos</h4>
+          <p>Avenida 5 de Outubro 265<br>1600-034 Lisboa, Portugal</p>
+          <a href="tel:+351211522801">+351 21 152 2801</a>
+          <a href="https://www.maps.app.goo.gl/S4896HuHWuzmLbwe7" target="_blank" rel="noopener">Abrir no mapa</a>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <a href="#cardapio">Cardápio</a>
+          <a href="#historia">A história</a>
+          <a href="#ambiente">A casa</a>
+          <a href="#visite">Horários</a>
+          <a href="https://www.quickermenu.it/santachiara/" target="_blank" rel="noopener">Menu digital oficial</a>
+          <a href="https://www.instagram.com/santachiarapizza/" target="_blank" rel="noopener">Instagram</a>
+          <a href="#privacidade">Privacidade</a>
+          <a href="#termos">Termos</a>
+        </div>
+      </div>
+      <div class="ftr-bottom">
+        <span>© 2026 Pizzeria Santa Chiara · Lisboa</span>
+        <span>Fotografias: pizzeria, Rita Chantre / Time Out Lisboa e fontes identificadas em cada legenda.</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- ====== CARRINHO / PEDIDO ====== -->
+<button class="fab" id="fab" aria-label="Abrir o meu pedido">
+  <span>Meu pedido</span><span class="count" id="fab-count">0</span><span id="fab-total">€0,00</span>
+</button>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+  <div class="drawer-head">
+    <h3 id="drawer-title">O teu pedido</h3>
+    <button class="close" id="drawer-close" aria-label="Fechar pedido">✕</button>
+  </div>
+  <div class="drawer-body" id="cart-body">
+    <div class="cart-empty" id="cart-empty">
+      <b>O pedido está vazio</b>
+      Escolhe pizzas, bebidas e sobremesas no cardápio e monta aqui o teu pedido.
+    </div>
+    <div id="cart-lines"></div>
+    <div class="modes" id="modes" hidden>
+      <label class="mode"><input type="radio" name="modo" value="retirada" checked><span>Levantar na pizzeria<small>Avenida 5 de Outubro, 265 — sem reservas</small></span></label>
+      <label class="mode"><input type="radio" name="modo" value="mesa"><span>Consumo no local<small>Sem reservas — a mesa é por ordem de chegada</small></span></label>
+      <label class="mode"><input type="radio" name="modo" value="entrega"><span>Entrega<small>Zona, taxa e prazo a confirmar com a pizzeria</small></span></label>
+    </div>
+    <div id="checkout" hidden>
+      <div class="fields">
+        <div class="row">
+          <div>
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" type="text" autocomplete="name" placeholder="Como te devemos chamar">
+            <div class="err" id="e-nome">Escreve o teu nome.</div>
+          </div>
+          <div>
+            <label for="f-tel">Telefone</label>
+            <input id="f-tel" type="tel" autocomplete="tel" placeholder="9xx xxx xxx">
+            <div class="err" id="e-tel">Escreve um telefone para confirmarmos.</div>
+          </div>
+        </div>
+        <div id="addr-fields" hidden>
+          <label for="f-morada">Morada de entrega</label>
+          <input id="f-morada" type="text" autocomplete="street-address" placeholder="Rua, número, código postal, zona">
+          <div class="err" id="e-morada">Para entrega precisamos da morada completa.</div>
+        </div>
+        <div>
+          <label for="f-notas">Observações para a pizzeria</label>
+          <input id="f-notas" type="text" placeholder="Ex.: sem orégãos, borda mais assada, mesa para 4">
+        </div>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="f-consent">
+        <span>Autorizo o tratamento dos meus dados para este pedido, conforme a <a href="#privacidade">Política de Privacidade</a>.</span>
+      </label>
+      <div class="err" id="e-consent" style="margin:-8px 0 10px">É preciso aceitar para enviar o pedido.</div>
+      <label for="f-preview" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px">Resumo do pedido</label>
+      <textarea class="preview" id="f-preview" rows="9"></textarea>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <div class="totals"><span>Subtotal</span><span id="t-sub">€0,00</span></div>
+    <div class="totals grand"><span>Total</span><span id="t-total">€0,00</span></div>
+    <div class="drawer-actions" id="drawer-actions" style="margin-top:14px"></div>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   PIZZERIA SANTA CHIARA — camada de movimento + fluxo de pedido
+   ============================================================ */
+(function(){
+  "use strict";
+
+  /* ---------- CONFIG (números oficiais confirmados) ---------- */
+  var CFG = {
+    /* Telefone publicado no perfil oficial da Pizzeria Santa Chiara no Google Maps.
+       Para ativar/desativar o envio por WhatsApp basta alterar este valor
+       (formato internacional, só dígitos). Enquanto estiver vazio, o site
+       mantém "copiar pedido" + "ligar" como canais de envio. */
+    wa: "351211522801",
+    tel: "+351211522801",
+    nome: "Pizzeria Santa Chiara"
+  };
+
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- CABEÇALHO ---------- */
+  var hdr = document.getElementById("hdr");
+  function onScroll(){ hdr.classList.toggle("stuck", window.scrollY > 40); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* ---------- MENU MOBILE ---------- */
+  var nav = document.getElementById("nav"), burger = document.getElementById("burger");
+  function closeNav(){ nav.classList.remove("open"); burger.classList.remove("open"); burger.setAttribute("aria-expanded","false"); }
+  burger.addEventListener("click", function(){
+    var open = !nav.classList.contains("open");
+    nav.classList.toggle("open", open);
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", function(e){ if(e.target.tagName === "A") closeNav(); });
+
+  /* ---------- REVEAL ---------- */
+  var revealables = document.querySelectorAll(".rv, .rv-clip, .rv-fade, .rv-left, .rv-right, .rv-scale");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en, i){
+        if(en.isIntersecting){
+          io.unobserve(en.target);
+          var d = parseInt(en.target.dataset.delay || 0, 10);
+          setTimeout(function(){ en.target.classList.add("in"); }, Math.min(i * 70 + d, 500));
+        }
+      });
+    }, {threshold:0.08, rootMargin:"0px 0px -6% 0px"});
+    revealables.forEach(function(el){ io.observe(el); });
+  } else {
+    revealables.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* rede de segurança: o que está no ecrã tem de aparecer, mesmo se o observer falhar */
+  setTimeout(function(){
+    revealables.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * 1.15 && r.bottom > -160) el.classList.add("in");
+    });
+  }, 1400);
+  window.addEventListener("scroll", function(){
+    revealables.forEach(function(el){
+      if(el.classList.contains("in")) return;
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * 1.05 && r.bottom > -160) el.classList.add("in");
+    });
+  }, {passive:true});
+
+  /* ---------- PARALLAX ---------- */
+  var pars = [].slice.call(document.querySelectorAll("[data-par]"));
+  if(pars.length && !reduce){
+    var ticking = false;
+    function render(){
+      var vh = window.innerHeight;
+      pars.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if(r.bottom < -200 || r.top > vh + 200) return;
+        var prog = (r.top + r.height/2 - vh/2) / vh;
+        el.style.transform = "translate3d(0," + (prog * parseFloat(el.dataset.par) * -100).toFixed(2) + "px,0)";
+      });
+      ticking = false;
+    }
+    function onPar(){ if(!ticking){ requestAnimationFrame(render); ticking = true; } }
+    window.addEventListener("scroll", onPar, {passive:true});
+    window.addEventListener("resize", onPar, {passive:true});
+    render();
+  }
+
+  /* ---------- TAGS DO MENU ---------- */
+  document.querySelectorAll(".item[data-tags]").forEach(function(it){
+    var wrap = it.querySelector(".tags"), tags = (it.dataset.tags || "").split(" ").filter(Boolean);
+    tags.forEach(function(t){
+      var s = document.createElement("span");
+      s.className = "tag " + t.toLowerCase();
+      s.textContent = t === "V" ? "Vegetariana" : t === "P" ? "Piccante" : t === "B" ? "Branca" : t;
+      wrap.appendChild(s);
+    });
+  });
+
+  /* ---------- FILTRO DE CATEGORIAS ---------- */
+  var tabs = [].slice.call(document.querySelectorAll(".tab"));
+  var groups = [].slice.call(document.querySelectorAll(".menu-cat"));
+  tabs.forEach(function(tab){
+    tab.addEventListener("click", function(){
+      tabs.forEach(function(t){ t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+      var cat = tab.dataset.cat;
+      groups.forEach(function(g){
+        var show = cat === "todas" || g.dataset.group === cat;
+        g.classList.toggle("hide", !show);
+        if(show){
+          g.querySelectorAll(".rv-scale,.rv-fade").forEach(function(el, i){
+            el.style.transitionDelay = (i % 3) * 70 + "ms";
+          });
+        }
+      });
+      if(cat !== "todas"){
+        var first = document.querySelector('.menu-cat[data-group="' + cat + '"]');
+        if(first){ var y = first.getBoundingClientRect().top + window.scrollY - 110; window.scrollTo({top:y, behavior: reduce ? "auto" : "smooth"}); }
+      }
+    });
+  });
+
+  /* ---------- CARRINHO ---------- */
+  var cart = [];
+  try{ var saved = JSON.parse(localStorage.getItem("sc-cart") || "[]"); if(Array.isArray(saved)) cart = saved; }catch(e){ cart = []; }
+  function saveCart(){ try{ localStorage.setItem("sc-cart", JSON.stringify(cart)); }catch(e){} }
+
+  function euro(v){ return "€" + v.toFixed(2).replace(".", ","); }
+
+  var fab = document.getElementById("fab"), fabCount = document.getElementById("fab-count"), fabTotal = document.getElementById("fab-total");
+  var drawer = document.getElementById("drawer"), scrim = document.getElementById("scrim");
+  var body = document.getElementById("cart-body"), lines = document.getElementById("cart-lines"), empty = document.getElementById("cart-empty");
+  var modes = document.getElementById("modes"), checkout = document.getElementById("checkout"), actions = document.getElementById("drawer-actions");
+  var tSub = document.getElementById("t-sub"), tTotal = document.getElementById("t-total");
+  var preview = document.getElementById("f-preview"), toast = document.getElementById("toast");
+
+  function addItem(id, name, price){
+    var it = null;
+    for(var i=0;i<cart.length;i++){ if(cart[i].id === id){ it = cart[i]; break; } }
+    if(it){ it.qty += 1; }
+    else { cart.push({id:id, name:name, price:parseFloat(price), qty:1, note:""}); }
+    saveCart(); render();
+    fab.classList.remove("bump"); void fab.offsetWidth; fab.classList.add("bump");
+    say((it ? "Mais uma " : "") + name + " no pedido");
+  }
+  function changeQty(id, delta){
+    for(var i=0;i<cart.length;i++){
+      if(cart[i].id === id){
+        cart[i].qty += delta;
+        if(cart[i].qty <= 0){ cart.splice(i,1); }
+        break;
+      }
+    }
+    saveCart(); render();
+  }
+  function removeItem(id){
+    cart = cart.filter(function(c){ return c.id !== id; });
+    saveCart(); render();
+  }
+  function setNote(id, val){
+    cart.forEach(function(c){ if(c.id === id) c.note = val; });
+    saveCart(); updatePreview();
+  }
+  function subtotal(){
+    return cart.reduce(function(s,c){ return s + c.price * c.qty; }, 0);
+  }
+  function count(){
+    return cart.reduce(function(s,c){ return s + c.qty; }, 0);
+  }
+  function modo(){
+    var r = document.querySelector('input[name="modo"]:checked');
+    return r ? r.value : "retirada";
+  }
+  function modoTexto(){
+    return modo() === "retirada" ? "Levantar na pizzeria (Avenida 5 de Outubro, 265)" :
+           modo() === "mesa" ? "Consumo no local (sem reservas)" :
+           "Entrega (a confirmar com a pizzeria)";
+  }
+  function buildMessage(){
+    var L = [];
+    L.push("PEDIDO — PIZZERIA SANTA CHIARA");
+    L.push("");
+    cart.forEach(function(c){
+      L.push(c.qty + "x " + c.name + " — " + euro(c.price * c.qty));
+      if(c.note) L.push("   obs: " + c.note);
+    });
+    L.push("");
+    L.push("Total: " + euro(subtotal()));
+    L.push("Modalidade: " + modoTexto());
+    var nome = document.getElementById("f-nome").value.trim();
+    var tel = document.getElementById("f-tel").value.trim();
+    var mor = document.getElementById("f-morada").value.trim();
+    var notas = document.getElementById("f-notas").value.trim();
+    if(nome) L.push("Nome: " + nome);
+    if(tel) L.push("Telefone: " + tel);
+    if(modo() === "entrega" && mor) L.push("Morada: " + mor);
+    if(notas) L.push("Observações: " + notas);
+    L.push("");
+    L.push("Enviado pelo site da pizzeria. A confirmar pela equipa.");
+    return L.join("\n");
+  }
+  function updatePreview(){ preview.value = buildMessage(); }
+
+  function render(){
+    var has = cart.length > 0;
+    empty.hidden = has;
+    modes.hidden = !has;
+    checkout.hidden = !has;
+    fab.classList.toggle("show", has);
+    fabCount.textContent = count();
+    fabTotal.textContent = euro(subtotal());
+    tSub.textContent = euro(subtotal());
+    tTotal.textContent = euro(subtotal());
+
+    lines.innerHTML = "";
+    cart.forEach(function(c){
+      var el = document.createElement("div");
+      el.className = "cart-line";
+      el.innerHTML =
+        '<div><div class="nm"></div><div class="ds"></div>' +
+        '<div class="qty"><button aria-label="Diminuir quantidade">−</button><span></span><button aria-label="Aumentar quantidade">+</button></div>' +
+        '<textarea class="cart-notes" rows="1" placeholder="Observações desta linha (ex.: sem orégãos)"></textarea>' +
+        '<button class="rm">Remover</button></div>' +
+        '<div class="pr"></div>';
+      el.querySelector(".nm").textContent = c.name;
+      el.querySelector(".ds").textContent = euro(c.price) + " cada";
+      el.querySelector(".qty span").textContent = c.qty;
+      el.querySelector(".pr").textContent = euro(c.price * c.qty);
+      var ta = el.querySelector(".cart-notes");
+      ta.value = c.note || "";
+      ta.addEventListener("input", function(){ setNote(c.id, ta.value); });
+      var btns = el.querySelectorAll(".qty button");
+      btns[0].addEventListener("click", function(){ changeQty(c.id, -1); });
+      btns[1].addEventListener("click", function(){ changeQty(c.id, 1); });
+      el.querySelector(".rm").addEventListener("click", function(){ removeItem(c.id); });
+      lines.appendChild(el);
+    });
+
+    /* botões de ação */
+    actions.innerHTML = "";
+    if(!has){
+      var a = document.createElement("button");
+      a.className = "btn btn-block";
+      a.textContent = "Ver o cardápio";
+      a.addEventListener("click", function(){ closeCart(); document.getElementById("cardapio").scrollIntoView({behavior: reduce ? "auto" : "smooth"}); });
+      actions.appendChild(a);
+      return;
+    }
+    var b1 = document.createElement("button");
+    b1.className = "btn btn-block";
+    b1.textContent = "Copiar pedido";
+    b1.addEventListener("click", function(){
+      var txt = buildMessage();
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){ say("Pedido copiado — envia-o à pizzeria."); }, function(){ preview.select(); say("Não foi possível copiar. Seleciona o resumo e copia."); });
+      } else {
+        preview.value = txt; preview.focus(); preview.select();
+        say("Seleciona o resumo e copia.");
+      }
+    });
+    actions.appendChild(b1);
+
+    if(CFG.wa){
+      var b2 = document.createElement("button");
+      b2.className = "btn btn-dark btn-block";
+      b2.textContent = "Enviar pelo WhatsApp";
+      b2.addEventListener("click", function(){
+        if(!valid()) return;
+        var url = "https://wa.me/" + CFG.wa + "?text=" + encodeURIComponent(buildMessage());
+        window.open(url, "_blank", "noopener");
+        say("Abrimos o WhatsApp com o pedido preparado. A confirmação é da pizzeria.");
+      });
+      actions.appendChild(b2);
+    }
+
+    var or = document.createElement("div"); or.className = "or"; or.textContent = "ou";
+    actions.appendChild(or);
+
+    var b3 = document.createElement("a");
+    b3.className = "btn btn-ghost btn-block";
+    b3.href = "tel:" + CFG.tel;
+    b3.textContent = "Ligar para a pizzeria";
+    actions.appendChild(b3);
+
+    var p = document.createElement("p");
+    p.className = "menu-note";
+    p.style.marginTop = "10px";
+    p.textContent = "O pedido só é confirmado depois de resposta da equipa. Sem reservas e sem pagamento online.";
+    actions.appendChild(p);
+    updatePreview();
+  }
+
+  /* ---------- VALIDAÇÃO ---------- */
+  function valid(){
+    var ok = true;
+    var nome = document.getElementById("f-nome"), tel = document.getElementById("f-tel"),
+        mor = document.getElementById("f-morada"), cons = document.getElementById("f-consent");
+    var en = document.getElementById("e-nome"), et = document.getElementById("e-tel"),
+        em = document.getElementById("e-morada"), ec = document.getElementById("e-consent");
+    function mark(input, err, bad){
+      if(bad){ err.classList.add("show"); input.classList.add("invalid"); ok = false; }
+      else { err.classList.remove("show"); input.classList.remove("invalid"); }
+    }
+    mark(nome, en, nome.value.trim().length < 2);
+    mark(tel, et, tel.value.replace(/[^0-9]/g,"").length < 9);
+    if(modo() === "entrega") mark(mor, em, mor.value.trim().length < 6);
+    else { em.classList.remove("show"); mor.classList.remove("invalid"); }
+    mark(cons, ec, !cons.checked);
+    if(!ok){
+      var first = drawer.querySelector(".invalid");
+      if(first){ first.focus(); first.scrollIntoView({block:"center", behavior: reduce ? "auto" : "smooth"}); }
+      say("Faltam dados para enviar o pedido.");
+    }
+    return ok;
+  }
+
+  /* ---------- ADICIONAR AO PEDIDO ---------- */
+  document.querySelectorAll("[data-add]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var card = btn.closest(".item") || btn.closest(".feat");
+      var id, name, price;
+      if(btn.dataset.id){
+        id = btn.dataset.id; name = btn.dataset.name; price = btn.dataset.price;
+      } else {
+        id = card.dataset.id; name = card.dataset.name; price = card.dataset.price;
+      }
+      addItem(id, name, price);
+    });
+  });
+
+  /* ---------- ABIR/FECHAR CARRINHO ---------- */
+  var lastFocus = null;
+  function openCart(){
+    lastFocus = document.activeElement;
+    drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false");
+    scrim.classList.add("show");
+    document.body.style.overflow = "hidden";
+    setTimeout(function(){ document.getElementById("drawer-close").focus(); }, 120);
+  }
+  function closeCart(){
+    drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true");
+    scrim.classList.remove("show");
+    document.body.style.overflow = "";
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll("[data-open-cart]").forEach(function(b){ b.addEventListener("click", openCart); });
+  fab.addEventListener("click", openCart);
+  document.getElementById("drawer-close").addEventListener("click", closeCart);
+  scrim.addEventListener("click", closeCart);
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      if(drawer.classList.contains("open")) closeCart();
+      else closeNav();
+    }
+  });
+
+  /* ---------- CAMPOS ---------- */
+  ["f-nome","f-tel","f-morada","f-notas"].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener("input", function(){ updatePreview(); });
+  });
+  document.querySelectorAll('input[name="modo"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      var af = document.getElementById("addr-fields");
+      af.hidden = modo() !== "entrega";
+      updatePreview();
+    });
+  });
+  document.getElementById("f-consent").addEventListener("change", function(){
+    if(this.checked) document.getElementById("e-consent").classList.remove("show");
+  });
+
+  /* ---------- TOAST ---------- */
+  var toastT;
+  function say(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toast.classList.remove("show"); }, 3200);
+  }
+
+  render();
+  updatePreview();
+})();
+</script>
+</body>
+</html>
