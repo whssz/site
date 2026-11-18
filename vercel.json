@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "",
-  "installCommand": "exit 0",
+  "installCommand": "true",
   "outputDirectory": "public",
-  "ignoreCommand": "if [ \"$VERCEL_PROJECT_NAME\" = \"amuni-a-caparica\" ]; then exit 1; else exit 0; fi",
+  "ignoreCommand": "if [ \"$VERCEL_PROJECT_NAME\" = \"amuni-pizzaria\" ]; then exit 1; else exit 0; fi",
   "headers": [
     {
       "source": "/(.*)",
