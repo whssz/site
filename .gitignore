@@ -1,0 +1,7 @@
+node_modules/
+public/
+artifacts/
+.vercel/
+.env*
+image-search/
+google_drive/

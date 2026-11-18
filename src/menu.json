@@ -1,0 +1,60 @@
+{
+  "heroVideo": null,
+  "business": {
+    "name": "Avó Maria Pizza",
+    "phone": "+351214575715",
+    "phoneLabel": "+351 21 457 5715",
+    "email": "avomariapizza@gmail.com",
+    "address": "R. José Elias Garcia 520A",
+    "postalAddress": "2775-147 Parede, Portugal",
+    "hours": [
+      ["Quarta a sexta", "17h30–22h30"],
+      ["Sábado e domingo", "12h–15h · 17h30–22h30"],
+      ["Segunda e terça", "Encerrado"]
+    ],
+    "maps": "https://www.google.com/maps/place/Av%C3%B3+Maria+Pizza/data=!4m2!3m1!1s0xd1ec96d8b076a93:0x8884c7943ef92b4a",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=38.6931792%2C-9.354121",
+    "instagram": "https://www.instagram.com/avomaria.pizza/",
+    "reel": "https://www.instagram.com/p/DfDK4RrxYsZ/",
+    "store": "https://www.ubereats.com/pt/store/avo-maria-pizza-parede/8RKTFAw3RQWpKLU7iEVhPA",
+    "repsol": "https://www.guiarepsol.com/es/fichas/solete/avo-maria-pt405269/",
+    "whatsapp": null,
+    "whatsappModes": ["pickup"],
+    "modes": ["pickup", "delivery"]
+  },
+  "categories": [
+    {"id": "pizzas", "name": "Pizzas", "icon": "slice"},
+    {"id": "alho", "name": "Pão de alho", "icon": "bread"},
+    {"id": "sobremesas", "name": "Sobremesas", "icon": "sweet"},
+    {"id": "bebidas", "name": "Bebidas", "icon": "cup"}
+  ],
+  "favorites": ["pepperoni", "margherita", "prosciutto-e-funghi"],
+  "products": [
+    {"id":"margherita","category":"pizzas","name":"Margherita","price":1250,"description":"Molho de tomate, mozzarella fresca, manjericão, grana padano e azeite virgem extra."},
+    {"id":"pepperoni","category":"pizzas","name":"Pepperoni","price":1500,"description":"Molho de tomate, pepperoni italiano, mozzarella fresca, malagueta verde, grana padano DOP, manjericão e mel."},
+    {"id":"prosciutto-e-funghi","category":"pizzas","name":"Prosciutto e Funghi","price":1400,"description":"Molho de tomate, mozzarella fresca, fiambre, cogumelos, grana padano e azeite virgem extra."},
+    {"id":"baconita","category":"pizzas","name":"Baconita","price":1400,"description":"Manteiga de alho, mozzarella fresca, bacon, cebola roxa, orégãos, azeite virgem extra e pimenta preta."},
+    {"id":"presunto-serra","category":"pizzas","name":"Presunto e Queijo da Serra","price":1650,"description":"Molho de tomate, mozzarella fresca, presunto de porco bísaro, queijo da serra DOP, rúcula, grana padano e azeite virgem extra."},
+    {"id":"campo","category":"pizzas","name":"Campo","price":1400,"description":"Molho de tomate, mozzarella fresca, cebola, cogumelos, azeitonas, manjericão, orégãos, pimenta preta, grana padano e azeite virgem extra."},
+    {"id":"supreme","category":"pizzas","name":"Supreme","price":1500,"description":"Molho de tomate, mozzarella fresca, pepperoni italiano, malagueta, cebola, cogumelos, queijo da ilha e mel."},
+    {"id":"chorizo","category":"pizzas","name":"Chorizo","price":1500,"description":"Molho de tomate, chouriço de porco preto, queijo Três Igrejas, mozzarella fresca, cebola roxa, orégãos, grana padano e raspa de limão."},
+    {"id":"presuntina","category":"pizzas","name":"Presuntina","price":1650,"description":"Creme de pistácio, mozzarella fresca, presunto de porco bísaro, rúcula, tomate cherry e grana padano."},
+    {"id":"cogumelos","category":"pizzas","name":"Cogumelos","price":1450,"description":"Molho de alho, mozzarella fresca, cogumelos, grana padano DOP, chimichurri e azeite virgem extra."},
+    {"id":"rosita-vegan","category":"pizzas","name":"Rosita Vegan","price":1400,"description":"Molho rosa de caju e beterraba, tâmaras Medjool, rúcula, avelãs e tomate cherry."},
+    {"id":"cheese","category":"pizzas","name":"Cheese","price":1450,"description":"Mozzarella fresca, grana padano, queijo da serra, queijo da ilha, cebola caramelizada, raspa de limão e salsa."},
+    {"id":"pineapple-express","category":"pizzas","name":"Pineapple Express","price":1450,"description":"Molho de tomate, mozzarella fresca, bacon, ananás, molho de chili chipotle e achiote, cebola roxa, manjericão e grana padano."},
+    {"id":"marinara","category":"pizzas","name":"Marinara","price":1150,"description":"Molho de tomate, alho, orégãos, manjericão e azeite virgem extra."},
+    {"id":"margheritissima","category":"pizzas","name":"Margheritissima","price":1500,"description":"Molho de tomate, mozzarella fresca, tomate cherry, grana padano e burrata."},
+    {"id":"orangina","category":"pizzas","name":"Orangina","price":1700,"description":"Creme de pistácio, mozzarella fresca, chutney de laranja, burrata, pistácios e manjericão fresco."},
+    {"id":"pao-queijo","category":"alho","name":"Pão de Alho com Queijo","price":750,"description":"Alho, orégãos, mozzarella fresca e grana padano, em massa de fermentação natural."},
+    {"id":"pao-cogumelos","category":"alho","name":"Pão de Alho com Queijo e Cogumelos","price":800,"description":"Alho, cogumelos assados, orégãos, mozzarella fresca e grana padano."},
+    {"id":"pao-chourico","category":"alho","name":"Pão de Alho com Queijo e Chouriço de Porco Preto","price":875,"description":"Alho, orégãos, chouriço de porco preto, mozzarella fresca e grana padano."},
+    {"id":"tiramisusi","category":"sobremesas","name":"Tiramisusi","price":690,"description":"Tiramisu com biscoitos caseiros, por Tiramisusi."},
+    {"id":"mousse","category":"sobremesas","name":"Mousse de Chocolate d’Avó","price":650,"description":"Mousse de chocolate com pistácios tostados e azeite de pistácio."},
+    {"id":"agua","category":"bebidas","name":"Água Mineral","price":150,"description":"50 cl."},
+    {"id":"pedras","category":"bebidas","name":"Água das Pedras","price":200,"description":"Água com gás."},
+    {"id":"pedras-limao","category":"bebidas","name":"Água das Pedras Limão","price":250,"description":"Água com gás e limão."},
+    {"id":"coca-cola","category":"bebidas","name":"Coca-Cola","price":270},
+    {"id":"coca-cola-zero","category":"bebidas","name":"Coca-Cola Zero","price":270,"description":"33 cl."}
+  ]
+}
