@@ -26,27 +26,23 @@ Cada entrada tem `photo` (nome do arquivo), `alt` (o que realmente aparece), `wi
 
 ## Vercel
 
-O projeto [sorvete-supremo](https://vercel.com/whsszxx-9424/sorvete-supremo) já está configurado para o build `npm run build`, com saída `public`, sem instalar dependências de produção. A pasta `public` é gerada e não deve ser enviada ao Git.
+O novo projeto [sorvete-supremo-site](https://vercel.com/whsszxx-9424/sorvete-supremo-site) está conectado ao GitHub `whssz/site` e configurado para `npm run build`, saída `public`, sem instalar dependências de produção. A fonte do site é `arena/ca3cb3fc-site`. A pasta `public` é gerada e não deve ser enviada ao Git. O projeto anterior `sorvete-supremo` não é o alvo destas instruções.
 
-**Primeiro deploy pendente.** O conector não permite vincular um repositório a este projeto existente nem enviar o `projectSettings` exigido pela Vercel para o primeiro deploy. Use um destes caminhos autenticados:
+### Produção pelo painel
 
-### Pelo painel, com vínculo ao GitHub
+Em **Settings → Environments → Production → Branch Tracking**, defina `arena/ca3cb3fc-site` para futuros deploys de produção. Não publique `main`, que não contém o site. Se já houver um build `Ready` da branch em [**Deployments**](https://vercel.com/whsszxx-9424/sorvete-supremo-site/deployments), é possível promovê-lo a produção por ali. Caso contrário, use **Create Deployment** com essa branch.
 
-1. No projeto existente, abra [**Settings → Git**](https://vercel.com/whsszxx-9424/sorvete-supremo/settings/git) e conecte `whssz/site`.
-2. Em **Settings → Environments → Production → Branch Tracking**, defina `arena/ca3cb3fc-site`. Não publique `main`, que não contém este site.
-3. Em [**Deployments**](https://vercel.com/whsszxx-9424/sorvete-supremo/deployments), use **Create Deployment** com a branch `arena/ca3cb3fc-site` e aguarde `Ready` em produção.
+### Produção pela CLI
 
-### Pela CLI, sem vincular o GitHub
-
-Em uma máquina com acesso à Vercel, execute no checkout da branch `arena/ca3cb3fc-site`:
+Como alternativa, em uma máquina com acesso à Vercel, execute no checkout da branch `arena/ca3cb3fc-site`:
 
 ```sh
 npx --yes vercel@latest login
-npx --yes vercel@latest deploy --prod --project sorvete-supremo --scope whsszxx-9424
+npx --yes vercel@latest deploy --prod --project sorvete-supremo-site --scope whsszxx-9424
 ```
 
 Conclua o login pelo navegador, sem compartilhar credenciais no chat. Se a CLI não encontrar o projeto existente, não confirme a criação de outro.
 
 ### Verificação
 
-Abra `https://sorvete-supremo.vercel.app/` sem sessão. Em uma máquina com acesso ao domínio, `npm run verify:vercel` confirma HTTP 200, título e correspondência exata entre o HTML publicado e o build local. Antes do primeiro deploy, o domínio reservado retorna `404 DEPLOYMENT_NOT_FOUND`.
+Após o deploy de produção, abra `https://sorvete-supremo-site.vercel.app/` sem sessão. Em uma máquina com acesso ao domínio, `npm run verify:vercel` confirma HTTP 200, título e correspondência exata entre o HTML publicado e o build local. Antes de haver um deploy de produção atribuído ao domínio, o endereço reservado pode retornar `404 DEPLOYMENT_NOT_FOUND`.

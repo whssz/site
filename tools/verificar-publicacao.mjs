@@ -5,7 +5,7 @@ const local = new URL('../public/index.html', import.meta.url);
 const digest = body => createHash('sha256').update(body).digest('hex');
 
 try {
-  const target = new URL(process.argv[2] ?? 'https://sorvete-supremo.vercel.app/');
+  const target = new URL(process.argv[2] ?? 'https://sorvete-supremo-site.vercel.app/');
   const expected = await readFile(local);
   const response = await fetch(target, { signal: AbortSignal.timeout(20000) });
   if (response.status !== 200) throw new Error(`HTTP ${response.status}: ${response.url}`);
