@@ -1,0 +1,19 @@
+{
+  "name": "brutta-pizzeria",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "npm run build && node tools/serve.mjs",
+    "test": "npm run build && node tools/qa.mjs public/index.html && node tools/qa-legal.mjs public/index.html --strict && node tools/test-order.mjs"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "axe-core": "4.14.1",
+    "playwright": "1.65.1"
+  }
+}

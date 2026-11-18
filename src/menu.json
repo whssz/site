@@ -1,0 +1,37 @@
+{
+  "checkedOn": "2026-11-18",
+  "categories": [
+    { "id": "pizzas", "name": "Pizzas", "groups": ["Le Tradizionali", "Le Speciali"] },
+    { "id": "calzones", "name": "Calzones", "groups": ["Calzones"] },
+    { "id": "burger", "name": "Brutta Burger", "groups": ["Brutta Burger"] },
+    { "id": "saladas", "name": "Saladas", "groups": ["Saladas"] },
+    { "id": "sobremesas", "name": "Sobremesas", "groups": ["Sobremesas"] }
+  ],
+  "featured": ["margherita", "diavola", "mortadella"],
+  "items": [
+    { "id": "margherita", "group": "Le Tradizionali", "name": "Pizza Margherita", "description": "Tomate, mozzarella e manjericão.", "cents": 1200 },
+    { "id": "napoletana", "group": "Le Tradizionali", "name": "Pizza Napoletana", "description": "Tomate, mozzarella, anchovas, alcaparras e orégãos.", "cents": 1400 },
+    { "id": "caprese", "group": "Le Tradizionali", "name": "Pizza Caprese", "description": "Tomate cherry, mozzarella di búfala, manjericão e rúcula.", "cents": 1400 },
+    { "id": "prosciutto-funghi", "group": "Le Tradizionali", "name": "Pizza Prosciutto e Funghi", "description": "Tomate, mozzarella, cogumelos e fiambre.", "cents": 1400 },
+    { "id": "diavola", "group": "Le Tradizionali", "name": "Pizza Diavola", "description": "Tomate, mozzarella, salame picante e azeitonas.", "cents": 1400 },
+    { "id": "tonno", "group": "Le Tradizionali", "name": "Pizza Tonno e Cipolla", "description": "Atum, mozzarella, cebola e azeitonas.", "cents": 1400 },
+    { "id": "vegetariana", "group": "Le Tradizionali", "name": "Pizza Vegetariana", "description": "Mozzarella e legumes da estação.", "cents": 1400 },
+    { "id": "marinara", "group": "Le Tradizionali", "name": "Marinara", "description": "Tomate, alho, azeite e orégãos.", "cents": 1200 },
+    { "id": "bolognese", "group": "Le Speciali", "name": "Pizza Bolognese", "description": "Tomate, mozzarella, carne picada e cebola.", "cents": 1600 },
+    { "id": "prosciutto", "group": "Le Speciali", "name": "Pizza al Prosciutto", "description": "Tomate, mozzarella, prosciutto, burrata di búfala e manjericão.", "cents": 1600 },
+    { "id": "mortadella", "group": "Le Speciali", "name": "Pizza alla Mortadella", "description": "Tomate cherry, mortadella di Bologna, stracciatella di burrata e azeite de pistácio.", "cents": 1600 },
+    { "id": "formaggi", "group": "Le Speciali", "name": "Pizza 6 Formaggi", "description": "Mozzarella, roquefort, gorgonzola, parmesão, pecorino e stracciatella di búfala.", "cents": 1600 },
+    { "id": "tartufo", "group": "Le Speciali", "name": "Pizza Tartufo", "description": "Mozzarella, azeite de trufas, tomate cherry, cogumelos, trufa preta e rúcula.", "cents": 1800 },
+    { "id": "lucius", "group": "Le Speciali", "name": "Pizza Salame e Pancetta (Lucius)", "description": "Tomate, mozzarella, pimentos, salame picante, pancetta e tomate cherry.", "cents": 1800 },
+    { "id": "calzone", "group": "Calzones", "name": "Calzone Napoletano", "description": "Tomate, ricotta, mozzarella, salame, sal e pimenta preta.", "cents": 1600 },
+    { "id": "bacon", "group": "Brutta Burger", "name": "Brutta Bacon", "description": "Hambúrguer de novilho, stracciatella di burrata, bacon, tomate e cebola.", "cents": 1600 },
+    { "id": "roquefort", "group": "Brutta Burger", "name": "Brutta Roquefort", "description": "Hambúrguer de novilho, stracciatella di burrata, queijo roquefort, tomate e cebola.", "cents": 1500 },
+    { "id": "rosario", "group": "Brutta Burger", "name": "Brutta Rosario", "description": "Hambúrguer de novilho, fiambre, tomate, cebola, rúcula e stracciatella di burrata.", "cents": 1600 },
+    { "id": "chicken", "group": "Brutta Burger", "name": "Brutta Chicken", "description": "Peito de frango, fiambre, stracciatella di burrata, tomate e alface.", "cents": 1600 },
+    { "id": "salada-caprese", "group": "Saladas", "name": "Brutta Caprese", "description": "Tomate cherry, mozzarella fresca, cogumelos, funcho, cebola, alface e manjericão.", "cents": 1500 },
+    { "id": "salada-frango", "group": "Saladas", "name": "Brutta Frango", "description": "Frango, cogumelos, manga, alface, beterraba, cenoura, sementes de abóbora e nozes.", "cents": 1500 },
+    { "id": "salada-atum", "group": "Saladas", "name": "Brutta Atum", "description": "Grão-de-bico, atum, funcho, ovo cozido, tomate cherry, alface e sementes de chia.", "cents": 1500 },
+    { "id": "tiramisu", "group": "Sobremesas", "name": "Tiramisú Tradicional", "description": "Biscoitos embebidos em café, creme de mascarpone e cacau em pó.", "cents": 700 },
+    { "id": "panna-cotta", "group": "Sobremesas", "name": "Panna Cotta", "description": "Com doce de frutos vermelhos.", "cents": 700 }
+  ]
+}
