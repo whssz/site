@@ -20,7 +20,7 @@ Node.js 22 ou superior. A compilação não precisa de dependências de produç�
 
 ## Vercel
 
-Usar um projeto **exclusivo da Brutta**, com `npm run build`, pasta de saída `public/` e sem instalação de dependências. O deploy deve ser pedido explicitamente a partir do commit aprovado; `vercel.json` desativa o disparo automático para a branch deste trabalho, pois o repositório é partilhado com outros projetos na conta.
+Usar um projeto **exclusivo da Brutta**, com `npm run build`, pasta de saída `public/` e sem instalação de dependências. O `ignoreCommand` em `vercel.json` autoriza builds deste ramo apenas no projeto dedicado da Brutta, identificado por ID, pois o repositório é partilhado. A promoção para produção é feita a partir do commit da versão revista. O workflow desta branch verifica o endereço público sem autenticação.
 
 Após o deploy, a partir de uma máquina com acesso público ao domínio:
 

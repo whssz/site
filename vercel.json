@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "git": { "deploymentEnabled": { "arena/ad59ad84-site": false } },
+  "ignoreCommand": "test \"$VERCEL_PROJECT_ID\" != \"prj_sl8QsLYqczvx5ujsxoqqsJkudXBV\"",
   "installCommand": "echo 'Sem dependências de produção'",
   "buildCommand": "npm run build",
   "outputDirectory": "public",
