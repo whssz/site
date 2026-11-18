@@ -86,3 +86,11 @@ Grão, filetes, selo tipográfico de fermentação e ícones são elementos grá
 - **Combos, promoções vigentes e ranking de mais vendidos:** não documentados; não exibidos. O destaque segue a designação “Favorita da casa”, não números de venda. Ofertas aprovadas têm espaço preparado sem blocos vazios.
 - **Entrega, retirada, área atendida, taxas, disponibilidade e prazo:** não confirmados nos materiais. O atendimento combina a modalidade; nenhum endereço particular é solicitado nem há promessa de delivery.
 - A confirmação da solicitação acontece com a pizzaria, não ao clicar em um link.
+
+## Publicação
+
+**[Abrir La Pizzaria Napolitana na Vercel](https://la-pizzaria-napolitana.vercel.app/)**
+
+Projeto próprio `la-pizzaria-napolitana`, conectado ao repositório. A Vercel devolveu `READY`, `PROMOTED`, `target: production` e confirmou a atribuição do domínio. A página pública foi aberta sem login e retornou o título **“La Pizzaria Napolitana — Pizza artesanal em Fortaleza”**, com a apresentação, as categorias, a favorita, as avaliações, o endereço e o canal oficial corretos.
+
+A referência da entrega está em `qa/publicacao.json`. O teste pós-publicação compara o corpo da resposta pública, não apenas o estado do deploy: exige HTTP 200, `text/html` sem download forçado, título correto, **1.204.969 bytes** e SHA-256 idêntico ao arquivo revisado. Não depende de token da Vercel.

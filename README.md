@@ -43,3 +43,5 @@ O destaque “À moda da casa” reproduz **Favorita da casa** do cardápio. Nã
 ## Conteúdo e integridade
 
 Consulte **`ENTREGA.md`**: fontes, inventário de mídia, verificações, checklist e pendências para a empresa. Nenhum arquivo privado do ZIP do estúdio nem ativo de outro cliente é publicado pelo site.
+
+**Verificação de produção:** `node tools/verify-production.mjs` verifica a publicação registrada em `qa/publicacao.json`. O workflow de mesmo nome roda quando um novo registro de publicação é adicionado na branch de trabalho. Ele não escreve na Vercel, não faz um novo deploy e não envia pedidos.
