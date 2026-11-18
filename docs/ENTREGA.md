@@ -2,6 +2,12 @@
 
 **Versão informativa:** site da pizzaria com ementa navegável e pedido montado no navegador. Não há checkout nem criação de encomenda. Os preços diretos, as condições de entrega/recolha, a autorização de média e a identificação formal são pendências para validação pela casa.
 
+## Publicação verificada — 18/11/2026
+
+- **URL pública:** [dai-friarielli-malagueta.vercel.app](https://dai-friarielli-malagueta.vercel.app/), projeto dedicado na Vercel. A implantação de produção veio do commit [`8b62c1c`](https://github.com/whssz/site/commit/8b62c1c12868f0b9a3004cab17eacd7585a4b69e) de `arena/0b9dcd18-site`, sem alterações em `main`.
+- A [verificação externa](https://github.com/whssz/site/actions/runs/44423206460) fez um GET sem autenticação e confirmou **HTTP 200**, `text/html` e o título **Dai Friarielli Malagueta · Pizzaria italiana na Parede**.
+- **262 581 bytes** sem compressão, correspondentes ao HTML reconstruído localmente (SHA-256 `0f29b083bef3c20ebe552d4b18b3fbef8b61423f29a02d432d712c283fedc6bd`). A edição autossuficiente é `public/index.html`.
+
 ## Pesquisa e decisões
 
 Antes da implementação, foram revistos `COMECE-AQUI.md`, `PROMPT-DE-ABERTURA.md`, `SCRIPT-UNIVERSAL.md`, `GUIA-DE-ESTILO.md`, `DEPLOY.md`, `CONFORMIDADE-E-LEGAL.md` e `ATALHOS.md`, bem como as bases, ferramentas, portfólio e mídias de referência do workspace estrelado. As imagens do workspace pertencem a exemplos de outros projetos: nenhuma foi reutilizada. A linguagem visual da entrega segue os tons marinho/grafite, rosé e creme solicitados, tipos serifado, cursivo e de leitura, e contornos ovais. Sem ficheiro verificável do logótipo, o nome é composto tipograficamente; o pequeno ornamento com a inicial não é apresentado como a marca oficial.
@@ -49,7 +55,7 @@ As licenças das três fontes estão em `assets/fonts/` e no HTML exportado. Par
 | 12 | OK com alternativa prevista | Fluxo real testado até à cópia: artigos, quantidades, remoção, preferência, observações e persistência. WhatsApp direto apenas testado isoladamente; sem número oficial não há envio. |
 | 13 | OK | Chamadas, rota, links, navegação, carrinho, cópia, informação legal e pausa acionáveis. |
 | 14 | Fallback conforme a regra de origem | Nenhuma mídia falsa; Galeria aponta para a origem. Fotos/vídeos reais no corpo e logótipo dependem dos originais autorizados. |
-| 15 | Produção | Publicação prevista em [dai-friarielli-malagueta.vercel.app](https://dai-friarielli-malagueta.vercel.app). A confirmação HTTP e da versão servida é feita no fecho da entrega. |
+| 15 | OK | Produção publicada; HTTP 200, título e conteúdo validados sem login. |
 
 ## QA em Chromium 131
 
@@ -59,7 +65,7 @@ As licenças das três fontes estão em `assets/fonts/` e no HTML exportado. Par
 | Tablet · 768 × 1024 | 0 px | 27 | 11 | 23/23 | 0 |
 | Mobile · 390 × 844 | 0 px | 21 | 11 | 23/23 | 0 |
 
-- `tools/qa.mjs` e `tools/qa-legal.mjs --strict`: gates aprovados em navegador, incluindo foco visível nos primeiros 14 elementos percorridos por Tab. `npm test`: 4 testes. `npm run test:browser`: navegação por toque e teclado, carrinho e cópia real, alternativa de cópia manual, verificação do resumo, fixture de validação de WhatsApp e layout entre 320–1920 px.
+- `tools/qa.mjs` e `tools/qa-legal.mjs --strict`: gates aprovados em navegador, incluindo foco visível nos primeiros 14 elementos percorridos por Tab. `npm test`: 4 testes. `npm run test:browser`: navegação por toque e teclado, alvos principais de pelo menos 44 × 44 px, carrinho e cópia real, alternativa de cópia manual, verificação do resumo, fixture de validação de WhatsApp e layout entre 320–1920 px. O ficheiro também abriu sem rede, com a ementa e o resumo funcionais.
 - axe sem violações WCAG A/AA nas duas páginas/estados testados (desktop e carrinho mobile); contraste amostrado contra o fundo composto, por exemplo: subtítulo do hero **7,27:1**, botão primário **8,26:1**, descrição da ementa **8,93:1**, texto da galeria **6,15:1**, morada **5,49:1**. A medição automatizada não substitui testes com leitores de ecrã e dispositivos reais.
 - HTML autossuficiente ≈ **263 kB**, ou ≈ **126 kB em gzip** local; abaixo do orçamento de 3,2 MB. Sem pedidos externos no carregamento inicial, sem widgets e sem telemetria do site. Reformulação do kit do estúdio para conservar o ambiente e não animar dimensão/posição de layout nos loops. O build é reproduzível sem instalar dependências de produção.
 

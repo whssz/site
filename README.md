@@ -1,6 +1,6 @@
 # Dai Friarielli Malagueta
 
-Site em português europeu para a pizzaria no Murtal, Parede. Ementa com seleção local de pratos; sem pagamentos nem transmissão do pedido nesta versão. Consulte o [relatório de entrega, fontes e checklist](docs/ENTREGA.md).
+Site em português europeu para a pizzaria no Murtal, Parede. Ementa com seleção local de pratos; sem pagamentos nem transmissão do pedido nesta versão. [Site publicado](https://dai-friarielli-malagueta.vercel.app/) · [Relatório de entrega, fontes e checklist](docs/ENTREGA.md).
 
 ## Construção e pré-visualização
 
