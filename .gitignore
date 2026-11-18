@@ -1,0 +1,5 @@
+node_modules/
+image-search/
+work/
+.vercel/
+.DS_Store

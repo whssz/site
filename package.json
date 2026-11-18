@@ -1,0 +1,14 @@
+{
+  "name": "pizzeria-santa-chiara",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site da Pizzeria Santa Chiara (Lisboa) — menu real e fluxo de pedido",
+  "scripts": {
+    "qa": "node tools/qa.mjs index.html",
+    "serve": "python3 -m http.server 8000 --bind 0.0.0.0"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0"
+  }
+}
