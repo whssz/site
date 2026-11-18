@@ -94,3 +94,5 @@ Grão, filetes, selo tipográfico de fermentação e ícones são elementos grá
 Projeto próprio `la-pizzaria-napolitana`, conectado ao repositório. A Vercel devolveu `READY`, `PROMOTED`, `target: production` e confirmou a atribuição do domínio. A página pública foi aberta sem login e retornou o título **“La Pizzaria Napolitana — Pizza artesanal em Fortaleza”**, com a apresentação, as categorias, a favorita, as avaliações, o endereço e o canal oficial corretos.
 
 A referência da entrega está em `qa/publicacao.json`. O teste pós-publicação compara o corpo da resposta pública, não apenas o estado do deploy: exige HTTP 200, `text/html` sem download forçado, título correto, **1.204.969 bytes** e SHA-256 idêntico ao arquivo revisado. Não depende de token da Vercel.
+
+**Resultado do teste público: APROVADO.** A [verificação de produção](https://github.com/whssz/site/actions/runs/44423201064) concluiu com sucesso a etapa de status, tamanho, título e integridade. O domínio público respondeu **HTTP 200** e o conteúdo serviu exatamente os **1.204.969 bytes** esperados, SHA-256 `a84f87388bfe091790e8ebe7566d7b2fefd71b9cac941ba9ea6d0cc3574a5f7c`.
