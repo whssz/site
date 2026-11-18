@@ -1,0 +1,16 @@
+import {launchBrowser} from '../tools/browser.mjs';
+import assert from 'node:assert/strict';
+const browser=await launchBrowser();const page=await browser.newPage({viewport:{width:390,height:844}});
+await page.addInitScript(()=>{window.open=(url)=>{window.__opened=url}});
+await page.goto('http://localhost:3000/',{waitUntil:'load'});
+await page.locator('[data-item="penne"]').click();await page.locator('[data-item="penne"]').click();await page.locator('[data-item="panna"]').click();
+assert.match(await page.locator('#order-list').innerText(),/Penne bolonhesa infantil/);
+await page.getByRole('button',{name:'Diminuir Penne bolonhesa infantil'}).click();
+await page.getByRole('button',{name:'Remover Panna cotta com Nutella e morangos frescos'}).click();
+assert.doesNotMatch(await page.locator('#order-list').innerText(),/Panna cotta/);
+await page.locator('#order-form button[type=submit]').click();assert.equal(await page.evaluate(()=>window.__opened),undefined);
+await page.locator('#order-form textarea').fill('Sem cebola');await page.locator('#order-form input[type=checkbox]').check();await page.locator('#order-form button[type=submit]').click();
+let url=await page.evaluate(()=>window.__opened);assert.match(url,/^https:\/\/wa\.me\/351961966816/);let msg=new URL(url).searchParams.get('text');assert.match(msg,/1 × Penne bolonhesa infantil/);assert.match(msg,/Sem cebola/);assert.doesNotMatch(msg,/Panna cotta/);
+await page.evaluate(()=>window.__opened=undefined);await page.locator('#reservation input[name=name]').fill('Ana');await page.locator('#reservation input[name=date]').fill('2027-05-12');await page.locator('#reservation input[name=time]').fill('19:30');await page.locator('#reservation input[name=people]').fill('3');await page.locator('#reservation button[type=submit]').click();assert.equal(await page.evaluate(()=>window.__opened),undefined);
+await page.locator('#reservation input[name=consent]').check();await page.locator('#reservation button[type=submit]').click();url=await page.evaluate(()=>window.__opened);msg=new URL(url).searchParams.get('text');assert.match(msg,/Ana/);assert.match(msg,/12\/05\/2027/);assert.match(msg,/19:30/);assert.match(msg,/Pessoas: 3/);
+await page.screenshot({path:'/tmp/cantinetta-mobile.png'});console.log('PASS: adicionar, alterar, remover, validação de consentimento, mensagem de pedido e reserva.');await browser.close();

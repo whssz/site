@@ -1,0 +1,14 @@
+{
+  "name": "cantinetta-santa-cruz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 3000 --bind 0.0.0.0 -d public",
+    "qa": "node tools/qa.mjs public/index.html",
+    "qa:legal": "node tools/qa-legal.mjs public/index.html --strict"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^149.0.0",
+    "playwright": "^1.65.1"
+  }
+}
