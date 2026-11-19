@@ -18,27 +18,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set +e
-          echo "--- token scopes ---"
-          curl -sS -H "Authorization: Bearer ${GH_TOKEN}" \
-            https://api.github.com/repos/${GITHUB_REPOSITORY} \
-            | head -c 400
-          echo
-          echo "--- GET pages ---"
-          curl -sS -o /tmp/pages.json -w '%{http_code}\n' \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages"
-          head -c 300 /tmp/pages.json; echo
-          echo "--- POST branch policy ---"
-          curl -sS -o /tmp/pol.json -w '%{http_code}\n' -X POST \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Content-Type: application/json" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/environments/github-pages/deployment-branch-policies" \
-            -d '{"name":"arena/df6311cd-site","type":"branch"}'
-          head -c 300 /tmp/pol.json; echo
-          echo "--- PUT pages source ---"
-          curl -sS -o /tmp/put.json -w '%{http_code}\n' -X PUT \
+          say() { echo "::error title=$1::$2"; }
+
+          CODE=$(curl -sS -o /tmp/put.json -w '%{http_code}' -X PUT \
             -H "Authorization: Bearer ${GH_TOKEN}" \
             -H "Content-Type: application/json" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
-            -d '{"source":{"branch":"arena/df6311cd-site","path":"/"},"build_type":"workflow"}'
-          head -c 300 /tmp/put.json; echo
+            -d '{"source":{"branch":"arena/df6311cd-site","path":"/"},"build_type":"workflow"}')
+          say "PUT-pages" "status=${CODE} body=$(head -c 250 /tmp/put.json)"
+
+          CODE=$(curl -sS -o /tmp/pol.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Content-Type: application/json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/environments/github-pages/deployment-branch-policies" \
+            -d '{"name":"arena/df6311cd-site","type":"branch"}')
+          say "POST-branch-policy" "status=${CODE} body=$(head -c 250 /tmp/pol.json)"
+
+          CODE=$(curl -sS -o /tmp/pages.json -w '%{http_code}' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages")
+          say "GET-pages" "status=${CODE} body=$(head -c 250 /tmp/pages.json)"
