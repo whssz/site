@@ -12,7 +12,11 @@ index.html              site completo (HTML + CSS + JS inline)
 assets/img/*.webp       média real da pizzeria (otimizada, WebP)
 assets/fonts/*.woff2    Marcellus, Cormorant Garamond, Jost (locais, sem CDN)
 tools/qa.mjs            portão de qualidade: auditoria estática + teste funcional do pedido
-package.json            dependência única de QA (jsdom)
+tools/browser-test.mjs  QA em navegador real (Chromium/Playwright): layout, pedido, acessibilidade
+tools/deploy-vercel.mjs publicação na Vercel, com espera consciente da quota
+tools/deploy-vercel.test.mjs  testes unitários da lógica de quota e de publicação
+build.sh                build estático para a Vercel (saída em dist/)
+package.json            scripts de QA e dependências de desenvolvimento
 ```
 
 Servidor local:
@@ -25,8 +29,29 @@ QA (precisa de `npm i`):
 
 ```bash
 npm install
-node tools/qa.mjs index.html     # PASS obrigatório antes de publicar
+node tools/qa.mjs index.html        # PASS obrigatório antes de publicar (59/59)
+node --test tools/deploy-vercel.test.mjs   # lógica de quota e publicação
 ```
+
+QA em **navegador real** (Chromium via Playwright, 43/43):
+
+```bash
+npm install
+npx playwright install chromium
+node tools/browser-test.mjs          # ou: node tools/browser-test.mjs https://url-publica
+```
+
+O teste arranca um servidor local, abre a página num Chromium real e verifica:
+estrutura e metadados; ausência de scroll horizontal a 320/390/768/1440 px;
+animações contínuas ativas; fluxo completo de pedido (adicionar, quantidades,
+observações, remover, subtotal/total, modalidades, validação e consentimento);
+link de WhatsApp com o número `351211522801` e mensagem com produtos e total;
+cópia do resumo para a área de transferência; persistência em `localStorage`;
+âncoras e cabeçalho fixo; `prefers-reduced-motion` sem animações contínuas;
+zero erros de consola e zero recursos 404/500.
+
+Se o Chromium não estiver instalado, defina `CHROMIUM_PATH` com o caminho do
+binário ou instale-o com `npx playwright install chromium`.
 
 ---
 
@@ -90,3 +115,58 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 - Sem analytics, píxeis ou trackers: sem banner de cookies (não é necessário).
 - Sem reembolso: o site não vende nem cobra — há regras de atendimento (sem reservas, confirmação humana da equipa).
 - `lang="pt-PT"`, alt descritivo em 100% das imagens, foco visível, `Esc` fecha o carrinho, alvos de toque ≥ 44 px.
+
+---
+
+## Publicação (Vercel)
+
+- Projeto Vercel: `pizzeria-santa-chiara-v2` — `prj_5EUI8RpUmLb5PW3OT9TnWVFzZBLy`
+  (equipe `team_z6tahC0dowvMZFiASHvvIgBP`, repositório `whssz/site` id `1440125649`).
+- Build: `bash build.sh` → saída estática em `dist/` (output directory `dist`).
+- URL prevista: `https://pizzeria-santa-chiara-v2.vercel.app`.
+
+### Publicação automática (GitHub Actions)
+
+| Workflow | O que faz |
+|---|---|
+| `.github/workflows/qa-build.yml` | QA estático + funcional (59/59), testes da publicação, QA em navegador real (43/43) e build estático. Corre em cada push para `arena/**` e em cada PR. |
+| `.github/workflows/deploy-vercel.yml` | Publica na Vercel, espera pelo build, verifica HTTP 200, título e marcadores de conteúdo na URL pública. |
+
+O workflow de publicação corre a cada hora (`schedule`) para recuperar sozinho de
+uma quota esgotada, e nunca lança pedidos em paralelo (`concurrency`).
+
+**Quota gratuita da Vercel.** A conta tem um limite de 100 implantações por
+24 horas, partilhado por **toda** a equipa (todos os projetos ligados ao
+repositório). Quando o limite é atingido, a API responde `HTTP 402`
+`api-deployments-free-per-day`. O `tools/deploy-vercel.mjs` trata esse caso de
+propósito:
+
+1. configura o projeto (build `bash build.sh`, saída `dist`, **sem** `ssoProtection`
+   para o site ficar público e com `createDeployments` ligado à integração GitHub);
+2. procura uma implantação já existente para o mesmo commit, para não gastar quota
+   com duplicados;
+3. ao receber `HTTP 402`, **não desiste**: espera com intervalos crescentes
+   (com jitter) e volta a tentar dentro do orçamento de espera (`--wait-minutes`,
+   omissão 45 min);
+4. se o orçamento se esgotar, sai com o código `75` e o workflow reagenda a
+   publicação para a execução horária seguinte;
+5. depois de `READY`, verifica HTTP 200, título e marcadores de conteúdo na URL
+   pública e grava o relatório em `qa/publicacao.json`.
+
+Para publicar é preciso o segredo de repositório `VERCEL_TOKEN` (token da
+conta Vercel com acesso à equipa). Sem esse segredo o workflow **não falha**:
+adia a publicação com uma mensagem explícita. O `VERCEL_TOKEN` nunca é escrito
+no código — só vive nos segredos do repositório.
+
+```bash
+VERCEL_TOKEN=... node tools/deploy-vercel.mjs --wait-minutes 45
+node tools/deploy-vercel.mjs --dry-run     # não envia pedidos
+```
+
+### Estado atual
+
+A quota gratuita da equipa está esgotada (`HTTP 402 api-deployments-free-per-day`,
+"more than 100", repetir em 24 h). Por isso **ainda não existe URL pública** para a
+Santa Chiara. A integração GitHub da Vercel também está com
+`gitProviderOptions.createDeployments: "disabled"` e `ssoProtection` ativo — o
+`tools/deploy-vercel.mjs` corrige os dois assim que houver token disponível.
