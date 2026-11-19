@@ -4,3 +4,4 @@ work/
 .vercel/
 qa/
 .DS_Store
+dist/dist/
