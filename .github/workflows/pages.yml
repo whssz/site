@@ -14,7 +14,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  administration: write
 
 # Uma publicação de cada vez.
 concurrency:
@@ -37,8 +36,8 @@ jobs:
           bash build.sh
           test -f dist/index.html
 
-      # O ambiente github-pages só aceita a branch main por política.
-      # Acrescenta a branch do site para que a publicação seja possível.
+      # O ambiente github-pages só aceita a branch main por política de
+      # branches. Tenta acrescentar a branch do site para permitir a publicação.
       - name: Permitir a branch do site no ambiente github-pages
         if: ${{ github.ref_name != 'main' }}
         continue-on-error: true
@@ -46,10 +45,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           BRANCH: ${{ github.ref_name }}
         run: |
+          set +e
           gh api -X POST \
             "repos/${GITHUB_REPOSITORY}/environments/github-pages/deployment-branch-policies" \
-            -f "name=${BRANCH}" -f type=branch \
-            || echo "::warning::Não foi possível acrescentar a branch à política (já existe ou sem permissão)."
+            -f "name=${BRANCH}" -f type=branch
+          echo "::warning::branch-policy exit=$?"
 
       - uses: actions/configure-pages@v5
         id: pages
