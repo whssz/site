@@ -144,6 +144,11 @@ test("o projeto é configurado para ficar público (sem SSO) antes de publicar",
     if (opts?.method === "PATCH") {
       const body = JSON.parse(opts.body);
       assert.equal(body.ssoProtection, null, "tem de remover a proteção SSO");
+      assert.equal(
+        body.rootDirectory,
+        null,
+        "a raiz do projeto tem de ser JSON nulo (a string \"null\" quebra o build)"
+      );
       assert.equal(body.gitProviderOptions.createDeployments, "enabled");
       assert.equal(body.outputDirectory, "dist");
       assert.equal(body.buildCommand, "bash build.sh");
@@ -176,6 +181,53 @@ test("o projeto é configurado para ficar público (sem SSO) antes de publicar",
   assert.ok(
     seen.some((c) => c.method === "PATCH" && c.url.includes("/v9/projects/")),
     "tem de reconfigurar o projeto"
+  );
+  delete globalThis.fetch;
+});
+
+test("a configuração do projeto cai para o essencial quando a API recusa campos", async () => {
+  const patches = [];
+  globalThis.fetch = async (url, opts) => {
+    if (opts?.method === "PATCH") {
+      const body = JSON.parse(opts.body);
+      patches.push(body);
+      // A primeira tentativa traz campos que a API pode não reconhecer.
+      if (body.gitProviderOptions) {
+        return {
+          status: 400,
+          async text() {
+            return JSON.stringify({ error: { message: "unrecognized field" } });
+          },
+        };
+      }
+      return { status: 200, async text() { return JSON.stringify({ ssoProtection: null }); } };
+    }
+    if (opts?.method === "GET") {
+      return { status: 200, async text() { return JSON.stringify({ deployments: [] }); } };
+    }
+    return {
+      status: 402,
+      async text() {
+        return JSON.stringify({
+          error: { code: "api-deployments-free-per-day", message: "Try again in 24 hours." },
+        });
+      },
+    };
+  };
+  const logs = [];
+  const r = await run({
+    token: "fake",
+    waitMinutes: 0,
+    log: (m) => logs.push(String(m)),
+    sleepImpl: async () => {},
+  });
+  assert.equal(r.status, "quota-deferred");
+  assert.equal(patches.length, 2, "tem de tentar o essencial depois da recusa");
+  assert.equal(patches[1].ssoProtection, null);
+  assert.equal(patches[1].rootDirectory, null);
+  assert.ok(
+    logs.some((l) => /recusada/i.test(l)),
+    "tem de registar a recusa da configuração"
   );
   delete globalThis.fetch;
 });

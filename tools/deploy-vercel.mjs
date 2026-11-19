@@ -33,12 +33,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 export const DEFAULTS = {
   projectId: "prj_5EUI8RpUmLb5PW3OT9TnWVFzZBLy",
-  projectName: "pizzeria-santa-chiara-v2",
+  projectName: "pizzeria-santa-chiara-site",
   teamId: "team_z6tahC0dowvMZFiASHvvIgBP",
   repoId: "1440125649",
-  siteUrl: "https://pizzeria-santa-chiara-v2.vercel.app",
+  siteUrl: "https://pizzeria-santa-chiara-site.vercel.app",
   titleMarker: "Pizzeria Santa Chiara",
-  contentMarkers: ["Santa Chiara", "Avenida 5 de Outubro", "wa.me/351211522801"],
+  contentMarkers: ["Santa Chiara", "Avenida 5 de Outubro", "351211522801"],
 };
 
 /* ------------------------------------------------------------------ */
@@ -209,17 +209,24 @@ export async function run(options = {}) {
   const sleepImpl = options.sleepImpl ?? sleep;
 
   /* --- 0. configuração do projeto --- *
-   * Três ajustes são obrigatórios para que o site fique público:
+   * Quatro ajustes são obrigatórios para que o site fique público:
+   *  - `rootDirectory: null` — o valor tem de ser JSON nulo. A string
+   *    "null" faz a Vercel procurar um diretório chamado "null" e o build
+   *    termina com NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST;
    *  - `ssoProtection: null` — sem isso a Vercel exige login da conta
    *    Vercel para ver a página;
-   *  - `gitProviderOptions.createDeployments: "enabled"` — sem isso a
-   *    integração GitHub não constrói nada quando há um push;
+   *  - `buildCommand`/`installCommand`/`outputDirectory` — build estático
+   *    em `dist`;
    *  - `git.deploymentEnabled` — só `main` cria implantações. As branches
    *    de trabalho geram previews que são contados na quota de 100
    *    implantações por dia, partilhada por toda a equipa.
+   *
+   * A API pode rejeitar campos que não reconhece, por isso a configuração
+   * é tentada por ordem: primeiro o conjunto completo, depois um conjunto
+   * mínimo com o essencial e, por fim, só o que torna a página pública.
    */
   if (!options.skipProjectConfig) {
-    const settings = {
+    const full = {
       name: opts.projectName,
       buildCommand: "bash build.sh",
       installCommand: "echo skip-install",
@@ -238,14 +245,33 @@ export async function run(options = {}) {
         },
       },
     };
-    const cfg = await client.updateProject(opts.projectId, settings);
-    if (cfg.status >= 200 && cfg.status < 300) {
-      log("· projeto configurado: build `bash build.sh` → `dist`, sem SSO, deploys do GitHub ligados.");
-      if (cfg.body?.ssoProtection !== null && cfg.body?.ssoProtection !== undefined) {
-        log(`::warning::ssoProtection continua ativo (${JSON.stringify(cfg.body.ssoProtection)}).`);
+    const attempts = [
+      full,
+      {
+        buildCommand: full.buildCommand,
+        installCommand: full.installCommand,
+        outputDirectory: full.outputDirectory,
+        rootDirectory: null,
+        ssoProtection: null,
+      },
+      { rootDirectory: null, ssoProtection: null },
+    ];
+
+    let configured = false;
+    for (const settings of attempts) {
+      const cfg = await client.updateProject(opts.projectId, settings);
+      if (cfg.status >= 200 && cfg.status < 300) {
+        configured = true;
+        log("· projeto configurado: build `bash build.sh` → `dist`, sem SSO, deploys do GitHub ligados.");
+        if (cfg.body?.ssoProtection !== null && cfg.body?.ssoProtection !== undefined) {
+          log(`::warning::ssoProtection continua ativo (${JSON.stringify(cfg.body.ssoProtection)}).`);
+        }
+        break;
       }
-    } else {
-      log(`::warning::Não foi possível reconfigurar o projeto: ${errorMessage(cfg.body)}`);
+      log(`::warning::Configuração do projeto recusada (HTTP ${cfg.status}): ${errorMessage(cfg.body)}`);
+    }
+    if (!configured) {
+      log("::warning::Não foi possível reconfigurar o projeto — a publicação pode falhar.");
     }
   }
 
