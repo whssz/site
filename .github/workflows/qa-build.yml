@@ -1,0 +1,64 @@
+name: QA e build da Pizzeria Santa Chiara
+
+on:
+  push:
+    branches: ["arena/**", "main"]
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "tools/**"
+      - "build.sh"
+      - "package.json"
+      - ".github/workflows/qa-build.yml"
+  pull_request:
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "tools/**"
+      - "build.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    name: QA estático, funcional e em navegador real
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: QA estático e funcional (jsdom)
+        run: node tools/qa.mjs index.html
+
+      - name: Testes da lógica de publicação (quota Vercel)
+        run: node --test tools/deploy-vercel.test.mjs
+
+      - name: Instalar Chromium do Playwright
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.49.1
+          npx playwright install --with-deps chromium
+
+      - name: QA em navegador real (layout, pedido, acessibilidade)
+        run: node tools/browser-test.mjs
+
+      - name: Build estático
+        run: |
+          bash build.sh
+          test -f dist/index.html
+          echo "tamanho do build: $(du -sh dist | cut -f1)"

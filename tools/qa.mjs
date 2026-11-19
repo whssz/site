@@ -167,8 +167,14 @@ dup.length === 0 ? ok("sem nomes de item duplicados") : bad("itens duplicados", 
 /* 1.11 responsividade: nada com largura fixa perigosa */
 const fixedWidths = [...css.matchAll(/[;{}\s](?:min-)?width:\s*(\d{4,})px/g)].map(m => parseInt(m[1])).filter(w => w > 480);
 fixedWidths.length === 0 ? ok("sem larguras fixas perigosas") : bad("larguras fixas perigosas", fixedWidths.join(", "));
-/* overflow-x hidden */
-/overflow-x:\s*hidden/.test(css) ? ok("body com overflow-x oculto (sem scroll horizontal)") : bad("overflow-x hidden ausente");
+/* overflow-x — clip (ou hidden como fallback) para impedir scroll horizontal.
+   `clip` preserva position:sticky, `hidden` cria um content-box rolável que o quebra. */
+const overflowX = [...css.matchAll(/overflow-x:\s*(hidden|clip)/g)].map((m) => m[1]);
+overflowX.includes("clip")
+  ? ok("overflow-x:clip aplicado (sem scroll horizontal, sticky preservado)")
+  : overflowX.includes("hidden")
+    ? ok("overflow-x oculto (sem scroll horizontal)")
+    : bad("overflow-x ausente");
 
 /* ------------------------------------------------------------------ */
 /* 2. TESTE FUNCIONAL (jsdom)                                           */

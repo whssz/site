@@ -1,0 +1,114 @@
+name: Publicar na Vercel (com espera de quota)
+
+on:
+  push:
+    branches: ["arena/**"]
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "tools/deploy-vercel.mjs"
+      - "build.sh"
+      - ".github/workflows/deploy-vercel.yml"
+  schedule:
+    # De hora a hora: repete a publicação quando a quota gratuita da Vercel
+    # estava esgotada na execução anterior (limite de 100 implantações por
+    # 24 h, partilhado por toda a equipa).
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      wait_minutes:
+        description: "Minutos a esperar por quota Vercel esgotada"
+        required: false
+        default: "45"
+
+permissions:
+  contents: read
+
+# Uma única publicação de cada vez — nunca pedidos paralelos à Vercel.
+concurrency:
+  group: vercel-production-deploy
+  cancel-in-progress: false
+
+env:
+  VERCEL_PROJECT: prj_5EUI8RpUmLb5PW3OT9TnWVFzZBLy
+  VERCEL_PROJECT_NAME: pizzeria-santa-chiara-v2
+  VERCEL_TEAM: team_z6tahC0dowvMZFiASHvvIgBP
+  REPO_ID: "1440125649"
+  SITE_URL: https://pizzeria-santa-chiara-v2.vercel.app
+
+jobs:
+  deploy:
+    name: Publicar e verificar
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verificar se o segredo Vercel está configurado
+        id: deploy_auth
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -n "${VERCEL_TOKEN:-}" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::VERCEL_TOKEN não configurado — a publicação automática fica adiada."
+            echo "- Publicação automática: adiada (segredo VERCEL_TOKEN ausente no repositório)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Publicar na Vercel (aguenta a quota esgotada)
+        id: deploy
+        if: ${{ steps.deploy_auth.outputs.available == 'true' }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT: ${{ env.VERCEL_PROJECT }}
+          VERCEL_PROJECT_NAME: ${{ env.VERCEL_PROJECT_NAME }}
+          VERCEL_TEAM: ${{ env.VERCEL_TEAM }}
+          REPO_ID: ${{ env.REPO_ID }}
+        run: |
+          set -euo pipefail
+          WAIT="${{ github.event.inputs.wait_minutes || '45' }}"
+          set +e
+          node tools/deploy-vercel.mjs --wait-minutes "$WAIT"
+          CODE=$?
+          set -e
+          if [ "$CODE" = "75" ]; then
+            echo "deferred=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Quota Vercel esgotada — a publicação fica agendada para a próxima execução."
+            echo "- Publicação: adiada por quota Vercel (HTTP 402 api-deployments-free-per-day)." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          elif [ "$CODE" != "0" ]; then
+            echo "::error::A publicação falhou com o código $CODE."
+            exit "$CODE"
+          fi
+          echo "deferred=false" >> "$GITHUB_OUTPUT"
+
+      - name: Verificar a página pública
+        if: ${{ steps.deploy_auth.outputs.available == 'true' && steps.deploy.outputs.deferred == 'false' }}
+        run: |
+          set -euo pipefail
+          URL="$(node -e "const r=require('./qa/publicacao.json');console.log(r.url||process.env.SITE_URL)")"
+          CODE=""
+          for i in $(seq 1 24); do
+            CODE=$(curl -L -sS --connect-timeout 15 --max-time 45 -o /tmp/live.html -w '%{http_code}' "$URL/") || true
+            echo "[$i/24] $URL → HTTP $CODE"
+            if [ "$CODE" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$CODE" = "200"
+          grep -q '<title>' /tmp/live.html
+          grep -q 'Pizzeria Santa Chiara' /tmp/live.html
+          grep -q 'Avenida 5 de Outubro' /tmp/live.html
+          SIZE=$(wc -c < /tmp/live.html)
+          echo "✓ HTTP 200, ${SIZE} bytes, título e morada presentes."
+          echo "## Publicação" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URL: $URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "- HTTP: $CODE ($SIZE bytes)" >> "$GITHUB_STEP_SUMMARY"
