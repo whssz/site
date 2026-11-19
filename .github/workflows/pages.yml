@@ -1,0 +1,45 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: ["arena/df6311cd-site"]
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "build.sh"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação de cada vez.
+concurrency:
+  group: github-pages-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build e publicação
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build estático
+        run: |
+          bash build.sh
+          test -f dist/index.html
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Publicar
+        id: deploy
+        uses: actions/deploy-pages@v4

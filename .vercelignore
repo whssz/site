@@ -1,0 +1,11 @@
+# Só o build final vai para a CDN da Vercel.
+tools/
+tests/
+image-search/
+work/
+node_modules/
+.git/
+.gitignore
+.github/
+qa/
+package-lock.json

@@ -147,6 +147,11 @@ test("o projeto é configurado para ficar público (sem SSO) antes de publicar",
       assert.equal(body.gitProviderOptions.createDeployments, "enabled");
       assert.equal(body.outputDirectory, "dist");
       assert.equal(body.buildCommand, "bash build.sh");
+      assert.deepEqual(
+        body.git.deploymentEnabled,
+        { main: true, "arena/**": false },
+        "as branches de trabalho não podem gastar a quota de deploy"
+      );
       return { status: 200, async text() { return JSON.stringify({ ssoProtection: null }); } };
     }
     if (opts?.method === "GET") {

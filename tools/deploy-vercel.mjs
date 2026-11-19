@@ -209,11 +209,14 @@ export async function run(options = {}) {
   const sleepImpl = options.sleepImpl ?? sleep;
 
   /* --- 0. configuração do projeto --- *
-   * Dois ajustes são obrigatórios para que o site fique público:
+   * Três ajustes são obrigatórios para que o site fique público:
    *  - `ssoProtection: null` — sem isso a Vercel exige login da conta
    *    Vercel para ver a página;
    *  - `gitProviderOptions.createDeployments: "enabled"` — sem isso a
-   *    integração GitHub não constrói nada quando há um push.
+   *    integração GitHub não constrói nada quando há um push;
+   *  - `git.deploymentEnabled` — só `main` cria implantações. As branches
+   *    de trabalho geram previews que são contados na quota de 100
+   *    implantações por dia, partilhada por toda a equipa.
    */
   if (!options.skipProjectConfig) {
     const settings = {
@@ -227,6 +230,12 @@ export async function run(options = {}) {
       gitProviderOptions: {
         createDeployments: "enabled",
         disableRepositoryDispatchEvents: false,
+      },
+      git: {
+        deploymentEnabled: {
+          main: true,
+          "arena/**": false,
+        },
       },
     };
     const cfg = await client.updateProject(opts.projectId, settings);
