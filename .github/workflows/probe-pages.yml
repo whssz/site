@@ -20,21 +20,22 @@ jobs:
           set +e
           say() { echo "::error title=$1::$2"; }
 
-          for BODY in \
-            '{"source":{"branch":"arena/df6311cd-site","path":"/"},"build_type":"workflow"}' \
-            '{"build_type":"workflow"}' \
-            '{"source":{"branch":"arena/df6311cd-site","path":"/"}}' ; do
-            CODE=$(curl -sS -o /tmp/put.json -w '%{http_code}' -X PUT \
+          for ENV in production github-pages; do
+            CODE=$(curl -sS -o /tmp/pol.json -w '%{http_code}' -X POST \
               -H "Authorization: Bearer ${GH_TOKEN}" \
               -H "Content-Type: application/json" \
-              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
-              -d "$BODY")
-            COMPACT=$(jq -c . /tmp/put.json 2>/dev/null | head -c 300 || head -c 300 /tmp/put.json)
-            say "PUT" "req=${BODY} status=${CODE} resp=${COMPACT}"
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/environments/${ENV}/deployment-branch-policies" \
+              -d '{"name":"arena/df6311cd-site","type":"branch"}')
+            COMPACT=$(jq -c . /tmp/pol.json 2>/dev/null | head -c 250 || head -c 250 /tmp/pol.json)
+            say "POST-policy-${ENV}" "status=${CODE} ${COMPACT}"
           done
 
-          CODE=$(curl -sS -o /tmp/pages.json -w '%{http_code}' \
+          CODE=$(curl -sS -o /tmp/envs.json -w '%{http_code}' \
             -H "Authorization: Bearer ${GH_TOKEN}" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages")
-          COMPACT=$(jq -c '{build_type, source, public}' /tmp/pages.json 2>/dev/null | head -c 300)
-          say "GET-pages" "status=${CODE} ${COMPACT}"
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/environments")
+          say "GET-environments" "status=${CODE} $(jq -c '[.environments[]|{name, deployment_branch_policy}]' /tmp/envs.json 2>/dev/null | head -c 400)"
+
+          CODE=$(curl -sS -o /tmp/pols.json -w '%{http_code}' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/environments/production/deployment-branch-policies")
+          say "GET-policies-production" "status=${CODE} $(head -c 300 /tmp/pols.json)"
