@@ -138,10 +138,15 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 | Workflow | O que faz |
 |---|---|
 | `.github/workflows/qa-build.yml` | QA estático + funcional (59/59), testes da publicação, QA em navegador real (43/43) e build estático. Corre em cada push para `arena/**` e em cada PR. |
-| `.github/workflows/deploy-vercel.yml` | Publica na Vercel, espera pelo build, verifica HTTP 200, título e marcadores de conteúdo na URL pública. |
+| `.github/workflows/deploy-vercel.yml` | Publica na Vercel, espera pelo build, verifica HTTP 200, título e marcadores de conteúdo na URL pública. Verifica também o site já publicado, mesmo quando não há `VERCEL_TOKEN`. |
 
 O workflow de publicação corre a cada hora (`schedule`) para recuperar sozinho de
 uma quota esgotada, e nunca lança pedidos em paralelo (`concurrency`).
+
+**GitHub Pages.** A branch `main` do repositório serve hoje um **outro** site
+(Amunì) e o ambiente `github-pages` só aceita `main`, por isso esta branch não
+pode publicar lá sem substituir esse site. Como a Vercel já serve a Santa Chiara
+publicamente, o workflow de Pages foi retirado e a publicação vive na Vercel.
 
 **Quota gratuita da Vercel.** A conta tem um limite de 100 implantações por
 24 horas, partilhado por **toda** a equipa (todos os projetos ligados ao
@@ -149,8 +154,9 @@ repositório). Quando o limite é atingido, a API responde `HTTP 402`
 `api-deployments-free-per-day`. O `tools/deploy-vercel.mjs` trata esse caso de
 propósito:
 
-1. configura o projeto (build `bash build.sh`, saída `dist`, **sem** `ssoProtection`
-   para o site ficar público e com `createDeployments` ligado à integração GitHub);
+1. configura o projeto (build `bash build.sh`, saída `dist`, raiz `dist`
+   auto-contida, **sem** `ssoProtection` para o site ficar público e com
+   `createDeployments` ligado à integração GitHub);
 2. procura uma implantação já existente para o mesmo commit, para não gastar quota
    com duplicados;
 3. ao receber `HTTP 402`, **não desiste**: espera com intervalos crescentes
@@ -182,13 +188,17 @@ node tools/deploy-vercel.mjs --dry-run     # não envia pedidos
   `Pizzeria Santa Chiara — Pizza napolitana a lenha em Lisboa | Entrecampos`,
   morada `Avenida 5 de Outubro, 265`, telefone `+351 21 152 2801` e o menu
   completo presentes no HTML servido.
-- Commit publicado: `d318891` (branch `arena/df6311cd-site`).
+- O `index.html` publicado é **byte a byte igual** ao do repositório
+  (canonical e `og:image` apontam para o domínio público).
+- QA local: **59/59** estático, **43/43** em navegador real, **14/14** testes
+  de publicação.
 
 A publicação automática por GitHub Actions continua dependente do segredo de
 repositório `VERCEL_TOKEN`, que **não existe** nesta conta (verificado por
 diagnóstico: ausente no âmbito do repositório e do ambiente `production`). Sem
-ele o workflow não falha — adia a publicação com uma mensagem explícita. Para
-publicar manualmente:
+ele o workflow não falha — adia a publicação com uma mensagem explícita, e o
+passo "Verificar o site publicado" confirma que o site no ar continua correto.
+Para publicar manualmente:
 
 ```bash
 VERCEL_TOKEN=... node tools/deploy-vercel.mjs --wait-minutes 45

@@ -90,6 +90,30 @@ jobs:
           fi
           echo "deferred=false" >> "$GITHUB_OUTPUT"
 
+      # Verificação da página publicada que não depende do VERCEL_TOKEN:
+      # confirma que o site continua no ar e com o conteúdo certo, mesmo
+      # quando a publicação automática fica adiada.
+      - name: Verificar o site publicado
+        run: |
+          set -euo pipefail
+          CODE=""
+          for i in $(seq 1 12); do
+            CODE=$(curl -L -sS --connect-timeout 15 --max-time 45 -o /tmp/published.html -w '%{http_code}' "${SITE_URL}/") || true
+            echo "[$i/12] ${SITE_URL} → HTTP $CODE"
+            if [ "$CODE" = "200" ]; then break; fi
+            sleep 5
+          done
+          test "$CODE" = "200"
+          grep -q '<title>' /tmp/published.html
+          grep -q 'Pizzeria Santa Chiara' /tmp/published.html
+          grep -q 'Avenida 5 de Outubro' /tmp/published.html
+          grep -q '351211522801' /tmp/published.html
+          SIZE=$(wc -c < /tmp/published.html)
+          echo "✓ ${SITE_URL} responde HTTP 200 (${SIZE} bytes) com o conteúdo da Santa Chiara."
+          echo "## Site publicado" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URL: ${SITE_URL}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- HTTP: $CODE ($SIZE bytes)" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Verificar a página pública
         if: ${{ steps.deploy_auth.outputs.available == 'true' && steps.deploy.outputs.deferred == 'false' }}
         run: |
