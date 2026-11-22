@@ -294,13 +294,6 @@ body::after{
 .hero-frame{position:relative;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(25,23,20,.10)}
 .hero-frame img{width:100%;height:clamp(420px,52vw,600px);object-fit:cover}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,23,20,.06),transparent 42%,rgba(25,23,20,.34));pointer-events:none}
-.hero-stamp{
-  position:absolute;left:-34px;bottom:-28px;width:104px;border-radius:6px;overflow:hidden;
-  border:1px solid rgba(25,23,20,.14);box-shadow:var(--shadow-md);background:var(--paper);
-  animation:float2 13s ease-in-out infinite;
-}
-.hero-stamp img{width:100%;display:block}
-.hero-stamp figcaption{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:6px 4px 7px;color:var(--muted);border-top:1px solid var(--line-2)}
 .hero-chip{
   position:absolute;right:-18px;top:26px;background:rgba(251,247,239,.94);backdrop-filter:blur(6px);
   border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
@@ -601,7 +594,6 @@ section{position:relative;z-index:2}
   .burger{display:inline-flex}
   .hdr-cta .btn{min-height:40px;padding:8px 13px;font-size:9.5px;letter-spacing:.12em}
   .hero{padding-top:calc(74px + 44px)}
-  .hero-stamp{width:84px;left:-12px;bottom:-18px}
   .hero-chip{right:8px;top:14px;font-size:9px;padding:8px 12px}
   .fab{right:14px;bottom:14px}
 }
@@ -704,10 +696,6 @@ section{position:relative;z-index:2}
       <div class="hero-media rv rv-right">
         <figure class="hero-frame" data-par="0.06">
           <img src="assets/img/margherita-heart-1000.webp" width="1000" height="1333" alt="Pizza napolitana com formato de coração, com tomate San Marzano, mozzarella e manjericão, sobre a toalha da pizzeria" fetchpriority="high" decoding="async">
-        </figure>
-        <figure class="hero-stamp" data-par="-0.05">
-          <img src="assets/img/logo-placa.webp" width="300" height="433" alt="Placa de azulejo da pizzeria com a gravura da lagosta e o nome Santa Chiara" loading="lazy" decoding="async">
-          <figcaption>Forno a lenha</figcaption>
         </figure>
         <div class="hero-chip"><i>●</i> Aberto ao domingo</div>
       </div>
