@@ -4,7 +4,14 @@ Site institucional e de conversão para a **Lisboncello Pizza & Gourmet**
 (Tv. Navegantes 11, 2750-282 Cascais, Portugal). Arquivo único, autocontido,
 sem rastreadores e sem dependências de rede.
 
-**No ar:** preview ao vivo nesta sessão (porta 3000). O projeto Vercel
+**No ar (link partilhável, verificado):**
+<https://raw.githack.com/whssz/site/site-v1/public/index.html>
+— serve o arquivo único com `Content-Type: text/html`, 2 323 205 bytes,
+título e imagens confirmados por pedido HTTP real. A tag `site-v1` fixa a
+versão publicada; para publicar alterações: actualizar a tag
+(`git tag -f site-v1 <commit> && git push -f origin refs/tags/site-v1`).
+
+**Vercel:** o projeto Vercel
 `lisboncello-cascais` (`prj_phLWzardVQsjA2J93rtcElEILdUr`) já está criado,
 ligado a este repositório e configurado (`installCommand: "true"`,
 `buildCommand: "true"`, `outputDirectory: "public"`). O primeiro deploy ficou
@@ -138,6 +145,9 @@ imagem de banco, IA ou ilustração foi usada como se fosse da casa.
 
 O site é estático e não precisa de build. Três caminhos, todos já preparados:
 
+0. **Link imediato (activo hoje)** — `raw.githack.com` sobre a tag `site-v1`
+   (ver topo). É o endereço a partilhar enquanto a Vercel estiver bloqueada.
+   É servido por CDN, a partir deste repositório público — nada a instalar.
 1. **Painel Vercel** — projeto `lisboncello-cascais` → *Deployments* → **Redeploy**
    (ou *Trigger Deploy* escolhendo a branch `arena/153289a3-site`). Quando o
    limite diário da conta reiniciar, o deploy passa sem alterações.
@@ -148,6 +158,18 @@ O site é estático e não precisa de build. Três caminhos, todos já preparado
 
 O `vercel.json` já define `outputDirectory` implícito por `public`, `cleanUrls`,
 `trailingSlash: false` e os cabeçalhos de segurança.
+
+### Estado do deploy (18/11)
+
+| Via | Estado | Nota |
+|---|---|---|
+| githack (tag `site-v1`) | ✅ **verificado** (HTTP 200, `text/html`, 2,32 MB) | link partilhável imediato |
+| Vercel | ⛔ 402 `api-deployments-free-per-day` | conta Hobby passou das 100 implantações/24 h; resolve em ≤24 h |
+| GitHub Pages | ⛔ 403 | a app GitHub desta sessão não tem permissão de *admin* para mudar a origem (Pages publica `main`/ raiz — hoje com um site antigo) |
+| Preview desta sessão | ✅ `:3000` (só enquanto a sessão durar) | não é um URL público permanente |
+
+Para o Pages servir este site: *Settings → Pages* → origem Branch **`arena/153289a3-site`**, pasta **`/public`**
+(o ficheiro `.nojekyll` já está em `public/` para o Jekyll não interferir).
 
 ## Fontes verificadas
 
