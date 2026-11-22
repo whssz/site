@@ -3,586 +3,747 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pizzeria Napolitana — Torralba de Calatrava</title>
-<meta name="description" content="Pizzas artesanais com ingredientes frescos em Torralba de Calatrava. Monte seu pedido, escolha levar ou retirar no Mercado Municipal e confira endereço e horários.">
-<meta property="og:title" content="Pizzeria Napolitana — Torralba de Calatrava">
-<meta property="og:description" content="Pizzas artesanais com ingredientes frescos. Peça para levar ou retire no Mercado Municipal.">
-<meta property="og:type" content="restaurant">
+<title>Pizzeria Napolitana — pizzas artesanais em Torralba de Calatrava</title>
+<meta name="description" content="Pizzas artesanais com ingredientes frescos em Torralba de Calatrava. Monte seu pedido, escolha levar ou retirar no Mercado Municipal e veja endereço, horários e contato.">
 <meta name="theme-color" content="#FFC40C">
-<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"PizzaRestaurant","name":"Pizzeria Napolitana Torralba de Calatrava","telephone":"+34 627 66 10 61","address":{"@type":"PostalAddress","streetAddress":"Calle Dr. Severo Ochoa, 1","postalCode":"13160","addressLocality":"Torralba de Calatrava","addressRegion":"Cdad. Real","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":39.0160389,"longitude":-3.7488785},"sameAs":["https://www.instagram.com/pzzerianapolitana8/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"85","bestRating":"5"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"19:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"19:30","closes":"00:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"00:00","closes":"00:00","description":"Fechado"}]}
-</script>
-<style>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pizzeria-napolitana.vercel.app/">
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Pizzeria Napolitana">
+<meta property="og:title" content="Pizzeria Napolitana — pizzas artesanais em Torralba de Calatrava">
+<meta property="og:description" content="Pizzas artesanais, ingredientes frescos. Peça para levar ou retire no Mercado Municipal.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFC40C'/%3E%3Cpath d='M16 20q16-11 32 0L32 54Z' fill='%23E5372A' stroke='%2317120F' stroke-width='4' stroke-linejoin='round'/%3E%3Ccircle cx='27' cy='28' r='3.4' fill='%23FFF8E9'/%3E%3Ccircle cx='37' cy='33' r='3' fill='%23FFF8E9'/%3E%3C/svg%3E">
+<style>/* ============================================================
+   PIZZERIA NAPOLITANA — sistema visual
+   1 tokens · 2 base · 3 componentes · 4 seções · 5 animação
+   ============================================================ */
+
+/* ---------- 1. TOKENS ---------- */
 :root{
-  --ink:#17120F;
-  --ink-2:#2A1F18;
-  --paper:#FFF8E6;
-  --paper-2:#FFFDF5;
   --yellow:#FFC40C;
-  --yellow-2:#FFE37A;
+  --yellow-deep:#EFA800;
+  --yellow-soft:#FFE9A8;
   --red:#E5372A;
-  --red-ink:#D32F24;
-  --red-text:#C6281F;
-  --red-2:#FF6A55;
-  --cream:#FFF8E6;
-  --accent:#FFC40C;
-  --accent-2:#E5372A;
-  --line:rgba(23,18,15,.17);
-  --muted:rgba(23,18,15,.68);
-  --sans:"Arial Rounded MT Bold","Trebuchet MS",Verdana,Arial,sans-serif;
+  --red-ink:#AF2418;
+  --red-text:#B42318;
+  --ink:#17120F;
+  --ink-soft:#2B211B;
+  --cream:#FFF8E9;
+  --white:#FFFDF8;
+  --line:rgba(23,18,15,.13);
+  --line-strong:rgba(23,18,15,.26);
+  --max:1180px;
+  --r-lg:30px;
+  --r:20px;
+  --r-sm:13px;
   --ease:cubic-bezier(.16,.72,.28,1);
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --hdr:68px;
 }
+
+/* ---------- 2. BASE ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{margin:0;overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
-img{max-width:100%;display:block}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 12px)}
+body{
+  margin:0;font-family:var(--sans);color:var(--ink);
+  background:var(--cream);
+  font-size:16px;line-height:1.62;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%}
+img{display:block;height:auto}
+h1,h2,h3,h4{margin:0;line-height:1.06;letter-spacing:-.02em;font-weight:800}
+p{margin:0}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1200px,calc(100% - 48px));margin-inline:auto}
-.kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
-.kicker::before{content:"";width:24px;height:3px;background:var(--red);border-radius:2px}
-.sec-head{padding:86px 0 28px}
-.sec-label{display:block;margin-bottom:12px}
-.sec-head h2{font-size:clamp(32px,5.2vw,58px);line-height:1.02;letter-spacing:-.045em;text-transform:uppercase;margin:0;max-width:18ch;font-weight:900}
-.sec-head h2 em{font-style:normal;color:var(--red)}
-.sec-note{color:var(--muted);max-width:56ch;margin:16px 0 0;font-size:16px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:12px 22px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);color:var(--ink);font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);transition:transform .28s var(--ease),box-shadow .28s var(--ease),background .28s var(--ease)}
-.btn:hover{transform:translate(-2px,-3px);box-shadow:7px 7px 0 var(--ink);background:var(--yellow-2)}
-.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.btn-red{background:var(--red-ink);color:var(--cream)}
-.btn-red:hover{background:#B9261D}
-.btn-ghost{background:transparent}
-.btn-ghost:hover{background:var(--paper-2)}
-.btn-sm{min-height:44px;padding:9px 16px;font-size:11px}
-.btn[disabled]{opacity:.45;pointer-events:none}
-.mascot{width:72px;height:auto;display:block;overflow:visible}
-.hero-mascot{animation:heroFloat 11s ease-in-out infinite}
-
-/* ---------- HEADER ---------- */
-body > header#hdr{position:fixed;top:0;left:0;right:0;z-index:150!important;background:rgba(255,248,230,.9);backdrop-filter:blur(14px);border-bottom:2px solid var(--ink);transition:box-shadow .3s var(--ease),background .3s var(--ease)}
-body > header#hdr.stuck{box-shadow:0 8px 26px rgba(23,18,15,.12);background:rgba(255,248,230,.97)}
-.nav{height:78px;display:flex;align-items:center;gap:22px}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto}
-.brand .mascot{width:42px;flex:none}
-.brand-text{display:flex;flex-direction:column;line-height:1}
-.brand-text strong{font-size:15px;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
-.brand-text span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;color:var(--muted);white-space:nowrap}
-.nav-links{display:flex;align-items:center;gap:22px}
-.nav-links a{position:relative;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:8px 0}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:2px;height:2px;width:0;background:var(--red);transition:width .35s var(--ease)}
-.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
-.nav-toggle{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:12px;background:var(--paper-2);align-items:center;justify-content:center;font-size:20px}
-.cart-pill{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 15px;border:2px solid var(--ink);border-radius:999px;background:var(--red-ink);color:var(--cream);font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);transition:transform .25s var(--ease)}
-.cart-pill:hover{transform:translateY(-2px)}
-.cart-pill .count{min-width:22px;height:22px;padding:0 5px;display:grid;place-items:center;border-radius:999px;background:var(--yellow);color:var(--ink);font-size:11px}
-
-/* ---------- HERO ---------- */
-.hero{position:relative;min-height:100svh;padding:132px 0 74px;display:flex;align-items:center;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,rgba(255,196,12,.16),transparent 46%)}
-.hero::before,.hero::after{content:"";position:absolute;z-index:0;border-radius:50%;pointer-events:none}
-.hero::before{width:620px;height:620px;right:-180px;top:-160px;background:radial-gradient(circle,rgba(255,196,12,.55),transparent 66%)}
-.hero::after{width:460px;height:460px;left:-200px;bottom:-180px;background:radial-gradient(circle,rgba(229,55,42,.22),transparent 68%)}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center}
-.hero-copy .kicker{margin-bottom:18px}
-.hero h1{font-size:clamp(44px,7.4vw,92px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase;margin:0 0 22px;font-weight:900;max-width:12ch}
-.hero h1 em{font-style:normal;color:var(--red);display:block}
-.hero-lead{font-size:clamp(17px,1.5vw,20px);line-height:1.5;max-width:46ch;margin:0 0 26px;color:rgba(23,18,15,.82)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
-.hero-proof{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-.stars{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--paper-2);box-shadow:3px 3px 0 var(--ink)}
-.stars b{color:var(--red-text);font-size:15px;letter-spacing:1px}
-.hero-visual{position:relative;min-height:480px;display:grid;place-items:center}
-.photo-disc{position:relative;width:min(100%,470px);aspect-ratio:1;border-radius:50%;border:4px solid var(--ink);background:radial-gradient(circle at 35% 28%,var(--yellow-2),var(--yellow) 58%,#F3A71A);box-shadow:14px 14px 0 var(--red);overflow:hidden;animation:heroFloat2 13s ease-in-out infinite}
-.photo-disc img{width:100%;height:100%;object-fit:cover;filter:saturate(1.06) contrast(1.02)}
-.photo-disc::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(255,255,255,.12),transparent 55%)}
-.photo-fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:34px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.photo-disc.has-image .photo-fallback{display:none}
-.sticker{position:absolute;z-index:2;border:3px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;padding:12px 14px;line-height:1.25}
-.sticker-a{left:-4px;top:38px;background:var(--red-ink);color:var(--cream);transform:rotate(-7deg);animation:heroFloat 9s ease-in-out infinite}
-.sticker-b{right:-8px;bottom:44px;background:var(--yellow);transform:rotate(6deg);animation:heroFloat2 15s ease-in-out infinite reverse}
-.hero-mascot-wrap{position:absolute;left:6px;bottom:6px;z-index:3;filter:drop-shadow(4px 5px 0 rgba(23,18,15,.18))}
-@keyframes heroFloat{0%,100%{transform:translate3d(0,0,0) rotate(-2deg)}50%{transform:translate3d(0,-12px,0) rotate(2deg)}}
-@keyframes heroFloat2{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-14px,0)}}
-
-/* ---------- TICKER ---------- */
-.marquee-bar{border-block:3px solid var(--ink);background:var(--red-ink);color:var(--cream);overflow:hidden;padding:12px 0}
-.marquee-track{display:flex;width:max-content;animation:slide 34s linear infinite}
-.marquee-track span{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.16em;white-space:nowrap;padding-inline:22px}
-.marquee-track i{font-style:normal;color:var(--yellow)}
-@keyframes slide{to{transform:translateX(-50%)}}
-
-/* ---------- STATS / SOBRE ---------- */
-.about{position:relative;padding-bottom:80px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
-.about-photo{position:relative;border:3px solid var(--ink);border-radius:28px;background:var(--yellow);aspect-ratio:4/4.3;box-shadow:10px 10px 0 var(--ink);overflow:hidden}
-.about-photo img{width:100%;height:100%;object-fit:cover}
-.about-photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--paper-2);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-.about-body p{margin:0 0 16px;color:rgba(23,18,15,.82)}
-.about-body strong{color:var(--red-text)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-.stat{padding:18px 12px;border-right:1px solid var(--line)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-size:clamp(26px,3.6vw,38px);line-height:1;letter-spacing:-.04em}
-.stat small{display:block;margin-top:7px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-
-/* ---------- CARDÁPIO ---------- */
-.menu{position:relative;padding-bottom:70px}
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 26px}
-.tab{min-height:44px;padding:9px 17px;border:2px solid var(--ink);border-radius:999px;background:transparent;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;transition:transform .25s var(--ease),background .25s var(--ease)}
-.tab:hover{transform:translateY(-2px)}
-.tab[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.grid-serv{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.serv{position:relative;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;padding:20px;border:2px solid var(--ink);border-radius:22px;background:var(--paper-2);box-shadow:6px 6px 0 var(--ink);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.serv:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:10px 10px 0 var(--red)}
-.serv[hidden]{display:none}
-.serv-art{position:relative;width:96px;height:96px;border-radius:50%;border:3px solid var(--ink);background:conic-gradient(from 20deg,var(--yellow),var(--yellow-2),#F0A415,var(--yellow));display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 8px rgba(255,255,255,.24)}
-.serv-art::before{content:"";position:absolute;width:76px;height:76px;border-radius:50%;background:var(--red);opacity:.88}
-.serv-art::after{content:"";position:absolute;width:54px;height:54px;border-radius:50%;background:var(--yellow-2);box-shadow:0 0 0 5px rgba(255,255,255,.55)}
-.serv-art.art-cheese::before{background:#F4C542}
-.serv-art.art-kebab::before{background:#8E4A2E}
-.serv-art.art-carbonara::before{background:#F0D9A8}
-.serv h3{font-size:19px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px}
-.serv p{font-size:13.5px;line-height:1.45;color:var(--muted);margin:0 0 10px}
-.serv-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}
-.tag{display:inline-block;padding:4px 9px;border:1.5px solid var(--ink);border-radius:999px;background:var(--yellow-2);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
-.tag-src{background:transparent}
-.price-note{font-size:11px;font-weight:800;color:var(--muted)}
-.serv .btn{font-size:10px;min-height:42px;padding:8px 14px}
-.menu-disclaimer{margin-top:24px;padding:16px 18px;border-left:5px solid var(--red);background:rgba(229,55,42,.07);font-size:13px;color:var(--muted)}
-
-/* ---------- NOVIDADES / PROMO ---------- */
-.promo{position:relative;padding:0 0 80px}
-.promo-inner{position:relative;border:3px solid var(--ink);border-radius:30px;background:var(--yellow);box-shadow:12px 12px 0 var(--ink);padding:clamp(26px,4vw,54px);overflow:hidden}
-.promo-inner::after{content:"";position:absolute;width:320px;height:320px;border:24px solid rgba(229,55,42,.16);border-radius:50%;right:-110px;top:-130px;animation:heroFloat2 19s ease-in-out infinite}
-.promo-grid{display:grid;grid-template-columns:1fr .8fr;gap:32px;align-items:center;position:relative;z-index:1}
-.promo h2{font-size:clamp(32px,4.8vw,58px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin:10px 0 16px}
-.promo p{margin:0 0 18px;max-width:48ch}
-.promo ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:8px}
-.promo li{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700}
-.promo li::before{content:"";flex:none;width:11px;height:11px;margin-top:7px;border:2px solid var(--ink);border-radius:50%;background:var(--red)}
-.promo-sticker{position:relative;width:100%;max-width:300px;justify-self:center;border:3px solid var(--ink);border-radius:26px;background:var(--paper-2);box-shadow:8px 8px 0 var(--red);padding:22px;text-align:center;transform:rotate(3deg)}
-.promo-sticker .mascot{width:110px;margin:0 auto 8px}
-.promo-sticker b{display:block;font-size:25px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}
-.promo-sticker small{display:block;margin-top:8px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px;position:relative;z-index:1}
-.step{border-top:3px solid var(--ink);padding-top:14px;position:relative}
-.step::before{content:"";position:absolute;left:0;top:-3px;height:3px;width:0;background:var(--red);transition:width .5s var(--ease)}
-.step:hover::before{width:100%}
-.step b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-text)}
-.step p{font-size:13px;margin:6px 0 0;color:var(--muted)}
-.promo-note{font-size:11px;font-weight:700;margin-top:20px;position:relative;z-index:1}
-
-/* ---------- GALERIA ---------- */
-.gallery{position:relative;padding-bottom:76px}
-.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
-.gallery figure{position:relative;margin:0;border:3px solid var(--ink);border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--yellow),var(--red-2));box-shadow:8px 8px 0 var(--ink);aspect-ratio:4/3}
-.gallery figure:last-child{aspect-ratio:4/4.4}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.gallery figure:hover img{transform:scale(1.055)}
-.gallery figcaption{position:absolute;left:12px;bottom:12px;background:var(--paper-2);border:2px solid var(--ink);border-radius:999px;padding:6px 11px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
-
-/* ---------- AVALIAÇÕES ---------- */
-.reviews{position:relative;padding-bottom:80px}
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.quote{position:relative;border:2px solid var(--ink);border-radius:22px;background:var(--paper-2);padding:24px;box-shadow:6px 6px 0 var(--ink);transition:transform .35s var(--ease)}
-.quote:hover{transform:translateY(-5px)}
-.quote .stars{box-shadow:none;position:absolute;top:16px;right:16px;font-size:11px}
-.quote p{font-size:15px;line-height:1.5;margin:28px 0 20px}
-.quote footer{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
-.quote .avatar{width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:12px}
-
-/* ---------- LOCALIZAÇÃO ---------- */
-.location{position:relative;padding-bottom:80px}
-.location-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}
-.location-card{border:3px solid var(--ink);border-radius:26px;background:var(--paper-2);padding:clamp(22px,3vw,34px);box-shadow:8px 8px 0 var(--ink)}
-.location-card h3{font-size:20px;text-transform:uppercase;margin:0 0 14px}
-.info-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
-.info-row span:first-child{font-weight:900;min-width:80px;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding-top:3px}
-.info-row a{font-weight:800;text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}
-.hours{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
-.hours td{padding:7px 0;border-bottom:1px dashed var(--line)}
-.hours td:last-child{text-align:right;font-weight:800}
-.hours tr:first-child td{color:var(--red-text)}
-.map-wrap{border:3px solid var(--ink);border-radius:26px;overflow:hidden;box-shadow:8px 8px 0 var(--red);min-height:360px;background:var(--yellow-2)}
-.map-wrap iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
-.location-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-
-/* ---------- CTA FINAL ---------- */
-.cta{position:relative;padding:96px 0 110px;background:var(--yellow);border-block:3px solid var(--ink);overflow:hidden;isolation:isolate}
-.cta::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(229,55,42,.24),transparent 68%);right:-170px;top:-200px;animation:glow 17s ease-in-out infinite}
-.cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
-.cta h2{font-size:clamp(36px,6vw,70px);line-height:.98;letter-spacing:-.05em;text-transform:uppercase;margin:0 0 14px}
-.cta p{margin:0 0 22px;max-width:50ch;font-size:16px}
-.cta .mascot{width:150px}
-
-/* ---------- LEGAL / FOOTER ---------- */
-.legal{padding:14px 0 34px}
-.legal details{border-bottom:1px solid var(--line);padding:12px 0}
-.legal summary{cursor:pointer;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.08em}
-.legal p{font-size:13px;color:var(--muted);max-width:80ch;margin:12px 0 0}
-footer.site-footer{background:var(--ink);color:var(--cream);padding:44px 0 28px;position:relative;z-index:1}
-.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
-.footer-grid h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--yellow);margin:0 0 12px}
-.footer-grid p,.footer-grid a{font-size:13px;color:rgba(255,248,230,.78);display:block;margin:0 0 8px}
-.footer-grid a:hover{color:var(--yellow)}
-.footer-bottom{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,248,230,.18);font-size:11px;color:rgba(255,248,230,.6)}
-
-/* ---------- CARRINHO ---------- */
-.cart-overlay{position:fixed!important;inset:0;background:rgba(23,18,15,.58);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:200}
-.cart-overlay.open{opacity:1;pointer-events:auto;z-index:200!important}
-body > aside.cart-drawer{position:fixed!important;top:0;right:0;bottom:0;width:min(440px,100%);z-index:210!important;background:var(--paper);border-left:3px solid var(--ink);box-shadow:-16px 0 40px rgba(23,18,15,.22);transform:translateX(105%);transition:transform .45s var(--ease);display:flex;flex-direction:column}
-body > aside.cart-drawer.open{transform:translateX(0)}
-.cart-head{display:flex;align-items:center;gap:12px;padding:20px;border-bottom:2px solid var(--ink);background:var(--yellow)}
-.cart-head h2{margin:0;font-size:21px;text-transform:uppercase;letter-spacing:-.02em}
-.cart-head .mascot{width:44px;margin-left:auto}
-.cart-close{width:44px;height:44px;border:2px solid var(--ink);border-radius:12px;background:var(--paper-2);font-size:20px;font-weight:900}
-.cart-body{padding:20px;overflow:auto;flex:1}
-.cart-body h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px}
-.cart-empty{text-align:center;padding:36px 10px;color:var(--muted);font-size:14px}
-.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
-.cart-item b{display:block;font-size:15px}
-.cart-item small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
-.qty{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;margin-top:10px}
-.qty button{width:38px;height:36px;border:0;background:var(--paper-2);font-weight:900;font-size:17px}
-.qty span{min-width:30px;text-align:center;font-weight:900;font-size:13px}
-.remove-btn{border:0;background:transparent;color:var(--red-text);font-size:11px;font-weight:900;text-transform:uppercase;text-decoration:underline}
-.cart-total{margin:18px 0;padding:14px;border:2px dashed var(--ink);border-radius:14px;background:var(--yellow-2);font-size:13px;font-weight:800}
-.field{margin:16px 0}
-.field label{display:block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
-.field textarea{width:100%;min-height:78px;resize:vertical;border:2px solid var(--ink);border-radius:14px;padding:11px;background:var(--paper-2);font-size:14px}
-.modality{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.modality label{display:flex;align-items:center;gap:8px;margin:0;padding:11px;border:2px solid var(--ink);border-radius:14px;background:var(--paper-2);font-size:11px;letter-spacing:0;text-transform:none;cursor:pointer;transition:background .25s var(--ease)}
-.modality input{accent-color:var(--red);width:18px;height:18px}
-.modality label:has(input:checked){background:var(--yellow)}
-.consent{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.4;margin:14px 0;cursor:pointer}
-.consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--red)}
-.consent a{text-decoration:underline;font-weight:800}
-.cart-foot{padding:16px 20px 22px;border-top:2px solid var(--ink);background:var(--paper-2);display:grid;gap:10px}
-.cart-foot .btn{width:100%}
-.cart-foot .btn-ghost{box-shadow:3px 3px 0 var(--ink)}
-.cart-fine{font-size:10px;color:var(--muted);text-align:center;margin:0}
-
-/* ---------- MOBILE BAR / TOAST ---------- */
-.mobile-bar{display:none;position:fixed!important;left:10px;right:10px;bottom:10px;z-index:140;gap:8px;padding:8px;border:2px solid var(--ink);border-radius:18px;background:rgba(255,248,230,.96);backdrop-filter:blur(10px);box-shadow:0 8px 26px rgba(23,18,15,.2)}
-.mobile-bar{z-index:140!important}
-.mobile-bar .btn{flex:1;min-height:46px;font-size:11px}
-.toast{position:fixed!important;z-index:300!important;left:50%;bottom:88px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:300;background:var(--ink);color:var(--cream);border:2px solid var(--yellow);border-radius:14px;padding:12px 18px;font-size:12px;font-weight:800;text-align:center;max-width:min(420px,calc(100% - 30px));transition:opacity .3s var(--ease),transform .3s var(--ease)}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-
-@media(max-width:980px){
-  .nav-links{gap:14px}
-  .hero-grid{gap:26px}
-  .hero-visual{min-height:400px}
-  .photo-disc{width:min(100%,400px)}
+button{font:inherit;color:inherit;cursor:pointer}
+ul,ol{margin:0;padding:0;list-style:none}
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{
+  outline:3px solid var(--ink);outline-offset:3px;border-radius:6px;
 }
-@media(max-width:860px){
-  .nav-links{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:10px 24px 18px;background:var(--paper);border-bottom:2px solid var(--ink)}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
-  .nav-toggle{display:inline-flex}
-  .hero{grid-template-columns:1fr;padding-top:118px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr}
-  .hero-copy{text-align:left}
-  .hero-visual{min-height:420px}
-  .photo-disc{width:min(86%,420px)}
-  .about-grid,.promo-grid,.location-grid,.cta-inner{grid-template-columns:1fr}
-  .cta .mascot{display:none}
-  .footer-grid{grid-template-columns:1fr 1fr}
+.skip{position:absolute;left:14px;top:-70px;z-index:400;background:var(--ink);color:var(--white);
+  padding:12px 18px;border-radius:12px;font-weight:800;transition:top .2s}
+.skip:focus{top:14px}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- 3. FUNDO CONTEXTUAL ANIMADO ---------- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
+  radial-gradient(120% 90% at 82% -10%,#FFF2C9 0%,transparent 58%),
+  radial-gradient(100% 80% at 6% 4%,#FFFAEC 0%,transparent 62%),
+  var(--cream);
 }
-@media(max-width:620px){
-  .wrap{width:calc(100% - 32px)}
-  body{padding-bottom:70px}
-  .mobile-bar{display:flex}
-  .brand-text strong{font-size:12px}
-  .brand-text span{font-size:8px}
-  .cart-pill{font-size:0;padding:0 11px}
-  .cart-pill .count{font-size:11px}
-  .sec-head{padding-top:62px}
-  .hero{padding-top:108px;padding-bottom:46px}
-  .hero h1{font-size:clamp(40px,12vw,64px)}
-  .hero-actions .btn{width:100%}
-  .hero-visual{min-height:330px}
-  .photo-disc{width:min(88%,340px);box-shadow:8px 8px 0 var(--red)}
-  .sticker{font-size:9px;padding:9px 10px}
-  .sticker-a{left:-8px;top:12px}
-  .sticker-b{right:-10px;bottom:12px}
-  .hero-mascot-wrap{left:-2px;bottom:-4px}
-  .hero-mascot{width:56px}
-  .grid-serv,.quotes,.gallery-grid,.steps{grid-template-columns:1fr}
-  .about-photo{aspect-ratio:4/3.6}
-  .serv{grid-template-columns:74px 1fr;gap:12px;padding:15px}
-  .serv-art{width:74px;height:74px}
-  .serv-art::before{width:56px;height:56px}
-  .serv-art::after{width:40px;height:40px}
-  .promo-inner{padding:22px}
-  .promo-sticker{max-width:100%}
-  .gallery figure:last-child{aspect-ratio:4/3}
-  .stats{grid-template-columns:1fr}
-  .stat{border-right:0;border-bottom:1px solid var(--line)}
-  .stat:last-child{border-bottom:0}
-  .footer-grid{grid-template-columns:1fr}
-  .location-card,.map-wrap,.map-wrap iframe{min-height:300px}
-  .toast{bottom:86px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto!important}
-  .marquee-track,.photo-disc,.sticker,.hero-mascot,.promo-inner::after,.cta::before{animation:none!important}
-  .btn,.serv,.gallery img,.qty,.cart-drawer{transition:none!important}
-}
-
-/* ANIM-KIT v2 */
-/* ============================================================
-   ANIM-KIT v2 — camada de animação portátil (tokenizada)
-   Fonte única da verdade. Injetada por: node tools/inject-anim.mjs
-   Não editar dentro do site: editar aqui e rodar --refresh.
-
-   Como a cor funciona (o que faltava na v1):
-   a camada NUNCA usa cor fixa. Ela lê, nesta ordem:
-     --accent   → se o cliente já definiu um acento
-     --magenta  → acento magenta (padrão Migaica)
-     --gold     → acento dourado (padrão portfólio)
-     #C9A46A    → último recurso
-   Trocar o :root do site passa a trocar o fundo animado também.
-   ============================================================ */
-
-:root{
-  --anim-accent:   var(--accent, var(--magenta, var(--gold, #C9A46A)));
-  --anim-accent-2: var(--accent-2, var(--gold-2, var(--anim-accent)));
-  --anim-surface:  var(--cream, var(--lilac-wash, #F4ECDE));
-  --anim-line:     var(--line, rgba(127,127,127,.14));
-  --anim-ink:      var(--ink, #0B0A08);
-}
-
-/* ---------- 0. REDE DE SEGURANÇA DE LAYOUT ----------
-   Palavra longa de cliente e grid com min-width:auto são as duas causas
-   clássicas de scroll horizontal. Ficam neutralizadas aqui.            */
-h1,h2,h3,.card h3,.quote p{overflow-wrap:break-word}
-.hero-grid>*,.about>*,.grid-proj>*,.steps>*,.quotes>*,.stats>*{min-width:0}
-
-/* empilhamento: fundo atrás, conteúdo na frente */
-body>*:not(.bg):not(.thread):not(.bar){position:relative;z-index:1}
-section>.wrap{position:relative;z-index:1}
-
-/* ============================================================
-   1. FUNDO CONTEXTUAL ANIMADO
-   Abstrato + elegante: luz, geometria e grão em movimento lento.
-   Nenhum objeto literal. Cores sempre derivadas do token.
-   ============================================================ */
-.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-
 .bg-aurora{
-  position:absolute;inset:-40%;
+  position:absolute;inset:-25%;
   background:
-    radial-gradient(38% 42% at 22% 18%,color-mix(in srgb,var(--anim-accent) 14%,transparent),transparent 70%),
-    radial-gradient(34% 40% at 82% 30%,color-mix(in srgb,var(--anim-accent-2) 11%,transparent),transparent 70%),
-    radial-gradient(46% 50% at 60% 95%,color-mix(in srgb,var(--anim-accent) 8%,transparent),transparent 72%);
-  animation:aurora 26s ease-in-out infinite alternate;
-  will-change:transform,opacity;
+    radial-gradient(38% 34% at 22% 26%,rgba(255,196,12,.52),transparent 64%),
+    radial-gradient(34% 30% at 78% 22%,rgba(229,55,42,.30),transparent 66%),
+    radial-gradient(40% 38% at 62% 82%,rgba(255,196,12,.34),transparent 68%);
+  filter:blur(26px);
+  animation:auroraShift 34s ease-in-out infinite alternate;
 }
-@keyframes aurora{
-  0%{transform:translate3d(0,0,0) scale(1);opacity:.8}
-  50%{transform:translate3d(-3%,2.5%,0) scale(1.09);opacity:1}
-  100%{transform:translate3d(2%,-2%,0) scale(1.03);opacity:.88}
-}
-
-.bg-blob{
-  position:absolute;
-  background:radial-gradient(circle at 35% 30%,
-    color-mix(in srgb,var(--anim-accent) 17%,transparent),
-    color-mix(in srgb,var(--anim-accent) 0%,transparent) 68%);
-  will-change:transform,border-radius;
-}
-.bg-blob.b1{width:46vw;height:46vw;left:-12vw;top:4vh;animation:morph1 23s ease-in-out infinite}
-.bg-blob.b2{width:38vw;height:38vw;right:-10vw;top:36vh;animation:morph2 29s ease-in-out infinite}
-.bg-blob.b3{width:52vw;height:52vw;left:32vw;bottom:-20vh;opacity:.65;animation:morph1 37s ease-in-out infinite reverse}
-@keyframes morph1{
-  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:58% 42% 46% 54%/52% 46% 54% 48%}
-  33%{transform:translate3d(4%,-3%,0) rotate(9deg) scale(1.07);border-radius:44% 56% 62% 38%/46% 58% 42% 54%}
-  66%{transform:translate3d(-3%,4%,0) rotate(-7deg) scale(.96);border-radius:62% 38% 40% 60%/56% 42% 58% 44%}
-}
-@keyframes morph2{
-  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:46% 54% 60% 40%/58% 42% 58% 42%}
-  40%{transform:translate3d(-5%,3%,0) rotate(-10deg) scale(1.1);border-radius:60% 40% 44% 56%/42% 56% 44% 58%}
-  75%{transform:translate3d(3%,-4%,0) rotate(6deg) scale(.94);border-radius:40% 60% 52% 48%/52% 48% 52% 48%}
-}
-
-/* grade em deslocamento perpétuo — a textura do ambiente */
+.bg-blob{position:absolute;border-radius:46% 54% 58% 42%/48% 42% 58% 52%;filter:blur(4px);opacity:.5}
+.bg-blob.b1{width:46vmax;height:46vmax;left:-14vmax;top:-10vmax;background:radial-gradient(circle at 34% 32%,rgba(255,196,12,.55),transparent 68%);animation:blobFloat 28s ease-in-out infinite alternate}
+.bg-blob.b2{width:34vmax;height:34vmax;right:-10vmax;top:24vh;background:radial-gradient(circle at 60% 40%,rgba(229,55,42,.26),transparent 70%);animation:blobFloat 22s ease-in-out -7s infinite alternate-reverse}
+.bg-blob.b3{width:40vmax;height:40vmax;left:38%;bottom:-18vmax;background:radial-gradient(circle at 50% 50%,rgba(239,168,0,.28),transparent 70%);animation:blobFloat 31s ease-in-out -14s infinite alternate}
 .bg-grid{
-  position:absolute;width:200%;height:200%;left:-50%;top:-50%;
-  background-image:
-    linear-gradient(to right,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px),
-    linear-gradient(to bottom,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px);
-  background-size:72px 72px;
-  animation:gridDrift 32s linear infinite;
-  opacity:.55;
-  -webkit-mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
-  mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
+  position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(23,18,15,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(23,18,15,.055) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 30%,#000 20%,transparent 78%);
+  animation:gridDrift 26s linear infinite;
 }
-@keyframes gridDrift{to{transform:translate3d(-72px,-72px,0)}}
-
-/* partículas (motes) subindo devagar */
+.motes{position:absolute;inset:0}
 .motes i{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:var(--anim-accent-2);opacity:0;
-  animation:mote 17s linear infinite;
-  will-change:transform,opacity;
+  position:absolute;width:7px;height:7px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#FFF3C4,var(--yellow-deep));
+  box-shadow:0 0 0 3px rgba(255,196,12,.16);
+  opacity:.75;
+  animation:mote 20s linear infinite;
+}
+.motes i:nth-child(1){left:6%;top:78%;animation-duration:22s;animation-delay:-3s}
+.motes i:nth-child(2){left:13%;top:34%;animation-duration:17s;animation-delay:-9s}
+.motes i:nth-child(3){left:22%;top:88%;animation-duration:26s;animation-delay:-13s}
+.motes i:nth-child(4){left:31%;top:46%;animation-duration:19s;animation-delay:-5s}
+.motes i:nth-child(5){left:41%;top:72%;animation-duration:24s;animation-delay:-16s}
+.motes i:nth-child(6){left:52%;top:22%;animation-duration:21s;animation-delay:-2s}
+.motes i:nth-child(7){left:61%;top:82%;animation-duration:27s;animation-delay:-11s}
+.motes i:nth-child(8){left:71%;top:38%;animation-duration:18s;animation-delay:-7s}
+.motes i:nth-child(9){left:80%;top:90%;animation-duration:25s;animation-delay:-4s}
+.motes i:nth-child(10){left:88%;top:28%;animation-duration:20s;animation-delay:-15s}
+.motes i:nth-child(11){left:94%;top:62%;animation-duration:23s;animation-delay:-8s}
+.motes i:nth-child(12){left:47%;top:96%;animation-duration:29s;animation-delay:-19s}
+
+/* fio de continuidade entre seções */
+.thread{position:fixed;left:26px;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,rgba(239,168,0,.5) 16%,rgba(239,168,0,.5) 84%,transparent);
+  opacity:0;transition:opacity .7s var(--ease)}
+.thread::after{content:"";position:absolute;left:-1.5px;width:4px;height:140px;border-radius:3px;
+  background:linear-gradient(to bottom,transparent,var(--red),transparent);
+  animation:threadFlow 9s linear infinite}
+@media(min-width:1320px){.thread{opacity:1}}
+
+/* barra de progresso */
+.bar{position:fixed;top:0;left:0;height:3px;width:100%;z-index:120;
+  background:linear-gradient(90deg,var(--yellow),var(--red));
+  transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+
+/* ---------- 4. HEADER ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:var(--hdr);
+  display:flex;align-items:center;
+  background:rgba(255,248,233,.82);
+  backdrop-filter:blur(16px) saturate(1.2);
+  -webkit-backdrop-filter:blur(16px) saturate(1.2);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background .3s,box-shadow .3s;
+}
+.site-header.stuck{border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(23,18,15,.6)}
+.nav{display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto}
+.brand .mascot{width:42px;height:46px;flex:none;animation:mascotIdle 5.4s ease-in-out infinite}
+.brand-text{display:flex;flex-direction:column;line-height:1.12;min-width:0}
+.brand-text strong{font-size:15.5px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6C5F55;font-weight:700}
+.nav-links{display:none;align-items:center;gap:4px}
+.nav-links a{
+  padding:9px 12px;border-radius:999px;font-size:13.5px;font-weight:700;color:#3A2F29;
+  transition:background .25s,color .25s,transform .25s
+}
+.nav-links a:hover{background:rgba(255,196,12,.32);color:var(--ink);transform:translateY(-1px)}
+.nav-links a[aria-current="true"]{background:var(--ink);color:var(--white)}
+.cart-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  border:2px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--white);
+  padding:9px 8px 9px 16px;font-size:13px;font-weight:800;letter-spacing:.01em;
+  transition:transform .22s var(--ease),background .22s,color .22s;
+}
+.cart-pill:hover{transform:translateY(-2px);background:var(--red);border-color:var(--red)}
+.cart-pill .count{
+  display:grid;place-items:center;min-width:24px;height:24px;padding:0 6px;
+  border-radius:999px;background:var(--yellow);color:var(--ink);font-size:12px;font-weight:900
+}
+.nav-toggle{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:12px;
+  border:2px solid var(--ink);background:var(--white);font-size:17px;font-weight:900;line-height:1
+}
+@media(min-width:900px){
+  .nav-links{display:flex}
+  .nav-toggle{display:none}
+  .brand .mascot{width:46px;height:50px}
+}
+
+/* menu mobile */
+.mobile-menu{
+  position:fixed;top:var(--hdr);left:0;right:0;z-index:99;
+  background:var(--white);border-bottom:2px solid var(--ink);
+  padding:10px 20px 18px;
+  display:grid;gap:4px;
+  transform:translateY(-108%);transition:transform .38s var(--ease);
+  box-shadow:0 24px 40px -30px rgba(23,18,15,.7)
+}
+.mobile-menu[data-open="true"]{transform:translateY(0)}
+.mobile-menu a{padding:12px 6px;font-weight:800;font-size:16px;border-bottom:1px solid var(--line)}
+.mobile-menu a:last-child{border-bottom:0}
+@media(min-width:900px){.mobile-menu{display:none}}
+
+/* ---------- 5. TIPOGRAFIA / BOTÕES ---------- */
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red-text);
+}
+.kicker::before{content:"";width:22px;height:2px;background:var(--red);border-radius:2px;flex:none}
+.sec-head{max-width:640px;margin-bottom:34px}
+.sec-head h2{font-family:var(--serif);font-size:clamp(30px,5.4vw,50px);font-weight:700;line-height:1.02;letter-spacing:-.025em}
+.sec-head p{margin-top:14px;font-size:16px;color:#4A3D35;max-width:58ch}
+.hl{
+  display:inline;font-style:italic;
+  background-image:linear-gradient(var(--yellow),var(--yellow));
+  background-repeat:no-repeat;
+  background-size:0% .34em;
+  background-position:0 94%;
+  transition:background-size .95s var(--ease) .18s;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  padding-bottom:.06em
+}
+.in .hl,.hl.in{background-size:100% .34em}
+
+.btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:50px;padding:14px 24px;border-radius:999px;
+  border:2px solid var(--ink);font-weight:800;font-size:15px;letter-spacing:.01em;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s,color .22s;
+  will-change:transform
+}
+.btn::before{
+  content:"";position:absolute;top:0;bottom:0;left:-60%;width:42%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:translateX(-160%) skewX(-18deg);
+  transition:transform .85s var(--ease)
+}
+.btn:hover::before{transform:translateX(320%) skewX(-18deg)}
+.btn-red{background:var(--red);color:var(--white);box-shadow:0 5px 0 var(--red-ink)}
+.btn-red:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--red-ink)}
+.btn-red:active{transform:translateY(2px);box-shadow:0 2px 0 var(--red-ink)}
+.btn-yellow{background:var(--yellow);color:var(--ink);box-shadow:0 5px 0 var(--yellow-deep)}
+.btn-yellow:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--yellow-deep)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:0 5px 0 rgba(23,18,15,.16)}
+.btn-ghost:hover{background:var(--white);transform:translateY(-3px)}
+.btn-ink{background:var(--ink);color:var(--white);box-shadow:0 5px 0 #000}
+.btn-ink:hover{transform:translateY(-3px)}
+.btn-sm{min-height:42px;padding:10px 16px;font-size:13.5px;border-radius:13px}
+.btn-block{width:100%}
+
+/* ---------- 6. HERO ---------- */
+main{position:relative;z-index:2}
+.hero{padding:calc(var(--hdr) + 34px) 0 56px;position:relative}
+.hero-grid{display:grid;gap:38px}
+.hero-copy{max-width:620px}
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(36px,8.4vw,68px);line-height:.98;letter-spacing:-.035em;margin-top:14px;
+  text-wrap:balance;
+}
+.hero h1 em{font-style:italic;color:var(--red-text)}
+.hero-lead{margin-top:20px;font-size:16.5px;color:#43362F;max-width:52ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:24px;font-size:13px;font-weight:700;color:#4B3E36}
+.hero-proof .stars{color:var(--red-text);letter-spacing:.08em}
+.hero-proof .stars b{font-size:14px}
+.hero-visual{position:relative;display:grid;place-items:center;min-height:300px}
+.disc{
+  position:relative;width:min(88vw,440px);aspect-ratio:1;border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 28%,#FFF6D6 0%,#FFE9A8 38%,#FFD25E 62%,#F2A900 100%);
+  box-shadow:0 40px 60px -40px rgba(23,18,15,.55),inset 0 0 0 2px rgba(23,18,15,.14);
+  display:grid;place-items:center;overflow:hidden;
+  animation:heroFloat 9s ease-in-out infinite;
+}
+.disc::after{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:2px dashed rgba(23,18,15,.22);
+  animation:spin 46s linear infinite;
+}
+.disc img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .8s var(--ease);z-index:2
+}
+.disc.has-img img{opacity:1}
+.disc.no-img img{display:none}
+.disc-fallback{
+  position:relative;z-index:1;text-align:center;padding:22px;color:#3A2A10
+}
+.disc-fallback svg{width:min(58%,230px);margin:0 auto 8px;animation:mascotIdle 6s ease-in-out infinite}
+.disc-fallback span{display:block;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.sticker{
+  position:absolute;z-index:3;
+  background:var(--ink);color:var(--white);
+  border-radius:16px;padding:9px 14px;font-size:11.5px;font-weight:900;
+  letter-spacing:.05em;text-transform:uppercase;line-height:1.24;text-align:center;
+  box-shadow:0 12px 22px -14px rgba(23,18,15,.9)
+}
+.sticker-a{top:2%;right:2%;transform:rotate(7deg);background:var(--red);animation:stickerBob 7s ease-in-out infinite}
+.sticker-b{bottom:6%;left:-2%;transform:rotate(-6deg);background:var(--ink);animation:stickerBob 8.5s ease-in-out -2s infinite}
+.sticker-b b{color:var(--yellow)}
+@media(min-width:880px){
+  .hero{padding:calc(var(--hdr) + 54px) 0 76px}
+  .hero-grid{grid-template-columns:1.08fr .92fr;align-items:center;gap:30px}
+  .hero-visual{min-height:460px}
+}
+
+/* ---------- 7. TICKER ---------- */
+.ticker{
+  position:relative;z-index:2;overflow:hidden;
+  border-block:2px solid var(--ink);background:var(--yellow);
+  padding:11px 0;
+}
+.ticker-track{display:flex;gap:0;width:max-content;animation:marquee 32s linear infinite}
+.ticker-track span{
+  display:inline-flex;align-items:center;gap:14px;
+  padding-inline:18px;font-size:12.5px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink);white-space:nowrap
+}
+.ticker-track span::after{content:"✦";font-size:11px;color:var(--red-ink)}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* ---------- 8. SEÇÕES BASE ---------- */
+.sec{padding:64px 0;position:relative}
+.sec[data-bridge]{position:relative;overflow-x:clip}
+.sec[data-bridge]::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;border-radius:50%;
+  width:min(520px,78vw);aspect-ratio:1;right:-24%;top:-16%;
+  background:radial-gradient(circle,rgba(255,196,12,.34),transparent 68%);
+  animation:glow 19s ease-in-out infinite
+}
+.sec[data-bridge="b"]::before{left:-26%;right:auto;bottom:-22%;top:auto;background:radial-gradient(circle,rgba(229,55,42,.16),transparent 70%);animation-duration:24s}
+.sec-alt{background:linear-gradient(180deg,rgba(255,253,248,.72),rgba(255,248,233,0))}
+.sec-ink{background:var(--ink);color:var(--cream);overflow:hidden}
+.sec-ink .sec-head p{color:rgba(255,248,233,.78)}
+.sec-ink .kicker{color:var(--yellow)}
+.sec-ink .kicker::before{background:var(--yellow)}
+@media(min-width:760px){.sec{padding:86px 0}}
+
+/* cards do "como funciona" */
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{
+  position:relative;background:var(--white);border:2px solid var(--ink);border-radius:var(--r);
+  padding:24px 22px 22px;box-shadow:0 6px 0 rgba(23,18,15,.9);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease)
+}
+.step:hover{transform:translateY(-6px);box-shadow:0 12px 0 rgba(23,18,15,.9)}
+.step::before{
+  counter-increment:s;content:counter(s,decimal-leading-zero);
+  display:grid;place-items:center;width:34px;height:34px;border-radius:10px;
+  background:var(--yellow);border:2px solid var(--ink);
+  font-size:13px;font-weight:900;margin-bottom:14px
+}
+.step h3{font-size:19px;margin-bottom:8px;letter-spacing:-.01em}
+.step p{font-size:14.5px;color:#4B3E36}
+.step .tag{
+  display:inline-block;margin-top:14px;font-size:11px;font-weight:900;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--red-text)
+}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr);gap:18px}}
+
+/* ---------- 9. CARDÁPIO ---------- */
+.menu-bar{
+  display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;
+  scrollbar-width:thin;
+}
+.chip{
+  flex:none;border:2px solid var(--ink);background:var(--white);border-radius:999px;
+  padding:9px 16px;font-size:13px;font-weight:800;transition:background .22s,color .22s,transform .22s
+}
+.chip:hover{transform:translateY(-2px);background:var(--yellow-soft)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+.chip:focus-visible{outline-offset:2px}
+.menu-grid{display:grid;gap:16px}
+@media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.menu-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+
+.dish{
+  display:flex;flex-direction:column;
+  background:var(--white);border:2px solid var(--ink);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 6px 0 rgba(23,18,15,.9);
+  transition:transform .32s var(--ease),box-shadow .32s var(--ease);
+  animation:cardIn .5s var(--ease) both
+}
+.dish:hover{transform:translateY(-6px);box-shadow:0 13px 0 rgba(23,18,15,.9)}
+.dish[hidden]{display:none}
+.dish-photo{position:relative;aspect-ratio:16/10;background:#FFF0C4;overflow:hidden;border-bottom:2px solid var(--ink)}
+.dish-photo .pie{position:absolute;inset:0;display:grid;place-items:center}
+.pie{
+  --cheese:#FFD75E;--topping:#C0392B;--topping2:#8E5A2B;
+  background:
+    radial-gradient(circle at 50% 46%,var(--cheese) 0 44%,transparent 45%),
+    repeating-conic-gradient(from 8deg,var(--cheese) 0 22deg,#F6C23C 22deg 30deg);
+  position:relative
+}
+.pie::before{
+  content:"";position:absolute;width:78%;aspect-ratio:1;left:11%;top:12%;border-radius:50%;
+  background:
+    radial-gradient(circle at 30% 34%,var(--topping) 0 7%,transparent 8%),
+    radial-gradient(circle at 62% 28%,var(--topping2) 0 5%,transparent 6%),
+    radial-gradient(circle at 44% 62%,var(--topping) 0 6%,transparent 7%),
+    radial-gradient(circle at 72% 66%,var(--topping) 0 5.5%,transparent 6.5%),
+    radial-gradient(circle at 24% 70%,var(--topping2) 0 4%,transparent 5%),
+    radial-gradient(circle at 54% 44%,#FFF3C6 0 3%,transparent 4%),
+    radial-gradient(circle at 50% 50%,var(--cheese) 0 70%,#F0B62E 71%,#E8A421 100%);
+  box-shadow:inset 0 0 0 6px #E8A421,0 14px 26px -18px rgba(23,18,15,.7);
+  transition:transform .6s var(--ease)
+}
+.dish:hover .pie::before{transform:rotate(6deg) scale(1.03)}
+.pie.art-4q{--cheese:#FFE08A;--topping:#F2C14E;--topping2:#FFF1C9}
+.pie.art-kebab{--cheese:#FFCE4F;--topping:#8E4A2E;--topping2:#3F7A35}
+.pie.art-carb{--cheese:#FFDFA0;--topping:#E8B04B;--topping2:#7A4E2C}
+.dish-badge{
+  position:absolute;top:10px;left:10px;z-index:2;
+  background:var(--red);color:var(--white);border-radius:999px;
+  padding:5px 11px;font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase
+}
+.dish-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dish-body h3{font-size:18.5px;letter-spacing:-.015em}
+.dish-body p{font-size:13.8px;color:#4E4139;line-height:1.55;flex:1}
+.dish-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-size:11.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#6B5B50}
+.price b{display:block;font-size:12.5px;color:var(--red-text);letter-spacing:0}
+.menu-note{
+  margin-top:22px;padding:16px 18px;border-radius:var(--r-sm);
+  background:rgba(255,196,12,.16);border:1px dashed var(--line-strong);
+  font-size:13.5px;color:#4A3D35
+}
+
+/* ---------- 10. NOVIDADE ---------- */
+.feature{
+  display:grid;gap:26px;align-items:center;
+  background:linear-gradient(140deg,#1E1713,#2C211A 58%,#3A1C15);
+  border:2px solid var(--ink);border-radius:var(--r-lg);
+  padding:26px 22px;box-shadow:0 10px 0 rgba(0,0,0,.35);
+  position:relative;overflow:hidden
+}
+.feature::before{
+  content:"";position:absolute;width:70%;aspect-ratio:1;right:-22%;top:-40%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,196,12,.28),transparent 66%);
+  animation:glow 16s ease-in-out infinite
+}
+.feature-copy{position:relative;z-index:2}
+.feature h2{font-family:var(--serif);font-size:clamp(28px,5vw,44px);color:var(--white);line-height:1.03}
+.feature .lead{color:rgba(255,248,233,.82);margin-top:14px;font-size:15.5px;max-width:46ch}
+.feature ul{margin-top:18px;display:grid;gap:9px}
+.feature li{display:flex;gap:10px;align-items:flex-start;color:rgba(255,248,233,.9);font-size:14px}
+.feature li::before{content:"";flex:none;width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--yellow)}
+.feature .btn{margin-top:22px}
+.feature-art{position:relative;z-index:1;display:grid;place-items:center}
+.feature-art .disc{width:min(70vw,300px);animation-duration:11s}
+@media(min-width:860px){
+  .feature{grid-template-columns:1.15fr .85fr;padding:44px 40px;gap:20px}
+}
+
+/* ---------- 11. GALERIA ---------- */
+.gal{display:grid;gap:12px;grid-auto-rows:150px}
+.gal figure{position:relative;margin:0;border-radius:var(--r);overflow:hidden;border:2px solid var(--ink);background:#FFE9A8}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .4s;opacity:0}
+.gal img.loaded{opacity:1}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:22px 14px 12px;font-size:11.5px;font-weight:800;color:var(--white);
+  background:linear-gradient(to top,rgba(23,18,15,.86),transparent)
+}
+.gal .ph{position:absolute;inset:0;display:grid;place-items:center;gap:6px;text-align:center;padding:16px;
+  font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#6B5312}
+.gal .ph svg{width:44px;height:44px;opacity:.7}
+.gal figure.has-img .ph{display:none}
+.gal figure.wide{grid-column:span 2}
+@media(min-width:700px){
+  .gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:190px}
+  .gal figure.wide{grid-column:span 2;grid-row:span 2}
+}
+
+/* ---------- 12. CONFIANÇA ---------- */
+.trust{display:grid;gap:16px}
+.score-card{
+  background:var(--yellow);border:2px solid var(--ink);border-radius:var(--r);
+  padding:26px 22px;box-shadow:0 6px 0 rgba(23,18,15,.9);position:relative;overflow:hidden
+}
+.score-card .num{font-family:var(--serif);font-size:64px;line-height:.9;letter-spacing:-.04em}
+.score-card .stars{font-size:19px;letter-spacing:.14em;color:var(--red-ink);margin-top:6px}
+.score-card p{font-size:13.5px;margin-top:10px;color:#4A3714;font-weight:700}
+.score-card .btn{margin-top:18px;background:var(--ink);color:var(--white);box-shadow:0 5px 0 #000}
+.facts{display:grid;gap:12px}
+.fact{
+  display:flex;gap:13px;align-items:flex-start;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:16px 16px 15px;
+  transition:border-color .3s,transform .3s var(--ease)
+}
+.fact:hover{border-color:var(--ink);transform:translateY(-3px)}
+.fact .ic{
+  flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;
+  background:rgba(255,196,12,.4);border:1px solid rgba(23,18,15,.16);font-size:15px
+}
+.fact h3{font-size:14.5px;letter-spacing:-.01em}
+.fact p{font-size:13px;color:#54463D;margin-top:3px}
+@media(min-width:860px){
+  .trust{grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start}
+  .facts{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- 13. CONTATO ---------- */
+.contact{display:grid;gap:18px}
+.info-card{
+  background:var(--white);border:2px solid var(--ink);border-radius:var(--r);
+  padding:22px;box-shadow:0 6px 0 rgba(23,18,15,.9)
+}
+.info-row{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}
+.info-row:last-child{border-bottom:0;padding-bottom:0}
+.info-row:first-child{padding-top:0}
+.info-row .ic{flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:rgba(255,196,12,.34);font-size:14px}
+.info-row b{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#6C5B50}
+.info-row span,.info-row a{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.45}
+.info-row a{border-bottom:2px solid var(--yellow);transition:border-color .2s}
+.info-row a:hover{border-color:var(--red)}
+.hours{width:100%;border-collapse:collapse;margin-top:6px;font-size:13.5px}
+.hours th,.hours td{text-align:left;padding:7px 0;border-bottom:1px dashed var(--line);font-weight:600}
+.hours th{font-weight:700;color:#4A3D35}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:0}
+.hours tr.is-today th,.hours tr.is-today td{color:var(--red-text);font-weight:900}
+.hours .closed{color:#7A6A5F}
+.map-card{border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;box-shadow:0 6px 0 rgba(23,18,15,.9);background:var(--white)}
+.map-card iframe{display:block;width:100%;height:320px;border:0}
+.map-card .map-foot{padding:12px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12.5px;font-weight:700;flex-wrap:wrap}
+@media(min-width:900px){.contact{grid-template-columns:.95fr 1.05fr;align-items:stretch}.map-card iframe{height:100%;min-height:420px}}
+
+/* ---------- 14. DRAWER DO PEDIDO ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:190;background:rgba(23,18,15,.55);
+  backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s
+}
+.overlay.open{opacity:1;visibility:visible}
+.drawer{
+  position:fixed;z-index:200;top:0;right:0;bottom:0;width:min(440px,100%);
+  background:var(--cream);border-left:2px solid var(--ink);
+  display:flex;flex-direction:column;
+  transform:translateX(102%);transition:transform .42s var(--ease);
+  box-shadow:-30px 0 60px -40px rgba(23,18,15,.9)
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:2px solid var(--ink);background:var(--white)}
+.drawer-head h2{font-size:17px;flex:1}
+.drawer-head .close{
+  width:38px;height:38px;border-radius:11px;border:2px solid var(--ink);background:var(--white);
+  display:grid;place-items:center;font-size:18px;font-weight:900;line-height:1;transition:background .2s,transform .2s
+}
+.drawer-head .close:hover{background:var(--yellow);transform:rotate(90deg)}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 16px 8px;-webkit-overflow-scrolling:touch}
+.drawer-foot{border-top:2px solid var(--ink);background:var(--white);padding:14px 16px calc(16px + env(safe-area-inset-bottom))}
+.empty{text-align:center;padding:44px 18px;color:#5B4C43}
+.empty svg{width:64px;height:70px;margin:0 auto 12px;opacity:.55}
+.empty p{font-size:14px;margin-top:6px}
+.ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);animation:cardIn .3s var(--ease) both}
+.ci-art{flex:none;width:52px;height:52px;border-radius:12px;border:2px solid var(--ink);position:relative;overflow:hidden}
+.ci-main{flex:1;min-width:0}
+.ci-main strong{display:block;font-size:14px;letter-spacing:-.01em}
+.ci-main small{display:block;font-size:11.8px;color:#6B5B50;line-height:1.4;margin-top:2px}
+.qty{display:inline-flex;align-items:center;gap:2px;border:2px solid var(--ink);border-radius:999px;background:var(--white);margin-top:8px;overflow:hidden}
+.qty button{width:30px;height:28px;border:0;background:transparent;font-weight:900;font-size:15px;line-height:1;display:grid;place-items:center;transition:background .2s}
+.qty button:hover{background:var(--yellow)}
+.qty span{min-width:26px;text-align:center;font-size:13px;font-weight:900}
+.ci-rm{margin-left:8px;border:0;background:none;color:var(--red-text);font-size:11.5px;font-weight:800;text-decoration:underline;padding:6px 2px}
+.field{margin-top:14px}
+.field > label,.field > .label{display:block;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#5E4F45;margin-bottom:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:7px;
+  border:2px solid var(--line-strong);border-radius:12px;padding:11px 8px;font-size:12.5px;font-weight:800;
+  background:var(--white);cursor:pointer;transition:border-color .2s,background .2s;text-align:center
+}
+.seg input{position:absolute;opacity:0;width:100%;height:100%;inset:0;margin:0;cursor:pointer}
+.seg label.sel,.seg label:has(input:checked){border-color:var(--ink);background:rgba(255,196,12,.4);box-shadow:0 3px 0 rgba(23,18,15,.85)}
+.seg label:has(input:focus-visible){outline:3px solid var(--ink);outline-offset:2px}
+textarea,input[type="text"]{
+  width:100%;border:2px solid var(--line-strong);border-radius:12px;background:var(--white);
+  padding:11px 13px;font:inherit;font-size:14px;color:var(--ink);resize:vertical;transition:border-color .2s
+}
+textarea:focus,input[type="text"]:focus{border-color:var(--ink);outline:none}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:12.2px;color:#4B3E36;line-height:1.5}
+.consent input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:var(--red);cursor:pointer}
+.consent a{text-decoration:underline;font-weight:800;color:var(--red-text)}
+.summary{background:var(--cream);border:1px dashed var(--line-strong);border-radius:12px;padding:11px 13px;font-size:12.5px;color:#4B3E36;margin-top:12px;display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.summary b{font-size:13px;color:var(--ink)}
+.drawer-foot .btn{width:100%}
+.drawer-foot .btn + .btn{margin-top:8px}
+.fineprint{font-size:11px;color:#6E5F54;text-align:center;margin-top:10px;line-height:1.45}
+
+/* barra fixa mobile */
+.mobile-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:var(--white);border-top:2px solid var(--ink);
+  transform:translateY(110%);transition:transform .35s var(--ease)
+}
+.mobile-bar.show{transform:translateY(0)}
+.mobile-bar .mb-info{flex:1;min-width:0;line-height:1.2}
+.mobile-bar .mb-info b{display:block;font-size:13px}
+.mobile-bar .mb-info span{font-size:11.5px;color:#6B5B50}
+@media(min-width:900px){.mobile-bar{display:none}}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:86px;z-index:300;
+  transform:translate(-50%,18px);opacity:0;pointer-events:none;
+  background:var(--ink);color:var(--white);border:2px solid var(--yellow);
+  border-radius:14px;padding:12px 18px;font-size:12.8px;font-weight:800;text-align:center;
+  max-width:min(420px,calc(100% - 28px));
+  transition:opacity .3s var(--ease),transform .3s var(--ease)
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:900px){.toast{bottom:28px}}
+
+/* ---------- 15. LEGAL / RODAPÉ ---------- */
+.legal-sec{padding:52px 0;border-top:1px solid var(--line)}
+.legal-sec h2{font-family:var(--serif);font-size:26px;margin-bottom:12px}
+.legal-sec h3{font-size:14.5px;margin:18px 0 6px}
+.legal-sec p,.legal-sec li{font-size:13.5px;color:#4B3E36}
+.legal-sec ul{display:grid;gap:7px;margin-top:8px}
+.legal-sec li{padding-left:16px;position:relative}
+.legal-sec li::before{content:"•";position:absolute;left:0;color:var(--red-text);font-weight:900}
+.legal-grid{display:grid;gap:34px}
+@media(min-width:860px){.legal-grid{grid-template-columns:1fr 1fr;gap:48px}}
+details.acc{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:10px;background:var(--white)}
+details.acc summary{font-weight:800;font-size:13.5px;cursor:pointer;list-style:none}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";float:right;font-weight:900}
+details.acc[open] summary::after{content:"–"}
+details.acc p{margin-top:8px}
+
+footer{background:var(--ink);color:rgba(255,248,233,.82);padding:44px 0 26px;position:relative;z-index:2}
+.foot-grid{display:grid;gap:26px}
+.foot-brand{display:flex;gap:12px;align-items:flex-start}
+.foot-brand svg{width:46px;height:50px;flex:none}
+.foot-brand strong{display:block;color:var(--white);font-size:16px;letter-spacing:-.01em}
+.foot-brand p{font-size:12.8px;margin-top:6px;max-width:34ch}
+.foot-links{display:grid;gap:8px;font-size:13px}
+.foot-links a{color:rgba(255,248,233,.86);transition:color .2s}
+.foot-links a:hover{color:var(--yellow)}
+.foot-title{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px}
+.foot-bottom{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,248,233,.18);
+  display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;font-size:11.5px;color:rgba(255,248,233,.62)}
+@media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+
+/* ---------- 16. REVEAL ---------- */
+[data-rv]{transition:opacity .9s var(--ease),transform .9s var(--ease),clip-path .95s var(--ease)}
+[data-rv="fade"]{opacity:0}
+[data-rv="up"]{opacity:0;transform:translateY(28px)}
+[data-rv="scale"]{opacity:0;transform:scale(.955)}
+[data-rv="left"]{opacity:0;transform:translateX(-30px)}
+[data-rv="right"]{opacity:0;transform:translateX(30px)}
+[data-rv="clip"]{clip-path:inset(0 100% 0 0)}
+[data-rv].in{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+@media(max-width:760px){
+  [data-rv="left"],[data-rv="right"]{transform:translateY(22px)}
+}
+
+/* ---------- 17. ANIMAÇÕES ---------- */
+@keyframes auroraShift{
+  0%{transform:translate3d(-3%,-2%,0) scale(1)}
+  50%{transform:translate3d(2%,3%,0) scale(1.08)}
+  100%{transform:translate3d(4%,-1%,0) scale(1.02)}
+}
+@keyframes blobFloat{
+  0%{transform:translate3d(0,0,0) rotate(0deg)}
+  50%{transform:translate3d(3vw,-3vh,0) rotate(12deg)}
+  100%{transform:translate3d(-2vw,2vh,0) rotate(-8deg)}
+}
+@keyframes gridDrift{
+  0%{background-position:0 0,0 0}
+  100%{background-position:64px 64px,64px 64px}
 }
 @keyframes mote{
-  0%{transform:translate3d(0,24px,0) scale(.6);opacity:0}
-  12%{opacity:.6}
-  70%{opacity:.35}
-  100%{transform:translate3d(16px,-150px,0) scale(1);opacity:0}
-}
-.motes i:nth-child(1){left:6%;top:72%;animation-duration:19s;animation-delay:0s}
-.motes i:nth-child(2){left:15%;top:44%;animation-duration:23s;animation-delay:-3s}
-.motes i:nth-child(3){left:24%;top:86%;animation-duration:16s;animation-delay:-7s}
-.motes i:nth-child(4){left:33%;top:30%;animation-duration:26s;animation-delay:-11s}
-.motes i:nth-child(5){left:42%;top:64%;animation-duration:21s;animation-delay:-2s}
-.motes i:nth-child(6){left:51%;top:18%;animation-duration:18s;animation-delay:-9s}
-.motes i:nth-child(7){left:60%;top:78%;animation-duration:24s;animation-delay:-5s}
-.motes i:nth-child(8){left:69%;top:40%;animation-duration:20s;animation-delay:-13s}
-.motes i:nth-child(9){left:78%;top:92%;animation-duration:28s;animation-delay:-4s}
-.motes i:nth-child(10){left:86%;top:26%;animation-duration:22s;animation-delay:-8s}
-.motes i:nth-child(11){left:93%;top:58%;animation-duration:17s;animation-delay:-15s}
-.motes i:nth-child(12){left:47%;top:94%;animation-duration:25s;animation-delay:-6s}
-
-/* fio vertical + luz que escorre (continuidade) */
-.thread{
-  position:fixed;left:30px;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;
-  background:linear-gradient(to bottom,transparent,
-    color-mix(in srgb,var(--anim-accent) 26%,transparent) 18%,
-    color-mix(in srgb,var(--anim-accent) 26%,transparent) 82%,transparent);
-  opacity:0;transition:opacity .8s var(--ease,cubic-bezier(.16,.72,.28,1));
-}
-.thread::after{
-  content:"";position:absolute;left:-1px;width:3px;height:130px;border-radius:2px;
-  background:linear-gradient(to bottom,transparent,var(--anim-accent),transparent);
-  animation:threadFlow 9s linear infinite;
+  0%{transform:translate3d(0,0,0) scale(.7);opacity:0}
+  12%{opacity:.8}
+  88%{opacity:.7}
+  100%{transform:translate3d(14px,-120px,0) scale(1.05);opacity:0}
 }
 @keyframes threadFlow{0%{top:-150px}100%{top:100%}}
-@media(min-width:1340px){.thread{opacity:1}}
-
-/* barra de progresso de leitura */
-.bar{
-  position:fixed;top:0;left:0;height:2px;width:100%;z-index:9999;pointer-events:none;
-  background:linear-gradient(90deg,var(--anim-accent),var(--anim-accent-2));
-  transform:scaleX(0);transform-origin:0 50%;opacity:.9;
-}
-
-/* ============================================================
-   2. ANIMAÇÃO CONTÍNUA NOS GLOWS EXISTENTES
-   ============================================================ */
-.hero::before{animation:glow 15s ease-in-out infinite}
-.hero::after{animation:glow 19s ease-in-out infinite reverse}
-.cta::before{animation:glow 17s ease-in-out infinite}
 @keyframes glow{
-  0%,100%{transform:scale(1);opacity:.85}
-  50%{transform:scale(1.12);opacity:1}
+  0%,100%{transform:scale(1);opacity:.8}
+  50%{transform:scale(1.13);opacity:1}
 }
-
-/* ============================================================
-   3. CONTINUIDADE ENTRE SEÇÕES
-   Vale para os ids clássicos E para qualquer <section data-bridge>.
-   O injetor marca as seções automaticamente.
-   ============================================================ */
-#projetos::before,#processo::before,#sobre::before,
-[data-bridge]::before{
-  content:"";position:absolute;pointer-events:none;z-index:0;border-radius:50%;
-  background:radial-gradient(circle,
-    color-mix(in srgb,var(--anim-accent) 12%,transparent),transparent 68%);
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0) rotate(-1.2deg)}
+  50%{transform:translateY(-14px) rotate(1.2deg)}
 }
-#projetos::before,[data-bridge]::before{
-  width:440px;height:440px;right:-150px;top:-190px;animation:glow 18s ease-in-out infinite;}
-#processo::before,[data-bridge="b"]::before{
-  width:340px;height:340px;left:-170px;bottom:-150px;animation:glow 22s ease-in-out infinite reverse;}
-#sobre::before,[data-bridge="c"]::before{
-  width:400px;height:400px;left:46%;top:-210px;animation:glow 26s ease-in-out infinite;}
-#projetos,#processo,#sobre,[data-bridge]{
-  position:relative;overflow-x:clip;overflow-y:visible;
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes stickerBob{
+  0%,100%{transform:translateY(0) rotate(6deg)}
+  50%{transform:translateY(-8px) rotate(3deg)}
 }
-
-/* ============================================================
-   4. SCROLL VARIADO — cada família entra de um jeito
-   ============================================================ */
-.rv-fade{opacity:0;transition:opacity 1.1s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.rv-scale{opacity:0;transform:scale(.945);transition:opacity 1s var(--ease,cubic-bezier(.16,.72,.28,1)),transform 1s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.rv-left{opacity:0;transform:translateX(-36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.rv-right{opacity:0;transform:translateX(36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.rv-clip{clip-path:inset(0 100% 0 0);transition:clip-path 1.15s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.rv-fade.in,.rv-scale.in,.rv-left.in,.rv-right.in{opacity:1;transform:none}
-.rv-clip.in{clip-path:inset(0 0 0 0)}
-/* no mobile o elemento ocupa a largura toda: deslocar no eixo X geraria
-   scroll horizontal antes do reveal. Ali a entrada é vertical. */
-@media(max-width:760px){
-  .rv-left,.rv-right{transform:translateY(22px)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mascotIdle{
+  0%,100%{transform:translateY(0) rotate(-1.5deg)}
+  50%{transform:translateY(-5px) rotate(1.5deg)}
 }
+@keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 
-/* ============================================================
-   5. MICROINTERAÇÕES
-   ============================================================ */
-.btn{position:relative;overflow:hidden}
-.btn::before{
-  content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;
-  background:linear-gradient(100deg,transparent,
-    color-mix(in srgb,var(--anim-surface) 45%,transparent),transparent);
-  transform:translateX(-160%) skewX(-18deg);transition:transform .85s var(--ease,cubic-bezier(.16,.72,.28,1));
-  pointer-events:none;
-}
-.btn:hover::before{transform:translateX(420%) skewX(-18deg)}
-
-.card::after{
-  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:linear-gradient(115deg,transparent 32%,
-    color-mix(in srgb,var(--anim-surface) 10%,transparent) 48%,transparent 64%);
-  transform:translateX(-120%);transition:transform .95s var(--ease,cubic-bezier(.16,.72,.28,1));
-}
-.card:hover::after{transform:translateX(120%)}
-
-.live-row .go svg{transition:transform .4s var(--ease,cubic-bezier(.16,.72,.28,1))}
-.live-row:hover .go svg{transform:translate(3px,-3px)}
-
-a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--anim-accent);outline-offset:3px;border-radius:8px;
-}
-
-/* ============================================================
-   6. MOBILE: reduz densidade, mantém o movimento
-   ============================================================ */
-@media(max-width:760px){
-  .bg-blob{opacity:.55}
-  .bg-grid{opacity:.35}
-  .motes i:nth-child(n+7){display:none}
-  .thread{display:none}
-}
-
-/* ============================================================
-   7. ACESSIBILIDADE: para TUDO
-   ============================================================ */
-@media(prefers-reduced-motion:reduce){
-  .bg-aurora,.bg-blob,.bg-grid,.motes i,.thread::after,
-  .hero::before,.hero::after,.cta::before,
-  #projetos::before,#processo::before,#sobre::before,[data-bridge]::before{animation:none!important}
-  .motes{display:none}
-  .rv-fade,.rv-scale,.rv-left,.rv-right{opacity:1!important;transform:none!important}
-  .rv-clip{clip-path:none!important}
-  .card::after,.btn::before{display:none}
-  .rev{opacity:1;transform:none}
-  .marquee-track,.stack .s1,.stack .s2,.stack .s3,.pulse{animation:none!important}
-  /* regra universal: nada escapa dos seletores nominais */
+/* ---------- 18. MOTION REDUZIDO ---------- */
+@media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.001ms!important;
     animation-iteration-count:1!important;
     transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
   }
-  html{scroll-behavior:auto!important}
+  html{scroll-behavior:auto}
+  [data-rv]{opacity:1!important;transform:none!important;clip-path:none!important}
+  .bg-aurora,.bg-blob,.motes,.bg-grid,.ticker-track,.thread::after,.disc::after{animation:none!important}
 }
 
-</style>
+/* ---------- 19. IMPRESSÃO ---------- */
+@media print{
+  .site-header,.mobile-bar,.drawer,.overlay,.bg,.thread,.bar,.ticker{display:none!important}
+  body{background:#fff;color:#000}
+  .sec{padding:18px 0}
+}</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"PizzaRestaurant",
+  "name":"Pizzeria Napolitana Torralba de Calatrava",
+  "description":"Pizzas artesanais com ingredientes frescos. Pedidos para levar e retirada no Mercado Municipal.",
+  "telephone":"+34 627 66 10 61",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Calle Dr. Severo Ochoa, 1",
+    "postalCode":"13160",
+    "addressLocality":"Torralba de Calatrava",
+    "addressRegion":"Ciudad Real",
+    "addressCountry":"ES"
+  },
+  "geo":{"@type":"GeoCoordinates","latitude":39.0160389,"longitude":-3.7488785},
+  "sameAs":["https://www.instagram.com/pzzerianapolitana8/"],
+  "servesCuisine":["Pizza","Italiana"],
+  "priceRange":"€€",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"85","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"19:00","closes":"00:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"19:30","closes":"00:00"}
+  ]
+}
+</script>
 </head>
 <body>
-<!-- ANIM-KIT v2 -->
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
 <div class="bg" aria-hidden="true">
   <div class="bg-aurora"></div>
   <div class="bg-blob b1"></div>
@@ -593,643 +754,1051 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
 </div>
 <div class="thread" aria-hidden="true"></div>
 <div class="bar" id="bar" aria-hidden="true"></div>
-<!-- /ANIM-KIT v2 -->
 
-
+<!-- mascote: ilustração autoral criada para esta marca -->
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
-  <symbol id="pizza-mascot" viewBox="0 0 120 132">
+  <symbol id="mascot" viewBox="0 0 120 136">
     <g stroke="#17120F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M46 105v17M74 105v17" fill="none"/>
-      <ellipse cx="40" cy="125" rx="10" ry="5" fill="#E5372A"/>
-      <ellipse cx="80" cy="125" rx="10" ry="5" fill="#E5372A"/>
-      <path d="M23 29Q60 8 97 29L60 108Z" fill="#FFC40C"/>
-      <path d="M23 29Q60 8 97 29" fill="none" stroke="#B96C27" stroke-width="11"/>
-      <circle cx="52" cy="49" r="6" fill="#E5372A"/>
-      <circle cx="73" cy="64" r="5" fill="#E5372A"/>
-      <circle cx="43" cy="75" r="5" fill="#E5372A"/>
-      <path d="M33 58 18 51M87 69l15 7" fill="none"/>
-      <circle cx="16" cy="50" r="5" fill="#FFE37A"/>
-      <circle cx="104" cy="77" r="5" fill="#FFE37A"/>
-      <circle cx="50" cy="60" r="3.4" fill="#17120F" stroke="none"/>
-      <circle cx="70" cy="60" r="3.4" fill="#17120F" stroke="none"/>
-      <path d="M49 74q11 11 22 0" fill="none" stroke-width="3.5"/>
-      <path d="M37 24c-6-2-7-11-1-14 0-9 12-14 20-8 9-6 22-1 22 8 6 3 5 12-1 14Z" fill="#FFFDF5"/>
-      <path d="M37 21h46v10a5 5 0 0 1-5 5H42a5 5 0 0 1-5-5Z" fill="#FFFDF5"/>
+      <path d="M46 108v18M74 108v18" fill="none"/>
+      <ellipse cx="39" cy="129" rx="11" ry="5" fill="#E5372A"/>
+      <ellipse cx="81" cy="129" rx="11" ry="5" fill="#E5372A"/>
+      <path d="M23 30Q60 9 97 30L60 111Z" fill="#FFC40C"/>
+      <path d="M23 30Q60 9 97 30" fill="none" stroke="#B96C27" stroke-width="11"/>
+      <circle cx="52" cy="50" r="6" fill="#E5372A"/>
+      <circle cx="74" cy="66" r="5" fill="#E5372A"/>
+      <circle cx="43" cy="77" r="5" fill="#E5372A"/>
+      <path d="M33 60 18 53M87 71l15 7" fill="none"/>
+      <circle cx="16" cy="52" r="5.5" fill="#FFE37A"/>
+      <circle cx="104" cy="79" r="5.5" fill="#FFE37A"/>
+      <circle cx="50" cy="62" r="3.5" fill="#17120F" stroke="none"/>
+      <circle cx="70" cy="62" r="3.5" fill="#17120F" stroke="none"/>
+      <path d="M49 76q11 11 22 0" fill="none" stroke-width="3.5"/>
+      <path d="M37 25c-6-2-7-12-1-15 0-9 12-14 20-8 9-6 22-1 22 8 6 3 5 13-1 15Z" fill="#FFFDF8"/>
+      <path d="M37 22h46v10a5 5 0 0 1-5 5H42a5 5 0 0 1-5-5Z" fill="#FFFDF8"/>
     </g>
   </symbol>
 </svg>
 
-<header id="hdr" class="site-header">
+<header class="site-header" id="hdr">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Pizzeria Napolitana — início">
-      <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
-      <span class="brand-text"><strong>Pizzeria Napolitana</strong><span>Torralba de Calatrava</span></span>
+      <svg class="mascot" viewBox="0 0 120 136" aria-hidden="true" focusable="false"><use href="#mascot"/></svg>
+      <span class="brand-text">
+        <strong>Pizzeria Napolitana</strong>
+        <span>Torralba de Calatrava</span>
+      </span>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
-      <a href="#sobre">Sobre</a>
+    <nav class="nav-links" id="navLinks" aria-label="Seções do site">
+      <a href="#como-funciona">Como funciona</a>
       <a href="#cardapio">Cardápio</a>
-      <a href="#novidades">Novidades</a>
+      <a href="#novidade">Novidade</a>
       <a href="#galeria">Galeria</a>
       <a href="#contato">Contato</a>
     </nav>
-    <button class="cart-pill" id="openCartHeader" type="button" aria-label="Abrir pedido">
-      <span>Pedido</span><span class="count" id="cartCountHeader">0</span>
+    <button class="cart-pill" type="button" data-open-cart>
+      Pedido <span class="count" id="cartCount" aria-hidden="true">0</span>
+      <span class="sr" id="cartCountLabel">Nenhum item no pedido</span>
     </button>
-    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">☰</button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu de navegação">☰</button>
   </div>
 </header>
 
-<main>
+<div class="mobile-menu" id="mobileMenu" data-open="false">
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#cardapio">Cardápio</a>
+  <a href="#novidade">Novidade · Salchipizza</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#confianca">Avaliações</a>
+  <a href="#contato">Endereço e horários</a>
+  <a href="#pedido">Montar pedido</a>
+</div>
+
+<main id="conteudo">
+
+  <!-- ============ ENTRAR ============ -->
   <section class="hero" id="top">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="kicker">Pizzas artesanais · Torralba de Calatrava</span>
-        <h1>Pizza feita com <em>ingredientes frescos</em></h1>
-        <p class="hero-lead">Peça a sua para levar ou retire no Mercado Municipal. A Pizzeria Napolitana prepara pizzas artesanais para quem quer uma boa conversa à mesa — ou um pedido quentinho em casa.</p>
+        <span class="kicker">Forno quente · Torralba de Calatrava</span>
+        <h1>Pizza artesanal feita com <em>ingredientes frescos</em></h1>
+        <p class="hero-lead">Massa crocante, queijo fundido e aquele cheiro que toma conta da rua. Monte o pedido aqui, veja o resumo e combine a retirada ou a entrega direto com a pizzaria.</p>
         <div class="hero-actions">
           <a class="btn btn-red" href="#cardapio">Montar meu pedido <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#sobre">Conhecer a pizzaria</a>
+          <a class="btn btn-ghost" href="#contato">Endereço e horários</a>
         </div>
         <div class="hero-proof">
-          <span class="stars"><b>★★★★★</b> 4,8 no Google</span>
-          <span>85 avaliações</span>
+          <span class="stars"><b aria-hidden="true">★★★★★</b> <span class="sr">Nota</span>4,8 de 5</span>
+          <span>85 avaliações no Google</span>
+          <span>Retirada no Mercado Municipal</span>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="photo-disc" id="heroPhoto">
-          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w1200-h900-k-no" alt="Foto pública da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="eager" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
-          <span class="photo-fallback">Foto da pizzaria<br>Google Maps</span>
+        <div class="disc" id="heroDisc">
+          <img id="heroPhoto"
+               src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w408-h306-k-no"
+               alt="Foto pública da Pizzeria Napolitana na galeria do Google Maps"
+               width="816" height="612" fetchpriority="high" referrerpolicy="no-referrer" decoding="async">
+          <div class="disc-fallback">
+            <svg viewBox="0 0 120 136" aria-hidden="true" focusable="false"><use href="#mascot"/></svg>
+            <span>Pizzas artesanais</span>
+          </div>
         </div>
-        <div class="sticker sticker-a">Pizzas<br>artesanais</div>
-        <div class="sticker sticker-b">Retire no<br>Mercado Municipal</div>
-        <div class="hero-mascot-wrap">
-          <svg class="mascot hero-mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
-        </div>
+        <div class="sticker sticker-a">Forno<br>quente</div>
+        <div class="sticker sticker-b">Aberto até<br><b>00:00</b></div>
       </div>
     </div>
   </section>
 
-  <div class="marquee-bar" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Pizzas artesanais <i>✦</i> Ingredientes frescos <i>✦</i> Para llevar <i>✦</i> Recogida en el Mercado Municipal <i>✦</i></span>
-      <span>Pizzas artesanais <i>✦</i> Ingredientes frescos <i>✦</i> Para llevar <i>✦</i> Recogida en el Mercado Municipal <i>✦</i></span>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack">
+      <span>Pizzas artesanais</span><span>Ingredientes frescos</span><span>Para levar</span>
+      <span>Retirada no Mercado Municipal</span><span>Massa crocante</span><span>Forno quente</span>
+      <span>Torralba de Calatrava</span><span>Salchipizza</span>
     </div>
   </div>
 
-  <section class="about" id="sobre">
+  <!-- ============ ENTENDER ============ -->
+  <section class="sec" id="como-funciona">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-label kicker">Entender</span>
-        <h2>Pizza de bairro, <em>feita com carinho</em></h2>
-        <p class="sec-note">A Pizzeria Napolitana fica na Calle Dr. Severo Ochoa, 1, em Torralba de Calatrava. O perfil oficial descreve pizzas artesanais, elaboradas com ingredientes frescos.</p>
+        <span class="kicker">Do forno até você</span>
+        <h2>Simples assim: <span class="hl">escolher, montar e buscar</span></h2>
+        <p>A Pizzeria Napolitana trabalha com pizzas artesanais feitas na hora. O pedido no site organiza o que você quer — o acerto final de valores e tempo é feito no contato direto com a pizzaria.</p>
       </div>
-      <div class="about-grid">
-        <figure class="about-photo">
-          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd5uZesrS2Tji9l11nIcskg30qtlJg70P56FrkjzA7jpjoocrSAh0DEOYKXNvVbiMbxxn9CzEWQgvJaM6VJ6UkL8wYw6SrJ-nxsmLtzRPWFQ6FfzTbLgPlYyjtMGbkc7TCP1PBqwwZCZHDJ=w900-h1200-k-no" alt="Foto da galeria pública da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
-        </figure>
-        <div class="about-body">
-          <p>No perfil oficial da pizzaria, o convite é simples: <strong>pizzas artesanais com ingredientes frescos</strong>. Você pode pedir para levar ou retirar diretamente no Mercado Municipal.</p>
-          <p>As avaliações públicas do Google Maps destacam o atendimento, o tamanho das porções e pizzas saborosas e crocantes. São 4,8 de nota média em 85 avaliações.</p>
-          <div class="stats">
-            <div class="stat"><b>4,8</b><small>Nota no Google</small></div>
-            <div class="stat"><b>85</b><small>Avaliações</small></div>
-            <div class="stat"><b>2</b><small>Jeitos de receber</small></div>
-          </div>
-        </div>
-      </div>
+      <ol class="steps">
+        <li class="step" data-rv="up">
+          <h3>Escolha os sabores</h3>
+          <p>Veja os sabores confirmados no cardápio e monte a sua combinação. O cardápio completo do dia é informado no atendimento.</p>
+          <span class="tag">Passo 01</span>
+        </li>
+        <li class="step" data-rv="up">
+          <h3>Monte o pedido</h3>
+          <p>Ajuste as quantidades, escreva observações e escolha entre levar ou retirar no Mercado Municipal.</p>
+          <span class="tag">Passo 02</span>
+        </li>
+        <li class="step" data-rv="up">
+          <h3>Combine com a casa</h3>
+          <p>Copie o resumo e envie pelo canal que você já usa com a pizzaria, ou ligue direto. Nada é confirmado sem a resposta dela.</p>
+          <span class="tag">Passo 03</span>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section class="menu" id="cardapio" data-bridge="a">
+  <!-- ============ EXPLORAR ============ -->
+  <section class="sec sec-alt" id="cardapio" data-bridge="a">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-label kicker">Explorar</span>
-        <h2>O que sai <em>do forno</em></h2>
-        <p class="sec-note">Escolha um sabor, monte seu pedido e confira tudo antes de enviar. Os valores não haviam sido publicados nos canais consultados — a pizzaria confirma no atendimento.</p>
+        <span class="kicker">Cardápio</span>
+        <h2>Sabores que a casa <span class="hl">já confirmou</span></h2>
+        <p>Só entram aqui os sabores citados pela própria pizzeria ou em avaliações públicas. Preços e combinações do dia não são publicados porque não conseguimos verificá-los: confirme no atendimento.</p>
       </div>
-      <div class="tabs" role="group" aria-label="Filtrar cardápio">
-        <button class="tab" type="button" data-filter="all" aria-pressed="true">Tudo</button>
-        <button class="tab" type="button" data-filter="novidade" aria-pressed="false">Novidade</button>
-        <button class="tab" type="button" data-filter="classico" aria-pressed="false">Sabores citados</button>
+
+      <div class="menu-bar" role="group" aria-label="Filtrar sabores">
+        <button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-filter="novidade" aria-pressed="false">Novidade</button>
+        <button class="chip" type="button" data-filter="classico" aria-pressed="false">Clássicos</button>
       </div>
-      <div class="grid-serv" id="menuGrid">
-        <article class="serv" data-id="salchipizza" data-category="novidade">
-          <div class="serv-art art-salchipizza" aria-hidden="true"></div>
-          <div>
+
+      <div class="menu-grid" id="menuGrid">
+        <article class="dish" data-cat="novidade" data-rv="up">
+          <div class="dish-photo">
+            <span class="dish-badge">Novidade</span>
+            <div class="pie art-salchi" aria-hidden="true"></div>
+          </div>
+          <div class="dish-body">
             <h3>Salchipizza</h3>
-            <p>Massa crocante recém-assada, extra de queijo fundido, taquitos de bacon, salchichas e um toque de especiarias.</p>
-            <div class="serv-meta"><span class="tag">Novidade</span><span class="tag tag-src">Instagram oficial</span><span class="price-note">Valor a confirmar</span></div>
-            <button class="btn btn-sm add-btn" type="button" data-add="salchipizza">Adicionar ao pedido +</button>
+            <p>Massa crocante recém-assada, extra de queijo fundido, taquitos de bacon, boa quantidade de salsicha e um toque especial de especiarias.</p>
+            <div class="dish-foot">
+              <span class="price">Valor<b>a confirmar</b></span>
+              <button class="btn btn-yellow btn-sm" type="button" data-add="salchipizza">Adicionar +</button>
+            </div>
           </div>
         </article>
-        <article class="serv" data-id="4quesos" data-category="classico">
-          <div class="serv-art art-cheese" aria-hidden="true"></div>
-          <div>
+
+        <article class="dish" data-cat="classico" data-rv="up">
+          <div class="dish-photo">
+            <div class="pie art-4q" aria-hidden="true"></div>
+          </div>
+          <div class="dish-body">
             <h3>Pizza 4 quesos</h3>
-            <p>Sabor favorito citado por uma cliente nas avaliações do Google Maps.</p>
-            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
-            <button class="btn btn-sm add-btn" type="button" data-add="4quesos">Adicionar ao pedido +</button>
+            <p>Combinação de queijos sobre a massa artesanal. Sabor citado por clientes nas avaliações públicas da pizzaria.</p>
+            <div class="dish-foot">
+              <span class="price">Valor<b>a confirmar</b></span>
+              <button class="btn btn-yellow btn-sm" type="button" data-add="4quesos">Adicionar +</button>
+            </div>
           </div>
         </article>
-        <article class="serv" data-id="kebab" data-category="classico">
-          <div class="serv-art art-kebab" aria-hidden="true"></div>
-          <div>
+
+        <article class="dish" data-cat="classico" data-rv="up">
+          <div class="dish-photo">
+            <div class="pie art-kebab" aria-hidden="true"></div>
+          </div>
+          <div class="dish-body">
             <h3>Pizza kebab</h3>
-            <p>Sabor citado por cliente em avaliação publicada no Google Maps.</p>
-            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
-            <button class="btn btn-sm add-btn" type="button" data-add="kebab">Adicionar ao pedido +</button>
+            <p>Versão inspirada no kebab, com a massa e o preparo artesanal da casa. Sabor citado por clientes nas avaliações públicas.</p>
+            <div class="dish-foot">
+              <span class="price">Valor<b>a confirmar</b></span>
+              <button class="btn btn-yellow btn-sm" type="button" data-add="kebab">Adicionar +</button>
+            </div>
           </div>
         </article>
-        <article class="serv" data-id="carbonara" data-category="classico">
-          <div class="serv-art art-carbonara" aria-hidden="true"></div>
-          <div>
+
+        <article class="dish" data-cat="classico" data-rv="up">
+          <div class="dish-photo">
+            <div class="pie art-carb" aria-hidden="true"></div>
+          </div>
+          <div class="dish-body">
             <h3>Pizza carbonara</h3>
-            <p>Sabor citado nas avaliações do Google Maps da pizzaria.</p>
-            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
-            <button class="btn btn-sm add-btn" type="button" data-add="carbonara">Adicionar ao pedido +</button>
+            <p>Interpretação da clássica carbonara em pizza, com o preparo artesanal da casa. Sabor citado nas avaliações públicas.</p>
+            <div class="dish-foot">
+              <span class="price">Valor<b>a confirmar</b></span>
+              <button class="btn btn-yellow btn-sm" type="button" data-add="carbonara">Adicionar +</button>
+            </div>
           </div>
         </article>
       </div>
-      <p class="menu-disclaimer">Os sabores acima aparecem em publicações oficiais ou em avaliações públicas verificadas. Ingredientes detalhados só foram informados para a Salchipizza; para os demais, consulte a pizzaria. Nenhum preço foi divulgado nos canais consultados.</p>
+
+      <p class="menu-note"><strong>Transparência:</strong> não publicamos preços, promoções ou o cardápio completo porque esses dados não estão disponíveis nos canais oficiais que conseguimos verificar. O resumo do pedido vai com “valor a confirmar pela pizzaria” — assim você não é surpreendido.</p>
     </div>
   </section>
 
-  <section class="promo" id="novidades" data-bridge="b">
+  <!-- ============ NOVIDADE ============ -->
+  <section class="sec" id="novidade">
     <div class="wrap">
-      <div class="promo-inner">
-        <div class="promo-grid">
-          <div>
-            <span class="kicker">Destaque do momento</span>
-            <h2>Chegou a <em>Salchipizza</em></h2>
-            <p>Nas publicações oficiais do Instagram, a Salchipizza aparece como novidade do forno. É a combinação de massa crocante recém-assada, queijo fundido, bacon, salchichas e especiarias.</p>
-            <ul>
-              <li>Massa crocante recém-assada</li>
-              <li>Extra de queijo fundido</li>
-              <li>Taquitos de bacon e salchichas</li>
-              <li>Toque especial de especiarias</li>
-            </ul>
-            <button class="btn btn-red" type="button" data-add="salchipizza">Quero provar — adicionar ao pedido</button>
-          </div>
-          <div class="promo-sticker">
-            <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
-            <b>Novidade<br>do forno</b>
-            <small>Publicada no Instagram oficial</small>
+      <div class="feature" data-rv="scale">
+        <div class="feature-copy">
+          <span class="kicker" style="color:#FFC40C">Novidade da casa</span>
+          <h2>Chegou a <em style="font-style:italic;color:#FFC40C">Salchipizza</em></h2>
+          <p class="lead">A pizza que virou assunto: muito queijo, salsicha e bacon em cima de uma massa crocante recém-saída do forno. Do perfil oficial da pizzeria no Instagram.</p>
+          <ul>
+            <li>Massa crocante, recém-assada</li>
+            <li>Extra de queijo fundido</li>
+            <li>Taquitos de bacon e boa quantidade de salsicha</li>
+            <li>Toque especial de especiarias</li>
+          </ul>
+          <button class="btn btn-yellow" type="button" data-add="salchipizza">Quero provar — adicionar ao pedido</button>
+        </div>
+        <div class="feature-art" aria-hidden="true">
+          <div class="disc">
+            <div class="pie art-salchi" style="position:absolute;inset:0;border-radius:50%"></div>
           </div>
         </div>
-        <div class="steps">
-          <div class="step"><b>01 · Escolha</b><p>Selecione os sabores no cardápio acima.</p></div>
-          <div class="step"><b>02 · Monte</b><p>Ajuste quantidades, retirada e observações no pedido.</p></div>
-          <div class="step"><b>03 · Confirme</b><p>Copie o resumo ou ligue para a pizzaria. Quem confirma é o atendimento.</p></div>
-        </div>
-        <p class="promo-note">Promoções e combos com valores não foram divulgados nos canais oficiais consultados; por isso nenhum desconto ou preço é anunciado aqui.</p>
       </div>
     </div>
   </section>
 
-  <section class="gallery" id="galeria" data-bridge="c">
+  <!-- ============ GALERIA ============ -->
+  <section class="sec sec-alt" id="galeria" data-bridge="b">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-label kicker">Olhar de perto</span>
-        <h2>Fotos <em>da pizzaria</em></h2>
-        <p class="sec-note">Imagens públicas do perfil da Pizzeria Napolitana no Google Maps. Não foi possível baixar as mídias do Instagram; nenhuma foto de banco de imagens foi usada.</p>
+        <span class="kicker">Galeria</span>
+        <h2>Um pouco da <span class="hl">casa</span></h2>
+        <p>Fotos públicas da pizzaria na galeria do Google Maps. A ilustração da direita é a mascote criada para esta marca.</p>
       </div>
-      <div class="gallery-grid">
-        <figure>
-          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w1200-h900-k-no" alt="Foto de pizza publicada no perfil da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
-          <figcaption>Google Maps · foto da pizzaria</figcaption>
+      <div class="gal">
+        <figure class="wide" data-rv="fade">
+          <img class="gal-img" data-photo="1"
+               src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w408-h306-k-no"
+               alt="Foto pública da Pizzeria Napolitana no Google Maps"
+               width="816" height="612" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <div class="ph"><svg viewBox="0 0 120 136" aria-hidden="true"><use href="#mascot"/></svg><span>Foto · Google Maps</span></div>
+          <figcaption>Pizzeria Napolitana · Google Maps</figcaption>
         </figure>
-        <figure>
-          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd5uZesrS2Tji9l11nIcskg30qtlJg70P56FrkjzA7jpjoocrSAh0DEOYKXNvVbiMbxxn9CzEWQgvJaM6VJ6UkL8wYw6SrJ-nxsmLtzRPWFQ6FfzTbLgPlYyjtMGbkc7TCP1PBqwwZCZHDJ=w900-h1200-k-no" alt="Segunda foto da galeria da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
-          <figcaption>Google Maps · galeria</figcaption>
+        <figure data-rv="fade">
+          <img class="gal-img" data-photo="2"
+               src="https://lh3.googleusercontent.com/grass-cs/AABkmLd5uZesrS2Tji9l11nIcskg30qtlJg70P56FrkjzA7jpjoocrSAh0DEOYKXNvVbiMbxxn9CzEWQgvJaM6VJ6UkL8wYw6SrJ-nxsmLtzRPWFQ6FfzTbLgPlYyjtMGbkc7TCP1PBqwwZCZHDJ=w360-h480-k-no"
+               alt="Segunda foto pública da Pizzeria Napolitana no Google Maps"
+               width="720" height="960" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <div class="ph"><svg viewBox="0 0 120 136" aria-hidden="true"><use href="#mascot"/></svg><span>Foto · Google Maps</span></div>
+          <figcaption>Galeria pública · Google Maps</figcaption>
+        </figure>
+        <figure data-rv="fade">
+          <div class="ph" style="color:#7A5B12">
+            <svg viewBox="0 0 120 136" aria-hidden="true"><use href="#mascot"/></svg>
+            <span>Mascote da casa</span>
+          </div>
+          <figcaption>Ilustração · mascote da marca</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <section class="reviews" id="depoimentos" data-bridge="a">
+  <!-- reputation -->
+  <section class="sec" id="confianca">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-label kicker">Confiança</span>
-        <h2>Quem já provou, <em>conta</em></h2>
-        <p class="sec-note">Avaliações reais publicadas no Google Maps, com os nomes de quem as escreveu. Nota média: 4,8 em 85 avaliações.</p>
+        <span class="kicker">Reputação</span>
+        <h2>O que <span class="hl">os clientes dizem</span></h2>
+        <p>Nota e volume de avaliações publicados no perfil da pizzaria no Google Maps. Não reproduzimos depoimentos que não conseguimos citar com precisão.</p>
       </div>
-      <div class="quotes">
-        <blockquote class="quote">
-          <span class="stars"><b>★★★★★</b></span>
-          <p>“La pizza es de muy buen tamaño, mi favorita es la de 4 quesos, es riquísima.”</p>
-          <footer><span class="avatar">LR</span><span>Luisa Ramirez · Google Maps</span></footer>
-        </blockquote>
-        <blockquote class="quote">
-          <span class="stars"><b>★★★★★</b></span>
-          <p>“Muy buena atención por parte del dueño, rápido sobre tener la terraza llena y las pizzas muy buenas de sabor y de cantidad.”</p>
-          <footer><span class="avatar">AM</span><span>Adrian Montolio · Google Maps</span></footer>
-        </blockquote>
-        <blockquote class="quote">
-          <span class="stars"><b>★★★★★</b></span>
-          <p>“Espectacular las pizzas en pizzería Napotitana de Torralba. Sabrosas, crujientes y de calidad.”</p>
-          <footer><span class="avatar">MJ</span><span>Mari Ángeles Jimenez Almenara · Google Maps</span></footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="location" id="contato" data-bridge="b">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="sec-label kicker">Onde e quando</span>
-        <h2>Nosso endereço <em>e horários</em></h2>
-        <p class="sec-note">Dados públicos do perfil da Pizzeria Napolitana no Google Maps.</p>
-      </div>
-      <div class="location-grid">
-        <div class="location-card">
-          <h3>Informações</h3>
-          <div class="info-row"><span>Endereço</span><span>Calle Dr. Severo Ochoa, 1, 13160 Torralba de Calatrava, Cdad. Real, Espanha</span></div>
-          <div class="info-row"><span>Telefone</span><span><a href="tel:+34627661061">+34 627 66 10 61</a></span></div>
-          <div class="info-row"><span>Instagram</span><span><a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">@pzzerianapolitana8</a></span></div>
-          <h3 style="margin-top:22px">Horários</h3>
-          <table class="hours">
-            <tr><td>Segunda</td><td>Fechado</td></tr>
-            <tr><td>Terça a quinta</td><td>19:00 – 00:00</td></tr>
-            <tr><td>Sexta</td><td>19:00 – 00:00</td></tr>
-            <tr><td>Sábado e domingo</td><td>19:30 – 00:00</td></tr>
-          </table>
-          <div class="location-actions">
-            <a class="btn btn-sm" href="https://www.google.com/maps/place/Pizzeria+Napolitana+Torralba+de+Calatrava/@39.0160389,-3.7488785,17z/data=!4m15!1m8!3m7!1s0xd6bd908d89f842b:0x6daa0d3b4431f2c4!2sPizzeria+Napolitana+Torralba+de+Calatrava!8m2!3d39.0160389!4d-3.7488785!10e9!16s%2Fg%2F11wpzvn26z!3m5!1s0xd6bd908d89f842b:0x6daa0d3b4431f2c4!8m2!3d39.0160389!4d-3.7488785!16s%2Fg%2F11wpzvn26z?authuser=0&hl=es&entry=ttu" target="_blank" rel="noopener">Ver no Maps ↗</a>
-            <a class="btn btn-sm btn-red" href="tel:+34627661061">Ligar agora</a>
+      <div class="trust">
+        <div class="score-card" data-rv="left">
+          <div class="num">4,8</div>
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p>Média de 85 avaliações no Google Maps.<br>Consulte os comentários completos no perfil público.</p>
+          <a class="btn btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Pizzeria+Napolitana+Torralba+de+Calatrava" target="_blank" rel="noopener">Ver no Google Maps <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="facts">
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">🌾</span>
+            <div><h3>Massa artesanal</h3><p>Pizzas preparadas artesanalmente, com destaque para a massa crocante.</p></div>
+          </div>
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">🥗</span>
+            <div><h3>Ingredientes frescos</h3><p>É o que a própria casa informa na descrição oficial do perfil.</p></div>
+          </div>
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">🛍️</span>
+            <div><h3>Para levar</h3><p>Pedidos para consumo fora do local, com retirada combinada.</p></div>
+          </div>
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">🏛️</span>
+            <div><h3>Retirada no Mercado</h3><p>Retire no Mercado Municipal, conforme indicado pela pizzaria.</p></div>
+          </div>
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">🌙</span>
+            <div><h3>Aberto até 00:00</h3><p>De terça a domingo, com abertura às 19:00 (19:30 no fim de semana).</p></div>
+          </div>
+          <div class="fact" data-rv="up">
+            <span class="ic" aria-hidden="true">📞</span>
+            <div><h3>Contato direto</h3><p>Telefone divulgado no perfil público da pizzaria.</p></div>
           </div>
         </div>
-        <div class="map-wrap">
-          <iframe title="Mapa da Pizzeria Napolitana em Torralba de Calatrava" src="https://www.google.com/maps?q=Calle%20Dr.%20Severo%20Ochoa%2C%201%2C%2013160%20Torralba%20de%20Calatrava%2C%20Cdad.%20Real%2C%20Spain&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AGIR ============ -->
+  <section class="sec sec-alt" id="pedido" data-bridge="c">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Fechar o pedido</span>
+        <h2>Seu resumo pronto em <span class="hl">um clique</span></h2>
+        <p>Monte o pedido, escolha a modalidade e copie o resumo. Você envia pelo canal que já usa com a pizzaria ou liga direto — o site não confirma pedidos sozinho.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-red" type="button" data-open-cart>Ver meu pedido <span aria-hidden="true">→</span></button>
+        <a class="btn btn-ghost" href="tel:+34627661061">Ligar: +34 627 66 10 61</a>
+      </div>
+      <p class="fineprint" style="text-align:left;margin-top:16px;max-width:52ch">Sem WhatsApp oficial confirmado, o site não inventa um número. O resumo é copiado e o telefone público fica à mão.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="sec" id="contato">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Onde estamos</span>
+        <h2>Endereço, horários e <span class="hl">contato</span></h2>
+      </div>
+      <div class="contact">
+        <div class="info-card" data-rv="left">
+          <div class="info-row">
+            <span class="ic" aria-hidden="true">📍</span>
+            <div><b>Endereço</b><span>Calle Dr. Severo Ochoa, 1<br>13160 Torralba de Calatrava · Ciudad Real · Espanha</span></div>
+          </div>
+          <div class="info-row">
+            <span class="ic" aria-hidden="true">📞</span>
+            <div><b>Telefone</b><a href="tel:+34627661061">+34 627 66 10 61</a></div>
+          </div>
+          <div class="info-row">
+            <span class="ic" aria-hidden="true">📸</span>
+            <div><b>Instagram</b><a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">@pzzerianapolitana8</a></div>
+          </div>
+          <div class="info-row" style="display:block">
+            <b>Horários</b>
+            <table class="hours" id="hoursTable">
+              <tbody>
+                <tr data-day="1"><th scope="row">Segunda</th><td class="closed">Fechado</td></tr>
+                <tr data-day="2"><th scope="row">Terça a sexta</th><td>19:00 – 00:00</td></tr>
+                <tr data-day="0"><th scope="row">Sábado e domingo</th><td>19:30 – 00:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="map-card" data-rv="right">
+          <iframe
+            title="Mapa com a localização da Pizzeria Napolitana em Torralba de Calatrava"
+            src="https://maps.google.com/maps?q=Calle%20Dr.%20Severo%20Ochoa%2C%201%2C%2013160%20Torralba%20de%20Calatrava%2C%20Ciudad%20Real&z=16&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map-foot">
+            <span>Torralba de Calatrava · Ciudad Real</span>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+Dr.+Severo+Ochoa+1+Torralba+de+Calatrava" target="_blank" rel="noopener" style="font-weight:800;border-bottom:2px solid var(--yellow)">Abrir rota ↗</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta" id="pedido" data-bridge="c">
-    <div class="wrap cta-inner">
-      <div>
-        <span class="kicker">Hora de pedir</span>
-        <h2>Fome de pizza? <em>Monte seu pedido.</em></h2>
-        <p>Escolha os sabores, defina se vai levar ou retirar no Mercado Municipal e copie o resumo pronto para enviar. Simples assim.</p>
-        <a class="btn btn-red" href="#cardapio">Ir para o cardápio <span aria-hidden="true">→</span></a>
+  <!-- ============ LEGAL ============ -->
+  <section class="legal-sec" id="privacidade">
+    <div class="wrap">
+      <div class="legal-grid">
+        <div>
+          <h2>Política de Privacidade</h2>
+          <p>Este site é uma página informativa de uma pizzaria. Ele não tem cadastro, login, pagamento online nem envio automático de pedidos a servidores.</p>
+          <h3>Dados que ficam no seu dispositivo</h3>
+          <p>O conteúdo do pedido (sabores, quantidades, observações e modalidade) é guardado apenas no <em>localStorage</em> do seu navegador, para você não perder o que montou ao recarregar a página. Nada disso é transmitido pela página a nós ou a terceiros. Ao limpar os dados do navegador, o pedido desaparece.</p>
+          <h3>O que você envia por conta própria</h3>
+          <p>O botão de resumo copia o texto do pedido para a área de transferência. Se você colar esse texto em um aplicativo de mensagens ou ligar para a pizzaria, o tratamento passa a ser feito pelo canal escolhido por você.</p>
+          <h3>Serviços de terceiros</h3>
+          <ul>
+            <li>Mapa incorporado do Google Maps na seção de contato, exibido apenas quando essa área é carregada.</li>
+            <li>Duas fotos hospedadas no Google (galeria pública), carregadas do domínio do Google.</li>
+          </ul>
+          <p>Não usamos Google Analytics, pixels de publicidade, cookies de rastreamento ou perfis comportamentais.</p>
+          <h3>Seus direitos</h3>
+          <p>Como não coletamos dados pessoais neste site, não há base de dados para consulta, correção ou exclusão aqui. Para tratar de um pedido, fale diretamente com a pizzeria pelos contatos publicados.</p>
+        </div>
+        <div id="termos">
+          <h2>Termos de Uso</h2>
+          <p>Ao navegar e usar o montador de pedidos, você concorda com os pontos abaixo.</p>
+          <h3>1. Informação e preços</h3>
+          <p>O cardápio reúne apenas sabores confirmados em canais públicos. Preços, promoções, disponibilidade e tempo de preparo são informados pela pizzeria no atendimento. O site não pratica venda direta.</p>
+          <h3>2. Pedido não confirmado</h3>
+          <p>O resumo gerado é um rascunho para facilitar a conversa. Nenhum pedido é confirmado, reservado ou cobrado pelo site. A confirmação depende da resposta da pizzeria.</p>
+          <h3>3. Uso adequado</h3>
+          <p>O site deve ser usado para consulta e organização de pedidos próprios. Não é permitido automatizar acessos, tentar explorar falhas ou usar o conteúdo comercialmente sem autorização.</p>
+          <h3>4. Conteúdo de terceiros</h3>
+          <p>Nota, número de avaliações e fotos vêm de perfis públicos (Google Maps e Instagram) e pertencem aos seus autores. Podem mudar sem aviso. A mascote e a identidade visual são ilustrações originais deste projeto.</p>
+          <h3>5. Limitação</h3>
+          <p>O site é informativo e pode ficar indisponível por manutenção ou falha de terceiros. A responsabilidade por produto, atendimento, entrega e cobrança é da pizzeria.</p>
+          <details class="acc">
+            <summary>Preciso de um canal oficial de WhatsApp?</summary>
+            <p>Não há número de WhatsApp confirmado nos canais oficiais consultados. Por isso o site não inventa um. Use o telefone público ou o Instagram da pizzeria.</p>
+          </details>
+          <details class="acc">
+            <summary>Por que os preços aparecem “a confirmar”?</summary>
+            <p>Porque valores não publicados não podem ser inventados. O resumo do pedido deixa claro que o total será confirmado pela pizzeria.</p>
+          </details>
+        </div>
       </div>
-      <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
-    </div>
-  </section>
-
-  <section class="legal" id="privacidade" data-bridge="a">
-    <div class="wrap">
-      <details>
-        <summary>Política de Privacidade</summary>
-        <p>Este site monta o resumo do pedido no seu navegador. Não há cadastro, pagamento, cookies ou ferramentas de análise. Ao usar “Copiar resumo”, o texto vai para a área de transferência do seu dispositivo; ao usar “Ligar”, o aplicativo de telefone é aberto. Nenhuma informação do pedido é enviada para este site. A pizzaria trata os dados que você informar diretamente a ela no contato. Você pode solicitar acesso, correção ou exclusão desses dados pelos canais de contato da pizzaria.</p>
-      </details>
-    </div>
-  </section>
-  <section class="legal" id="termos" data-bridge="b">
-    <div class="wrap">
-      <details>
-        <summary>Termos de Uso</summary>
-        <p>Este site é informativo e oferece uma ferramenta para organizar o pedido. Não processa pagamentos, não promete disponibilidade de sabores e não confirma pedidos: a confirmação, os valores e o atendimento são feitos diretamente pela Pizzeria Napolitana. Fotos e avaliações exibidas procedem dos canais públicos indicados e permanecem sob seus respectivos direitos.</p>
-      </details>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <h3>Pizzeria Napolitana</h3>
-      <p>Pizzas artesanais com ingredientes frescos em Torralba de Calatrava.</p>
-      <p>Calle Dr. Severo Ochoa, 1 · 13160 Torralba de Calatrava · Espanha</p>
-    </div>
-    <div>
-      <h3>Contato</h3>
-      <p><a href="tel:+34627661061">+34 627 66 10 61</a></p>
-      <p><a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">Instagram oficial ↗</a></p>
-      <p><a href="#contato">Endereço e horários</a></p>
-    </div>
-    <div>
-      <h3>Institucional</h3>
-      <p><a href="#privacidade">Política de Privacidade</a></p>
-      <p><a href="#termos">Termos de Uso</a></p>
-      <p><a href="#cardapio">Montar pedido</a></p>
-    </div>
-  </div>
-  <div class="wrap footer-bottom">Conteúdo obtido de fontes públicas verificadas: Google Maps e Instagram oficial. Sem preços, promoções ou número de WhatsApp inventados.</div>
-</footer>
-
-<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
-<aside class="cart-drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
-  <div class="cart-head">
-    <button class="cart-close" id="closeCart" type="button" aria-label="Fechar pedido">×</button>
-    <h2 id="cartTitle">Seu pedido</h2>
-    <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
-  </div>
-  <div class="cart-body">
-    <h3>Itens escolhidos</h3>
-    <div id="cartItems" class="cart-empty" aria-live="polite">Nenhum sabor escolhido ainda. Volte ao cardápio e adicione uma pizza.</div>
-    <div class="cart-total" id="cartTotal">0 item · valor a confirmar pela pizzaria</div>
-    <div class="field">
-      <label>Como você quer receber?</label>
-      <div class="modality">
-        <label><input type="radio" name="modality" value="Para levar" checked> Para levar</label>
-        <label><input type="radio" name="modality" value="Retirada no Mercado Municipal"> Retirar no Mercado</label>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg viewBox="0 0 120 136" aria-hidden="true" focusable="false"><use href="#mascot"/></svg>
+        <div>
+          <strong>Pizzeria Napolitana</strong>
+          <p>Pizzas artesanais em Torralba de Calatrava. Para levar ou retirar no Mercado Municipal.</p>
+        </div>
+      </div>
+      <div>
+        <div class="foot-title">Navegar</div>
+        <nav class="foot-links" aria-label="Links do rodapé">
+          <a href="#cardapio">Cardápio</a>
+          <a href="#novidade">Salchipizza</a>
+          <a href="#contato">Endereço e horários</a>
+          <a href="#pedido">Montar pedido</a>
+        </nav>
+      </div>
+      <div>
+        <div class="foot-title">Contato</div>
+        <div class="foot-links">
+          <a href="tel:+34627661061">+34 627 66 10 61</a>
+          <a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Pizzeria+Napolitana+Torralba+de+Calatrava" target="_blank" rel="noopener">Google Maps</a>
+          <a href="#privacidade">Privacidade</a>
+          <a href="#termos">Termos</a>
+        </div>
       </div>
     </div>
-    <div class="field">
-      <label for="cartNotes">Observações do pedido (opcional)</label>
-      <textarea id="cartNotes" placeholder="Ex.: sem cebola, horário de retirada, nome para identificar o pedido" maxlength="300"></textarea>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Pizzeria Napolitana · Torralba de Calatrava</span>
+      <span>Dados verificados em Google Maps e Instagram oficiais · maio de 2026</span>
     </div>
-    <label class="consent">
-      <input type="checkbox" id="cartConsent">
-      <span>Concordo com o tratamento das informações deste pedido conforme a <a href="#privacidade">Política de Privacidade</a>.</span>
-    </label>
   </div>
-  <div class="cart-foot">
-    <button class="btn btn-red" id="copyOrder" type="button">Copiar resumo para envio</button>
-    <a class="btn btn-ghost" id="callOrder" href="tel:+34627661061">Ligar e conferir pedido</a>
-    <p class="cart-fine">O pedido só é confirmado pela pizzaria. Nenhum valor é cobrado neste site.</p>
+</footer>
+
+<div class="mobile-bar" id="mobileBar">
+  <div class="mb-info">
+    <b id="mbCount">Pedido vazio</b>
+    <span>Valor a confirmar pela pizzaria</span>
+  </div>
+  <button class="btn btn-red btn-sm" type="button" data-open-cart>Abrir pedido</button>
+</div>
+
+<div class="overlay" id="overlay" hidden></div>
+
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawerTitle">Seu pedido</h2>
+    <button class="close" type="button" id="closeCart" aria-label="Fechar pedido">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div id="cartItems" aria-live="polite"></div>
+
+    <div class="empty" id="cartEmpty">
+      <svg viewBox="0 0 120 136" aria-hidden="true"><use href="#mascot"/></svg>
+      <strong>Seu pedido está vazio</strong>
+      <p>Escolha um sabor no cardápio para começar.</p>
+    </div>
+
+    <div id="cartForm" hidden>
+      <div class="field">
+        <span class="label" id="modeLabel">Como você quer receber?</span>
+        <div class="seg" role="radiogroup" aria-labelledby="modeLabel">
+          <label><input type="radio" name="mode" value="Retirada no Mercado Municipal" checked> Retirada no Mercado Municipal</label>
+          <label><input type="radio" name="mode" value="Para levar (entrega a combinar)"> Para levar (entrega a combinar)</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="notes">Observações do pedido</label>
+        <textarea id="notes" rows="3" maxlength="400" placeholder="Ex.: sem cebola, ponto da massa, horário desejado…"></textarea>
+      </div>
+      <label class="consent" for="cartConsent">
+        <input type="checkbox" id="cartConsent">
+        <span>Concordo que o resumo do pedido seja copiado com os dados que digitei e que o envio seja feito por mim, pelo canal que eu escolher. Li a <a href="#privacidade">Política de Privacidade</a>.</span>
+      </label>
+      <div class="summary">
+        <span id="summaryItems">0 itens</span>
+        <b id="summaryTotal">Valor a confirmar</b>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <button class="btn btn-red" type="button" id="copyOrder" disabled>Copiar resumo do pedido</button>
+    <a class="btn btn-ink" href="tel:+34627661061">Ligar para a pizzaria</a>
+    <p class="fineprint">O site não confirma pedidos. O valor e o tempo são combinados direto com a pizzeria.</p>
   </div>
 </aside>
 
-<div class="mobile-bar" aria-label="Ações rápidas">
-  <button class="btn btn-red btn-sm" id="openCartMobile" type="button">Ver pedido (<span id="cartCountMobile">0</span>)</button>
-  <a class="btn btn-sm" href="tel:+34627661061">Ligar</a>
-</div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script>
-(function(){
-  'use strict';
-  var MENU = {
-    salchipizza:{name:'Salchipizza',detail:'massa crocante, queijo fundido, bacon, salchichas e especiarias'},
-    '4quesos':{name:'Pizza 4 quesos',detail:'sabor citado em avaliação do Google Maps'},
-    kebab:{name:'Pizza kebab',detail:'sabor citado em avaliação do Google Maps'},
-    carbonara:{name:'Pizza carbonara',detail:'sabor citado em avaliação do Google Maps'}
-  };
-  var STORE_KEY = 'pizzaria-napolitana-pedido';
-  var cart = {};
-  try{ var saved = JSON.parse(localStorage.getItem(STORE_KEY)||'{}'); if(saved && typeof saved==='object'){ cart=saved; } }catch(e){ cart={}; }
-  Object.keys(cart).forEach(function(k){ if(!MENU[k] || !(cart[k]>0)) delete cart[k]; });
+<noscript>
+  <style>[data-rv]{opacity:1!important;transform:none!important;clip-path:none!important}.drawer{display:none}</style>
+</noscript>
 
-  var $ = function(s,root){ return (root||document).querySelector(s); };
-  var $$ = function(s,root){ return Array.prototype.slice.call((root||document).querySelectorAll(s)); };
-  var cartEl = $('#cart'), overlay = $('#cartOverlay'), toast = $('#toast');
-  var itemsEl = $('#cartItems'), totalEl = $('#cartTotal');
-  var notesEl = $('#cartNotes'), consentEl = $('#cartConsent');
-  var toastTimer;
-
-  function persist(){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(cart)); }catch(e){} }
-  function count(){ return Object.keys(cart).reduce(function(n,k){ return n+cart[k]; },0); }
-  function showToast(msg){
-    toast.textContent=msg; toast.classList.add('show');
-    clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toast.classList.remove('show'); },3200);
-  }
-  function render(){
-    var n=count();
-    $('#cartCountHeader').textContent=n; $('#cartCountMobile').textContent=n;
-    var keys=Object.keys(cart);
-    if(!keys.length){
-      itemsEl.className='cart-empty';
-      itemsEl.textContent='Nenhum sabor escolhido ainda. Volte ao cardápio e adicione uma pizza.';
-    }else{
-      itemsEl.className='';
-      itemsEl.innerHTML='';
-      keys.forEach(function(k){
-        var row=document.createElement('div'); row.className='cart-item';
-        var info=document.createElement('div');
-        var b=document.createElement('b'); b.textContent=MENU[k].name;
-        var small=document.createElement('small'); small.textContent=MENU[k].detail;
-        var qty=document.createElement('div'); qty.className='qty';
-        var minus=document.createElement('button'); minus.type='button'; minus.textContent='−'; minus.setAttribute('aria-label','Diminuir quantidade de '+MENU[k].name); minus.dataset.dec=k;
-        var span=document.createElement('span'); span.textContent=cart[k];
-        var plus=document.createElement('button'); plus.type='button'; plus.textContent='+'; plus.setAttribute('aria-label','Aumentar quantidade de '+MENU[k].name); plus.dataset.inc=k;
-        qty.appendChild(minus); qty.appendChild(span); qty.appendChild(plus);
-        info.appendChild(b); info.appendChild(small); info.appendChild(qty);
-        var side=document.createElement('div');
-        var rem=document.createElement('button'); rem.type='button'; rem.className='remove-btn'; rem.textContent='Remover'; rem.dataset.remove=k;
-        side.appendChild(rem);
-        row.appendChild(info); row.appendChild(side); itemsEl.appendChild(row);
-      });
-    }
-    totalEl.textContent=n+(n===1?' item':' itens')+' · valor a confirmar pela pizzaria';
-    persist();
-  }
-  function add(id){
-    if(!MENU[id]) return;
-    cart[id]=(cart[id]||0)+1; render();
-    showToast(MENU[id].name+' adicionada ao pedido.');
-  }
-  function openCart(){
-    cartEl.classList.add('open'); overlay.classList.add('open');
-    cartEl.setAttribute('aria-hidden','false'); overlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    setTimeout(function(){ $('#closeCart').focus(); },180);
-  }
-  function closeCart(){
-    cartEl.classList.remove('open'); overlay.classList.remove('open');
-    cartEl.setAttribute('aria-hidden','true'); overlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  }
-  function modality(){
-    var r=$('input[name="modality"]:checked'); return r?r.value:'Para levar';
-  }
-  function summary(){
-    var lines=['Pedido — Pizzeria Napolitana, Torralba de Calatrava',''];
-    Object.keys(cart).forEach(function(k){
-      lines.push(cart[k]+' × '+MENU[k].name);
-    });
-    lines.push(''); lines.push('Modalidade: '+modality());
-    var notes=notesEl.value.trim();
-    if(notes) lines.push('Observações: '+notes);
-    lines.push('Valores: a confirmar pela pizzaria.');
-    lines.push('Envio preparado no site — confirmação pelo atendimento da pizzaria.');
-    return lines.join('\n');
-  }
-  function copyText(text,cb){
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(cb,fallback);
-    }else{ fallback(); }
-    function fallback(){
-      var ta=document.createElement('textarea'); ta.value=text;
-      ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); cb(); }catch(e){ showToast('Não foi possível copiar automaticamente. Selecione e copie o resumo.'); }
-      document.body.removeChild(ta);
-    }
-  }
-
-  $$('[data-add]').forEach(function(b){ b.addEventListener('click',function(){ add(b.getAttribute('data-add')); }); });
-  $$('.tab').forEach(function(tab){
-    tab.addEventListener('click',function(){
-      var f=tab.getAttribute('data-filter');
-      $$('.tab').forEach(function(t){ t.setAttribute('aria-pressed',String(t===tab)); });
-      $$('.serv').forEach(function(card){
-        card.hidden = !(f==='all'||card.getAttribute('data-category')===f);
-      });
-    });
-  });
-  $('#openCartHeader').addEventListener('click',openCart);
-  $('#openCartMobile').addEventListener('click',openCart);
-  $('#closeCart').addEventListener('click',closeCart);
-  overlay.addEventListener('click',closeCart);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&cartEl.classList.contains('open')) closeCart(); });
-
-  itemsEl.addEventListener('click',function(e){
-    var t=e.target, k;
-    if(!t.dataset) return;
-    if((k=t.dataset.inc)){ cart[k]=(cart[k]||0)+1; render(); }
-    else if((k=t.dataset.dec)){ cart[k]=(cart[k]||0)-1; if(cart[k]<=0) delete cart[k]; render(); }
-    else if((k=t.dataset.remove)){ delete cart[k]; render(); }
-  });
-  $('#copyOrder').addEventListener('click',function(){
-    if(!count()){ showToast('Adicione pelo menos um item ao pedido antes de copiar.'); return; }
-    if(!consentEl.checked){ showToast('Marque o consentimento de privacidade para continuar.'); consentEl.focus(); return; }
-    copyText(summary(),function(){ showToast('Resumo copiado. Envie pelo canal de atendimento da pizzaria.'); });
-  });
-  $('#callOrder').addEventListener('click',function(){
-    if(!count()){ showToast('Seu pedido está vazio. Escolha um sabor antes de ligar.'); }
-  });
-
-  var navToggle=$('#navToggle'), navLinks=$('#navLinks');
-  navToggle.addEventListener('click',function(){
-    var open=navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded',String(open));
-    navToggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
-  });
-  $$('#navLinks a').forEach(function(a){ a.addEventListener('click',function(){
-    navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
-  }); });
-  render();
-})();
-</script>
-<script data-anim-kit>
-/* ============================================================
-   ANIM-KIT v2 — motor de movimento
-   Header · barra de progresso · reveal variado · parallax
-   Tudo em transform/opacity. Respeita prefers-reduced-motion.
-   Injetado por: node tools/inject-anim.mjs
+<script>/* ============================================================
+   Pizzeria Napolitana — interações
+   Sem dependências. Tudo funciona sem rede.
    ============================================================ */
 (function () {
-  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var isMobile = matchMedia('(max-width:760px)').matches;
+  'use strict';
 
-  /* ---- header com blur ao rolar + progresso de leitura ---- */
-  var hdr = document.getElementById('hdr');
-  var bar = document.getElementById('bar');
-  var lastY = -1;
-
-  function onScroll() {
-    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
-    if (y === lastY) return;
-    lastY = y;
-    if (hdr) hdr.classList.toggle('stuck', y > 40);
-    if (bar) {
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+  var MENU = {
+    salchipizza: {
+      name: 'Salchipizza',
+      detail: 'queijo fundido, bacon, salsicha e especiarias',
+      art: 'art-salchi'
+    },
+    '4quesos': {
+      name: 'Pizza 4 quesos',
+      detail: 'combinação de queijos na massa artesanal',
+      art: 'art-4q'
+    },
+    kebab: {
+      name: 'Pizza kebab',
+      detail: 'versão inspirada no kebab, preparo da casa',
+      art: 'art-kebab'
+    },
+    carbonara: {
+      name: 'Pizza carbonara',
+      detail: 'interpretação da carbonara em pizza',
+      art: 'art-carb'
     }
-  }
-  addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  };
 
-  /* ---- variedade de entrada por família de elemento ----
-     Cada seletor recebe uma pose diferente. Só é aplicado se o
-     elemento existir: funciona em qualquer arquitetura.        */
-  var VARIANTS = [
-    ['.sec-head h2', 'rv-clip'],
-    ['.sec-head .sec-label', 'rv-fade'],
-    ['.sec-note', 'rv-fade'],
-    ['.stats .stat', 'rv-fade', 90],
-    ['.grid-serv .serv', 'rv-fade', 80],
-    ['.steps .step', 'rv-left', 90],
-    ['.quotes .quote', 'rv-scale', 110],
-    ['.about-photo', 'rv-left'],
-    ['.about-body', 'rv-right'],
-    ['.live-row', 'rv-fade', 70]
-  ];
-  VARIANTS.forEach(function (item) {
-    var sel = item[0], cls = item[1], stagger = item[2];
-    document.querySelectorAll(sel).forEach(function (el, i) {
-      if (!el.classList.contains(cls)) el.classList.add(cls);
-      if (stagger) el.style.transitionDelay = (i % 4) * stagger + 'ms';
-    });
-  });
+  var KEY = 'napolitana:order:v1';
+  var state = { items: {}, notes: '', mode: 'Retirada no Mercado Municipal' };
 
-  /* ---- reveal unificado ---- */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e, i) {
-      if (!e.isIntersecting) return;
-      var el = e.target;
-      io.unobserve(el);
-      setTimeout(function () { el.classList.add('in'); }, Math.min(i * 70, 350));
-    });
-  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
 
-  document.querySelectorAll('.rev,.rv-fade,.rv-scale,.rv-left,.rv-right')
-    .forEach(function (el) { io.observe(el); });
-
-  /* clip-path zera a área visual do elemento e o IntersectionObserver
-     nunca o considera visível — então observamos o container, que não
-     é recortado, e revelamos o filho junto.                        */
-  var ioClip = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      ioClip.unobserve(e.target);
-      setTimeout(function () {
-        e.target.querySelectorAll('.rv-clip').forEach(function (k) { k.classList.add('in'); });
-        if (e.target.classList && e.target.classList.contains('rv-clip')) e.target.classList.add('in');
-      }, 120);
-    });
-  }, { threshold: .05, rootMargin: '0px 0px -6% 0px' });
-
-  document.querySelectorAll('.rv-clip').forEach(function (el) {
-    var host = el.parentElement || el;
-    if (!host.dataset.clipHost) { host.dataset.clipHost = '1'; ioClip.observe(host); }
-  });
-
-  /* stagger por posição em grids de 3 colunas */
-  document.querySelectorAll('.grid-proj .card').forEach(function (c, i) {
-    c.style.transitionDelay = (i % 3) * 90 + 'ms';
-  });
-
-  /* ---- parallax ---- */
-  if (!reduce) {
-    var items = [];
-    function add(sel, speed) {
-      document.querySelectorAll(sel).forEach(function (el) {
-        el.dataset.par = speed; items.push(el);
-      });
-    }
-    add('.about-photo', -0.06);
-    add('.live-row img', 0.04);
-    add('.cta h2', 0.05);
-    add('.services .serv', 0.02);
-
-    var stack = document.querySelector('.stack');
-    var ticking = false;
-
-    function frame() {
-      var vh = innerHeight;
-      if (stack) {
-        var y = Math.min(window.pageYOffset || 0, 800);
-        stack.style.transform = 'translate3d(0,' + (y * 0.06) + 'px,0)';
+  /* ---------- persistência ---------- */
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (data && typeof data === 'object') {
+        if (data.items && typeof data.items === 'object') {
+          Object.keys(data.items).forEach(function (id) {
+            if (MENU[id]) {
+              var n = parseInt(data.items[id], 10);
+              if (n > 0) state.items[id] = Math.min(n, 30);
+            }
+          });
+        }
+        if ( typeof data.notes === 'string') state.notes = data.notes.slice(0, 400);
+        if ( typeof data.mode === 'string' && data.mode) state.mode = data.mode;
       }
-      items.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) return;
-        var center = r.top + r.height / 2;
-        var delta = (center - vh / 2) / vh;
-        var s = parseFloat(el.dataset.par) * 100 * delta;
-        el.style.transform = 'translate3d(0,' + s.toFixed(2) + 'px,0)';
-      });
-      ticking = false;
-    }
-    addEventListener('scroll', function () {
-      if (!ticking && !isMobile) { ticking = true; requestAnimationFrame(frame); }
-    }, { passive: true });
-    if (!isMobile) frame();
+    } catch (e) { /* armazenamento bloqueado: segue sem persistir */ }
   }
-})();
 
-</script>
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  /* ---------- utilidades ---------- */
+  var toastTimer;
+  function toast(msg) {
+    var el = $('#toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 3400);
+  }
+
+  function countItems() {
+    return Object.keys(state.items).reduce(function (t, k) { return t + state.items[k]; }, 0);
+  }
+
+  function summaryText() {
+    var lines = ['PIZZERIA NAPOLITANA · Torralba de Calatrava', 'Resumo do pedido (rascunho — não confirmado)', ''];
+    Object.keys(state.items).forEach(function (id) {
+      lines.push('• ' + state.items[id] + '× ' + MENU[id].name);
+    });
+    lines.push('');
+    lines.push('Modalidade: ' + state.mode);
+    if (state.notes.trim()) lines.push('Observações: ' + state.notes.trim());
+    lines.push('Total: a confirmar pela pizzeria');
+    lines.push('Contato: +34 627 66 10 61');
+    lines.push('');
+    lines.push('Enviado por mim a partir do site. Nenhum pedido foi confirmado automaticamente.');
+    return lines.join('\n');
+  }
+
+  /* ---------- header, progresso, menu mobile ---------- */
+  function initChrome() {
+    var hdr = $('#hdr');
+    var bar = $('#bar');
+    var toggle = $('#navToggle');
+    var menu = $('#mobileMenu');
+    var links = $$('.nav-links a');
+    var sections = links.map(function (a) { return $(a.getAttribute('href')); }).filter(Boolean);
+    var currentId = null;
+
+    function spy() {
+      if (!sections.length) return;
+      var y = (window.pageYOffset || 0) + 140;
+      var current = null;
+      sections.forEach(function (s) { if (s.offsetTop <= y) current = s; });
+      var id = current ? current.id : null;
+      if (id === currentId) return;
+      currentId = id;
+      links.forEach(function (a) {
+        if (id && a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    function onScroll() {
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (hdr) hdr.classList.toggle('stuck', y > 8);
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - window.innerHeight) || 1;
+      if (bar) bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, y / max)).toFixed(4) + ')';
+
+      var mbar = $('#mobileBar');
+      if (mbar) {
+        var drawerOpen = $('#drawer') && $('#drawer').classList.contains('open');
+        mbar.classList.toggle('show', y > 620 && !drawerOpen);
+      }
+      spy();
+    }
+
+    var raf = false;
+    window.addEventListener('scroll', function () {
+      if (raf) return;
+      raf = true;
+      requestAnimationFrame(function () { raf = false; onScroll(); });
+    }, { passive: true });
+    onScroll();
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
+        toggle.textContent = open ? '☰' : '✕';
+        menu.setAttribute('data-open', String(!open));
+      });
+      $$('a', menu).forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.setAttribute('data-open', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+          toggle.textContent = '☰';
+        });
+      });
+    }
+
+  }
+
+  /* ---------- reveal no scroll (com rede de segurança) ---------- */
+  function initReveal() {
+    var els = $$('[data-rv]');
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+
+    els.forEach(function (el) { io.observe(el); });
+
+    /* Se algo impedir o observer (aba em segundo plano, navegador antigo,
+       altura zero), o conteúdo nunca pode ficar invisível. */
+    function rescue() {
+      var vh = window.innerHeight || 800;
+      els.forEach(function (el) {
+        if (el.classList.contains('in')) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.96 && r.bottom > -40) el.classList.add('in');
+      });
+    }
+    window.addEventListener('load', function () { setTimeout(rescue, 400); });
+    window.addEventListener('scroll', rescue, { passive: true });
+    setTimeout(function () {
+      if (!els.some(function (el) { return el.classList.contains('in'); })) {
+        els.forEach(function (el) { el.classList.add('in'); });
+      }
+    }, 2600);
+  }
+
+  /* ---------- imagens remotas com fallback ---------- */
+  function initImages() {
+    $$('img[data-photo], #heroPhoto').forEach(function (img) {
+      var box = img.closest('.disc, figure') || img.parentElement;
+      function ok() { if (box) box.classList.add(box.classList.contains('disc') ? 'has-img' : 'has-img'); img.classList.add('loaded'); }
+      function fail() { if (box) box.classList.add('no-img'); img.style.display = 'none'; }
+      if (img.complete && img.naturalWidth > 0) ok();
+      img.addEventListener('load', ok);
+      img.addEventListener('error', fail);
+    });
+  }
+
+  /* ---------- ticker ---------- */
+  function initTicker() {
+    var track = $('#tickerTrack');
+    if (!track) return;
+    var base = track.innerHTML;
+    track.innerHTML = base + base + base + base; /* 4 cópias: -50% fecha o loop */
+  }
+
+  /* ---------- horários ---------- */
+  function initHours() {
+    var table = $('#hoursTable');
+    if (!table) return;
+    var d = new Date().getDay(); /* 0 = domingo */
+    var row = d === 1 ? table.querySelector('[data-day="1"]')
+      : (d >= 2 && d <= 5) ? table.querySelector('[data-day="2"]')
+        : table.querySelector('[data-day="0"]');
+    if (row) row.classList.add('is-today');
+  }
+
+  /* ---------- cardápio: filtro ---------- */
+  function initFilters() {
+    var chips = $$('.chip');
+    var cards = $$('.dish');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var f = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+        cards.forEach(function (card) {
+          var show = f === 'todos' || card.getAttribute('data-cat') === f;
+          card.hidden = !show;
+          if (show) {
+            card.style.animation = 'none';
+            /* força reinício da animação de entrada */
+            void card.offsetWidth;
+            card.style.animation = '';
+            card.classList.add('in');
+          }
+        });
+      });
+    });
+  }
+
+  /* ---------- carrinho ---------- */
+  function renderCart() {
+    var list = $('#cartItems');
+    var empty = $('#cartEmpty');
+    var form = $('#cartForm');
+    var copy = $('#copyOrder');
+    var ids = Object.keys(state.items).filter(function (k) { return state.items[k] > 0; });
+
+    if (list) list.innerHTML = '';
+    ids.forEach(function (id) {
+      var item = MENU[id];
+      var row = document.createElement('div');
+      row.className = 'ci';
+
+      var art = document.createElement('div');
+      art.className = 'ci-art pie ' + item.art;
+      art.setAttribute('aria-hidden', 'true');
+
+      var main = document.createElement('div');
+      main.className = 'ci-main';
+
+      var name = document.createElement('strong');
+      name.textContent = item.name;
+
+      var detail = document.createElement('small');
+      detail.textContent = item.detail;
+
+      var qty = document.createElement('div');
+      qty.className = 'qty';
+
+      var minus = document.createElement('button');
+      minus.type = 'button';
+      minus.textContent = '−';
+      minus.setAttribute('aria-label', 'Diminuir ' + item.name);
+      minus.addEventListener('click', function () {
+        state.items[id] -= 1;
+        if (state.items[id] <= 0) delete state.items[id];
+        save(); renderCart();
+      });
+
+      var num = document.createElement('span');
+      num.textContent = String(state.items[id]);
+      num.setAttribute('aria-label', 'Quantidade de ' + item.name);
+
+      var plus = document.createElement('button');
+      plus.type = 'button';
+      plus.textContent = '+';
+      plus.setAttribute('aria-label', 'Aumentar ' + item.name);
+      plus.addEventListener('click', function () {
+        state.items[id] = Math.min(30, (state.items[id] || 0) + 1);
+        save(); renderCart();
+      });
+
+      qty.appendChild(minus); qty.appendChild(num); qty.appendChild(plus);
+
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.className = 'ci-rm';
+      rm.textContent = 'remover';
+      rm.setAttribute('aria-label', 'Remover ' + item.name + ' do pedido');
+      rm.addEventListener('click', function () {
+        delete state.items[id];
+        save(); renderCart(); toast(item.name + ' removido do pedido.');
+      });
+
+      main.appendChild(name);
+      main.appendChild(detail);
+      main.appendChild(qty);
+      main.appendChild(rm);
+      row.appendChild(art);
+      row.appendChild(main);
+      list.appendChild(row);
+    });
+
+    var total = countItems();
+    if (empty) empty.hidden = total > 0;
+    if (form) form.hidden = total === 0;
+    if (copy) copy.disabled = total === 0 || !consentOk();
+
+    var c1 = $('#cartCount');
+    if (c1) c1.textContent = String(total);
+    var label = $('#cartCountLabel');
+    if (label) label.textContent = total === 0 ? 'Nenhum item no pedido' : total + (total === 1 ? ' item no pedido' : ' itens no pedido');
+    var s1 = $('#summaryItems');
+    if (s1) s1.textContent = total === 0 ? '0 itens' : total + (total === 1 ? ' item' : ' itens');
+    var mb = $('#mbCount');
+    if (mb) mb.textContent = total === 0 ? 'Pedido vazio' : total + (total === 1 ? ' item no pedido' : ' itens no pedido');
+  }
+
+  function addItem(id) {
+    if (!MENU[id]) return;
+    state.items[id] = Math.min(30, (state.items[id] || 0) + 1);
+    save(); renderCart();
+    openDrawer();
+    toast(MENU[id].name + ' adicionado ao pedido.');
+  }
+
+  /* ---------- drawer acessível ---------- */
+  var lastFocus = null;
+
+  function focusables() {
+    var d = $('#drawer');
+    if (!d) return [];
+    return $$('a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])', d)
+      .filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function openDrawer() {
+    var d = $('#drawer'), o = $('#overlay');
+    if (!d) return;
+    lastFocus = document.activeElement;
+    d.classList.add('open');
+    d.setAttribute('aria-hidden', 'false');
+    try { d.inert = false; } catch (e) {}
+    if (o) { o.hidden = false; requestAnimationFrame(function () { o.classList.add('open'); }); }
+    document.body.style.overflow = 'hidden';
+    var mbar = $('#mobileBar');
+    if (mbar) mbar.classList.remove('show');
+    setTimeout(function () {
+      var close = $('#closeCart');
+      if (close) close.focus();
+    }, 60);
+  }
+
+  function closeDrawer() {
+    var d = $('#drawer'), o = $('#overlay');
+    if (!d) return;
+    d.classList.remove('open');
+    d.setAttribute('aria-hidden', 'true');
+    try { d.inert = true; } catch (e) {}
+    if (o) {
+      o.classList.remove('open');
+      setTimeout(function () { o.hidden = true; }, 350);
+    }
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function initDrawer() {
+    $$('[data-open-cart]').forEach(function (b) { b.addEventListener('click', openDrawer); });
+    var close = $('#closeCart');
+    if (close) close.addEventListener('click', closeDrawer);
+    var ov = $('#overlay');
+    if (ov) ov.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function (e) {
+      var d = $('#drawer');
+      if (!d || !d.classList.contains('open')) return;
+      if (e.key === 'Escape') { closeDrawer(); return; }
+      if (e.key === 'Tab') {
+        var f = focusables();
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    var drawerEl = $('#drawer');
+    if (drawerEl) { try { drawerEl.inert = true; } catch (e) {} }
+
+    var notes = $('#notes');
+    if (notes) {
+      notes.value = state.notes;
+      notes.addEventListener('input', function () {
+        state.notes = notes.value.slice(0, 400);
+        save();
+      });
+    }
+
+    function syncMode() {
+      $$('input[name="mode"]').forEach(function (r) {
+        var label = r.closest('label');
+        if (label) label.classList.toggle('sel', r.checked);
+      });
+    }
+    $$('input[name="mode"]').forEach(function (r) {
+      r.checked = r.value === state.mode;
+      r.addEventListener('change', function () {
+        if (r.checked) { state.mode = r.value; save(); }
+        syncMode();
+      });
+    });
+    syncMode();
+
+    var consent = $('#cartConsent');
+    if (consent) consent.addEventListener('change', renderCart);
+  }
+
+  function consentOk() {
+    var c = $('#cartConsent');
+    return !!(c && c.checked);
+  }
+
+  /* ---------- copiar resumo ---------- */
+  function copyText(text) {
+    function legacy() {
+      return new Promise(function (resolve, reject) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '0';
+        ta.style.left = '0';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        var ok = false;
+        try {
+          ta.focus();
+          ta.select();
+          ok = typeof document.execCommand === 'function' && document.execCommand('copy');
+        } catch (err) { ok = false; }
+        document.body.removeChild(ta);
+        ok ? resolve() : reject(new Error('cópia bloqueada'));
+      });
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        return navigator.clipboard.writeText(text).catch(legacy);
+      } catch (err) { return legacy(); }
+    }
+    return legacy();
+  }
+
+  function initCopy() {
+    var btn = $('#copyOrder');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (countItems() === 0) { toast('Adicione um sabor antes de copiar.'); return; }
+      if (!consentOk()) { toast('Marque o consentimento para copiar o resumo.'); $('#cartConsent') && $('#cartConsent').focus(); return; }
+      var text = summaryText();
+      copyText(text).then(function () {
+        toast('Resumo copiado. Cole no canal que você usa com a pizzeria.');
+        btn.textContent = 'Resumo copiado ✓';
+        setTimeout(function () { btn.textContent = 'Copiar resumo do pedido'; }, 2600);
+      }).catch(function () {
+        toast('Não foi possível copiar automaticamente. Selecione o texto do pedido e copie.');
+      });
+    });
+  }
+
+  /* ---------- inicialização ---------- */
+  /* Um módulo com problema não pode derrubar os outros: cada passo é isolado. */
+  function safe(label, fn) {
+    try { fn(); } catch (err) { if (window.console && console.warn) console.warn('[napolitana] ' + label, err); }
+  }
+
+  function init() {
+    load();
+    safe('ano', function () {
+      var y = $('#year');
+      if (y) y.textContent = String(new Date().getFullYear());
+    });
+    safe('cabeçalho', initChrome);
+    safe('reveal', initReveal);
+    safe('imagens', initImages);
+    safe('ticker', initTicker);
+    safe('horários', initHours);
+    safe('filtros', initFilters);
+    safe('carrinho', initDrawer);
+    safe('cópia', initCopy);
+    safe('botões de adicionar', function () {
+      $$('[data-add]').forEach(function (b) {
+        b.addEventListener('click', function () { addItem(b.getAttribute('data-add')); });
+      });
+    });
+    safe('render inicial', renderCart);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();</script>
 </body>
 </html>

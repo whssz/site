@@ -1,6 +1,15 @@
 {
-  "dependencies": {
-    "jsdom": "^31.0.1",
-    "playwright": "^1.49.1"
+  "name": "pizzeria-napolitana-site",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site estático da Pizzeria Napolitana (Torralba de Calatrava): HTML único, sem dependências de runtime.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node tools/test-flow.mjs public/index.html",
+    "qa": "node tools/build.mjs && node tools/qa.mjs public/index.html && node tools/qa-legal.mjs public/index.html && node tools/test-flow.mjs public/index.html"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
   }
 }
