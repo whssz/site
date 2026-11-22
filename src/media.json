@@ -1,0 +1,114 @@
+{
+  "items": [
+    {
+      "key": "fachada-dia",
+      "file": "fachada-dia.webp",
+      "w": 640, "h": 360,
+      "alt": "Fachada de Nello's de día en la calle San Federico: toldo con las palabras Trattoria, Nello's y Pizzeria, rótulo tricolor en el escaparate y mesas de la terraza.",
+      "caption": "La fachada de día, en la calle San Federico, 52",
+      "source": "Google Maps",
+      "ref": "Ficha de Google Maps · foto AF1QipPCXpwQ7THhKi4X9OjMxSOyugwLhMX9O5-T6zAg",
+      "layout": "wide"
+    },
+    {
+      "key": "pizza-tricolore",
+      "file": "pizza-tricolore.webp",
+      "w": 320, "h": 425,
+      "alt": "Pizza Tricolore con mozzarella de búfala, tomate y pesto mientras una mano levanta una porción.",
+      "caption": "Tricolore",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · foto de la tienda",
+      "layout": "tall"
+    },
+    {
+      "key": "pizza-parmigiana",
+      "file": "pizza-parmigiana.webp",
+      "w": 320, "h": 320,
+      "alt": "Pizza Parmigiana de borde alto y tostado con berenjena, tomate, mozzarella y albahaca fresca.",
+      "caption": "Parmigiana",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133477",
+      "layout": "tall"
+    },
+    {
+      "key": "bancada-pizza-forno",
+      "file": "bancada-pizza-forno.webp",
+      "w": 512, "h": 281,
+      "alt": "Pizza prosciutto e funghi recién estirada sobre la pala, con tomate, mozzarella, jamón york y champiñones, lista para el horno.",
+      "caption": "Prosciutto e funghi, lista para el horno",
+      "source": "Google Maps",
+      "ref": "Ficha de Google Maps · foto AF1QipPzF1nEW8OkwyfWTjNiaCEfOZq0G3-7UNyiz71O",
+      "layout": "wide"
+    },
+    {
+      "key": "pizza-la-rosita",
+      "file": "pizza-la-rosita.webp",
+      "w": 320, "h": 400,
+      "alt": "Pizza La Rosita con salame picante y queso fundido en su caja para llevar.",
+      "caption": "La Rosita, para llevar",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · foto de la tienda",
+      "layout": "tall"
+    },
+    {
+      "key": "pizza-capricciosa",
+      "file": "pizza-capricciosa.webp",
+      "w": 320, "h": 320,
+      "alt": "Pizza Capricciosa con jamón york, champiñones, aceitunas negras, mozzarella y albahaca.",
+      "caption": "Capricciosa",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133471",
+      "layout": "tall"
+    },
+    {
+      "key": "pizza-quattro-stagioni",
+      "file": "pizza-quattro-stagioni.webp",
+      "w": 320, "h": 320,
+      "alt": "Pizza Quattro Stagioni dividida en cuatro cuartos con ingredientes distintos, sobre una mesa de mármol.",
+      "caption": "Quattro Stagioni",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133476",
+      "layout": "tall"
+    },
+    {
+      "key": "pizza-reggina",
+      "file": "pizza-reggina.webp",
+      "w": 320, "h": 320,
+      "alt": "Pizza con mortadela italiana, crema de pistacho y queso fresco en el centro, servida sobre una tabla de madera.",
+      "caption": "Mortadela italiana y pistacho",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133482",
+      "layout": "tall"
+    },
+    {
+      "key": "fachada-noite",
+      "file": "fachada-noite.webp",
+      "w": 512, "h": 288,
+      "alt": "Terraza de Nello's de noche con los calefactores encendidos y el rótulo tricolor Trattoria Nello's Pizzeria iluminado.",
+      "caption": "La terraza de noche, con calefactores",
+      "source": "Google Maps",
+      "ref": "Ficha de Google Maps · foto AF1QipPo4_PYSwuJeH68iRveMIOshO_XWrOxxucaYkD5",
+      "layout": "wide"
+    },
+    {
+      "key": "pizza-all-assassina",
+      "file": "pizza-all-assassina.webp",
+      "w": 320, "h": 402,
+      "alt": "Pizza All'Assassina con salsa de tomate, carne picada y mozzarella sobre fondo oscuro.",
+      "caption": "All'Assassina",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133485",
+      "layout": "tall"
+    },
+    {
+      "key": "pizza-diavola",
+      "file": "pizza-diavola.webp",
+      "w": 320, "h": 320,
+      "alt": "Pizza Diavola con salame picante, mozzarella, tomate y albahaca.",
+      "caption": "Diavola",
+      "source": "Glovo",
+      "ref": "Ficha oficial de Nello's en Glovo · producto 41972133469",
+      "layout": "tall"
+    }
+  ]
+}

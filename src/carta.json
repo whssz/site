@@ -1,0 +1,1121 @@
+{
+ "site": {
+  "name": "Trattoria Pizzeria Nello's",
+  "shortName": "Nello's",
+  "siteUrl": "https://trattoria-pizzeria-nellos.vercel.app",
+  "legalName": "TRATTORIA PIZZERIA NELLO'S SL",
+  "cif": "B10872992",
+  "address": "C. San Federico, 52",
+  "postalCode": "11100",
+  "city": "San Fernando",
+  "province": "Cádiz",
+  "country": "España",
+  "plusCode": "FRG2+HM San Fernando",
+  "lat": 36.476387,
+  "lng": -6.198374,
+  "phoneMain": "+34856942129",
+  "phoneMainLabel": "856 94 21 29",
+  "phoneMobile": "+34613545303",
+  "phoneMobileLabel": "613 54 53 03",
+  "email": "trattoriapizzerianellos@gmail.com",
+  "whatsapp": "",
+  "links": {
+   "maps": "https://www.google.com/maps/place/Trattoria+Pizzeria+Nello%C2%B4s+-+Autentica+pizza+Napoletana/@36.476387,-6.1983739,17z/data=!3m1!4b1!4m6!3m5!1s0xd0dcd71177ce8fb:0x886bfd8902a0c7c7!8m2!3d36.476387!4d-6.1983739!16s%2Fg%2F11k52g3g91",
+   "directions": "https://www.google.com/maps/dir/?api=1&destination=36.476387%2C-6.198374",
+   "linktree": "https://linktr.ee/pizzerianellos",
+   "facebook": "https://www.facebook.com/p/Trattoria-Pizzeria-Nellos-100085539143652/",
+   "justeat": "https://www.just-eat.es/restaurants-trattoria-pizzeria-nellos-san-fernando/menu",
+   "ubereats": "https://www.ubereats.com/es-en/store/trattoria-pizzeria-nellos/ggUD8S4iXN2JE3TTXz-RMA",
+   "glovo": "https://glovoapp.com/es/es/san-fernando/stores/trattoria-pizzeria-nellos-san-fernando"
+  },
+  "hours": [
+   {
+    "day": 1,
+    "label": "Lunes",
+    "ranges": []
+   },
+   {
+    "day": 2,
+    "label": "Martes",
+    "ranges": [
+     [
+      "20:00",
+      "23:00"
+     ]
+    ]
+   },
+   {
+    "day": 3,
+    "label": "Miércoles",
+    "ranges": []
+   },
+   {
+    "day": 4,
+    "label": "Jueves",
+    "ranges": [
+     [
+      "20:00",
+      "23:00"
+     ]
+    ]
+   },
+   {
+    "day": 5,
+    "label": "Viernes",
+    "ranges": [
+     [
+      "20:00",
+      "23:30"
+     ]
+    ]
+   },
+   {
+    "day": 6,
+    "label": "Sábado",
+    "ranges": [
+     [
+      "20:00",
+      "23:30"
+     ]
+    ]
+   },
+   {
+    "day": 0,
+    "label": "Domingo",
+    "ranges": [
+     [
+      "13:30",
+      "15:45"
+     ],
+     [
+      "20:00",
+      "23:00"
+     ]
+    ]
+   }
+  ]
+ },
+ "categories": [
+  {
+   "id": "especiales",
+   "label": "Pizzas especiales",
+   "chip": "Especiales",
+   "note": "Tamaño mediano · 14,50 € cada una",
+   "showSize": false
+  },
+  {
+   "id": "clasicas",
+   "label": "Pizzas clásicas",
+   "chip": "Clásicas",
+   "note": "Elige mediana o familiar",
+   "showSize": true
+  },
+  {
+   "id": "entrantes",
+   "label": "Entrantes y ensaladas",
+   "chip": "Entrantes",
+   "note": "Fritos napolitanos, patatas y ensaladas",
+   "showSize": false
+  },
+  {
+   "id": "pasta",
+   "label": "Pasta fresca",
+   "chip": "Pasta",
+   "note": "Diez salsas para elegir",
+   "showSize": false
+  },
+  {
+   "id": "postres",
+   "label": "Postres caseros",
+   "chip": "Postres",
+   "note": "Más dulces del día en el local",
+   "showSize": false
+  },
+  {
+   "id": "bebidas",
+   "label": "Bebidas",
+   "chip": "Bebidas",
+   "note": "Refrescos, agua y cerveza",
+   "showSize": false
+  }
+ ],
+ "items": [
+  {
+   "id": "esp-nellos",
+   "cat": "especiales",
+   "name": "Pizza Nello's",
+   "desc": "Borde de pesto, centro de tomate y mozzarella, y burrata al salir del horno.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "esp-golosa",
+   "cat": "especiales",
+   "name": "La Golosa",
+   "desc": "Borde relleno de pesto de pistacho, mortadela italiana, mozzarella y ricotta al salir del horno.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "esp-sofia-loren",
+   "cat": "especiales",
+   "name": "Sofia Loren",
+   "desc": "Mozzarella, berenjenas a la parmigiana y burrata.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "esp-amalfi",
+   "cat": "especiales",
+   "name": "Amalfi",
+   "desc": "Cherry tricolores, rúcula, búfala, jamón serrano y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "esp-la-rosita",
+   "cat": "especiales",
+   "name": "La Rosita",
+   "desc": "Borde de cuatro quesos, tomate, mozzarella, salame picante y salchichas frescas.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": [
+    "picante"
+   ],
+   "photo": "pizza-la-rosita"
+  },
+  {
+   "id": "esp-tricolore",
+   "cat": "especiales",
+   "name": "Tricolore",
+   "desc": "Borde de ricotta, base de pesto genovese, búfala y cherry tricolores.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ],
+   "photo": "pizza-tricolore"
+  },
+  {
+   "id": "esp-stella",
+   "cat": "especiales",
+   "name": "Stella",
+   "desc": "Cinco mini calzones: quattro formaggi, boloñesa y mozzarella, ricotta y salame napoli, parmigiana, y prosciutto e funghi.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "esp-tartufo",
+   "cat": "especiales",
+   "name": "Tartufo",
+   "desc": "Crema de trufa negra, mozzarella, champiñones y salchicha fresca.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "esp-sonrisa",
+   "cat": "especiales",
+   "name": "Sonrisa",
+   "desc": "Doblada y rellena de mozzarella, pesto de pistacho, mortadela italiana de pistacho y burrata.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 14.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-marinara",
+   "cat": "clasicas",
+   "name": "Marinara",
+   "desc": "Tomate, orégano y ajo.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 6.5
+    },
+    {
+     "label": "Familiar",
+     "price": 12
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "cl-margherita",
+   "cat": "clasicas",
+   "name": "Margherita",
+   "desc": "Tomate, mozzarella y albahaca.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 7.5
+    },
+    {
+     "label": "Familiar",
+     "price": 13.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "cl-prosciutto",
+   "cat": "clasicas",
+   "name": "Prosciutto",
+   "desc": "Tomate, mozzarella y jamón york.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 9
+    },
+    {
+     "label": "Familiar",
+     "price": 15.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-napoli",
+   "cat": "clasicas",
+   "name": "Napoli",
+   "desc": "Tomate, alcaparras, anchoas, ajo, orégano y aceitunas negras.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 9
+    },
+    {
+     "label": "Familiar",
+     "price": 16.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-prosciutto-funghi",
+   "cat": "clasicas",
+   "name": "Prosciutto e Funghi",
+   "desc": "Tomate, mozzarella, jamón york y champiñones.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10
+    },
+    {
+     "label": "Familiar",
+     "price": 17.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-frankfurt",
+   "cat": "clasicas",
+   "name": "Frankfurt",
+   "desc": "Tomate, mozzarella, jamón york y frankfurt.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10
+    },
+    {
+     "label": "Familiar",
+     "price": 17.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-diavola",
+   "cat": "clasicas",
+   "name": "Diavola",
+   "desc": "Tomate, mozzarella, salame picante y jalapeños.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10
+    },
+    {
+     "label": "Familiar",
+     "price": 18
+    }
+   ],
+   "tags": [
+    "picante"
+   ],
+   "photo": "pizza-diavola"
+  },
+  {
+   "id": "cl-atunara",
+   "cat": "clasicas",
+   "name": "Atunara",
+   "desc": "Tomate, mozzarella, atún y cebolla.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10
+    },
+    {
+     "label": "Familiar",
+     "price": 17.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-bianca-neve",
+   "cat": "clasicas",
+   "name": "Bianca Neve",
+   "desc": "Nata, mozzarella, champiñones y salchicha fresca.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10
+    },
+    {
+     "label": "Familiar",
+     "price": 17.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-quattro-formaggi",
+   "cat": "clasicas",
+   "name": "Quattro Formaggi",
+   "desc": "Gorgonzola, brie, emmental y mozzarella.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 18.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "cl-spagnola",
+   "cat": "clasicas",
+   "name": "Spagnola",
+   "desc": "Tomate, mozzarella, jamón york y atún.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 19
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-carbonara",
+   "cat": "clasicas",
+   "name": "Carbonara",
+   "desc": "Mozzarella, huevo batido, nata, bacon, cebolla y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-barbacoa",
+   "cat": "clasicas",
+   "name": "Barbacoa",
+   "desc": "Mozzarella, cebolla, bacon, pollo y salsa barbacoa.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 19.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-vegetariana",
+   "cat": "clasicas",
+   "name": "Vegetariana",
+   "desc": "Cherry tricolores, champiñones, cebolla, berenjenas, alcachofas, aceitunas negras y mozzarella.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "cl-parmigiana",
+   "cat": "clasicas",
+   "name": "Parmigiana",
+   "desc": "Tomate, mozzarella, berenjena y albahaca.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 18.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ],
+   "photo": "pizza-parmigiana"
+  },
+  {
+   "id": "cl-all-assassina",
+   "cat": "clasicas",
+   "name": "All'Assassina",
+   "desc": "Tomate, mozzarella, carne picada y 'nduja picante.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 10.5
+    },
+    {
+     "label": "Familiar",
+     "price": 19.5
+    }
+   ],
+   "tags": [
+    "picante"
+   ],
+   "photo": "pizza-all-assassina"
+  },
+  {
+   "id": "cl-pepa-pig",
+   "cat": "clasicas",
+   "name": "Pepa Pig",
+   "desc": "Tomate, mozzarella, jamón york, bacon y salame picante.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11
+    },
+    {
+     "label": "Familiar",
+     "price": 20
+    }
+   ],
+   "tags": [
+    "picante"
+   ]
+  },
+  {
+   "id": "cl-capricciosa",
+   "cat": "clasicas",
+   "name": "Capricciosa",
+   "desc": "Tomate, mozzarella, jamón york, champiñones, alcachofas y aceitunas negras.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11
+    },
+    {
+     "label": "Familiar",
+     "price": 20
+    }
+   ],
+   "tags": [],
+   "photo": "pizza-capricciosa"
+  },
+  {
+   "id": "cl-calzone",
+   "cat": "clasicas",
+   "name": "Calzone",
+   "desc": "Doblada y rellena de tomate, ricotta, mozzarella y jamón york.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11
+    },
+    {
+     "label": "Familiar",
+     "price": 19.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-arianna",
+   "cat": "clasicas",
+   "name": "Arianna",
+   "desc": "Mozzarella, cherry tricolores, jamón serrano y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-la-contadina",
+   "cat": "clasicas",
+   "name": "La Contadina",
+   "desc": "Crema de gorgonzola, mozzarella, salame napoli y champiñones.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-reggina",
+   "cat": "clasicas",
+   "name": "Reggina",
+   "desc": "Tomate, cuatro quesos, mozzarella y mortadela italiana.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-antonello",
+   "cat": "clasicas",
+   "name": "Antonello",
+   "desc": "Mozzarella, queso de cabra y salame napoli dulce.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 11.5
+    },
+    {
+     "label": "Familiar",
+     "price": 20.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-pizza-frita",
+   "cat": "clasicas",
+   "name": "Pizza Frita",
+   "desc": "Solo en tamaño mediano. Rellena de ricotta, salame dulce, jamón york, mozzarella y tomate.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 12
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-calzone-especial",
+   "cat": "clasicas",
+   "name": "Calzone Especial",
+   "desc": "Tomate, mozzarella, jamón york, gorgonzola, champiñones y bacon.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 12.5
+    },
+    {
+     "label": "Familiar",
+     "price": 21.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-cacio-e-pepe",
+   "cat": "clasicas",
+   "name": "Cacio e Pepe",
+   "desc": "Mozzarella, guanciale y crema de pecorino y parmesano.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 13
+    },
+    {
+     "label": "Familiar",
+     "price": 22.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "cl-la-viziosa",
+   "cat": "clasicas",
+   "name": "La Viziosa",
+   "desc": "Boloñesa, mozzarella, bacon y jalapeños.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 13
+    },
+    {
+     "label": "Familiar",
+     "price": 22.5
+    }
+   ],
+   "tags": [
+    "picante"
+   ]
+  },
+  {
+   "id": "cl-quattro-stagioni",
+   "cat": "clasicas",
+   "name": "Quattro Stagioni",
+   "desc": "Un cuarto parmigiana, un cuarto atunara, un cuarto quattro formaggi y un cuarto pesto, con cherry tricolores y mozzarella.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 13
+    },
+    {
+     "label": "Familiar",
+     "price": 21.5
+    }
+   ],
+   "tags": [],
+   "photo": "pizza-quattro-stagioni"
+  },
+  {
+   "id": "cl-genovesa",
+   "cat": "clasicas",
+   "name": "Genovesa",
+   "desc": "Carrillada de cerdo guisada en cebolla, mozzarella y escamas de parmesano fuera del horno.",
+   "prices": [
+    {
+     "label": "Mediana",
+     "price": 13.5
+    },
+    {
+     "label": "Familiar",
+     "price": 24.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-ensalada-burrata",
+   "cat": "entrantes",
+   "name": "Ensalada Burrata",
+   "desc": "Ensalada, tomate, jamón serrano y burrata.",
+   "prices": [
+    {
+     "label": "",
+     "price": 10.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-ensalada-cesar",
+   "cat": "entrantes",
+   "name": "Ensalada César",
+   "desc": "Lechuga, picatostes, pollo y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "",
+     "price": 8.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-ensalada-gourmet",
+   "cat": "entrantes",
+   "name": "Ensalada Gourmet",
+   "desc": "Pregunta sus ingredientes en el local.",
+   "prices": [
+    {
+     "label": "",
+     "price": 11
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-berenjenas-parmigiana",
+   "cat": "entrantes",
+   "name": "Berenjenas a la Parmigiana",
+   "desc": "Gratinadas con tomate y queso.",
+   "prices": [
+    {
+     "label": "",
+     "price": 9
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "en-battilocchio",
+   "cat": "entrantes",
+   "name": "Battilocchio",
+   "desc": "Masa frita rellena de mozzarella, ricotta, tomate y salami dulce.",
+   "prices": [
+    {
+     "label": "",
+     "price": 7.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-montanara",
+   "cat": "entrantes",
+   "name": "Montanara",
+   "desc": "Mini pizza frita con tomate, albahaca, búfala y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "",
+     "price": 7.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "en-frittatina",
+   "cat": "entrantes",
+   "name": "Frittatina",
+   "desc": "Pasta, bechamel, carne picada, jamón york y mozzarella.",
+   "prices": [
+    {
+     "label": "",
+     "price": 3
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-crocche",
+   "cat": "entrantes",
+   "name": "Crocché de patata",
+   "desc": "Patata, mozzarella y jamón york.",
+   "prices": [
+    {
+     "label": "",
+     "price": 2.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-mozzarella-carrozza",
+   "cat": "entrantes",
+   "name": "Mozzarella in Carrozza",
+   "desc": "Pan relleno de mozzarella, empanado y frito.",
+   "prices": [
+    {
+     "label": "",
+     "price": 2
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "en-patatas-fritas",
+   "cat": "entrantes",
+   "name": "Patatas fritas",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 3.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "en-patatas-frankfurt",
+   "cat": "entrantes",
+   "name": "Patatas con frankfurt",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 4
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "en-patatas-bacon-queso",
+   "cat": "entrantes",
+   "name": "Patatas con bacon y queso",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "pa-spaghetti-maccheroni",
+   "cat": "pasta",
+   "name": "Spaghetti o maccheroni",
+   "desc": "Pasta fresca con la salsa que elijas.",
+   "prices": [
+    {
+     "label": "",
+     "price": 9.5
+    }
+   ],
+   "tags": [],
+   "builder": {
+    "pasta": [
+     "Spaghetti",
+     "Maccheroni"
+    ],
+    "salsas": [
+     "Tomate",
+     "Quattro formaggi",
+     "Boloñesa",
+     "Carbonara",
+     "Pesto genovese",
+     "Atún y aceitunas negras",
+     "All'arrabbiata",
+     "All'amatriciana",
+     "Nata, prosciutto y funghi",
+     "Alla puttanesca"
+    ]
+   }
+  },
+  {
+   "id": "pa-lasana-bolonesa",
+   "cat": "pasta",
+   "name": "Lasaña boloñesa",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 9.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "pa-genovesa",
+   "cat": "pasta",
+   "name": "Pasta alla Genovesa",
+   "desc": "Carrillada de cerdo guisada en cebolla y escamas de parmesano.",
+   "prices": [
+    {
+     "label": "",
+     "price": 12.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "pa-carbonara",
+   "cat": "pasta",
+   "name": "Pasta a la carbonara original",
+   "desc": "Pecorino, huevo y guanciale.",
+   "prices": [
+    {
+     "label": "",
+     "price": 12.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "pa-amatriciana",
+   "cat": "pasta",
+   "name": "Pasta a la amatriciana con guanciale",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 12.5
+    }
+   ],
+   "tags": []
+  },
+  {
+   "id": "po-cannolo",
+   "cat": "postres",
+   "name": "Cannolo siciliano",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "be-agua",
+   "cat": "bebidas",
+   "name": "Agua 500 ml",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 1
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "be-coca-cola",
+   "cat": "bebidas",
+   "name": "Coca-Cola 33 cl",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 1.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "be-coca-cola-zero",
+   "cat": "bebidas",
+   "name": "Coca-Cola Zero 33 cl",
+   "desc": "",
+   "prices": [
+    {
+     "label": "",
+     "price": 1.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ]
+  },
+  {
+   "id": "be-cerveza",
+   "cat": "bebidas",
+   "name": "Cerveza 33 cl",
+   "desc": "Solo para mayores de 18 años.",
+   "prices": [
+    {
+     "label": "",
+     "price": 1.5
+    }
+   ],
+   "tags": [
+    "sin-carne"
+   ],
+   "adult": true
+  }
+ ],
+ "notes": {
+  "entrantes": [
+   "En sala, según disponibilidad: provolone, frito napolitano y arancino."
+  ],
+  "pasta": [
+   "En sala también hay tagliatelle. Gnocchi a la sorrentina y gnocchi de montaña, según disponibilidad.",
+   "Pasta rellena del día (pregunta en sala): raviolis de burrata y pomodorino · tortelloni de funghi porcini con cherry y salchicha fresca · cannelloni de ricotta, espinacas y mozzarella · mezzaluna di mare · fiocchi de formaggio e pera con crema de gorgonzola."
+  ],
+  "postres": [
+   "Postres caseros del día en el local: tiramisú casero, tiramisú de pistacho (sin huevo), cheesecake de pistacho, cheesecake de fresa y pizza Nutella."
+  ],
+  "bebidas": [
+   "En el local también: Fanta Naranja, Nestea Maracuyá, Aquarius Limón y tinto de verano (+18)."
+  ]
+ }
+}

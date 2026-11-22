@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trattoria-pizzeria-nellos.vercel.app/sitemap.xml

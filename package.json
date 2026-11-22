@@ -1,0 +1,20 @@
+{
+  "name": "nellos-trattoria-pizzeria",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio de Trattoria Pizzeria Nello's (San Fernando, Cádiz): carta completa, pedido con resumen y confirmación por teléfono. Archivo HTML único y autosuficiente.",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "npm run build && node tools/serve.mjs",
+    "qa": "node tools/qa.mjs public/index.html --min-loop 8 --min-kf 12",
+    "qa:legal": "node tools/qa-legal.mjs public/index.html --strict",
+    "qa:e2e": "node tools/qa-nellos.mjs public/index.html",
+    "test": "npm run build && npm run qa && npm run qa:legal && npm run qa:e2e"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@sparticuz/chromium": "149.0.0",
+    "playwright": "1.65.1"
+  }
+}
