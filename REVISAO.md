@@ -88,7 +88,7 @@ reembolso (o site não vende) · contraste medido · alt em 100% · teclado e fo
   "Trattoria Pizzeria Nello's · Auténtica pizza napoletana en San Fernando (Cádiz)", `og:image` `/og-nellos.jpg`,
   `robots.txt` e `sitemap.xml` servidos.
 - Projeto Vercel `trattoria-pizzeria-nellos` (equipe `whsszxx-9424`). Produção atual: `dpl_FyFs45rUFBSp17DpBK72tDZ9SAEw`,
-  commit `7764225`, READY/PROMOTED, HTML de 1.228.011 bytes (idêntico byte a byte ao build local do mesmo commit).
+  commit `7764225`, READY/PROMOTED, HTML de 1.228.011 bytes (mesmo tamanho do build local do mesmo commit, que passou nos testes).
 - **Ajustes já no GitHub e ainda não publicados:** cifras sem contagem animada (o texto traz sempre o dado real, inclusive
   para buscadores e leitores sem JavaScript) e botão de WhatsApp gerado no build só quando houver número oficial. A Vercel
   recusou o novo deploy com **402 — limite diário de deploys do plano gratuito atingido** (libera em até 24 h).
