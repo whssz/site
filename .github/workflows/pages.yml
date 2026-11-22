@@ -43,26 +43,52 @@ jobs:
           persist-credentials: false
 
       # 1. Apontar o Pages para esta branch, pasta /public.
-      #    Se a origem já estiver fixada noutro sítio, a API responde 409 e o
-      #    passo termina com um aviso claro em vez de falhar o workflow.
+      #    Tenta-se PUT (actualizar origem); se for recusado, DELETE + POST
+      #    (desactivar e voltar a activar com a origem certa). Cada resposta
+      #    fica registada para diagnóstico.
       - name: Configurar a origem do Pages
         id: config
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
+          H=(-H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
           body=$(printf '{"build_type":"legacy","source":{"branch":"%s","path":"/public"}}' "$GITHUB_REF_NAME")
-          code=$(curl -sS -o /tmp/pages.json -w '%{http_code}' \
-            -X PUT -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            -d "$body" "$API/pages") || true
-          echo "PUT /pages → HTTP $code"
-          head -c 500 /tmp/pages.json || true
-          echo
-          if [ "$code" = "204" ] || [ "$code" = "200" ]; then
+
+          req() { # method url [data]
+            local m="$1" u="$2" d="${3:-}"
+            if [ -n "$d" ]; then
+              curl -sS -o /tmp/r.json -w '%{http_code}' -X "$m" "${H[@]}" -d "$d" "$u" || true
+            else
+              curl -sS -o /tmp/r.json -w '%{http_code}' -X "$m" "${H[@]}" "$u" || true
+            fi
+          }
+
+          code=$(req PUT "$API/pages" "$body"); PUT_CODE="$code"; PUT_BODY=$(head -c 400 /tmp/r.json)
+          echo "PUT /pages → HTTP $code"; echo "$PUT_BODY"
+
+          if [ "$code" != "204" ] && [ "$code" != "200" ]; then
+            code=$(req DELETE "$API/pages"); DEL_CODE="$code"; DEL_BODY=$(head -c 400 /tmp/r.json)
+            echo "DELETE /pages → HTTP $code"; echo "$DEL_BODY"
+            sleep 3
+            code=$(req POST "$API/pages" "$body"); POST_CODE="$code"; POST_BODY=$(head -c 400 /tmp/r.json)
+            echo "POST /pages → HTTP $code"; echo "$POST_BODY"
+          fi
+
+          # relatório de diagnóstico, recolhido como artefacto no fim
+          {
+            echo "PUT  → $PUT_CODE"; echo "$PUT_BODY"
+            echo "---"
+            echo "DELETE → ${DEL_CODE:-n/a}"; echo "${DEL_BODY:-}"
+            echo "---"
+            echo "POST → ${POST_CODE:-n/a}"; echo "${POST_BODY:-}"
+            echo "---"
+            echo "final → $code"
+          } > /tmp/pages-attempts.txt
+
+          if [ "$code" = "204" ] || [ "$code" = "200" ] || [ "$code" = "201" ]; then
             echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "- Origem do Pages: \`$GITHUB_REF_NAME\` / \`/public\` ✓" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Origem do Pages: \`$GITHUB_REF_NAME\` / \`/public\` ✓ (HTTP $code)" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "configured=false" >> "$GITHUB_OUTPUT"
             echo "::notice::A origem do Pages não pôde ser alterada por API (HTTP $code) — ver Settings → Pages."
@@ -110,3 +136,11 @@ jobs:
             echo "- HTTP: $CODE ($SIZE bytes)"
             echo "- Commit: $GITHUB_SHA"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar diagnóstico da configuração
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-attempts
+          path: /tmp/pages-attempts.txt
+          if-no-files-found: ignore
