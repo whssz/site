@@ -21,10 +21,9 @@ jobs:
             echo "::warning title=probe::$label | HTTP=$code | bytes=$size | $ct | $url"
           }
           probe "githack"      "https://raw.githack.com/whssz/site/site-v1/public/index.html"
-          probe "githack-cdn"  "https://rawcdn.githack.com/whssz/site/site-v1/public/index.html"
-          probe "githack-master" "https://raw.githack.com/whssz/site/main/public/index.html"
-          probe "htmlpreview"  "https://htmlpreview.github.io/?https://raw.githubusercontent.com/whssz/site/site-v1/public/index.html"
-          probe "allorigins"   "https://api.allorigins.win/raw?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwhssz%2Fsite%2Fsite-v1%2Fpublic%2Findex.html"
-          probe "pages-title"  "https://whssz.github.io/site/"
-          echo "--- titulo da pagina do Pages:"
-          curl -sSL --max-time 60 "https://whssz.github.io/site/" | grep -o '<title>[^<]*</title>' | head -2
+          echo "--- headers githack:"
+          curl -sSLI --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | head -20
+          echo "--- titulo githack:"
+          curl -sSL --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | grep -o '<title>[^<]*</title>' | head -1
+          echo "--- imgs embutidas:"
+          curl -sSL --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | grep -c 'data:image/webp;base64'
