@@ -1,0 +1,33 @@
+name: Verificar link público
+on:
+  push:
+    branches: ["arena/153289a3-site"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar link e conteúdo
+        run: |
+          URL="https://raw.githack.com/whssz/site/site-v1/public/index.html"
+          CODE=""
+          for i in $(seq 1 12); do
+            CODE=$(curl -sSL --connect-timeout 15 --max-time 120 -o /tmp/live.html \
+              -D /tmp/h.txt -w '%{http_code}' "$URL" || true)
+            echo "[$i/12] HTTP $CODE"
+            [ "$CODE" = "200" ] && break
+            sleep 5
+          done
+          CT=$(grep -i '^content-type' /tmp/h.txt | tail -1 | tr -d '\r')
+          SIZE=$(wc -c < /tmp/live.html)
+          TITLE=$(grep -o '<title>[^<]*</title>' /tmp/live.html | head -1)
+          TEL=$(grep -c '351937949039' /tmp/live.html)
+          WEBP=$(grep -c 'data:image/webp;base64' /tmp/live.html)
+          echo "::warning title=live::HTTP=$CODE | $CT | bytes=$SIZE | tel_ocorrencias=$TEL | imagens_embutidas=$WEBP | $TITLE"
+          test "$CODE" = "200"
+          echo "$CT" | grep -qi 'text/html'
+          grep -qi '<title>Lisboncello' /tmp/live.html
+          grep -q '351937949039' /tmp/live.html
+          echo "✓ link público OK"
