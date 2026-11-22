@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pizzeria Napolitana — Torralba de Calatrava</title>
+<meta name="description" content="Pizzas artesanais com ingredientes frescos em Torralba de Calatrava. Monte seu pedido, escolha levar ou retirar no Mercado Municipal e confira endereço e horários.">
+<meta property="og:title" content="Pizzeria Napolitana — Torralba de Calatrava">
+<meta property="og:description" content="Pizzas artesanais com ingredientes frescos. Peça para levar ou retire no Mercado Municipal.">
+<meta property="og:type" content="restaurant">
+<meta name="theme-color" content="#FFC40C">
+<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"PizzaRestaurant","name":"Pizzeria Napolitana Torralba de Calatrava","telephone":"+34 627 66 10 61","address":{"@type":"PostalAddress","streetAddress":"Calle Dr. Severo Ochoa, 1","postalCode":"13160","addressLocality":"Torralba de Calatrava","addressRegion":"Cdad. Real","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":39.0160389,"longitude":-3.7488785},"sameAs":["https://www.instagram.com/pzzerianapolitana8/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"85","bestRating":"5"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"19:00","closes":"00:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"19:30","closes":"00:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"00:00","closes":"00:00","description":"Fechado"}]}
+</script>
+<style>
+:root{
+  --ink:#17120F;
+  --ink-2:#2A1F18;
+  --paper:#FFF8E6;
+  --paper-2:#FFFDF5;
+  --yellow:#FFC40C;
+  --yellow-2:#FFE37A;
+  --red:#E5372A;
+  --red-ink:#D32F24;
+  --red-text:#C6281F;
+  --red-2:#FF6A55;
+  --cream:#FFF8E6;
+  --accent:#FFC40C;
+  --accent-2:#E5372A;
+  --line:rgba(23,18,15,.17);
+  --muted:rgba(23,18,15,.68);
+  --sans:"Arial Rounded MT Bold","Trebuchet MS",Verdana,Arial,sans-serif;
+  --ease:cubic-bezier(.16,.72,.28,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:3;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%;display:block}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,calc(100% - 48px));margin-inline:auto}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
+.kicker::before{content:"";width:24px;height:3px;background:var(--red);border-radius:2px}
+.sec-head{padding:86px 0 28px}
+.sec-label{display:block;margin-bottom:12px}
+.sec-head h2{font-size:clamp(32px,5.2vw,58px);line-height:1.02;letter-spacing:-.045em;text-transform:uppercase;margin:0;max-width:18ch;font-weight:900}
+.sec-head h2 em{font-style:normal;color:var(--red)}
+.sec-note{color:var(--muted);max-width:56ch;margin:16px 0 0;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:12px 22px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow);color:var(--ink);font-size:13px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);transition:transform .28s var(--ease),box-shadow .28s var(--ease),background .28s var(--ease)}
+.btn:hover{transform:translate(-2px,-3px);box-shadow:7px 7px 0 var(--ink);background:var(--yellow-2)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn-red{background:var(--red-ink);color:var(--cream)}
+.btn-red:hover{background:#B9261D}
+.btn-ghost{background:transparent}
+.btn-ghost:hover{background:var(--paper-2)}
+.btn-sm{min-height:44px;padding:9px 16px;font-size:11px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.mascot{width:72px;height:auto;display:block;overflow:visible}
+.hero-mascot{animation:heroFloat 11s ease-in-out infinite}
+
+/* ---------- HEADER ---------- */
+body > header#hdr{position:fixed;top:0;left:0;right:0;z-index:150!important;background:rgba(255,248,230,.9);backdrop-filter:blur(14px);border-bottom:2px solid var(--ink);transition:box-shadow .3s var(--ease),background .3s var(--ease)}
+body > header#hdr.stuck{box-shadow:0 8px 26px rgba(23,18,15,.12);background:rgba(255,248,230,.97)}
+.nav{height:78px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;margin-right:auto}
+.brand .mascot{width:42px;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text strong{font-size:15px;letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap}
+.brand-text span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px;color:var(--muted);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{position:relative;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:8px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:2px;height:2px;width:0;background:var(--red);transition:width .35s var(--ease)}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+.nav-toggle{display:none;width:44px;height:44px;border:2px solid var(--ink);border-radius:12px;background:var(--paper-2);align-items:center;justify-content:center;font-size:20px}
+.cart-pill{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 15px;border:2px solid var(--ink);border-radius:999px;background:var(--red-ink);color:var(--cream);font-size:11px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);transition:transform .25s var(--ease)}
+.cart-pill:hover{transform:translateY(-2px)}
+.cart-pill .count{min-width:22px;height:22px;padding:0 5px;display:grid;place-items:center;border-radius:999px;background:var(--yellow);color:var(--ink);font-size:11px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;padding:132px 0 74px;display:flex;align-items:center;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,rgba(255,196,12,.16),transparent 46%)}
+.hero::before,.hero::after{content:"";position:absolute;z-index:0;border-radius:50%;pointer-events:none}
+.hero::before{width:620px;height:620px;right:-180px;top:-160px;background:radial-gradient(circle,rgba(255,196,12,.55),transparent 66%)}
+.hero::after{width:460px;height:460px;left:-200px;bottom:-180px;background:radial-gradient(circle,rgba(229,55,42,.22),transparent 68%)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center}
+.hero-copy .kicker{margin-bottom:18px}
+.hero h1{font-size:clamp(44px,7.4vw,92px);line-height:.92;letter-spacing:-.055em;text-transform:uppercase;margin:0 0 22px;font-weight:900;max-width:12ch}
+.hero h1 em{font-style:normal;color:var(--red);display:block}
+.hero-lead{font-size:clamp(17px,1.5vw,20px);line-height:1.5;max-width:46ch;margin:0 0 26px;color:rgba(23,18,15,.82)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.hero-proof{display:flex;flex-wrap:wrap;align-items:center;gap:14px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.stars{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border:2px solid var(--ink);border-radius:999px;background:var(--paper-2);box-shadow:3px 3px 0 var(--ink)}
+.stars b{color:var(--red-text);font-size:15px;letter-spacing:1px}
+.hero-visual{position:relative;min-height:480px;display:grid;place-items:center}
+.photo-disc{position:relative;width:min(100%,470px);aspect-ratio:1;border-radius:50%;border:4px solid var(--ink);background:radial-gradient(circle at 35% 28%,var(--yellow-2),var(--yellow) 58%,#F3A71A);box-shadow:14px 14px 0 var(--red);overflow:hidden;animation:heroFloat2 13s ease-in-out infinite}
+.photo-disc img{width:100%;height:100%;object-fit:cover;filter:saturate(1.06) contrast(1.02)}
+.photo-disc::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(255,255,255,.12),transparent 55%)}
+.photo-fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:34px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.photo-disc.has-image .photo-fallback{display:none}
+.sticker{position:absolute;z-index:2;border:3px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;padding:12px 14px;line-height:1.25}
+.sticker-a{left:-4px;top:38px;background:var(--red-ink);color:var(--cream);transform:rotate(-7deg);animation:heroFloat 9s ease-in-out infinite}
+.sticker-b{right:-8px;bottom:44px;background:var(--yellow);transform:rotate(6deg);animation:heroFloat2 15s ease-in-out infinite reverse}
+.hero-mascot-wrap{position:absolute;left:6px;bottom:6px;z-index:3;filter:drop-shadow(4px 5px 0 rgba(23,18,15,.18))}
+@keyframes heroFloat{0%,100%{transform:translate3d(0,0,0) rotate(-2deg)}50%{transform:translate3d(0,-12px,0) rotate(2deg)}}
+@keyframes heroFloat2{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-14px,0)}}
+
+/* ---------- TICKER ---------- */
+.marquee-bar{border-block:3px solid var(--ink);background:var(--red-ink);color:var(--cream);overflow:hidden;padding:12px 0}
+.marquee-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marquee-track span{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.16em;white-space:nowrap;padding-inline:22px}
+.marquee-track i{font-style:normal;color:var(--yellow)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- STATS / SOBRE ---------- */
+.about{position:relative;padding-bottom:80px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.about-photo{position:relative;border:3px solid var(--ink);border-radius:28px;background:var(--yellow);aspect-ratio:4/4.3;box-shadow:10px 10px 0 var(--ink);overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--paper-2);border:2px solid var(--ink);border-radius:999px;padding:6px 12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.about-body p{margin:0 0 16px;color:rgba(23,18,15,.82)}
+.about-body strong{color:var(--red-text)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.stat{padding:18px 12px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-size:clamp(26px,3.6vw,38px);line-height:1;letter-spacing:-.04em}
+.stat small{display:block;margin-top:7px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+/* ---------- CARDÁPIO ---------- */
+.menu{position:relative;padding-bottom:70px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 26px}
+.tab{min-height:44px;padding:9px 17px;border:2px solid var(--ink);border-radius:999px;background:transparent;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;transition:transform .25s var(--ease),background .25s var(--ease)}
+.tab:hover{transform:translateY(-2px)}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.grid-serv{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.serv{position:relative;display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;padding:20px;border:2px solid var(--ink);border-radius:22px;background:var(--paper-2);box-shadow:6px 6px 0 var(--ink);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.serv:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:10px 10px 0 var(--red)}
+.serv[hidden]{display:none}
+.serv-art{position:relative;width:96px;height:96px;border-radius:50%;border:3px solid var(--ink);background:conic-gradient(from 20deg,var(--yellow),var(--yellow-2),#F0A415,var(--yellow));display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 8px rgba(255,255,255,.24)}
+.serv-art::before{content:"";position:absolute;width:76px;height:76px;border-radius:50%;background:var(--red);opacity:.88}
+.serv-art::after{content:"";position:absolute;width:54px;height:54px;border-radius:50%;background:var(--yellow-2);box-shadow:0 0 0 5px rgba(255,255,255,.55)}
+.serv-art.art-cheese::before{background:#F4C542}
+.serv-art.art-kebab::before{background:#8E4A2E}
+.serv-art.art-carbonara::before{background:#F0D9A8}
+.serv h3{font-size:19px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px}
+.serv p{font-size:13.5px;line-height:1.45;color:var(--muted);margin:0 0 10px}
+.serv-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}
+.tag{display:inline-block;padding:4px 9px;border:1.5px solid var(--ink);border-radius:999px;background:var(--yellow-2);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.tag-src{background:transparent}
+.price-note{font-size:11px;font-weight:800;color:var(--muted)}
+.serv .btn{font-size:10px;min-height:42px;padding:8px 14px}
+.menu-disclaimer{margin-top:24px;padding:16px 18px;border-left:5px solid var(--red);background:rgba(229,55,42,.07);font-size:13px;color:var(--muted)}
+
+/* ---------- NOVIDADES / PROMO ---------- */
+.promo{position:relative;padding:0 0 80px}
+.promo-inner{position:relative;border:3px solid var(--ink);border-radius:30px;background:var(--yellow);box-shadow:12px 12px 0 var(--ink);padding:clamp(26px,4vw,54px);overflow:hidden}
+.promo-inner::after{content:"";position:absolute;width:320px;height:320px;border:24px solid rgba(229,55,42,.16);border-radius:50%;right:-110px;top:-130px;animation:heroFloat2 19s ease-in-out infinite}
+.promo-grid{display:grid;grid-template-columns:1fr .8fr;gap:32px;align-items:center;position:relative;z-index:1}
+.promo h2{font-size:clamp(32px,4.8vw,58px);line-height:1;letter-spacing:-.045em;text-transform:uppercase;margin:10px 0 16px}
+.promo p{margin:0 0 18px;max-width:48ch}
+.promo ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:8px}
+.promo li{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700}
+.promo li::before{content:"";flex:none;width:11px;height:11px;margin-top:7px;border:2px solid var(--ink);border-radius:50%;background:var(--red)}
+.promo-sticker{position:relative;width:100%;max-width:300px;justify-self:center;border:3px solid var(--ink);border-radius:26px;background:var(--paper-2);box-shadow:8px 8px 0 var(--red);padding:22px;text-align:center;transform:rotate(3deg)}
+.promo-sticker .mascot{width:110px;margin:0 auto 8px}
+.promo-sticker b{display:block;font-size:25px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}
+.promo-sticker small{display:block;margin-top:8px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px;position:relative;z-index:1}
+.step{border-top:3px solid var(--ink);padding-top:14px;position:relative}
+.step::before{content:"";position:absolute;left:0;top:-3px;height:3px;width:0;background:var(--red);transition:width .5s var(--ease)}
+.step:hover::before{width:100%}
+.step b{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-text)}
+.step p{font-size:13px;margin:6px 0 0;color:var(--muted)}
+.promo-note{font-size:11px;font-weight:700;margin-top:20px;position:relative;z-index:1}
+
+/* ---------- GALERIA ---------- */
+.gallery{position:relative;padding-bottom:76px}
+.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.gallery figure{position:relative;margin:0;border:3px solid var(--ink);border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--yellow),var(--red-2));box-shadow:8px 8px 0 var(--ink);aspect-ratio:4/3}
+.gallery figure:last-child{aspect-ratio:4/4.4}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.gallery figure:hover img{transform:scale(1.055)}
+.gallery figcaption{position:absolute;left:12px;bottom:12px;background:var(--paper-2);border:2px solid var(--ink);border-radius:999px;padding:6px 11px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+
+/* ---------- AVALIAÇÕES ---------- */
+.reviews{position:relative;padding-bottom:80px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.quote{position:relative;border:2px solid var(--ink);border-radius:22px;background:var(--paper-2);padding:24px;box-shadow:6px 6px 0 var(--ink);transition:transform .35s var(--ease)}
+.quote:hover{transform:translateY(-5px)}
+.quote .stars{box-shadow:none;position:absolute;top:16px;right:16px;font-size:11px}
+.quote p{font-size:15px;line-height:1.5;margin:28px 0 20px}
+.quote footer{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.quote .avatar{width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:12px}
+
+/* ---------- LOCALIZAÇÃO ---------- */
+.location{position:relative;padding-bottom:80px}
+.location-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:stretch}
+.location-card{border:3px solid var(--ink);border-radius:26px;background:var(--paper-2);padding:clamp(22px,3vw,34px);box-shadow:8px 8px 0 var(--ink)}
+.location-card h3{font-size:20px;text-transform:uppercase;margin:0 0 14px}
+.info-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.info-row span:first-child{font-weight:900;min-width:80px;text-transform:uppercase;font-size:11px;letter-spacing:.06em;padding-top:3px}
+.info-row a{font-weight:800;text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}
+.hours{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+.hours td{padding:7px 0;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right;font-weight:800}
+.hours tr:first-child td{color:var(--red-text)}
+.map-wrap{border:3px solid var(--ink);border-radius:26px;overflow:hidden;box-shadow:8px 8px 0 var(--red);min-height:360px;background:var(--yellow-2)}
+.map-wrap iframe{width:100%;height:100%;min-height:360px;border:0;display:block}
+.location-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* ---------- CTA FINAL ---------- */
+.cta{position:relative;padding:96px 0 110px;background:var(--yellow);border-block:3px solid var(--ink);overflow:hidden;isolation:isolate}
+.cta::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(229,55,42,.24),transparent 68%);right:-170px;top:-200px;animation:glow 17s ease-in-out infinite}
+.cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+.cta h2{font-size:clamp(36px,6vw,70px);line-height:.98;letter-spacing:-.05em;text-transform:uppercase;margin:0 0 14px}
+.cta p{margin:0 0 22px;max-width:50ch;font-size:16px}
+.cta .mascot{width:150px}
+
+/* ---------- LEGAL / FOOTER ---------- */
+.legal{padding:14px 0 34px}
+.legal details{border-bottom:1px solid var(--line);padding:12px 0}
+.legal summary{cursor:pointer;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.08em}
+.legal p{font-size:13px;color:var(--muted);max-width:80ch;margin:12px 0 0}
+footer.site-footer{background:var(--ink);color:var(--cream);padding:44px 0 28px;position:relative;z-index:1}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+.footer-grid h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--yellow);margin:0 0 12px}
+.footer-grid p,.footer-grid a{font-size:13px;color:rgba(255,248,230,.78);display:block;margin:0 0 8px}
+.footer-grid a:hover{color:var(--yellow)}
+.footer-bottom{margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,248,230,.18);font-size:11px;color:rgba(255,248,230,.6)}
+
+/* ---------- CARRINHO ---------- */
+.cart-overlay{position:fixed!important;inset:0;background:rgba(23,18,15,.58);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:200}
+.cart-overlay.open{opacity:1;pointer-events:auto;z-index:200!important}
+body > aside.cart-drawer{position:fixed!important;top:0;right:0;bottom:0;width:min(440px,100%);z-index:210!important;background:var(--paper);border-left:3px solid var(--ink);box-shadow:-16px 0 40px rgba(23,18,15,.22);transform:translateX(105%);transition:transform .45s var(--ease);display:flex;flex-direction:column}
+body > aside.cart-drawer.open{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;gap:12px;padding:20px;border-bottom:2px solid var(--ink);background:var(--yellow)}
+.cart-head h2{margin:0;font-size:21px;text-transform:uppercase;letter-spacing:-.02em}
+.cart-head .mascot{width:44px;margin-left:auto}
+.cart-close{width:44px;height:44px;border:2px solid var(--ink);border-radius:12px;background:var(--paper-2);font-size:20px;font-weight:900}
+.cart-body{padding:20px;overflow:auto;flex:1}
+.cart-body h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px}
+.cart-empty{text-align:center;padding:36px 10px;color:var(--muted);font-size:14px}
+.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-item b{display:block;font-size:15px}
+.cart-item small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;margin-top:10px}
+.qty button{width:38px;height:36px;border:0;background:var(--paper-2);font-weight:900;font-size:17px}
+.qty span{min-width:30px;text-align:center;font-weight:900;font-size:13px}
+.remove-btn{border:0;background:transparent;color:var(--red-text);font-size:11px;font-weight:900;text-transform:uppercase;text-decoration:underline}
+.cart-total{margin:18px 0;padding:14px;border:2px dashed var(--ink);border-radius:14px;background:var(--yellow-2);font-size:13px;font-weight:800}
+.field{margin:16px 0}
+.field label{display:block;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.09em;margin-bottom:7px}
+.field textarea{width:100%;min-height:78px;resize:vertical;border:2px solid var(--ink);border-radius:14px;padding:11px;background:var(--paper-2);font-size:14px}
+.modality{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.modality label{display:flex;align-items:center;gap:8px;margin:0;padding:11px;border:2px solid var(--ink);border-radius:14px;background:var(--paper-2);font-size:11px;letter-spacing:0;text-transform:none;cursor:pointer;transition:background .25s var(--ease)}
+.modality input{accent-color:var(--red);width:18px;height:18px}
+.modality label:has(input:checked){background:var(--yellow)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.4;margin:14px 0;cursor:pointer}
+.consent input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--red)}
+.consent a{text-decoration:underline;font-weight:800}
+.cart-foot{padding:16px 20px 22px;border-top:2px solid var(--ink);background:var(--paper-2);display:grid;gap:10px}
+.cart-foot .btn{width:100%}
+.cart-foot .btn-ghost{box-shadow:3px 3px 0 var(--ink)}
+.cart-fine{font-size:10px;color:var(--muted);text-align:center;margin:0}
+
+/* ---------- MOBILE BAR / TOAST ---------- */
+.mobile-bar{display:none;position:fixed!important;left:10px;right:10px;bottom:10px;z-index:140;gap:8px;padding:8px;border:2px solid var(--ink);border-radius:18px;background:rgba(255,248,230,.96);backdrop-filter:blur(10px);box-shadow:0 8px 26px rgba(23,18,15,.2)}
+.mobile-bar{z-index:140!important}
+.mobile-bar .btn{flex:1;min-height:46px;font-size:11px}
+.toast{position:fixed!important;z-index:300!important;left:50%;bottom:88px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:300;background:var(--ink);color:var(--cream);border:2px solid var(--yellow);border-radius:14px;padding:12px 18px;font-size:12px;font-weight:800;text-align:center;max-width:min(420px,calc(100% - 30px));transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:980px){
+  .nav-links{gap:14px}
+  .hero-grid{gap:26px}
+  .hero-visual{min-height:400px}
+  .photo-disc{width:min(100%,400px)}
+}
+@media(max-width:860px){
+  .nav-links{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:10px 24px 18px;background:var(--paper);border-bottom:2px solid var(--ink)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-toggle{display:inline-flex}
+  .hero{grid-template-columns:1fr;padding-top:118px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{text-align:left}
+  .hero-visual{min-height:420px}
+  .photo-disc{width:min(86%,420px)}
+  .about-grid,.promo-grid,.location-grid,.cta-inner{grid-template-columns:1fr}
+  .cta .mascot{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .wrap{width:calc(100% - 32px)}
+  body{padding-bottom:70px}
+  .mobile-bar{display:flex}
+  .brand-text strong{font-size:12px}
+  .brand-text span{font-size:8px}
+  .cart-pill{font-size:0;padding:0 11px}
+  .cart-pill .count{font-size:11px}
+  .sec-head{padding-top:62px}
+  .hero{padding-top:108px;padding-bottom:46px}
+  .hero h1{font-size:clamp(40px,12vw,64px)}
+  .hero-actions .btn{width:100%}
+  .hero-visual{min-height:330px}
+  .photo-disc{width:min(88%,340px);box-shadow:8px 8px 0 var(--red)}
+  .sticker{font-size:9px;padding:9px 10px}
+  .sticker-a{left:-8px;top:12px}
+  .sticker-b{right:-10px;bottom:12px}
+  .hero-mascot-wrap{left:-2px;bottom:-4px}
+  .hero-mascot{width:56px}
+  .grid-serv,.quotes,.gallery-grid,.steps{grid-template-columns:1fr}
+  .about-photo{aspect-ratio:4/3.6}
+  .serv{grid-template-columns:74px 1fr;gap:12px;padding:15px}
+  .serv-art{width:74px;height:74px}
+  .serv-art::before{width:56px;height:56px}
+  .serv-art::after{width:40px;height:40px}
+  .promo-inner{padding:22px}
+  .promo-sticker{max-width:100%}
+  .gallery figure:last-child{aspect-ratio:4/3}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .footer-grid{grid-template-columns:1fr}
+  .location-card,.map-wrap,.map-wrap iframe{min-height:300px}
+  .toast{bottom:86px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .marquee-track,.photo-disc,.sticker,.hero-mascot,.promo-inner::after,.cta::before{animation:none!important}
+  .btn,.serv,.gallery img,.qty,.cart-drawer{transition:none!important}
+}
+
+/* ANIM-KIT v2 */
+/* ============================================================
+   ANIM-KIT v2 — camada de animação portátil (tokenizada)
+   Fonte única da verdade. Injetada por: node tools/inject-anim.mjs
+   Não editar dentro do site: editar aqui e rodar --refresh.
+
+   Como a cor funciona (o que faltava na v1):
+   a camada NUNCA usa cor fixa. Ela lê, nesta ordem:
+     --accent   → se o cliente já definiu um acento
+     --magenta  → acento magenta (padrão Migaica)
+     --gold     → acento dourado (padrão portfólio)
+     #C9A46A    → último recurso
+   Trocar o :root do site passa a trocar o fundo animado também.
+   ============================================================ */
+
+:root{
+  --anim-accent:   var(--accent, var(--magenta, var(--gold, #C9A46A)));
+  --anim-accent-2: var(--accent-2, var(--gold-2, var(--anim-accent)));
+  --anim-surface:  var(--cream, var(--lilac-wash, #F4ECDE));
+  --anim-line:     var(--line, rgba(127,127,127,.14));
+  --anim-ink:      var(--ink, #0B0A08);
+}
+
+/* ---------- 0. REDE DE SEGURANÇA DE LAYOUT ----------
+   Palavra longa de cliente e grid com min-width:auto são as duas causas
+   clássicas de scroll horizontal. Ficam neutralizadas aqui.            */
+h1,h2,h3,.card h3,.quote p{overflow-wrap:break-word}
+.hero-grid>*,.about>*,.grid-proj>*,.steps>*,.quotes>*,.stats>*{min-width:0}
+
+/* empilhamento: fundo atrás, conteúdo na frente */
+body>*:not(.bg):not(.thread):not(.bar){position:relative;z-index:1}
+section>.wrap{position:relative;z-index:1}
+
+/* ============================================================
+   1. FUNDO CONTEXTUAL ANIMADO
+   Abstrato + elegante: luz, geometria e grão em movimento lento.
+   Nenhum objeto literal. Cores sempre derivadas do token.
+   ============================================================ */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+
+.bg-aurora{
+  position:absolute;inset:-40%;
+  background:
+    radial-gradient(38% 42% at 22% 18%,color-mix(in srgb,var(--anim-accent) 14%,transparent),transparent 70%),
+    radial-gradient(34% 40% at 82% 30%,color-mix(in srgb,var(--anim-accent-2) 11%,transparent),transparent 70%),
+    radial-gradient(46% 50% at 60% 95%,color-mix(in srgb,var(--anim-accent) 8%,transparent),transparent 72%);
+  animation:aurora 26s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+@keyframes aurora{
+  0%{transform:translate3d(0,0,0) scale(1);opacity:.8}
+  50%{transform:translate3d(-3%,2.5%,0) scale(1.09);opacity:1}
+  100%{transform:translate3d(2%,-2%,0) scale(1.03);opacity:.88}
+}
+
+.bg-blob{
+  position:absolute;
+  background:radial-gradient(circle at 35% 30%,
+    color-mix(in srgb,var(--anim-accent) 17%,transparent),
+    color-mix(in srgb,var(--anim-accent) 0%,transparent) 68%);
+  will-change:transform,border-radius;
+}
+.bg-blob.b1{width:46vw;height:46vw;left:-12vw;top:4vh;animation:morph1 23s ease-in-out infinite}
+.bg-blob.b2{width:38vw;height:38vw;right:-10vw;top:36vh;animation:morph2 29s ease-in-out infinite}
+.bg-blob.b3{width:52vw;height:52vw;left:32vw;bottom:-20vh;opacity:.65;animation:morph1 37s ease-in-out infinite reverse}
+@keyframes morph1{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:58% 42% 46% 54%/52% 46% 54% 48%}
+  33%{transform:translate3d(4%,-3%,0) rotate(9deg) scale(1.07);border-radius:44% 56% 62% 38%/46% 58% 42% 54%}
+  66%{transform:translate3d(-3%,4%,0) rotate(-7deg) scale(.96);border-radius:62% 38% 40% 60%/56% 42% 58% 44%}
+}
+@keyframes morph2{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1);border-radius:46% 54% 60% 40%/58% 42% 58% 42%}
+  40%{transform:translate3d(-5%,3%,0) rotate(-10deg) scale(1.1);border-radius:60% 40% 44% 56%/42% 56% 44% 58%}
+  75%{transform:translate3d(3%,-4%,0) rotate(6deg) scale(.94);border-radius:40% 60% 52% 48%/52% 48% 52% 48%}
+}
+
+/* grade em deslocamento perpétuo — a textura do ambiente */
+.bg-grid{
+  position:absolute;width:200%;height:200%;left:-50%;top:-50%;
+  background-image:
+    linear-gradient(to right,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px),
+    linear-gradient(to bottom,color-mix(in srgb,var(--anim-line) 55%,transparent) 1px,transparent 1px);
+  background-size:72px 72px;
+  animation:gridDrift 32s linear infinite;
+  opacity:.55;
+  -webkit-mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
+  mask-image:radial-gradient(62% 58% at 50% 42%,#000 18%,transparent 76%);
+}
+@keyframes gridDrift{to{transform:translate3d(-72px,-72px,0)}}
+
+/* partículas (motes) subindo devagar */
+.motes i{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--anim-accent-2);opacity:0;
+  animation:mote 17s linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes mote{
+  0%{transform:translate3d(0,24px,0) scale(.6);opacity:0}
+  12%{opacity:.6}
+  70%{opacity:.35}
+  100%{transform:translate3d(16px,-150px,0) scale(1);opacity:0}
+}
+.motes i:nth-child(1){left:6%;top:72%;animation-duration:19s;animation-delay:0s}
+.motes i:nth-child(2){left:15%;top:44%;animation-duration:23s;animation-delay:-3s}
+.motes i:nth-child(3){left:24%;top:86%;animation-duration:16s;animation-delay:-7s}
+.motes i:nth-child(4){left:33%;top:30%;animation-duration:26s;animation-delay:-11s}
+.motes i:nth-child(5){left:42%;top:64%;animation-duration:21s;animation-delay:-2s}
+.motes i:nth-child(6){left:51%;top:18%;animation-duration:18s;animation-delay:-9s}
+.motes i:nth-child(7){left:60%;top:78%;animation-duration:24s;animation-delay:-5s}
+.motes i:nth-child(8){left:69%;top:40%;animation-duration:20s;animation-delay:-13s}
+.motes i:nth-child(9){left:78%;top:92%;animation-duration:28s;animation-delay:-4s}
+.motes i:nth-child(10){left:86%;top:26%;animation-duration:22s;animation-delay:-8s}
+.motes i:nth-child(11){left:93%;top:58%;animation-duration:17s;animation-delay:-15s}
+.motes i:nth-child(12){left:47%;top:94%;animation-duration:25s;animation-delay:-6s}
+
+/* fio vertical + luz que escorre (continuidade) */
+.thread{
+  position:fixed;left:30px;top:0;bottom:0;width:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,
+    color-mix(in srgb,var(--anim-accent) 26%,transparent) 18%,
+    color-mix(in srgb,var(--anim-accent) 26%,transparent) 82%,transparent);
+  opacity:0;transition:opacity .8s var(--ease,cubic-bezier(.16,.72,.28,1));
+}
+.thread::after{
+  content:"";position:absolute;left:-1px;width:3px;height:130px;border-radius:2px;
+  background:linear-gradient(to bottom,transparent,var(--anim-accent),transparent);
+  animation:threadFlow 9s linear infinite;
+}
+@keyframes threadFlow{0%{top:-150px}100%{top:100%}}
+@media(min-width:1340px){.thread{opacity:1}}
+
+/* barra de progresso de leitura */
+.bar{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:9999;pointer-events:none;
+  background:linear-gradient(90deg,var(--anim-accent),var(--anim-accent-2));
+  transform:scaleX(0);transform-origin:0 50%;opacity:.9;
+}
+
+/* ============================================================
+   2. ANIMAÇÃO CONTÍNUA NOS GLOWS EXISTENTES
+   ============================================================ */
+.hero::before{animation:glow 15s ease-in-out infinite}
+.hero::after{animation:glow 19s ease-in-out infinite reverse}
+.cta::before{animation:glow 17s ease-in-out infinite}
+@keyframes glow{
+  0%,100%{transform:scale(1);opacity:.85}
+  50%{transform:scale(1.12);opacity:1}
+}
+
+/* ============================================================
+   3. CONTINUIDADE ENTRE SEÇÕES
+   Vale para os ids clássicos E para qualquer <section data-bridge>.
+   O injetor marca as seções automaticamente.
+   ============================================================ */
+#projetos::before,#processo::before,#sobre::before,
+[data-bridge]::before{
+  content:"";position:absolute;pointer-events:none;z-index:0;border-radius:50%;
+  background:radial-gradient(circle,
+    color-mix(in srgb,var(--anim-accent) 12%,transparent),transparent 68%);
+}
+#projetos::before,[data-bridge]::before{
+  width:440px;height:440px;right:-150px;top:-190px;animation:glow 18s ease-in-out infinite;}
+#processo::before,[data-bridge="b"]::before{
+  width:340px;height:340px;left:-170px;bottom:-150px;animation:glow 22s ease-in-out infinite reverse;}
+#sobre::before,[data-bridge="c"]::before{
+  width:400px;height:400px;left:46%;top:-210px;animation:glow 26s ease-in-out infinite;}
+#projetos,#processo,#sobre,[data-bridge]{
+  position:relative;overflow-x:clip;overflow-y:visible;
+}
+
+/* ============================================================
+   4. SCROLL VARIADO — cada família entra de um jeito
+   ============================================================ */
+.rv-fade{opacity:0;transition:opacity 1.1s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-scale{opacity:0;transform:scale(.945);transition:opacity 1s var(--ease,cubic-bezier(.16,.72,.28,1)),transform 1s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-left{opacity:0;transform:translateX(-36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-right{opacity:0;transform:translateX(36px);transition:opacity .95s var(--ease,cubic-bezier(.16,.72,.28,1)),transform .95s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-clip{clip-path:inset(0 100% 0 0);transition:clip-path 1.15s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.rv-fade.in,.rv-scale.in,.rv-left.in,.rv-right.in{opacity:1;transform:none}
+.rv-clip.in{clip-path:inset(0 0 0 0)}
+/* no mobile o elemento ocupa a largura toda: deslocar no eixo X geraria
+   scroll horizontal antes do reveal. Ali a entrada é vertical. */
+@media(max-width:760px){
+  .rv-left,.rv-right{transform:translateY(22px)}
+}
+
+/* ============================================================
+   5. MICROINTERAÇÕES
+   ============================================================ */
+.btn{position:relative;overflow:hidden}
+.btn::before{
+  content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;
+  background:linear-gradient(100deg,transparent,
+    color-mix(in srgb,var(--anim-surface) 45%,transparent),transparent);
+  transform:translateX(-160%) skewX(-18deg);transition:transform .85s var(--ease,cubic-bezier(.16,.72,.28,1));
+  pointer-events:none;
+}
+.btn:hover::before{transform:translateX(420%) skewX(-18deg)}
+
+.card::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(115deg,transparent 32%,
+    color-mix(in srgb,var(--anim-surface) 10%,transparent) 48%,transparent 64%);
+  transform:translateX(-120%);transition:transform .95s var(--ease,cubic-bezier(.16,.72,.28,1));
+}
+.card:hover::after{transform:translateX(120%)}
+
+.live-row .go svg{transition:transform .4s var(--ease,cubic-bezier(.16,.72,.28,1))}
+.live-row:hover .go svg{transform:translate(3px,-3px)}
+
+a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--anim-accent);outline-offset:3px;border-radius:8px;
+}
+
+/* ============================================================
+   6. MOBILE: reduz densidade, mantém o movimento
+   ============================================================ */
+@media(max-width:760px){
+  .bg-blob{opacity:.55}
+  .bg-grid{opacity:.35}
+  .motes i:nth-child(n+7){display:none}
+  .thread{display:none}
+}
+
+/* ============================================================
+   7. ACESSIBILIDADE: para TUDO
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  .bg-aurora,.bg-blob,.bg-grid,.motes i,.thread::after,
+  .hero::before,.hero::after,.cta::before,
+  #projetos::before,#processo::before,#sobre::before,[data-bridge]::before{animation:none!important}
+  .motes{display:none}
+  .rv-fade,.rv-scale,.rv-left,.rv-right{opacity:1!important;transform:none!important}
+  .rv-clip{clip-path:none!important}
+  .card::after,.btn::before{display:none}
+  .rev{opacity:1;transform:none}
+  .marquee-track,.stack .s1,.stack .s2,.stack .s3,.pulse{animation:none!important}
+  /* regra universal: nada escapa dos seletores nominais */
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+  html{scroll-behavior:auto!important}
+}
+
+</style>
+</head>
+<body>
+<!-- ANIM-KIT v2 -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-aurora"></div>
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+  <div class="bg-blob b3"></div>
+  <div class="bg-grid"></div>
+  <div class="motes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="thread" aria-hidden="true"></div>
+<div class="bar" id="bar" aria-hidden="true"></div>
+<!-- /ANIM-KIT v2 -->
+
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="pizza-mascot" viewBox="0 0 120 132">
+    <g stroke="#17120F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M46 105v17M74 105v17" fill="none"/>
+      <ellipse cx="40" cy="125" rx="10" ry="5" fill="#E5372A"/>
+      <ellipse cx="80" cy="125" rx="10" ry="5" fill="#E5372A"/>
+      <path d="M23 29Q60 8 97 29L60 108Z" fill="#FFC40C"/>
+      <path d="M23 29Q60 8 97 29" fill="none" stroke="#B96C27" stroke-width="11"/>
+      <circle cx="52" cy="49" r="6" fill="#E5372A"/>
+      <circle cx="73" cy="64" r="5" fill="#E5372A"/>
+      <circle cx="43" cy="75" r="5" fill="#E5372A"/>
+      <path d="M33 58 18 51M87 69l15 7" fill="none"/>
+      <circle cx="16" cy="50" r="5" fill="#FFE37A"/>
+      <circle cx="104" cy="77" r="5" fill="#FFE37A"/>
+      <circle cx="50" cy="60" r="3.4" fill="#17120F" stroke="none"/>
+      <circle cx="70" cy="60" r="3.4" fill="#17120F" stroke="none"/>
+      <path d="M49 74q11 11 22 0" fill="none" stroke-width="3.5"/>
+      <path d="M37 24c-6-2-7-11-1-14 0-9 12-14 20-8 9-6 22-1 22 8 6 3 5 12-1 14Z" fill="#FFFDF5"/>
+      <path d="M37 21h46v10a5 5 0 0 1-5 5H42a5 5 0 0 1-5-5Z" fill="#FFFDF5"/>
+    </g>
+  </symbol>
+</svg>
+
+<header id="hdr" class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Pizzeria Napolitana — início">
+      <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
+      <span class="brand-text"><strong>Pizzeria Napolitana</strong><span>Torralba de Calatrava</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#novidades">Novidades</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="cart-pill" id="openCartHeader" type="button" aria-label="Abrir pedido">
+      <span>Pedido</span><span class="count" id="cartCountHeader">0</span>
+    </button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">Pizzas artesanais · Torralba de Calatrava</span>
+        <h1>Pizza feita com <em>ingredientes frescos</em></h1>
+        <p class="hero-lead">Peça a sua para levar ou retire no Mercado Municipal. A Pizzeria Napolitana prepara pizzas artesanais para quem quer uma boa conversa à mesa — ou um pedido quentinho em casa.</p>
+        <div class="hero-actions">
+          <a class="btn btn-red" href="#cardapio">Montar meu pedido <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#sobre">Conhecer a pizzaria</a>
+        </div>
+        <div class="hero-proof">
+          <span class="stars"><b>★★★★★</b> 4,8 no Google</span>
+          <span>85 avaliações</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-disc" id="heroPhoto">
+          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w1200-h900-k-no" alt="Foto pública da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="eager" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
+          <span class="photo-fallback">Foto da pizzaria<br>Google Maps</span>
+        </div>
+        <div class="sticker sticker-a">Pizzas<br>artesanais</div>
+        <div class="sticker sticker-b">Retire no<br>Mercado Municipal</div>
+        <div class="hero-mascot-wrap">
+          <svg class="mascot hero-mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Pizzas artesanais <i>✦</i> Ingredientes frescos <i>✦</i> Para llevar <i>✦</i> Recogida en el Mercado Municipal <i>✦</i></span>
+      <span>Pizzas artesanais <i>✦</i> Ingredientes frescos <i>✦</i> Para llevar <i>✦</i> Recogida en el Mercado Municipal <i>✦</i></span>
+    </div>
+  </div>
+
+  <section class="about" id="sobre">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label kicker">Entender</span>
+        <h2>Pizza de bairro, <em>feita com carinho</em></h2>
+        <p class="sec-note">A Pizzeria Napolitana fica na Calle Dr. Severo Ochoa, 1, em Torralba de Calatrava. O perfil oficial descreve pizzas artesanais, elaboradas com ingredientes frescos.</p>
+      </div>
+      <div class="about-grid">
+        <figure class="about-photo">
+          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd5uZesrS2Tji9l11nIcskg30qtlJg70P56FrkjzA7jpjoocrSAh0DEOYKXNvVbiMbxxn9CzEWQgvJaM6VJ6UkL8wYw6SrJ-nxsmLtzRPWFQ6FfzTbLgPlYyjtMGbkc7TCP1PBqwwZCZHDJ=w900-h1200-k-no" alt="Foto da galeria pública da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
+        </figure>
+        <div class="about-body">
+          <p>No perfil oficial da pizzaria, o convite é simples: <strong>pizzas artesanais com ingredientes frescos</strong>. Você pode pedir para levar ou retirar diretamente no Mercado Municipal.</p>
+          <p>As avaliações públicas do Google Maps destacam o atendimento, o tamanho das porções e pizzas saborosas e crocantes. São 4,8 de nota média em 85 avaliações.</p>
+          <div class="stats">
+            <div class="stat"><b>4,8</b><small>Nota no Google</small></div>
+            <div class="stat"><b>85</b><small>Avaliações</small></div>
+            <div class="stat"><b>2</b><small>Jeitos de receber</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="cardapio" data-bridge="a">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label kicker">Explorar</span>
+        <h2>O que sai <em>do forno</em></h2>
+        <p class="sec-note">Escolha um sabor, monte seu pedido e confira tudo antes de enviar. Os valores não haviam sido publicados nos canais consultados — a pizzaria confirma no atendimento.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Filtrar cardápio">
+        <button class="tab" type="button" data-filter="all" aria-pressed="true">Tudo</button>
+        <button class="tab" type="button" data-filter="novidade" aria-pressed="false">Novidade</button>
+        <button class="tab" type="button" data-filter="classico" aria-pressed="false">Sabores citados</button>
+      </div>
+      <div class="grid-serv" id="menuGrid">
+        <article class="serv" data-id="salchipizza" data-category="novidade">
+          <div class="serv-art art-salchipizza" aria-hidden="true"></div>
+          <div>
+            <h3>Salchipizza</h3>
+            <p>Massa crocante recém-assada, extra de queijo fundido, taquitos de bacon, salchichas e um toque de especiarias.</p>
+            <div class="serv-meta"><span class="tag">Novidade</span><span class="tag tag-src">Instagram oficial</span><span class="price-note">Valor a confirmar</span></div>
+            <button class="btn btn-sm add-btn" type="button" data-add="salchipizza">Adicionar ao pedido +</button>
+          </div>
+        </article>
+        <article class="serv" data-id="4quesos" data-category="classico">
+          <div class="serv-art art-cheese" aria-hidden="true"></div>
+          <div>
+            <h3>Pizza 4 quesos</h3>
+            <p>Sabor favorito citado por uma cliente nas avaliações do Google Maps.</p>
+            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
+            <button class="btn btn-sm add-btn" type="button" data-add="4quesos">Adicionar ao pedido +</button>
+          </div>
+        </article>
+        <article class="serv" data-id="kebab" data-category="classico">
+          <div class="serv-art art-kebab" aria-hidden="true"></div>
+          <div>
+            <h3>Pizza kebab</h3>
+            <p>Sabor citado por cliente em avaliação publicada no Google Maps.</p>
+            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
+            <button class="btn btn-sm add-btn" type="button" data-add="kebab">Adicionar ao pedido +</button>
+          </div>
+        </article>
+        <article class="serv" data-id="carbonara" data-category="classico">
+          <div class="serv-art art-carbonara" aria-hidden="true"></div>
+          <div>
+            <h3>Pizza carbonara</h3>
+            <p>Sabor citado nas avaliações do Google Maps da pizzaria.</p>
+            <div class="serv-meta"><span class="tag">Sabor citado</span><span class="tag tag-src">Google Maps</span><span class="price-note">Valor a confirmar</span></div>
+            <button class="btn btn-sm add-btn" type="button" data-add="carbonara">Adicionar ao pedido +</button>
+          </div>
+        </article>
+      </div>
+      <p class="menu-disclaimer">Os sabores acima aparecem em publicações oficiais ou em avaliações públicas verificadas. Ingredientes detalhados só foram informados para a Salchipizza; para os demais, consulte a pizzaria. Nenhum preço foi divulgado nos canais consultados.</p>
+    </div>
+  </section>
+
+  <section class="promo" id="novidades" data-bridge="b">
+    <div class="wrap">
+      <div class="promo-inner">
+        <div class="promo-grid">
+          <div>
+            <span class="kicker">Destaque do momento</span>
+            <h2>Chegou a <em>Salchipizza</em></h2>
+            <p>Nas publicações oficiais do Instagram, a Salchipizza aparece como novidade do forno. É a combinação de massa crocante recém-assada, queijo fundido, bacon, salchichas e especiarias.</p>
+            <ul>
+              <li>Massa crocante recém-assada</li>
+              <li>Extra de queijo fundido</li>
+              <li>Taquitos de bacon e salchichas</li>
+              <li>Toque especial de especiarias</li>
+            </ul>
+            <button class="btn btn-red" type="button" data-add="salchipizza">Quero provar — adicionar ao pedido</button>
+          </div>
+          <div class="promo-sticker">
+            <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
+            <b>Novidade<br>do forno</b>
+            <small>Publicada no Instagram oficial</small>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step"><b>01 · Escolha</b><p>Selecione os sabores no cardápio acima.</p></div>
+          <div class="step"><b>02 · Monte</b><p>Ajuste quantidades, retirada e observações no pedido.</p></div>
+          <div class="step"><b>03 · Confirme</b><p>Copie o resumo ou ligue para a pizzaria. Quem confirma é o atendimento.</p></div>
+        </div>
+        <p class="promo-note">Promoções e combos com valores não foram divulgados nos canais oficiais consultados; por isso nenhum desconto ou preço é anunciado aqui.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="galeria" data-bridge="c">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label kicker">Olhar de perto</span>
+        <h2>Fotos <em>da pizzaria</em></h2>
+        <p class="sec-note">Imagens públicas do perfil da Pizzeria Napolitana no Google Maps. Não foi possível baixar as mídias do Instagram; nenhuma foto de banco de imagens foi usada.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure>
+          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLfn2BTPeUWekeWf5X2nlOipEedp-o-pXEWkrw2VbbZoXYGJY1s6u1kOXwBxrgW-_aedU50RifqoZfqQupgbxRlz8ncV_0zjIq_wetm4X9XUcurKCKE8c9RBLQa6Apt3RKIs8FYEKtTGIHL7=w1200-h900-k-no" alt="Foto de pizza publicada no perfil da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
+          <figcaption>Google Maps · foto da pizzaria</figcaption>
+        </figure>
+        <figure>
+          <img src="https://lh3.googleusercontent.com/grass-cs/AABkmLd5uZesrS2Tji9l11nIcskg30qtlJg70P56FrkjzA7jpjoocrSAh0DEOYKXNvVbiMbxxn9CzEWQgvJaM6VJ6UkL8wYw6SrJ-nxsmLtzRPWFQ6FfzTbLgPlYyjtMGbkc7TCP1PBqwwZCZHDJ=w900-h1200-k-no" alt="Segunda foto da galeria da Pizzeria Napolitana no Google Maps" referrerpolicy="no-referrer" loading="lazy">
+          <figcaption>Google Maps · galeria</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="depoimentos" data-bridge="a">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label kicker">Confiança</span>
+        <h2>Quem já provou, <em>conta</em></h2>
+        <p class="sec-note">Avaliações reais publicadas no Google Maps, com os nomes de quem as escreveu. Nota média: 4,8 em 85 avaliações.</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <span class="stars"><b>★★★★★</b></span>
+          <p>“La pizza es de muy buen tamaño, mi favorita es la de 4 quesos, es riquísima.”</p>
+          <footer><span class="avatar">LR</span><span>Luisa Ramirez · Google Maps</span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars"><b>★★★★★</b></span>
+          <p>“Muy buena atención por parte del dueño, rápido sobre tener la terraza llena y las pizzas muy buenas de sabor y de cantidad.”</p>
+          <footer><span class="avatar">AM</span><span>Adrian Montolio · Google Maps</span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <span class="stars"><b>★★★★★</b></span>
+          <p>“Espectacular las pizzas en pizzería Napotitana de Torralba. Sabrosas, crujientes y de calidad.”</p>
+          <footer><span class="avatar">MJ</span><span>Mari Ángeles Jimenez Almenara · Google Maps</span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="location" id="contato" data-bridge="b">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-label kicker">Onde e quando</span>
+        <h2>Nosso endereço <em>e horários</em></h2>
+        <p class="sec-note">Dados públicos do perfil da Pizzeria Napolitana no Google Maps.</p>
+      </div>
+      <div class="location-grid">
+        <div class="location-card">
+          <h3>Informações</h3>
+          <div class="info-row"><span>Endereço</span><span>Calle Dr. Severo Ochoa, 1, 13160 Torralba de Calatrava, Cdad. Real, Espanha</span></div>
+          <div class="info-row"><span>Telefone</span><span><a href="tel:+34627661061">+34 627 66 10 61</a></span></div>
+          <div class="info-row"><span>Instagram</span><span><a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">@pzzerianapolitana8</a></span></div>
+          <h3 style="margin-top:22px">Horários</h3>
+          <table class="hours">
+            <tr><td>Segunda</td><td>Fechado</td></tr>
+            <tr><td>Terça a quinta</td><td>19:00 – 00:00</td></tr>
+            <tr><td>Sexta</td><td>19:00 – 00:00</td></tr>
+            <tr><td>Sábado e domingo</td><td>19:30 – 00:00</td></tr>
+          </table>
+          <div class="location-actions">
+            <a class="btn btn-sm" href="https://www.google.com/maps/place/Pizzeria+Napolitana+Torralba+de+Calatrava/@39.0160389,-3.7488785,17z/data=!4m15!1m8!3m7!1s0xd6bd908d89f842b:0x6daa0d3b4431f2c4!2sPizzeria+Napolitana+Torralba+de+Calatrava!8m2!3d39.0160389!4d-3.7488785!10e9!16s%2Fg%2F11wpzvn26z!3m5!1s0xd6bd908d89f842b:0x6daa0d3b4431f2c4!8m2!3d39.0160389!4d-3.7488785!16s%2Fg%2F11wpzvn26z?authuser=0&hl=es&entry=ttu" target="_blank" rel="noopener">Ver no Maps ↗</a>
+            <a class="btn btn-sm btn-red" href="tel:+34627661061">Ligar agora</a>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe title="Mapa da Pizzeria Napolitana em Torralba de Calatrava" src="https://www.google.com/maps?q=Calle%20Dr.%20Severo%20Ochoa%2C%201%2C%2013160%20Torralba%20de%20Calatrava%2C%20Cdad.%20Real%2C%20Spain&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="pedido" data-bridge="c">
+    <div class="wrap cta-inner">
+      <div>
+        <span class="kicker">Hora de pedir</span>
+        <h2>Fome de pizza? <em>Monte seu pedido.</em></h2>
+        <p>Escolha os sabores, defina se vai levar ou retirar no Mercado Municipal e copie o resumo pronto para enviar. Simples assim.</p>
+        <a class="btn btn-red" href="#cardapio">Ir para o cardápio <span aria-hidden="true">→</span></a>
+      </div>
+      <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
+    </div>
+  </section>
+
+  <section class="legal" id="privacidade" data-bridge="a">
+    <div class="wrap">
+      <details>
+        <summary>Política de Privacidade</summary>
+        <p>Este site monta o resumo do pedido no seu navegador. Não há cadastro, pagamento, cookies ou ferramentas de análise. Ao usar “Copiar resumo”, o texto vai para a área de transferência do seu dispositivo; ao usar “Ligar”, o aplicativo de telefone é aberto. Nenhuma informação do pedido é enviada para este site. A pizzaria trata os dados que você informar diretamente a ela no contato. Você pode solicitar acesso, correção ou exclusão desses dados pelos canais de contato da pizzaria.</p>
+      </details>
+    </div>
+  </section>
+  <section class="legal" id="termos" data-bridge="b">
+    <div class="wrap">
+      <details>
+        <summary>Termos de Uso</summary>
+        <p>Este site é informativo e oferece uma ferramenta para organizar o pedido. Não processa pagamentos, não promete disponibilidade de sabores e não confirma pedidos: a confirmação, os valores e o atendimento são feitos diretamente pela Pizzeria Napolitana. Fotos e avaliações exibidas procedem dos canais públicos indicados e permanecem sob seus respectivos direitos.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>Pizzeria Napolitana</h3>
+      <p>Pizzas artesanais com ingredientes frescos em Torralba de Calatrava.</p>
+      <p>Calle Dr. Severo Ochoa, 1 · 13160 Torralba de Calatrava · Espanha</p>
+    </div>
+    <div>
+      <h3>Contato</h3>
+      <p><a href="tel:+34627661061">+34 627 66 10 61</a></p>
+      <p><a href="https://www.instagram.com/pzzerianapolitana8/" target="_blank" rel="noopener">Instagram oficial ↗</a></p>
+      <p><a href="#contato">Endereço e horários</a></p>
+    </div>
+    <div>
+      <h3>Institucional</h3>
+      <p><a href="#privacidade">Política de Privacidade</a></p>
+      <p><a href="#termos">Termos de Uso</a></p>
+      <p><a href="#cardapio">Montar pedido</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">Conteúdo obtido de fontes públicas verificadas: Google Maps e Instagram oficial. Sem preços, promoções ou número de WhatsApp inventados.</div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="cart-head">
+    <button class="cart-close" id="closeCart" type="button" aria-label="Fechar pedido">×</button>
+    <h2 id="cartTitle">Seu pedido</h2>
+    <svg class="mascot" viewBox="0 0 120 132" aria-hidden="true"><use href="#pizza-mascot"/></svg>
+  </div>
+  <div class="cart-body">
+    <h3>Itens escolhidos</h3>
+    <div id="cartItems" class="cart-empty" aria-live="polite">Nenhum sabor escolhido ainda. Volte ao cardápio e adicione uma pizza.</div>
+    <div class="cart-total" id="cartTotal">0 item · valor a confirmar pela pizzaria</div>
+    <div class="field">
+      <label>Como você quer receber?</label>
+      <div class="modality">
+        <label><input type="radio" name="modality" value="Para levar" checked> Para levar</label>
+        <label><input type="radio" name="modality" value="Retirada no Mercado Municipal"> Retirar no Mercado</label>
+      </div>
+    </div>
+    <div class="field">
+      <label for="cartNotes">Observações do pedido (opcional)</label>
+      <textarea id="cartNotes" placeholder="Ex.: sem cebola, horário de retirada, nome para identificar o pedido" maxlength="300"></textarea>
+    </div>
+    <label class="consent">
+      <input type="checkbox" id="cartConsent">
+      <span>Concordo com o tratamento das informações deste pedido conforme a <a href="#privacidade">Política de Privacidade</a>.</span>
+    </label>
+  </div>
+  <div class="cart-foot">
+    <button class="btn btn-red" id="copyOrder" type="button">Copiar resumo para envio</button>
+    <a class="btn btn-ghost" id="callOrder" href="tel:+34627661061">Ligar e conferir pedido</a>
+    <p class="cart-fine">O pedido só é confirmado pela pizzaria. Nenhum valor é cobrado neste site.</p>
+  </div>
+</aside>
+
+<div class="mobile-bar" aria-label="Ações rápidas">
+  <button class="btn btn-red btn-sm" id="openCartMobile" type="button">Ver pedido (<span id="cartCountMobile">0</span>)</button>
+  <a class="btn btn-sm" href="tel:+34627661061">Ligar</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+  var MENU = {
+    salchipizza:{name:'Salchipizza',detail:'massa crocante, queijo fundido, bacon, salchichas e especiarias'},
+    '4quesos':{name:'Pizza 4 quesos',detail:'sabor citado em avaliação do Google Maps'},
+    kebab:{name:'Pizza kebab',detail:'sabor citado em avaliação do Google Maps'},
+    carbonara:{name:'Pizza carbonara',detail:'sabor citado em avaliação do Google Maps'}
+  };
+  var STORE_KEY = 'pizzaria-napolitana-pedido';
+  var cart = {};
+  try{ var saved = JSON.parse(localStorage.getItem(STORE_KEY)||'{}'); if(saved && typeof saved==='object'){ cart=saved; } }catch(e){ cart={}; }
+  Object.keys(cart).forEach(function(k){ if(!MENU[k] || !(cart[k]>0)) delete cart[k]; });
+
+  var $ = function(s,root){ return (root||document).querySelector(s); };
+  var $$ = function(s,root){ return Array.prototype.slice.call((root||document).querySelectorAll(s)); };
+  var cartEl = $('#cart'), overlay = $('#cartOverlay'), toast = $('#toast');
+  var itemsEl = $('#cartItems'), totalEl = $('#cartTotal');
+  var notesEl = $('#cartNotes'), consentEl = $('#cartConsent');
+  var toastTimer;
+
+  function persist(){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(cart)); }catch(e){} }
+  function count(){ return Object.keys(cart).reduce(function(n,k){ return n+cart[k]; },0); }
+  function showToast(msg){
+    toast.textContent=msg; toast.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toast.classList.remove('show'); },3200);
+  }
+  function render(){
+    var n=count();
+    $('#cartCountHeader').textContent=n; $('#cartCountMobile').textContent=n;
+    var keys=Object.keys(cart);
+    if(!keys.length){
+      itemsEl.className='cart-empty';
+      itemsEl.textContent='Nenhum sabor escolhido ainda. Volte ao cardápio e adicione uma pizza.';
+    }else{
+      itemsEl.className='';
+      itemsEl.innerHTML='';
+      keys.forEach(function(k){
+        var row=document.createElement('div'); row.className='cart-item';
+        var info=document.createElement('div');
+        var b=document.createElement('b'); b.textContent=MENU[k].name;
+        var small=document.createElement('small'); small.textContent=MENU[k].detail;
+        var qty=document.createElement('div'); qty.className='qty';
+        var minus=document.createElement('button'); minus.type='button'; minus.textContent='−'; minus.setAttribute('aria-label','Diminuir quantidade de '+MENU[k].name); minus.dataset.dec=k;
+        var span=document.createElement('span'); span.textContent=cart[k];
+        var plus=document.createElement('button'); plus.type='button'; plus.textContent='+'; plus.setAttribute('aria-label','Aumentar quantidade de '+MENU[k].name); plus.dataset.inc=k;
+        qty.appendChild(minus); qty.appendChild(span); qty.appendChild(plus);
+        info.appendChild(b); info.appendChild(small); info.appendChild(qty);
+        var side=document.createElement('div');
+        var rem=document.createElement('button'); rem.type='button'; rem.className='remove-btn'; rem.textContent='Remover'; rem.dataset.remove=k;
+        side.appendChild(rem);
+        row.appendChild(info); row.appendChild(side); itemsEl.appendChild(row);
+      });
+    }
+    totalEl.textContent=n+(n===1?' item':' itens')+' · valor a confirmar pela pizzaria';
+    persist();
+  }
+  function add(id){
+    if(!MENU[id]) return;
+    cart[id]=(cart[id]||0)+1; render();
+    showToast(MENU[id].name+' adicionada ao pedido.');
+  }
+  function openCart(){
+    cartEl.classList.add('open'); overlay.classList.add('open');
+    cartEl.setAttribute('aria-hidden','false'); overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){ $('#closeCart').focus(); },180);
+  }
+  function closeCart(){
+    cartEl.classList.remove('open'); overlay.classList.remove('open');
+    cartEl.setAttribute('aria-hidden','true'); overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  function modality(){
+    var r=$('input[name="modality"]:checked'); return r?r.value:'Para levar';
+  }
+  function summary(){
+    var lines=['Pedido — Pizzeria Napolitana, Torralba de Calatrava',''];
+    Object.keys(cart).forEach(function(k){
+      lines.push(cart[k]+' × '+MENU[k].name);
+    });
+    lines.push(''); lines.push('Modalidade: '+modality());
+    var notes=notesEl.value.trim();
+    if(notes) lines.push('Observações: '+notes);
+    lines.push('Valores: a confirmar pela pizzaria.');
+    lines.push('Envio preparado no site — confirmação pelo atendimento da pizzaria.');
+    return lines.join('\n');
+  }
+  function copyText(text,cb){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(cb,fallback);
+    }else{ fallback(); }
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=text;
+      ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); cb(); }catch(e){ showToast('Não foi possível copiar automaticamente. Selecione e copie o resumo.'); }
+      document.body.removeChild(ta);
+    }
+  }
+
+  $$('[data-add]').forEach(function(b){ b.addEventListener('click',function(){ add(b.getAttribute('data-add')); }); });
+  $$('.tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var f=tab.getAttribute('data-filter');
+      $$('.tab').forEach(function(t){ t.setAttribute('aria-pressed',String(t===tab)); });
+      $$('.serv').forEach(function(card){
+        card.hidden = !(f==='all'||card.getAttribute('data-category')===f);
+      });
+    });
+  });
+  $('#openCartHeader').addEventListener('click',openCart);
+  $('#openCartMobile').addEventListener('click',openCart);
+  $('#closeCart').addEventListener('click',closeCart);
+  overlay.addEventListener('click',closeCart);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&cartEl.classList.contains('open')) closeCart(); });
+
+  itemsEl.addEventListener('click',function(e){
+    var t=e.target, k;
+    if(!t.dataset) return;
+    if((k=t.dataset.inc)){ cart[k]=(cart[k]||0)+1; render(); }
+    else if((k=t.dataset.dec)){ cart[k]=(cart[k]||0)-1; if(cart[k]<=0) delete cart[k]; render(); }
+    else if((k=t.dataset.remove)){ delete cart[k]; render(); }
+  });
+  $('#copyOrder').addEventListener('click',function(){
+    if(!count()){ showToast('Adicione pelo menos um item ao pedido antes de copiar.'); return; }
+    if(!consentEl.checked){ showToast('Marque o consentimento de privacidade para continuar.'); consentEl.focus(); return; }
+    copyText(summary(),function(){ showToast('Resumo copiado. Envie pelo canal de atendimento da pizzaria.'); });
+  });
+  $('#callOrder').addEventListener('click',function(){
+    if(!count()){ showToast('Seu pedido está vazio. Escolha um sabor antes de ligar.'); }
+  });
+
+  var navToggle=$('#navToggle'), navLinks=$('#navLinks');
+  navToggle.addEventListener('click',function(){
+    var open=navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded',String(open));
+    navToggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  });
+  $$('#navLinks a').forEach(function(a){ a.addEventListener('click',function(){
+    navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
+  }); });
+  render();
+})();
+</script>
+<script data-anim-kit>
+/* ============================================================
+   ANIM-KIT v2 — motor de movimento
+   Header · barra de progresso · reveal variado · parallax
+   Tudo em transform/opacity. Respeita prefers-reduced-motion.
+   Injetado por: node tools/inject-anim.mjs
+   ============================================================ */
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var isMobile = matchMedia('(max-width:760px)').matches;
+
+  /* ---- header com blur ao rolar + progresso de leitura ---- */
+  var hdr = document.getElementById('hdr');
+  var bar = document.getElementById('bar');
+  var lastY = -1;
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (y === lastY) return;
+    lastY = y;
+    if (hdr) hdr.classList.toggle('stuck', y > 40);
+    if (bar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    }
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---- variedade de entrada por família de elemento ----
+     Cada seletor recebe uma pose diferente. Só é aplicado se o
+     elemento existir: funciona em qualquer arquitetura.        */
+  var VARIANTS = [
+    ['.sec-head h2', 'rv-clip'],
+    ['.sec-head .sec-label', 'rv-fade'],
+    ['.sec-note', 'rv-fade'],
+    ['.stats .stat', 'rv-fade', 90],
+    ['.grid-serv .serv', 'rv-fade', 80],
+    ['.steps .step', 'rv-left', 90],
+    ['.quotes .quote', 'rv-scale', 110],
+    ['.about-photo', 'rv-left'],
+    ['.about-body', 'rv-right'],
+    ['.live-row', 'rv-fade', 70]
+  ];
+  VARIANTS.forEach(function (item) {
+    var sel = item[0], cls = item[1], stagger = item[2];
+    document.querySelectorAll(sel).forEach(function (el, i) {
+      if (!el.classList.contains(cls)) el.classList.add(cls);
+      if (stagger) el.style.transitionDelay = (i % 4) * stagger + 'ms';
+    });
+  });
+
+  /* ---- reveal unificado ---- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e, i) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      io.unobserve(el);
+      setTimeout(function () { el.classList.add('in'); }, Math.min(i * 70, 350));
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.rev,.rv-fade,.rv-scale,.rv-left,.rv-right')
+    .forEach(function (el) { io.observe(el); });
+
+  /* clip-path zera a área visual do elemento e o IntersectionObserver
+     nunca o considera visível — então observamos o container, que não
+     é recortado, e revelamos o filho junto.                        */
+  var ioClip = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      ioClip.unobserve(e.target);
+      setTimeout(function () {
+        e.target.querySelectorAll('.rv-clip').forEach(function (k) { k.classList.add('in'); });
+        if (e.target.classList && e.target.classList.contains('rv-clip')) e.target.classList.add('in');
+      }, 120);
+    });
+  }, { threshold: .05, rootMargin: '0px 0px -6% 0px' });
+
+  document.querySelectorAll('.rv-clip').forEach(function (el) {
+    var host = el.parentElement || el;
+    if (!host.dataset.clipHost) { host.dataset.clipHost = '1'; ioClip.observe(host); }
+  });
+
+  /* stagger por posição em grids de 3 colunas */
+  document.querySelectorAll('.grid-proj .card').forEach(function (c, i) {
+    c.style.transitionDelay = (i % 3) * 90 + 'ms';
+  });
+
+  /* ---- parallax ---- */
+  if (!reduce) {
+    var items = [];
+    function add(sel, speed) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        el.dataset.par = speed; items.push(el);
+      });
+    }
+    add('.about-photo', -0.06);
+    add('.live-row img', 0.04);
+    add('.cta h2', 0.05);
+    add('.services .serv', 0.02);
+
+    var stack = document.querySelector('.stack');
+    var ticking = false;
+
+    function frame() {
+      var vh = innerHeight;
+      if (stack) {
+        var y = Math.min(window.pageYOffset || 0, 800);
+        stack.style.transform = 'translate3d(0,' + (y * 0.06) + 'px,0)';
+      }
+      items.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        var center = r.top + r.height / 2;
+        var delta = (center - vh / 2) / vh;
+        var s = parseFloat(el.dataset.par) * 100 * delta;
+        el.style.transform = 'translate3d(0,' + s.toFixed(2) + 'px,0)';
+      });
+      ticking = false;
+    }
+    addEventListener('scroll', function () {
+      if (!ticking && !isMobile) { ticking = true; requestAnimationFrame(frame); }
+    }, { passive: true });
+    if (!isMobile) frame();
+  }
+})();
+
+</script>
+</body>
+</html>

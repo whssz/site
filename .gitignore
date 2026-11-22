@@ -1,0 +1,7 @@
+node_modules/
+.workspace-ref/
+image-search/
+google_drive/
+.vercel/
+.env*
+*.zip
