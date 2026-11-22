@@ -4,7 +4,12 @@ Site institucional e de conversão para a **Lisboncello Pizza & Gourmet**
 (Tv. Navegantes 11, 2750-282 Cascais, Portugal). Arquivo único, autocontido,
 sem rastreadores e sem dependências de rede.
 
-**No ar:** ver o link da Vercel entregue no relatório final.
+**No ar:** preview ao vivo nesta sessão (porta 3000). O projeto Vercel
+`lisboncello-cascais` (`prj_phLWzardVQsjA2J93rtcElEILdUr`) já está criado,
+ligado a este repositório e configurado (`installCommand: "true"`,
+`buildCommand: "true"`, `outputDirectory: "public"`). O primeiro deploy ficou
+bloqueado pelo limite diário da conta Vercel Hobby
+(`api-deployments-free-per-day`, 100/dia) — ver *Deploy* abaixo.
 
 ---
 
@@ -128,6 +133,21 @@ imagem de banco, IA ou ilustração foi usada como se fosse da casa.
 5. **“MA CHE BUONO”** — a expressão citada no briefing não aparece em nenhuma
    fonte pública da Lisboncello; não foi inventada uma relação. Se for um
    projeto/segunda marca, é preciso confirmar.
+
+## Deploy
+
+O site é estático e não precisa de build. Três caminhos, todos já preparados:
+
+1. **Painel Vercel** — projeto `lisboncello-cascais` → *Deployments* → **Redeploy**
+   (ou *Trigger Deploy* escolhendo a branch `arena/153289a3-site`). Quando o
+   limite diário da conta reiniciar, o deploy passa sem alterações.
+2. **Push na branch de produção** — mesclar `arena/153289a3-site` na `main`
+   dispara o deploy de produção automaticamente (o projeto está ligado ao repo
+   `whssz/site`, `productionBranch: main`).
+3. **CLI** — `npx vercel --prod` na raiz do projeto (usa o `vercel.json`).
+
+O `vercel.json` já define `outputDirectory` implícito por `public`, `cleanUrls`,
+`trailingSlash: false` e os cabeçalhos de segurança.
 
 ## Fontes verificadas
 
