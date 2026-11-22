@@ -43,6 +43,8 @@ npx vercel deploy --prod --yes
 ## Estado do deploy
 
 Projeto `pizzeria-napolitana-site` (root `public`, sem build, linkado ao GitHub).
-O deploy de produção fica **READY**, mas os domínios `*.vercel.app` desta conta exigem login
-porque a equipe tem Deployment Protection (SSO) ligada. Para tornar público:
-Settings → Deployment Protection → Vercel Authentication → Disabled.
+Produção pública: **https://pizzeria-napolitana-site.vercel.app**
+
+As URLs específicas de deployment (com hash) e o alias de branch pedem login por causa da
+Deployment Protection (SSO) da conta — use sempre o domínio de produção.
+Para liberar previews: Settings → Deployment Protection → Vercel Authentication → Disabled.
