@@ -22,7 +22,7 @@ const bad = (name, detail = "") => results.push({ pass: false, name, detail });
 /* ------------------------------------------------------------------ */
 /* 1. AUDITORIA ESTÁTICA                                                */
 /* ------------------------------------------------------------------ */
-const dom = new JSDOM(html, { url: "https://pizzeria-santa-chiara-v2.vercel.app/" });
+const dom = new JSDOM(html, { url: "https://pizzeria-santachiara.vercel.app/" });
 const doc = dom.window.document;
 
 /* 1.1 head */
@@ -185,7 +185,7 @@ vc.on("jsdomError", e => jsErrors.push(e.message));
 vc.on("error", e => jsErrors.push(String(e)));
 
 const dom2 = new JSDOM(html, {
-  url: "https://pizzeria-santa-chiara-v2.vercel.app/",
+  url: "https://pizzeria-santachiara.vercel.app/",
   runScripts: "dangerously",
   pretendToBeVisual: true,
   virtualConsole: vc

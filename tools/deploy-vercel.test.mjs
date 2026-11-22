@@ -93,16 +93,62 @@ test("sem token a publicação é adiada sem falhar", async () => {
 });
 
 test("a URL pública é o domínio do projeto (o alias automático exige SSO)", () => {
-  assert.equal(DEFAULTS.siteUrl, "https://pizzeria-santa-chiara-v2.vercel.app");
+  assert.equal(DEFAULTS.siteUrl, "https://pizzeria-santachiara.vercel.app");
   assert.ok(
     !DEFAULTS.siteUrl.includes("-whsszxx-9424."),
     "o alias automático da equipa está protegido por SSO da Vercel"
+  );
+  assert.ok(
+    DEFAULTS.fallbackUrls.includes("https://pizzeria-santa-chiara-v2.vercel.app"),
+    "tem de haver um URL alternativo para a verificação"
   );
 });
 
 test("o modo --dry-run não envia pedidos", async () => {
   const r = await run({ token: "fake-token", dryRun: true, log: () => {} });
   assert.equal(r.status, "dry-run");
+});
+
+test("a verificação pública cai no URL alternativo se o principal falhar", async () => {
+  const asked = [];
+  globalThis.fetch = async (url, opts) => {
+    const u = String(url);
+    asked.push(u);
+    if (opts?.method === "PATCH") {
+      return { status: 200, async text() { return JSON.stringify({ ssoProtection: null }); } };
+    }
+    if (opts?.method === "GET") {
+      return { status: 200, async text() { return JSON.stringify({ deployments: [] }); } };
+    }
+    if (opts?.method === "POST") {
+      return {
+        status: 200,
+        async text() {
+          return JSON.stringify({ id: "dpl_teste", readyState: "READY", alias: ["x.vercel.app"] });
+        },
+      };
+    }
+    // O URL principal responde 404; o alternativo devolve o site.
+    if (u.startsWith("https://pizzeria-santachiara.vercel.app")) {
+      return { status: 404, async text() { return "not found"; } };
+    }
+    return {
+      status: 200,
+      async text() {
+        return "<html><head><title>Pizzeria Santa Chiara — Lisboa</title></head><body>Santa Chiara Avenida 5 de Outubro 351211522801</body></html>";
+      },
+    };
+  };
+  const r = await run({
+    token: "fake",
+    waitMinutes: 0,
+    log: () => {},
+    sleepImpl: async () => {},
+  });
+  assert.equal(r.status, "published");
+  assert.equal(r.url, "https://pizzeria-santa-chiara-v2.vercel.app");
+  assert.ok(asked.some((u) => u.startsWith("https://pizzeria-santachiara.vercel.app")));
+  delete globalThis.fetch;
 });
 
 /* ------------------------------------------------------------------ */

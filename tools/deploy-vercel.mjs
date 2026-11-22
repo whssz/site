@@ -38,9 +38,10 @@ export const DEFAULTS = {
   repoId: "1440125649",
   // URL pública real do site. O alias automático do projeto
   // (`pizzeria-santa-chiara-site-whsszxx-9424.vercel.app`) está protegido por
-  // SSO da Vercel; o domínio do projeto `pizzeria-santa-chiara-v2.vercel.app`
-  // é o endereço público que responde sem autenticação.
-  siteUrl: "https://pizzeria-santa-chiara-v2.vercel.app",
+  // SSO da Vercel; os domínios ligados ao projeto respondem sem
+  // autenticação e são os endereços públicos do site.
+  siteUrl: "https://pizzeria-santachiara.vercel.app",
+  fallbackUrls: ["https://pizzeria-santa-chiara-v2.vercel.app"],
   titleMarker: "Pizzeria Santa Chiara",
   contentMarkers: ["Santa Chiara", "Avenida 5 de Outubro", "351211522801"],
 };
@@ -373,20 +374,40 @@ export async function run(options = {}) {
   }
 
   /* O alias automático do projeto pode estar protegido por SSO da Vercel.
-   * O domínio público do projeto (`pizzeria-santa-chiara-v2.vercel.app`)
-   * responde sem autenticação, por isso é o endereço verificado; o alias
-   * serve apenas de recurso se o domínio público deixar de responder. */
+   * Os domínios ligados ao projeto respondem sem autenticação e são os
+   * endereços públicos do site: verifica-se o principal e, se falhar,
+   * tenta-se o alternativo antes de dar a publicação por perdida. */
   const alias = last?.alias?.find((a) => !a.includes("-git-")) || last?.url || opts.siteUrl;
-  const publicUrl = opts.siteUrl || (alias.startsWith("http") ? alias : `https://${alias}`);
+  const candidates = [
+    opts.siteUrl,
+    ...(opts.fallbackUrls ?? []),
+    alias.startsWith("http") ? alias : `https://${alias}`,
+  ].filter(Boolean);
 
   /* --- 4. verificação pública --- */
-  const site = await verifyPublicSite(publicUrl);
+  let site = null;
+  let publicUrl = candidates[0];
+  for (const url of candidates) {
+    const attempt = await verifyPublicSite(url);
+    const good =
+      attempt.ok &&
+      attempt.title.includes(opts.titleMarker) &&
+      opts.contentMarkers.every((m) => attempt.body.includes(m));
+    log(
+      `· verificação pública em ${url}: HTTP ${attempt.status}, ${attempt.bytes} bytes, título "${attempt.title}"` +
+        (good ? " ✓" : "")
+    );
+    if (good) {
+      site = attempt;
+      publicUrl = url;
+      break;
+    }
+    if (!site) site = attempt;
+  }
+
   const markersOk = opts.contentMarkers.every((m) => site.body.includes(m));
   const titleOk = site.title.includes(opts.titleMarker);
   const ok = site.ok && markersOk && titleOk;
-  log(
-    `· verificação pública: HTTP ${site.status}, ${site.bytes} bytes, título "${site.title}", marcadores ${markersOk ? "ok" : "em falta"}`
-  );
 
   await writeReport({
     status: ok ? "published" : "failed",

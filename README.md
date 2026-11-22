@@ -126,11 +126,12 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 - Raiz do projeto (`rootDirectory`): `dist` — a pasta é auto-contida, tem o
   próprio `build.sh` e o próprio `vercel.json`, por isso o build funciona
   qualquer que seja a pasta a partir da qual a Vercel o execute.
-- **URL pública: <https://pizzeria-santa-chiara-v2.vercel.app>** (domínio do
-  projeto). Os aliases automáticos da equipa
+- **URL pública: <https://pizzeria-santachiara.vercel.app>**
+  (também disponível em <https://pizzeria-santa-chiara-v2.vercel.app>).
+  Os aliases automáticos da equipa
   (`pizzeria-santa-chiara-site-whsszxx-9424.vercel.app`) respondem com o ecrã
-  de login da Vercel, porque o projeto tem `ssoProtection` ativo — o domínio do
-  projeto é o endereço que serve o site sem autenticação.
+  de login da Vercel, porque o projeto tem `ssoProtection` ativo — os domínios
+  ligados ao projeto são os endereços que servem o site sem autenticação.
 
 ### Publicação automática (GitHub Actions)
 
@@ -172,7 +173,8 @@ node tools/deploy-vercel.mjs --dry-run     # não envia pedidos
 
 ### Estado atual
 
-**O site está publicado e verificado** em <https://pizzeria-santa-chiara-v2.vercel.app>.
+**O site está publicado e verificado** em <https://pizzeria-santachiara.vercel.app>
+(também em <https://pizzeria-santa-chiara-v2.vercel.app>).
 
 - Implantação `dpl_8bcdk3PFnjUXNz9J9wkUWaMqxU1R` — estado `READY`, subestado
   `PROMOTED`, alias público atribuído.
