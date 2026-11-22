@@ -1,8 +1,22 @@
 name: Publicar no GitHub Pages
 
+# Publica a pasta `public/` (o site já construído) no GitHub Pages e confirma
+# que o URL público responde com o conteúdo correcto. O GitHub Pages só
+# aceita uma origem por repositório; este workflow configura-a ele próprio
+# para a branch de trabalho, pasta `/public`, usando o token do Actions —
+# evita ter de mexer nas configurações do repositório à mão.
+#
+# Nota: se o repositório já publica de outra origem (ex.: `main` na raiz),
+# a chamada à API do Pages devolve 409. Nesse caso existe outra saída: o
+# workflow `deploy-vercel.yml`, ou mudar a origem manualmente em
+# Settings → Pages.
+
 on:
   push:
     branches: ["arena/153289a3-site"]
+    paths:
+      - "public/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -11,20 +25,91 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: false
+
+env:
+  SITE_URL: https://whssz.github.io/site/
+  API: https://api.github.com/repos/${{ github.repository }}
 
 jobs:
   deploy:
+    name: Configurar, publicar e verificar
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # 1. Apontar o Pages para esta branch, pasta /public.
+      #    Se a origem já estiver fixada noutro sítio, a API responde 409 e o
+      #    passo termina com um aviso claro em vez de falhar o workflow.
+      - name: Configurar a origem do Pages
+        id: config
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          body=$(printf '{"build_type":"legacy","source":{"branch":"%s","path":"/public"}}' "$GITHUB_REF_NAME")
+          code=$(curl -sS -o /tmp/pages.json -w '%{http_code}' \
+            -X PUT -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -d "$body" "$API/pages") || true
+          echo "PUT /pages → HTTP $code"
+          head -c 500 /tmp/pages.json || true
+          echo
+          if [ "$code" = "204" ] || [ "$code" = "200" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "- Origem do Pages: \`$GITHUB_REF_NAME\` / \`/public\` ✓" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::A origem do Pages não pôde ser alterada por API (HTTP $code) — ver Settings → Pages."
+            echo "- Origem do Pages: não alterada (HTTP $code)" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - uses: actions/configure-pages@v5
+        if: steps.config.outputs.configured == 'true'
+
       - uses: actions/upload-pages-artifact@v3
+        if: steps.config.outputs.configured == 'true'
         with:
           path: public
-      - id: deployment
+
+      - name: Publicar
+        id: deploy
+        if: steps.config.outputs.configured == 'true'
         uses: actions/deploy-pages@v4
+
+      # 2. Verificação pública: o link real tem de responder com o site.
+      - name: Verificar o link público
+        if: steps.deploy.outputs.page_url != ''
+        run: |
+          set -euo pipefail
+          URL="${{ steps.deploy.outputs.page_url }}"
+          CODE=""
+          for i in $(seq 1 24); do
+            CODE=$(curl -L -sS --connect-timeout 15 --max-time 60 -o /tmp/live.html \
+              -w '%{http_code}' "${URL%/}/") || true
+            echo "[$i/24] ${URL%/}/ → HTTP $CODE"
+            [ "$CODE" = "200" ] && break
+            sleep 5
+          done
+          test "$CODE" = "200"
+          grep -qi '<title>Lisboncello' /tmp/live.html
+          grep -q '351937949039' /tmp/live.html
+          grep -q 'Navegantes' /tmp/live.html
+          # o site é auto-contido: as imagens devem estar embutidas
+          grep -q 'data:image/webp;base64' /tmp/live.html
+          SIZE=$(wc -c < /tmp/live.html)
+          echo "✓ $URL responde HTTP 200 ($SIZE bytes) com o Lisboncello."
+          {
+            echo "## Site no ar"
+            echo "- URL: $URL"
+            echo "- HTTP: $CODE ($SIZE bytes)"
+            echo "- Commit: $GITHUB_SHA"
+          } >> "$GITHUB_STEP_SUMMARY"
