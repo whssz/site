@@ -795,30 +795,10 @@
   if (store.get(KEY_MOTION) === true) setPaused(true, false);
 
   /* ==========================================================
-     11. CIFRAS · CABECERA · NAVEGACIÓN ACTIVA
+     11. CABECERA · NAVEGACIÓN ACTIVA
+     (las cifras nunca se animan con números intermedios: siempre muestran el dato real)
      ========================================================== */
-  function countUp(el) {
-    var target = parseFloat(el.dataset.count);
-    var dec = parseInt(el.dataset.dec || '0', 10);
-    var fmt = function (v) { return v.toFixed(dec).replace('.', ','); };
-    if (motionOff() || doc.visibilityState === 'hidden') { el.textContent = fmt(target); return; }
-    var t0 = null;
-    var dur = 1400;
-    function frame(t) {
-      // o relógio do rAF pode ser anterior ao performance.now(): começa no 1º quadro e limita a [0, 1]
-      if (t0 === null) t0 = t;
-      var p = Math.max(0, Math.min(1, (t - t0) / dur));
-      el.textContent = fmt(Math.max(0, Math.min(target, target * (1 - Math.pow(1 - p, 3)))));
-      if (p < 1) requestAnimationFrame(frame); else el.textContent = fmt(target);
-    }
-    requestAnimationFrame(frame);
-  }
   if ('IntersectionObserver' in window) {
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { cio.unobserve(e.target); countUp(e.target); } });
-    }, { threshold: 0.6 });
-    $$('[data-count]').forEach(function (el) { cio.observe(el); });
-
     var navLinks = $$('.nav-links a, #mobile-nav nav a');
     var sio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {

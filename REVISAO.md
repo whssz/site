@@ -59,7 +59,7 @@ d'água (Just Eat, Uber Eats, javirecetas.com, jogo americano "…ARDINO"), foto
 4. Animação contínua em loop o tempo todo (ondas, fotos flutuantes, selo, marquee, fundo). ✓
 5. Fundo contextual abstrato: aurora azul, blobs, pontos em deriva, partículas e ondas mediterrâneas. ✓
 6. Continuidade: ondas atravessando as bordas da carta, brilhos-ponte entre seções, fio vertical. ✓
-7. Scroll variado: clip nos títulos, fade, scale, deslocamento lateral, parallax e contadores. ✓
+7. Scroll variado: clip nos títulos, fade, scale, deslocamento lateral, parallax e entrada dos números (sempre com o valor real no texto). ✓
 8. Microinterações em botões, cards, chips, links, fotos e menu. ✓
 9. Anti-template: rótulo da fachada, carta napolitana real, fotos da casa, endereço e horário de Cádiz. ✓
 10. Mobile-first, 0 scroll horizontal, só transform/opacity. ✓
