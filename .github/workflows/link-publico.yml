@@ -2,6 +2,8 @@ name: Verificar link público
 on:
   push:
     branches: ["arena/153289a3-site"]
+    paths:
+      - "public/**"
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,7 +13,7 @@ jobs:
     steps:
       - name: Verificar link e conteúdo
         run: |
-          URL="https://raw.githack.com/whssz/site/site-v1/public/index.html"
+          URL="https://raw.githack.com/whssz/site/site-v1/public/"
           CODE=""
           for i in $(seq 1 12); do
             CODE=$(curl -sSL --connect-timeout 15 --max-time 120 -o /tmp/live.html \
