@@ -1,0 +1,18 @@
+{
+  "name": "lisboncello-pizza-gourmet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node -e \"import('node:http').then(({createServer})=>import('node:fs').then(({readFileSync,existsSync,statSync})=>import('node:path').then(({join,extname})=>{const root='public';const mime={'.html':'text/html; charset=utf-8','.webp':'image/webp','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.css':'text/css','.js':'text/javascript','.json':'application/json'};createServer((req,res)=>{const u=(req.url||'/').split('?')[0];const p=join(root,u==='/'?'index.html':u);if(existsSync(p)&&statSync(p).isFile()){res.writeHead(200,{'Content-Type':mime[extname(p)]||'application/octet-stream'});res.end(readFileSync(p));}else{res.writeHead(404);res.end('Not found');}}).listen(process.env.PORT||3000,'0.0.0.0',()=>console.log('Listening on http://0.0.0.0:'+(process.env.PORT||3000)));})))\"",
+    "inject-anim": "node tools/inject-anim.mjs public/index.html --refresh",
+    "qa": "node tools/qa.mjs public/index.html",
+    "qa:legal": "node tools/qa-legal.mjs public/index.html",
+    "test:flow": "node tests/flow.mjs"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^133.0.0",
+    "playwright": "1.49.1",
+    "sharp": "^0.33.5"
+  }
+}
