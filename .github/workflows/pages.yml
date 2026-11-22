@@ -55,6 +55,10 @@ jobs:
           H=(-H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
           body=$(printf '{"build_type":"legacy","source":{"branch":"%s","path":"/public"}}' "$GITHUB_REF_NAME")
 
+          diag() { # emite anotação (visível via API de anotações)
+            echo "::warning title=pages-diag::$1"
+          }
+
           req() { # method url [data]
             local m="$1" u="$2" d="${3:-}"
             if [ -n "$d" ]; then
@@ -66,13 +70,16 @@ jobs:
 
           code=$(req PUT "$API/pages" "$body"); PUT_CODE="$code"; PUT_BODY=$(head -c 400 /tmp/r.json)
           echo "PUT /pages → HTTP $code"; echo "$PUT_BODY"
+          diag "PUT=$code body=$(printf '%s' "$PUT_BODY" | tr '\n' ' ' | head -c 250)"
 
           if [ "$code" != "204" ] && [ "$code" != "200" ]; then
             code=$(req DELETE "$API/pages"); DEL_CODE="$code"; DEL_BODY=$(head -c 400 /tmp/r.json)
             echo "DELETE /pages → HTTP $code"; echo "$DEL_BODY"
+            diag "DELETE=$code body=$(printf '%s' "$DEL_BODY" | tr '\n' ' ' | head -c 250)"
             sleep 3
             code=$(req POST "$API/pages" "$body"); POST_CODE="$code"; POST_BODY=$(head -c 400 /tmp/r.json)
             echo "POST /pages → HTTP $code"; echo "$POST_BODY"
+            diag "POST=$code body=$(printf '%s' "$POST_BODY" | tr '\n' ' ' | head -c 250)"
           fi
 
           # relatório de diagnóstico, recolhido como artefacto no fim
