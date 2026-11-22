@@ -1,0 +1,29 @@
+name: Probe links
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testar candidatos
+        run: |
+          probe() {
+            local label="$1" url="$2"
+            local code size ct
+            code=$(curl -sSL --connect-timeout 15 --max-time 90 -o /tmp/out.bin \
+              -D /tmp/h.txt -w '%{http_code}' "$url" || true)
+            size=$(wc -c < /tmp/out.bin 2>/dev/null || echo 0)
+            ct=$(grep -i '^content-type' /tmp/h.txt | tail -1 | tr -d '\r')
+            echo "::warning title=probe::$label | HTTP=$code | bytes=$size | $ct | $url"
+          }
+          probe "pages"        "https://whssz.github.io/site/"
+          probe "jsdelivr"     "https://cdn.jsdelivr.net/gh/whssz/site@site-v1/public/index.html"
+          probe "jsdelivr2"    "https://cdn.jsdelivr.net/gh/whssz/site@0969b619a5226dbb941f6cc9ce96f2d48746ceff/public/index.html"
+          probe "statically"   "https://cdn.statically.io/gh/whssz/site/site-v1/public/index.html"
+          probe "ghp-raw"      "https://raw.githubusercontent.com/whssz/site/site-v1/public/index.html"
+          probe "gitloaf"      "https://gitloaf.com/api/whssz/site/site-v1/public/index.html"
+          probe "vercel"       "https://lisboncello-cascais.vercel.app/"
+          echo "sizes:"
+          head -c 200 /tmp/out.bin
