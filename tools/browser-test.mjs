@@ -195,6 +195,30 @@ check(
   )) === 0
 );
 
+/* ---------- 1b. hero: sem cartão flutuante sobreposto ---------- */
+const heroOverlays = async () =>
+  page.evaluate(() => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return null;
+    return Array.from(hero.querySelectorAll("*"))
+      .filter((el) => getComputedStyle(el).position === "absolute")
+      .map((el) => (el.className || el.tagName).toString().trim());
+  });
+check(
+  "Hero sem cartão flutuante (.hero-stamp ausente)",
+  (await page.locator(".hero-stamp").count()) === 0
+);
+check(
+  "Hero só com a pastilha de estado em cima",
+  JSON.stringify(await heroOverlays()) === JSON.stringify(["hero-chip"]),
+  JSON.stringify(await heroOverlays())
+);
+check(
+  "Pastilha 'Aberto ao domingo' presente",
+  (await page.locator(".hero-chip").count()) === 1 &&
+    /Aberto ao domingo/i.test(await page.locator(".hero-chip").textContent())
+);
+
 /* ---------- 2. overflow horizontal em várias larguras ---------- */
 for (const w of [320, 390, 768, 1440]) {
   await page.setViewportSize({ width: w, height: 900 });
@@ -236,6 +260,14 @@ for (const w of [320, 390, 768, 1440]) {
     over.scroll <= over.client + 1 && over.scrolled === 0 && over.bad.length === 0,
     over.bad.length ? over.bad.join(" ") : over.scrolled ? `scrollX=${over.scrolled}` : ""
   );
+  if (w === 390) {
+    check(
+      "Hero no telemóvel sem cartão flutuante",
+      (await page.locator(".hero-stamp").count()) === 0 &&
+        JSON.stringify(await heroOverlays()) === JSON.stringify(["hero-chip"]),
+      JSON.stringify(await heroOverlays())
+    );
+  }
 }
 await page.setViewportSize({ width: 1366, height: 900 });
 

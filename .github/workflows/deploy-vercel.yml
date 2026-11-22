@@ -108,6 +108,13 @@ jobs:
           grep -q 'Pizzeria Santa Chiara' /tmp/published.html
           grep -q 'Avenida 5 de Outubro' /tmp/published.html
           grep -q '351211522801' /tmp/published.html
+          # O cartão flutuante do hero foi removido — o site publicado tem de
+          # servir a versão sem ele.
+          if grep -q 'hero-stamp' /tmp/published.html; then
+            echo "::error::O site publicado ainda contém o cartão flutuante (.hero-stamp)."
+            exit 1
+          fi
+          grep -q 'hero-chip' /tmp/published.html
           SIZE=$(wc -c < /tmp/published.html)
           echo "✓ ${SITE_URL} responde HTTP 200 (${SIZE} bytes) com o conteúdo da Santa Chiara."
           echo "## Site publicado" >> "$GITHUB_STEP_SUMMARY"
@@ -131,6 +138,11 @@ jobs:
           grep -q 'Pizzeria Santa Chiara' /tmp/live.html
           grep -q 'Avenida 5 de Outubro' /tmp/live.html
           grep -q '351211522801' /tmp/live.html
+          if grep -q 'hero-stamp' /tmp/live.html; then
+            echo "::error::A página publicada ainda contém o cartão flutuante (.hero-stamp)."
+            exit 1
+          fi
+          grep -q 'hero-chip' /tmp/live.html
           SIZE=$(wc -c < /tmp/live.html)
           echo "✓ HTTP 200, ${SIZE} bytes, título e morada presentes."
           echo "## Publicação" >> "$GITHUB_STEP_SUMMARY"

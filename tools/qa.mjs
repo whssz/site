@@ -156,6 +156,31 @@ mainSections.length >= 4 ? ok("≥4 grandes secções", mainSections.map(s => s.
   doc.querySelector(sel) ? ok(`âncora ${sel} existe`) : bad(`âncora ${sel} existe`);
 });
 
+/* 1.9b hero: sem cartão flutuante, com a pastilha de estado */
+const hero = doc.querySelector(".hero");
+const stamp = doc.querySelector(".hero-stamp");
+const stampCss = /\.hero-stamp\b/.test(css);
+!stamp && !stampCss
+  ? ok("hero sem cartão flutuante (.hero-stamp removido)")
+  : bad("hero sem cartão flutuante", stamp ? "elemento .hero-stamp presente" : "CSS .hero-stamp presente");
+const chip = doc.querySelector(".hero-chip");
+chip && /Aberto ao domingo/i.test(chip.textContent)
+  ? ok("hero mantém a pastilha de estado")
+  : bad("hero mantém a pastilha de estado");
+if (hero) {
+  const overlays = [...hero.querySelectorAll("*")].filter(el => {
+    const inline = /position\s*:\s*absolute/.test(el.getAttribute("style") || "");
+    return inline || dom.window.getComputedStyle(el).position === "absolute";
+  });
+  const named = overlays.map(el => (el.className || el.tagName).toString().trim());
+  const cards = named.filter(n => n && !n.includes("hero-chip"));
+  cards.length === 0
+    ? ok("hero sem cartões sobrepostos à imagem", named.join(", ") || "nenhum")
+    : bad("hero sem cartões sobrepostos à imagem", cards.join(", "));
+} else {
+  bad("hero sem cartões sobrepostos à imagem", ".hero não encontrado");
+}
+
 /* 1.10 itens de menu com preço real */
 const items = [...doc.querySelectorAll(".item[data-price]")];
 const badPrice = items.filter(i => !(parseFloat(i.dataset.price) > 0));

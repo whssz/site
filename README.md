@@ -29,11 +29,11 @@ QA (precisa de `npm i`):
 
 ```bash
 npm install
-node tools/qa.mjs index.html        # PASS obrigatório antes de publicar (59/59)
+node tools/qa.mjs index.html        # PASS obrigatório antes de publicar (62/62)
 node --test tools/deploy-vercel.test.mjs   # lógica de quota e publicação
 ```
 
-QA em **navegador real** (Chromium via Playwright, 43/43):
+QA em **navegador real** (Chromium via Playwright, 47/47):
 
 ```bash
 npm install
@@ -70,7 +70,7 @@ Toda a mídia é real e foi obtida de fontes públicas da própria pizzeria. Nen
 
 | Ficheiro | Origem | Onde é usada |
 |---|---|---|
-| `assets/img/logo-placa.webp` | Google Maps / fachada da pizzeria (fotografia da placa de azulejo com a gravura da lagosta) | cabeçalho, rodapé, selo do hero |
+| `assets/img/logo-placa.webp` | Google Maps / fachada da pizzeria (fotografia da placa de azulejo com a gravura da lagosta) | cabeçalho, rodapé e ícone do separador |
 | `assets/img/margherita-heart-1000.webp` | Time Out Lisboa (Rita Chantre) / ficha da pizzeria | hero |
 | `assets/img/margherita-heart-700.webp` | idem | destaque "Margherita" |
 | `assets/img/margherita-1000.webp` | ficha de imprensa da pizzeria | cardápio — Margherita |
@@ -137,7 +137,7 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 
 | Workflow | O que faz |
 |---|---|
-| `.github/workflows/qa-build.yml` | QA estático + funcional (59/59), testes da publicação, QA em navegador real (43/43) e build estático. Corre em cada push para `arena/**` e em cada PR. |
+| `.github/workflows/qa-build.yml` | QA estático + funcional (62/62), testes da publicação, QA em navegador real (47/47) e build estático. Corre em cada push para `arena/**` e em cada PR. |
 | `.github/workflows/deploy-vercel.yml` | Publica na Vercel, espera pelo build, verifica HTTP 200, título e marcadores de conteúdo na URL pública. Verifica também o site já publicado, mesmo quando não há `VERCEL_TOKEN`. |
 
 O workflow de publicação corre a cada hora (`schedule`) para recuperar sozinho de
@@ -190,7 +190,7 @@ node tools/deploy-vercel.mjs --dry-run     # não envia pedidos
   completo presentes no HTML servido.
 - O `index.html` publicado é **byte a byte igual** ao do repositório
   (canonical e `og:image` apontam para o domínio público).
-- QA local: **59/59** estático, **43/43** em navegador real, **14/14** testes
+- QA local: **62/62** estático, **47/47** em navegador real, **14/14** testes
   de publicação.
 
 A publicação automática por GitHub Actions continua dependente do segredo de
