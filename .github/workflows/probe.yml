@@ -13,17 +13,17 @@ jobs:
         run: |
           probe() {
             local label="$1" url="$2"
-            local code size ct
-            code=$(curl -sSL --connect-timeout 15 --max-time 90 -o /tmp/out.bin \
-              -D /tmp/h.txt -w '%{http_code}' "$url" || true)
+            local code size cd ct
+            code=$(curl -sSL -A "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Safari/604.1" \
+              --connect-timeout 15 --max-time 120 -o /tmp/out.bin -D /tmp/h.txt -w '%{http_code}' "$url" || true)
             size=$(wc -c < /tmp/out.bin 2>/dev/null || echo 0)
-            ct=$(grep -i '^content-type' /tmp/h.txt | tail -1 | tr -d '\r')
-            echo "::warning title=probe::$label | HTTP=$code | bytes=$size | $ct | $url"
+            ct=$(grep -i '^content-type' /tmp/h.txt | tail -1 | tr -d '\r' | cut -c1-60)
+            cd=$(grep -i '^content-disposition' /tmp/h.txt | tail -1 | tr -d '\r' | cut -c1-70)
+            title=$(grep -o '<title>[^<]*</title>' /tmp/out.bin 2>/dev/null | head -1 | cut -c1-70)
+            echo "::warning title=$label::$label | HTTP=$code | bytes=$size | $ct | $cd | $title"
           }
-          probe "githack"      "https://raw.githack.com/whssz/site/site-v1/public/index.html"
-          echo "--- headers githack:"
-          curl -sSLI --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | head -20
-          echo "--- titulo githack:"
-          curl -sSL --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | grep -o '<title>[^<]*</title>' | head -1
-          echo "--- imgs embutidas:"
-          curl -sSL --max-time 60 "https://raw.githack.com/whssz/site/site-v1/public/index.html" | grep -c 'data:image/webp;base64'
+          probe "tag-html"     "https://raw.githack.com/whssz/site/site-v1/public/index.html"
+          probe "tag-dir"      "https://raw.githack.com/whssz/site/site-v1/public/"
+          probe "branch-html"  "https://raw.githack.com/whssz/site/arena/153289a3-site/public/index.html"
+          probe "commit-html"  "https://raw.githack.com/whssz/site/0969b619a5226dbb941f6cc9ce96f2d48746ceff/public/index.html"
+          probe "og-image"     "https://raw.githack.com/whssz/site/site-v1/public/assets/og-lisboncello.jpg"
