@@ -36,7 +36,11 @@ export const DEFAULTS = {
   projectName: "pizzeria-santa-chiara-site",
   teamId: "team_z6tahC0dowvMZFiASHvvIgBP",
   repoId: "1440125649",
-  siteUrl: "https://pizzeria-santa-chiara-site.vercel.app",
+  // URL pública real do site. O alias automático do projeto
+  // (`pizzeria-santa-chiara-site-whsszxx-9424.vercel.app`) está protegido por
+  // SSO da Vercel; o domínio do projeto `pizzeria-santa-chiara-v2.vercel.app`
+  // é o endereço público que responde sem autenticação.
+  siteUrl: "https://pizzeria-santa-chiara-v2.vercel.app",
   titleMarker: "Pizzeria Santa Chiara",
   contentMarkers: ["Santa Chiara", "Avenida 5 de Outubro", "351211522801"],
 };
@@ -210,11 +214,12 @@ export async function run(options = {}) {
 
   /* --- 0. configuração do projeto --- *
    * Quatro ajustes são obrigatórios para que o site fique público:
-   *  - `rootDirectory: null` — o valor tem de ser JSON nulo. A string
-   *    "null" faz a Vercel procurar um diretório chamado "null" e o build
-   *    termina com NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST;
+   *  - `rootDirectory: "dist"` — a raiz do projeto é a pasta `dist`, que é
+   *    auto-contida (tem o próprio `build.sh` e o próprio `vercel.json`).
+   *    A string "null" faz a Vercel procurar um diretório chamado "null" e
+   *    o build termina com NOW_SANDBOX_WORKER_ROOTDIR_NOT_EXIST;
    *  - `ssoProtection: null` — sem isso a Vercel exige login da conta
-   *    Vercel para ver a página;
+   *    Vercel para ver a página nos aliases automáticos do projeto;
    *  - `buildCommand`/`installCommand`/`outputDirectory` — build estático
    *    em `dist`;
    *  - `git.deploymentEnabled` — só `main` cria implantações. As branches
@@ -231,7 +236,7 @@ export async function run(options = {}) {
       buildCommand: "bash build.sh",
       installCommand: "echo skip-install",
       outputDirectory: "dist",
-      rootDirectory: null,
+      rootDirectory: "dist",
       framework: null,
       ssoProtection: null,
       gitProviderOptions: {
@@ -251,10 +256,10 @@ export async function run(options = {}) {
         buildCommand: full.buildCommand,
         installCommand: full.installCommand,
         outputDirectory: full.outputDirectory,
-        rootDirectory: null,
+        rootDirectory: "dist",
         ssoProtection: null,
       },
-      { rootDirectory: null, ssoProtection: null },
+      { rootDirectory: "dist", ssoProtection: null },
     ];
 
     let configured = false;
@@ -367,8 +372,12 @@ export async function run(options = {}) {
     return { status: "failed", detail: `readyState=${readyState}` };
   }
 
-  const alias = last?.alias?.[0] || last?.url || opts.siteUrl;
-  const publicUrl = alias.startsWith("http") ? alias : `https://${alias}`;
+  /* O alias automático do projeto pode estar protegido por SSO da Vercel.
+   * O domínio público do projeto (`pizzeria-santa-chiara-v2.vercel.app`)
+   * responde sem autenticação, por isso é o endereço verificado; o alias
+   * serve apenas de recurso se o domínio público deixar de responder. */
+  const alias = last?.alias?.find((a) => !a.includes("-git-")) || last?.url || opts.siteUrl;
+  const publicUrl = opts.siteUrl || (alias.startsWith("http") ? alias : `https://${alias}`);
 
   /* --- 4. verificação pública --- */
   const site = await verifyPublicSite(publicUrl);

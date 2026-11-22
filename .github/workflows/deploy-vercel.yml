@@ -34,7 +34,7 @@ env:
   VERCEL_PROJECT_NAME: pizzeria-santa-chiara-site
   VERCEL_TEAM: team_z6tahC0dowvMZFiASHvvIgBP
   REPO_ID: "1440125649"
-  SITE_URL: https://pizzeria-santa-chiara-site.vercel.app
+  SITE_URL: https://pizzeria-santa-chiara-v2.vercel.app
 
 jobs:
   deploy:

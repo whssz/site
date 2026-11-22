@@ -14,6 +14,7 @@ import {
   quotaRetryAt,
   verifyPublicSite,
   run,
+  DEFAULTS,
 } from "./deploy-vercel.mjs";
 
 /* ------------------------------------------------------------------ */
@@ -91,6 +92,14 @@ test("sem token a publicação é adiada sem falhar", async () => {
   assert.ok(logs.join("\n").includes("VERCEL_TOKEN"));
 });
 
+test("a URL pública é o domínio do projeto (o alias automático exige SSO)", () => {
+  assert.equal(DEFAULTS.siteUrl, "https://pizzeria-santa-chiara-v2.vercel.app");
+  assert.ok(
+    !DEFAULTS.siteUrl.includes("-whsszxx-9424."),
+    "o alias automático da equipa está protegido por SSO da Vercel"
+  );
+});
+
 test("o modo --dry-run não envia pedidos", async () => {
   const r = await run({ token: "fake-token", dryRun: true, log: () => {} });
   assert.equal(r.status, "dry-run");
@@ -146,8 +155,8 @@ test("o projeto é configurado para ficar público (sem SSO) antes de publicar",
       assert.equal(body.ssoProtection, null, "tem de remover a proteção SSO");
       assert.equal(
         body.rootDirectory,
-        null,
-        "a raiz do projeto tem de ser JSON nulo (a string \"null\" quebra o build)"
+        "dist",
+        "a raiz do projeto é a pasta dist (auto-contida); a string \"null\" quebra o build"
       );
       assert.equal(body.gitProviderOptions.createDeployments, "enabled");
       assert.equal(body.outputDirectory, "dist");
@@ -224,7 +233,7 @@ test("a configuração do projeto cai para o essencial quando a API recusa campo
   assert.equal(r.status, "quota-deferred");
   assert.equal(patches.length, 2, "tem de tentar o essencial depois da recusa");
   assert.equal(patches[1].ssoProtection, null);
-  assert.equal(patches[1].rootDirectory, null);
+  assert.equal(patches[1].rootDirectory, "dist");
   assert.ok(
     logs.some((l) => /recusada/i.test(l)),
     "tem de registar a recusa da configuração"

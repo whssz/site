@@ -120,10 +120,17 @@ razão social e NIPC; confirmação se o telefone publicado atende WhatsApp; eve
 
 ## Publicação (Vercel)
 
-- Projeto Vercel: `pizzeria-santa-chiara-v2` — `prj_5EUI8RpUmLb5PW3OT9TnWVFzZBLy`
+- Projeto Vercel: `pizzeria-santa-chiara-site` — `prj_5EUI8RpUmLb5PW3OT9TnWVFzZBLy`
   (equipe `team_z6tahC0dowvMZFiASHvvIgBP`, repositório `whssz/site` id `1440125649`).
 - Build: `bash build.sh` → saída estática em `dist/` (output directory `dist`).
-- URL prevista: `https://pizzeria-santa-chiara-v2.vercel.app`.
+- Raiz do projeto (`rootDirectory`): `dist` — a pasta é auto-contida, tem o
+  próprio `build.sh` e o próprio `vercel.json`, por isso o build funciona
+  qualquer que seja a pasta a partir da qual a Vercel o execute.
+- **URL pública: <https://pizzeria-santa-chiara-v2.vercel.app>** (domínio do
+  projeto). Os aliases automáticos da equipa
+  (`pizzeria-santa-chiara-site-whsszxx-9424.vercel.app`) respondem com o ecrã
+  de login da Vercel, porque o projeto tem `ssoProtection` ativo — o domínio do
+  projeto é o endereço que serve o site sem autenticação.
 
 ### Publicação automática (GitHub Actions)
 
@@ -165,8 +172,26 @@ node tools/deploy-vercel.mjs --dry-run     # não envia pedidos
 
 ### Estado atual
 
-A quota gratuita da equipa está esgotada (`HTTP 402 api-deployments-free-per-day`,
-"more than 100", repetir em 24 h). Por isso **ainda não existe URL pública** para a
-Santa Chiara. A integração GitHub da Vercel também está com
-`gitProviderOptions.createDeployments: "disabled"` e `ssoProtection` ativo — o
-`tools/deploy-vercel.mjs` corrige os dois assim que houver token disponível.
+**O site está publicado e verificado** em <https://pizzeria-santa-chiara-v2.vercel.app>.
+
+- Implantação `dpl_8bcdk3PFnjUXNz9J9wkUWaMqxU1R` — estado `READY`, subestado
+  `PROMOTED`, alias público atribuído.
+- Verificação na URL pública: **HTTP 200**, título
+  `Pizzeria Santa Chiara — Pizza napolitana a lenha em Lisboa | Entrecampos`,
+  morada `Avenida 5 de Outubro, 265`, telefone `+351 21 152 2801` e o menu
+  completo presentes no HTML servido.
+- Commit publicado: `d318891` (branch `arena/df6311cd-site`).
+
+A publicação automática por GitHub Actions continua dependente do segredo de
+repositório `VERCEL_TOKEN`, que **não existe** nesta conta (verificado por
+diagnóstico: ausente no âmbito do repositório e do ambiente `production`). Sem
+ele o workflow não falha — adia a publicação com uma mensagem explícita. Para
+publicar manualmente:
+
+```bash
+VERCEL_TOKEN=... node tools/deploy-vercel.mjs --wait-minutes 45
+```
+
+A quota gratuita da equipa (100 implantações por 24 h, partilhada por todos os
+projetos ligados ao repositório) continua a ser o limite prático; o script
+espera e reagenda em vez de desistir.
