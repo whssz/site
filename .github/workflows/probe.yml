@@ -1,5 +1,7 @@
 name: Probe links
 on:
+  push:
+    branches: ["arena/153289a3-site"]
   workflow_dispatch:
 permissions:
   contents: read
