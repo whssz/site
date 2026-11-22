@@ -39,3 +39,10 @@ npx vercel deploy --prod --yes
 - Sabores publicados: apenas os confirmados pela casa (Instagram) ou citados em avaliações públicas.
 - Sem WhatsApp oficial confirmado → o site copia o resumo e oferece o telefone público.
 - O site nunca afirma que um pedido foi confirmado.
+
+## Estado do deploy
+
+Projeto `pizzeria-napolitana-site` (root `public`, sem build, linkado ao GitHub).
+O deploy de produção fica **READY**, mas os domínios `*.vercel.app` desta conta exigem login
+porque a equipe tem Deployment Protection (SSO) ligada. Para tornar público:
+Settings → Deployment Protection → Vercel Authentication → Disabled.

@@ -61,11 +61,29 @@ nenhuma confirmação falsa, nenhum pagamento.
 
 ## Publicação
 
-Projeto Vercel novo **`napolitana-torralba`** (`prj_NZcAGy8lLlhLyL3RIbnSIwxWtfdc`),
-Root Directory `public`, sem framework/build/install.
+**Deploy de produção: READY** (build 2,5 s) — projeto Vercel `pizzeria-napolitana-site`
+(`prj_MQOeVurq4NfGaxYP5tnLB2fKBq2g`), root `public`, sem framework, sem build de verdade
+(`echo`), último deploy `dpl_7EykGeyL37DubNRDRxFgh4ZiLoT5` a partir do commit `8e8674e`.
 
-> Atenção: a conta Vercel tem **Deployment Protection (SSO)** ligada em todos os deployments
-> exceto domínios customizados (`ssoProtection.deploymentType = all_except_custom_domains`).
-> Isso faz um link `*.vercel.app` pedir login do time e não servir como link público.
-> Para abrir para o público: Project → Settings → Deployment Protection → desativar
-> Vercel Authentication, ou apontar um domínio próprio (isento).
+- URL da branch: `https://pizzeria-napolitana-site-git-arena-a64aa730-site-whsszxx-9424.vercel.app`
+- Alias de produção: `https://pizzeria-napolitana-site.vercel.app`
+
+### O bloqueio real: Deployment Protection (SSO)
+
+A conta tem `ssoProtection.deploymentType = "all_except_custom_domains"`.
+Consequência verificada (busca HTTP anônima): **qualquer link `*.vercel.app` devolve a tela
+“Log in to Vercel”**. O deploy está pronto e correto, mas o domínio não é público.
+Não é possível desligar isso por API nesta sessão (o conector não expõe essa configuração) e o
+token do GitHub não tem permissão para mexer no GitHub Pages.
+
+**Como abrir para o público (30 segundos, no painel):**
+1. Vercel → projeto `pizzeria-napolitana-site` → **Settings → Deployment Protection**.
+2. Em *Vercel Authentication*, escolha **Disabled** (ou *Standard Protection* apenas para preview).
+3. Salvar e recarregar o link de produção.
+
+Enquanto isso não é feito, o link público garantido é a **prévia ao vivo do sandbox**
+(porta 4173), que serve exatamente o mesmo `public/index.html`.
+
+Projetos criados nesta rodada: `pizzeria-napolitana-site` (produção ativa),
+`napolitana-torralba`, `napolitana-torralba-site`, `napolitana-site` (experimentos de deploy;
+podem ser apagados sem afetar o site).
