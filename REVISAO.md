@@ -81,3 +81,17 @@ reembolso (o site não vende) · contraste medido · alt em 100% · teclado e fo
 - **Entrega própria:** a ficha indica "a domicilio", mas a zona e os custos não são públicos; o site diz que o local confirma.
 - **Fotos do Glovo:** publicadas pelo restaurante na própria ficha; vale confirmar a autoria e, se possível, enviar fotos próprias.
 - **Logotipo vetorial** e **tabela de alérgenos por prato**, se existirem, podem entrar sem mudar o código.
+
+## 6. Publicação
+
+- **No ar:** https://trattoria-pizzeria-nellos.vercel.app — HTTP 200 público, título
+  "Trattoria Pizzeria Nello's · Auténtica pizza napoletana en San Fernando (Cádiz)", `og:image` `/og-nellos.jpg`,
+  `robots.txt` e `sitemap.xml` servidos.
+- Projeto Vercel `trattoria-pizzeria-nellos` (equipe `whsszxx-9424`). Produção atual: `dpl_FyFs45rUFBSp17DpBK72tDZ9SAEw`,
+  commit `7764225`, READY/PROMOTED, HTML de 1.228.011 bytes (idêntico byte a byte ao build local do mesmo commit).
+- **Ajustes já no GitHub e ainda não publicados:** cifras sem contagem animada (o texto traz sempre o dado real, inclusive
+  para buscadores e leitores sem JavaScript) e botão de WhatsApp gerado no build só quando houver número oficial. A Vercel
+  recusou o novo deploy com **402 — limite diário de deploys do plano gratuito atingido** (libera em até 24 h).
+  Para publicar: painel da Vercel → projeto → *Deployments* → *Create Deployment* → branch `arena/3a2438e4-site`.
+- **Deployment Protection:** o domínio de produção é público; as URLs específicas de cada deploy podem pedir login da Vercel.
+- **Atualizar:** editar `src/carta.json` → `npm test` → commit/push → novo deploy de produção (push sozinho não publica).

@@ -188,12 +188,12 @@ async function axeScan(page, label) {
   const links = await page.evaluate(() => ({
     mail: document.getElementById('mail-order').getAttribute('href'),
     tels: [...document.querySelectorAll('#send-panel a[href^="tel:"]')].map((a) => a.getAttribute('href')),
-    wa: document.getElementById('wa-order').hidden,
+    wa: !document.getElementById('wa-order') && !document.querySelector('a[href*="wa.me"], a[href*="whatsapp"]'),
     apps: [...document.querySelectorAll('#send-panel .send-apps a')].map((a) => new URL(a.href).hostname),
   }));
   check('mailto com assunto e corpo preenchidos', /^mailto:trattoriapizzerianellos@gmail\.com\?subject=.+&body=PEDIDO%20PARA/.test(links.mail));
   check('tel: fixo e móvel oficiais', links.tels.join() === 'tel:+34856942129,tel:+34613545303', links.tels.join(' '));
-  check('WhatsApp oculto (número oficial não confirmado)', links.wa);
+  check('sem número oficial: nenhum botão nem link wa.me publicado', links.wa);
   check('links diretos Just Eat · Uber Eats · Glovo', links.apps.join() === 'www.just-eat.es,www.ubereats.com,glovoapp.com', links.apps.join(' '));
 
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, 'e2e-drawer-1440.png') });

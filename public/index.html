@@ -2174,7 +2174,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
       <div class="send-actions">
         <button type="button" class="btn btn-red" id="copy-order"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-copy"></use></svg> Copiar resumen</button>
         <button type="button" class="btn btn-dark" id="share-order" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-share"></use></svg> Compartir</button>
-        <a class="btn btn-dark" id="wa-order" href="#pedido-drawer" target="_blank" rel="noopener noreferrer" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chat"></use></svg> Enviar por WhatsApp</a>
+        
         <a class="btn btn-outline" href="tel:+34856942129"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> Llamar al 856 94 21 29</a>
         <a class="btn btn-outline" href="tel:+34613545303"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg> Llamar al 613 54 53 03</a>
         <a class="btn btn-outline" id="mail-order" href="mailto:trattoriapizzerianellos@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg> Enviar por email</a>
@@ -2760,7 +2760,7 @@ a:focus-visible,button:focus-visible,.card:focus-visible,[tabindex]:focus-visibl
     orderText.value = text;
     $('#mail-order').href = 'mailto:' + SITE.email + '?subject=' + encodeURIComponent("Pedido web · Nello's") + '&body=' + encodeURIComponent(text);
     var wa = $('#wa-order');
-    if (waNumber.length >= 8) { wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text); wa.hidden = false; }
+    if (wa && waNumber.length >= 8) wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text);
     $('#share-order').hidden = !(navigator.share);
   }
   function hideSend() {

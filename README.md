@@ -46,5 +46,14 @@ O build usa apenas Node (sem dependências). Na Vercel: `buildCommand: node tool
 
 ## Publicação
 
+**No ar:** https://trattoria-pizzeria-nellos.vercel.app
+
 Projeto Vercel `trattoria-pizzeria-nellos` (equipe `whsszxx-9424`), ligado a `whssz/site`,
 branch `arena/3a2438e4-site`. Detalhes de fontes, mídia, QA e pendências em [`REVISAO.md`](REVISAO.md).
+
+- **Push não publica sozinho:** o projeto tem a produção apontada para `main` e os deploys automáticos
+  desligados. Para publicar uma mudança: `npm test` → commit → push → novo deploy de produção do commit
+  (painel da Vercel → *Deployments* → *Create Deployment*, ou `vercel --prod` com o CLI).
+- **Plano Hobby:** limite de 100 deploys por dia; acima disso a Vercel responde 402 e libera em 24 h.
+- **Deployment Protection:** o domínio de produção acima é público. As URLs específicas de cada deploy
+  (`…-<hash>-whsszxx-9424.vercel.app`) podem pedir login da Vercel — divulgue sempre o domínio de produção.

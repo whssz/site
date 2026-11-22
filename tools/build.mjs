@@ -202,6 +202,10 @@ const VALUES = {
   FONTS, STYLES: read('styles.css'), SCRIPT: read('app.js'), DATA: json(DATA), JSONLD: json(JSONLD),
   CARTA_GROUPS, CARTA_CHIPS, CARTA_COUNT: String(carta.items.length), GALLERY, HOURS_ROWS,
   LOGO_SM, LOGO_LG, SITE_URL: site.siteUrl, YEAR: String(new Date().getFullYear()),
+  // botão de WhatsApp só existe se o restaurante confirmar um número oficial
+  WA_LINK: String(site.whatsapp || '').replace(/\D/g, '').length >= 8
+    ? `<a class="btn btn-dark" id="wa-order" href="https://wa.me/${String(site.whatsapp).replace(/\D/g, '')}" target="_blank" rel="noopener noreferrer">${icon('chat')} Enviar por WhatsApp</a>`
+    : '',
   WAVE_1: wave(720, 26, 60), WAVE_2: wave(480, 18, 70), WAVE_3: wave(360, 12, 84),
   WAVE_EDGE_1: wave(720, 22, 56, 90), WAVE_EDGE_2: wave(480, 14, 64, 90),
 };

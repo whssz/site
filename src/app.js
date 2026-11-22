@@ -550,7 +550,7 @@
     orderText.value = text;
     $('#mail-order').href = 'mailto:' + SITE.email + '?subject=' + encodeURIComponent("Pedido web · Nello's") + '&body=' + encodeURIComponent(text);
     var wa = $('#wa-order');
-    if (waNumber.length >= 8) { wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text); wa.hidden = false; }
+    if (wa && waNumber.length >= 8) wa.href = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text);
     $('#share-order').hidden = !(navigator.share);
   }
   function hideSend() {
