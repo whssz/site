@@ -1,0 +1,543 @@
+{
+  "brand": {
+    "name": "Amunì a Caparica Pizzeria",
+    "shortName": "AMUNÌ",
+    "tagline": "Pizzeria Italiana · Costa da Caparica",
+    "phoneDisplay": "+351 913 225 786",
+    "phoneE164": "351913225786",
+    "telHref": "tel:+351913225786",
+    "whatsappBase": "https://wa.me/351913225786",
+    "bookingUrl": "https://amuni.pizza/pt/booking",
+    "websiteUrl": "https://amuni.pizza/pt",
+    "instagramUrl": "https://www.instagram.com/amuniacaparica/",
+    "instagramHandle": "@amuniacaparica",
+    "tiktokUrl": "https://www.tiktok.com/@amuniacaparica.pt",
+    "tiktokHandle": "@amuniacaparica.pt",
+    "linktreeUrl": "https://linktr.ee/amuniacaparica",
+    "uberEatsUrl": "https://www.ubereats.com/pt/store/amuni-a-caparica/uLkPUreUW1GujSm-INlsGg",
+    "mapsUrl": "https://www.google.com/maps/place/Amun%C3%AC+a+Caparica+Pizzeria/@38.6503731,-9.247594,17z/data=!3m1!4b1!4m6!3m5!1s0xd1ecbdad8b5773f:0x9bcd396c41e9071!8m2!3d38.6503608!4d-9.2450485!16s%2Fg%2F11stts8spl",
+    "googleReviewUrl": "https://g.page/r/CdzsVirxObGWEBM/review",
+    "menuPdfUrl": "https://ugc.production.linktr.ee/5b931092-1e2e-47a5-b57d-031d9da2d136_Amuni-MENU.pdf",
+    "complaintsBookUrl": "https://www.livroreclamacoes.pt/inicio",
+    "address": {
+      "line1": "Apoio 6, Praia Norte, Rua Muralha da Praia",
+      "postalCode": "2825-391",
+      "city": "Costa de Caparica",
+      "region": "Almada · Setúbal",
+      "country": "Portugal",
+      "plusCode": "MQ23+4X Costa da Caparica, Portugal",
+      "accessNote": "Acesso pela escadaria do Apoio 6, em frente ao mar na Praia Norte.",
+      "lat": 38.6503608,
+      "lng": -9.2450485
+    },
+    "ratings": {
+      "googleScore": "4,9",
+      "googleCount": 416,
+      "uberScore": "4,5",
+      "uberCount": "500+"
+    },
+    "schedule": [
+      { "dayIndex": 1, "label": "Segunda-feira", "hours": "Encerrado", "open": null, "close": null },
+      { "dayIndex": 2, "label": "Terça-feira", "hours": "17:00 – 22:00", "open": "17:00", "close": "22:00", "note": "Dia de Rodízio" },
+      { "dayIndex": 3, "label": "Quarta-feira", "hours": "17:00 – 22:00", "open": "17:00", "close": "22:00" },
+      { "dayIndex": 4, "label": "Quinta-feira", "hours": "17:00 – 22:00", "open": "17:00", "close": "22:00", "note": "Dia de Rodízio" },
+      { "dayIndex": 5, "label": "Sexta-feira", "hours": "17:00 – 22:30", "open": "17:00", "close": "22:30" },
+      { "dayIndex": 6, "label": "Sábado", "hours": "13:00 – 22:30", "open": "13:00", "close": "22:30" },
+      { "dayIndex": 0, "label": "Domingo", "hours": "13:00 – 22:00", "open": "13:00", "close": "22:00" }
+    ]
+  },
+  "extras": [
+    { "id": "bufala", "name": "Mozzarella di Bufala Campana", "price": 3.5 },
+    { "id": "stracciatella", "name": "Stracciatella", "price": 3.5 },
+    { "id": "vegan-burrata", "name": "Vegan Burrata Bio", "price": 4.5 },
+    { "id": "vegan-mozzarella", "name": "Vegan Mozzarella Bio", "price": 3.0 },
+    { "id": "vegan-salami", "name": "Vegan Salami", "price": 4.0 },
+    { "id": "gluten-free", "name": "Massa Sem Glúten (Gluten Free)", "price": 3.0 }
+  ],
+  "categories": [
+    { "id": "todas", "label": "Todo o Cardápio", "subtitle": "Menu oficial Amunì a Caparica" },
+    { "id": "classicas", "label": "Clássicas", "subtitle": "Receitas tradicionais napolitanas, sicilianas e criações de forno" },
+    { "id": "pistachio", "label": "Base de Pistáchio", "subtitle": "As pizzas de assinatura em pesto de pistáchio, pioneiras desde 2017" },
+    { "id": "veganas", "label": "Pizzas Veganas", "subtitle": "100% vegetais com mozzarella vegan bio italiana de caju" },
+    { "id": "entradas", "label": "Entradas", "subtitle": "Para partilhar à chegada, com pão de alho na massa da casa" },
+    { "id": "sobremesas", "label": "Sobremesas", "subtitle": "Doçaria clássica italiana e siciliana" },
+    { "id": "birre", "label": "Cervejas Italianas", "subtitle": "Rótulos italianos disponíveis no menu de entregas" }
+  ],
+  "items": [
+    {
+      "id": "margherita",
+      "name": "Margherita",
+      "category": "classicas",
+      "price": 14.0,
+      "ingredients": "Tomate, mozzarella fior di latte e manjericão fresco.",
+      "tags": ["vegetariana"],
+      "allowExtras": true,
+      "photo": "margherita.webp",
+      "photoAlt": "Pizza Margherita artesanal da Amunì vista de cima, com borda fermentada tostada, molho de tomate italiano, mozzarella fior di latte e folhas de manjericão fresco",
+      "photoFit": "contain",
+      "width": 680,
+      "height": 670
+    },
+    {
+      "id": "marinara-special",
+      "name": "Marinara Special",
+      "category": "classicas",
+      "price": 15.0,
+      "ingredients": "Tomate, azeite de alho, alho, tomate semi-seco, tomate datterino amarelo, stracciatella e orégãos.",
+      "tags": ["vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "romana",
+      "name": "Romana",
+      "category": "classicas",
+      "price": 16.0,
+      "ingredients": "Tomate, mozzarella fior di latte e fiambre.",
+      "tags": [],
+      "allowExtras": true
+    },
+    {
+      "id": "pepperoni",
+      "name": "Pepperoni",
+      "category": "classicas",
+      "price": 16.0,
+      "ingredients": "Tomate, mozzarella fior di latte e salame pouco picante.",
+      "badge": "Mais pedida",
+      "tags": [],
+      "allowExtras": true
+    },
+    {
+      "id": "napoli",
+      "name": "Napoli",
+      "category": "classicas",
+      "price": 15.5,
+      "ingredients": "Tomate, mozzarella fior di latte e anchovas.",
+      "tags": [],
+      "allowExtras": true
+    },
+    {
+      "id": "capricciosa",
+      "name": "Capricciosa",
+      "category": "classicas",
+      "price": 17.5,
+      "ingredients": "Tomate, mozzarella fior di latte, cogumelos frescos, fiambre, salame pouco picante e azeitonas.",
+      "badge": "Top 1 pedidos",
+      "tags": [],
+      "allowExtras": true,
+      "popularRank": 2,
+      "popularNote": "1.ª mais pedida no Uber Eats da casa"
+    },
+    {
+      "id": "diavola",
+      "name": "Diavola",
+      "category": "classicas",
+      "price": 16.5,
+      "ingredients": "Tomate, mozzarella fior di latte, salame pouco picante, creme caseiro de malaguetas e pimentão, 'nduja da Calábria e cebola.",
+      "tags": ["picante"],
+      "allowExtras": true
+    },
+    {
+      "id": "calzone",
+      "name": "Calzone",
+      "category": "classicas",
+      "price": 16.5,
+      "ingredients": "Pizza fechada com tomate, mozzarella fior di latte e fiambre.",
+      "tags": [],
+      "allowExtras": true
+    },
+    {
+      "id": "parmigiana",
+      "name": "Parmigiana",
+      "category": "classicas",
+      "price": 15.5,
+      "ingredients": "Tomate, mozzarella fior di latte, beringela preparada segundo a tradição siciliana, parmesão e manjericão fresco.",
+      "badge": "91% aprovação",
+      "tags": ["vegetariana"],
+      "allowExtras": true,
+      "popularRank": 3,
+      "popularNote": "Tradição siciliana · 91% de aprovação",
+      "photo": "parmigiana.webp",
+      "photoAlt": "Pizza Parmigiana da casa sobre mesa de madeira, com molho de tomate italiano, beringela frita à moda siciliana, mozzarella fior di latte e manjericão fresco",
+      "width": 660,
+      "height": 990
+    },
+    {
+      "id": "bufalaccia",
+      "name": "Bufalaccia",
+      "category": "classicas",
+      "price": 18.5,
+      "ingredients": "Tomate, mozzarella di bufala campana, rúcula fresca, tomate cherry, presunto San Daniele 24 meses e parmesão.",
+      "badge": "San Daniele 24m",
+      "tags": [],
+      "allowExtras": true,
+      "popularRank": 4,
+      "popularNote": "Mozzarella di bufala campana e presunto San Daniele 24 meses",
+      "photo": "bufalaccia.webp",
+      "photoAlt": "Pizza Bufalaccia da casa finalizada com rúcula fresca, fatias de presunto San Daniele curado 24 meses e lascas de parmesão sobre base de tomate",
+      "width": 660,
+      "height": 990
+    },
+    {
+      "id": "quattro-formaggi",
+      "name": "4 Formaggi",
+      "category": "classicas",
+      "price": 15.5,
+      "ingredients": "Mozzarella fior di latte, emmenthal, gorgonzola italiano e parmesão.",
+      "tags": ["vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "salsiccia-friarielli",
+      "name": "Salsiccia & Friarielli",
+      "category": "classicas",
+      "price": 16.5,
+      "ingredients": "Mozzarella di bufala campana, friarielli napolitanos (grelos), salsicha siciliana cozida em vinho tinto e provola fumada.",
+      "badge": "Clássico de Nápoles",
+      "tags": [],
+      "allowExtras": true
+    },
+    {
+      "id": "truffle-bubble",
+      "name": "Truffle Bubble",
+      "category": "classicas",
+      "price": 17.5,
+      "ingredients": "Mozzarella fior di latte, creme de trufa, cogumelos, tomate seco e stracciatella.",
+      "tags": ["vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "morso",
+      "name": "Morso",
+      "category": "classicas",
+      "price": 17.5,
+      "ingredients": "Scamorza fumada, creme de abóbora, pancetta, 'nduja da Calábria, cebola e stracciatella.",
+      "tags": ["picante"],
+      "allowExtras": true
+    },
+    {
+      "id": "amuni",
+      "name": "Amunì",
+      "category": "pistachio",
+      "price": 17.5,
+      "ingredients": "Pesto de pistáchio, mozzarella campana fumada, beringela à moda siciliana, tomate semi-seco e stracciatella.",
+      "badge": "Pizza da Casa",
+      "tags": ["vegetariana", "pistachio"],
+      "allowExtras": true
+    },
+    {
+      "id": "spacchiosa",
+      "name": "Spacchiosa",
+      "category": "pistachio",
+      "price": 18.5,
+      "ingredients": "Pesto de pistáchio, mozzarella fior di latte, pancetta italiana, tomate cherry e stracciatella.",
+      "badge": "Assinatura desde 2017",
+      "tags": ["pistachio"],
+      "allowExtras": true,
+      "popularRank": 1,
+      "popularNote": "Pizza assinatura da casa desde 2017 · Base de pistáchio",
+      "photo": "spacchiosa.webp",
+      "photoAlt": "Pizza Spacchiosa artesanal com base de pesto de pistáchio, mozzarella fior di latte, pancetta italiana, tomate cherry e queijo cremoso polvilhado com pistáchio",
+      "width": 720,
+      "height": 1041
+    },
+    {
+      "id": "ca-mortazza",
+      "name": "C’a Mortazza",
+      "category": "pistachio",
+      "price": 18.5,
+      "ingredients": "Pesto de pistáchio, mozzarella fior di latte, mortadella IGP Bologna e stracciatella.",
+      "badge": "Pioneira 2017",
+      "tags": ["pistachio"],
+      "allowExtras": true
+    },
+    {
+      "id": "bocca-di-rosa",
+      "name": "Bocca di Rosa",
+      "category": "pistachio",
+      "price": 18.5,
+      "ingredients": "Pesto de pistáchio, mozzarella fior di latte, salame pouco picante e stracciatella.",
+      "tags": ["pistachio"],
+      "allowExtras": true
+    },
+    {
+      "id": "pura-poesia",
+      "name": "Pura Poesia",
+      "category": "pistachio",
+      "price": 18.5,
+      "ingredients": "Pesto de pistáchio, mozzarella fior di latte, rúcula, salmão fumado, tomate cherry, stracciatella e creme de vinagre balsâmico.",
+      "tags": ["pistachio"],
+      "allowExtras": true
+    },
+    {
+      "id": "maggie",
+      "name": "Maggie",
+      "category": "veganas",
+      "price": 14.5,
+      "ingredients": "Tomate italiano, mozzarella vegan bio de caju e manjericão fresco.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "spacchiosa-vegan",
+      "name": "Spacchiosa Vegan",
+      "category": "veganas",
+      "price": 14.5,
+      "ingredients": "Pesto de pistáchio, mozzarella vegan bio, salame vegan, tomate cherry e burrata vegan.",
+      "badge": "100% Vegetal",
+      "tags": ["vegana", "vegetariana", "pistachio"],
+      "allowExtras": true
+    },
+    {
+      "id": "super-diavola-vegan",
+      "name": "Super Diavola",
+      "category": "veganas",
+      "price": 16.5,
+      "ingredients": "Tomate, mozzarella vegan bio, cebola, salame vegan e creme caseiro de malaguetas e pimentão.",
+      "badge": "Destaque Vegan",
+      "tags": ["vegana", "vegetariana", "picante"],
+      "allowExtras": true
+    },
+    {
+      "id": "veganella",
+      "name": "Veganella",
+      "category": "veganas",
+      "price": 17.0,
+      "ingredients": "Creme de friarielli (grelos), mozzarella vegan bio, tomate semi-seco, tomate datterino amarelo, salame vegan e beringela.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "summer-plant",
+      "name": "Summer Plant",
+      "category": "veganas",
+      "price": 17.5,
+      "ingredients": "Creme de abóbora, mozzarella vegan bio, tomates secos e sementes de abóbora.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "vegan-parmigiana",
+      "name": "Vegan Parmigiana",
+      "category": "veganas",
+      "price": 16.5,
+      "ingredients": "Tomate, mozzarella vegan bio de caju, beringela e manjericão fresco.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": true
+    },
+    {
+      "id": "tabua-queijos-charcutaria",
+      "name": "Tábua de Queijos e Charcutaria",
+      "category": "entradas",
+      "price": 18.0,
+      "ingredients": "Salame, presunto, mortadella, parmesão, azeitonas, pão de alho e stracciatella.",
+      "badge": "Para partilhar",
+      "tags": [],
+      "allowExtras": false,
+      "photo": "tabua-charcutaria.webp",
+      "photoAlt": "Tábua de queijos e charcutaria servida sobre madeira rústica na unidade da Caparica, com presunto curado, queijo fresco, rúcula, azeitonas e pão de alho assado no forno",
+      "width": 660,
+      "height": 990
+    },
+    {
+      "id": "burrata-salad",
+      "name": "Burrata Salmon / Prosciutto Salad",
+      "category": "entradas",
+      "price": 15.5,
+      "ingredients": "Salada ibérica, tomate cherry, abacate, stracciatella, salmão fumado ou presunto e pão de alho.",
+      "tags": [],
+      "allowExtras": false,
+      "variationLabel": "Escolha a proteína (opção do menu)",
+      "variations": ["Com salmão fumado", "Com presunto"]
+    },
+    {
+      "id": "pao-de-alho",
+      "name": "Pão de Alho com Queijo / Queijo Vegan",
+      "category": "entradas",
+      "price": 7.0,
+      "ingredients": "Massa da nossa pizza, queijo ou queijo vegan, creme vegetal, alho e coentros.",
+      "tags": ["vegetariana", "vegana"],
+      "allowExtras": false,
+      "variationLabel": "Escolha a versão (opção do menu)",
+      "variations": ["Com queijo", "Com queijo vegan (100% vegetal)"]
+    },
+    {
+      "id": "cannolo-siciliano",
+      "name": "Cannolo Siciliano Scomposto",
+      "category": "sobremesas",
+      "price": 7.5,
+      "ingredients": "Cannolo siciliano desconstruído: massa artesanal crocante e dourada, creme fresco de ricotta doce, pistáchio e gotas de chocolate.",
+      "badge": "Receita Siciliana",
+      "tags": ["vegetariana", "pistachio"],
+      "allowExtras": false,
+      "photo": "cannolo-scomposto.webp",
+      "photoAlt": "Cannolo Siciliano Scomposto servido na pizzaria da Caparica, com cilindros crocantes de massa, creme de ricotta doce, creme e granulado de pistáchio e gotas de chocolate",
+      "width": 660,
+      "height": 990
+    },
+    {
+      "id": "moka-tiramisu",
+      "name": "Moka Tiramisù",
+      "category": "sobremesas",
+      "price": 7.5,
+      "ingredients": "Tiramisù italiano preparado com café de moka, disponível na versão Clássica ou de Pistáchio.",
+      "badge": "Clássico ou Pistáchio",
+      "tags": ["vegetariana"],
+      "allowExtras": false,
+      "variationLabel": "Escolha o sabor (opção do menu)",
+      "variations": ["Clássico", "Pistáchio"]
+    },
+    {
+      "id": "birra-moretti",
+      "name": "Birra Moretti",
+      "category": "birre",
+      "price": 3.0,
+      "ingredients": "Cerveja italiana lager (0,33 L) — valor confirmado no menu Uber Eats.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": false
+    },
+    {
+      "id": "birra-ichnusa",
+      "name": "Ichnusa Non Filtrata",
+      "category": "birre",
+      "price": 4.0,
+      "ingredients": "Cerveja lager italiana não filtrada (4,7% vol.) da Sardenha — valor confirmado no menu Uber Eats.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": false
+    },
+    {
+      "id": "birra-messina",
+      "name": "Birra Messina Cristalli di Sale",
+      "category": "birre",
+      "price": 4.0,
+      "ingredients": "Cerveja lager siciliana com cristais de sal — valor confirmado no menu Uber Eats.",
+      "tags": ["vegana", "vegetariana"],
+      "allowExtras": false
+    }
+  ],
+  "gallery": [
+    {
+      "file": "mesa-amuni.webp",
+      "wide": true,
+      "width": 550,
+      "height": 440,
+      "title": "Mesa Amunì a Caparica",
+      "caption": "Cinco pizzas artesanais da casa com pistáchio triturado, azeitonas pretas, manjericão fresco e azeite aromático.",
+      "source": "Perfil oficial Amunì a Caparica (Uber Eats)",
+      "alt": "Mesa de madeira da Amunì a Caparica com cinco pizzas artesanais de borda tostada, taças de pistáchio triturado e azeitonas pretas, manjericão fresco e azeite picante"
+    },
+    {
+      "file": "spacchiosa.webp",
+      "width": 720,
+      "height": 1041,
+      "title": "Spacchiosa — Pesto de Pistáchio",
+      "caption": "Pesto de pistáchio, mozzarella fior di latte, pancetta italiana, tomate cherry e queijo cremoso com granulado de pistáchio.",
+      "source": "Acervo oficial da pizzaria",
+      "alt": "Pizza Spacchiosa artesanal com pesto de pistáchio, pancetta italiana, tomate cherry e burrata cremosa polvilhada com pistáchio"
+    },
+    {
+      "file": "salao-caparica.webp",
+      "width": 660,
+      "height": 990,
+      "title": "Serviço na Praia Norte",
+      "caption": "Pizzas recém-saídas do forno a chegar às mesas no salão luminoso da Costa da Caparica.",
+      "source": "Acervo oficial da unidade Caparica",
+      "alt": "Colaboradora da pizzaria na Costa da Caparica servindo duas pizzas artesanais recém-assadas no salão iluminado"
+    },
+    {
+      "file": "fatia-artesanal.webp",
+      "width": 640,
+      "height": 967,
+      "title": "Borda Fermentada & Ingredientes Frescos",
+      "caption": "Massa de maturação lenta com blend de três farinhas, tomate cherry e manjericão fresco.",
+      "source": "Acervo oficial da pizzaria",
+      "alt": "Fatia de pizza artesanal com borda dourada sobre bancada polvilhada de farinha, rodeada por tomates cherry em rama e folhas de manjericão"
+    },
+    {
+      "file": "tabua-charcutaria.webp",
+      "width": 660,
+      "height": 990,
+      "title": "Tábua de Queijos e Charcutaria",
+      "caption": "Charcutaria italiana, queijo fresco, rúcula, azeitonas e pão de alho assado na massa da casa.",
+      "source": "Acervo oficial da unidade Caparica",
+      "alt": "Tábua rústica com presunto curado, queijo cremoso, rúcula fresca, azeitonas e pão de alho assado no forno na unidade da Caparica"
+    },
+    {
+      "file": "forno-pizzaioli.webp",
+      "wide": true,
+      "width": 760,
+      "height": 507,
+      "title": "Forno Valoriani & Pizzaioli",
+      "caption": "Finalização artesanal diante do forno italiano de cúpula e tijolo terracota.",
+      "source": "Acervo oficial da pizzaria",
+      "alt": "Dois pizzaioli da casa diante do forno italiano Forni Valoriani com arco de tijolo terracota, finalizando duas pizzas de pistáchio"
+    },
+    {
+      "file": "cannolo-scomposto.webp",
+      "width": 660,
+      "height": 990,
+      "title": "Cannolo Siciliano Scomposto",
+      "caption": "Massa crocante dourada, creme de ricotta doce, pistáchio e gotas de chocolate.",
+      "source": "Acervo oficial da unidade Caparica",
+      "alt": "Prato de Cannolo Siciliano Scomposto com massa crocante, creme de ricotta, creme de pistáchio e pepitas de chocolate ao lado de chávena de café"
+    },
+    {
+      "file": "parmigiana.webp",
+      "width": 660,
+      "height": 990,
+      "title": "Parmigiana à Moda Siciliana",
+      "caption": "Tomate italiano, mozzarella fior di latte, beringela frita à moda siciliana, Parmigiano Reggiano e manjericão.",
+      "source": "Acervo oficial da unidade Caparica",
+      "alt": "Pizza Parmigiana artesanal com molho de tomate, mozzarella derretida, beringela frita dourada, lascas de Parmigiano Reggiano e manjericão"
+    },
+    {
+      "file": "bufalaccia.webp",
+      "width": 660,
+      "height": 990,
+      "title": "Bufalaccia — San Daniele & Bufala",
+      "caption": "Tomate, mozzarella di bufala campana, rúcula fresca, presunto San Daniele 24 meses e Parmigiano Reggiano.",
+      "source": "Acervo oficial da unidade Caparica",
+      "alt": "Pizza Bufalaccia artesanal com mozzarella di bufala, fatias finas de presunto San Daniele, rúcula fresca e lascas de Parmigiano Reggiano"
+    },
+    {
+      "file": "massa-artesanal.webp",
+      "width": 640,
+      "height": 960,
+      "title": "Abertura Manual da Massa",
+      "caption": "Registo de bastidores da preparação manual na bancada de farinha diante do forno.",
+      "source": "Acervo oficial da pizzaria",
+      "alt": "Fotografia em preto e branco de pizzaiolo lançando disco de massa de pizza ao ar diante do forno de cúpula e bancada enfarinhada"
+    }
+  ],
+  "reviews": [
+    {
+      "author": "Zeynep Altındaş",
+      "initial": "Z",
+      "meta": "Local Guide · Google Maps · 5/5",
+      "quote": "A atmosfera estava ótima e a comida incrível. Provei a pizza Salsiccia & Friarielli e estava deliciosa — uma combinação de sabores marcante.",
+      "note": "Tradução fiel de avaliação pública em inglês"
+    },
+    {
+      "author": "Rodolfo Massara",
+      "initial": "R",
+      "meta": "Google Maps · 5/5",
+      "quote": "Uma das melhores pizzas que se pode comer em Lisboa, ingredientes de qualidade e cozinhada no ponto certo. A paisagem paga-se por si só.",
+      "note": "Tradução fiel de avaliação pública em inglês"
+    },
+    {
+      "author": "Arinto Hadi Wiharyo",
+      "initial": "A",
+      "meta": "Local Guide · Google Maps · 4/5",
+      "quote": "Boa pizza no geral, o serviço foi rápido e o ambiente de pôr do sol da Caparica continua o mesmo.",
+      "note": "Tradução fiel de avaliação pública em inglês"
+    }
+  ],
+  "reviewTopics": [
+    "Opções veganas (27 menções)",
+    "Pizza de pistáchio (18 menções)",
+    "Tiramisù (17 menções)",
+    "Limoncello (8 menções)",
+    "Pizza italiana (8 menções)",
+    "Cannoli (6 menções)",
+    "Vista para o mar (5 menções)"
+  ]
+}
